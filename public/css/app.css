@@ -1,0 +1,17 @@
+.table2 {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: black;
+}
+
+.titulo_index {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.titulo_index hr {
+    border-top-color: #a6e1ec;
+}
+

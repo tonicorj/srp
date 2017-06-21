@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- bootstrap -->
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datatables/css/datatables.bootstrap.min.css">
+    <!-- datatable bootstrap -->
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/AdminLTE/css/AdminLTE.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/AdminLTE/css/skins/_all-skins.min.css">
+
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datatables/css/jquery.dataTables.min.css">
+    <!-- datatable jquery -->
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datatables/extensions/buttons/css/buttons.dataTables.min.css">
+
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datatables/extensions/responsive/css/responsive.dataTables.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datatables/extensions/responsive/css/responsive.bootstrap.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datatables/extensions/responsive/css/responsive.foundation.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datatables/extensions/responsive/css/responsive.jqueryui.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- datatable bootstrap -->
+
+    <link media="all" type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Ionicons -->
+    <link media="all" type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+
+    <script src="http://localhost:8000/plugins/jquery/jquery.min.js"></script>
+    <!-- jquery    -->
+    <script src="http://localhost:8000/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+    <script src="http://localhost:8000/plugins/datatables/js/jquery.datatables.min.js"></script>
+    <!-- datatable jquery -->
+    <script src="http://localhost:8000/plugins/datatables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/responsive/js/dataTables.responsive.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/responsive/js/responsive.bootstrap.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/responsive/js/responsive.foundation.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/responsive/js/responsive.jqueryui.min.js"></script>
+
+
+    <script src="http://localhost:8000/plugins/jQueryUI/jquery-ui.min.js"></script>
+    <!-- jquery-ui -->
+    <!-- <script src="http://localhost:8000/plugins/datatables/js/datatables.bootstrap.min.js"></script>
+ <!-- datatable bootstrap -->
+
+    <!-- buttons -->
+    <script src="http://localhost:8000/plugins/datatables/extensions/buttons/js/buttons.flash.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/buttons/js/buttons.html5.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/buttons/js/buttons.print.min.js"></script>
+
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/jszip/jszip.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/pdfmake/build/pdfmake.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/pdfmake/build/vfs_fonts.js"></script>
+
+
+    <!-- modal de confirmação -->
+    <script src="http://localhost:8000/plugins/datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datepicker/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datepicker/css/bootstrap-datepicker.min.css">
+
+
+    <!-- modal de confirmação -->
+    <script src="http://localhost:8000/plugins/bootstrap-fileinput-master/js/fileinput.min.js"></script>
+
+
+    <!--<script src="http://localhost:8000/plugins/validador/src/laravel-bootstrap-modal-form.js"></script>
+-->
+
+    <script src="http://localhost:8000/plugins/bootboxjs/bootbox.min.js"></script>
+    <!-- modal de confirmação -->
+    <!--<script src="http://localhost:8000/js/lang.js"></script>
+                                                            <!-- linguagem -->
+
+
+    <script src="http://localhost:8000/plugins/AdminLTE/js/app.min.js"></script>
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+    <header class="main-header">
+        <div class="container">
+            <div class="navbar-header">
+
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="http://localhost:8000">
+                    SRP
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    &nbsp;
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <div class="nav navbar-nav navbar-right navbar-btn">
+                    <!-- Authentication Links -->
+                    <a href="http://localhost:8000/logout" class="btn-sm btn-danger"
+                       onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="http://localhost:8000/logout" method="POST" style="display: none;">
+                        <input type="hidden" name="_token" value="qT3pzhQQl5K90X2Iets7VaXfHII8NXXpk7U5Ygve">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="http://localhost:8000/imagens/logo.bmp" class="img-circle">
+                </div>
+
+                <div class="pull-left info">
+                    <p>Tonico</p>
+                    <p>Profissional</p>
+                    <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    <p>
+                        <a href="http://localhost:8000/logout" class="btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            <i class="fa text-success"></i> Logout</a>
+                        </a>
+
+                        <form id="logout-form" action="http://localhost:8000/logout" method="POST" style="display: none;">
+                            <input type="hidden" name="_token" value="qT3pzhQQl5K90X2Iets7VaXfHII8NXXpk7U5Ygve">
+                        </form>
+                    </p>
+                    -->
+                </div>
+            </div>
+            <!-- search form -->
+
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">Menu Principal</li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dep.Futebol </span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/jogadores"><i class="fa fa-circle-o"></i> Jogadores</a></li>
+                        <li><a href="http://localhost:8000/alojamentos">     <i class="fa fa-circle-o"></i> Alojamentos </a></li>
+
+                        <li><a href="http://localhost:8000/atividades">      <i class="fa fa-circle-o"></i> Atividades</a></li>
+
+                        <li><a href="http://localhost:8000/teste">           <i class="fa fa-circle-o"></i> Cidades</a></li>
+
+                        <li><a href="http://localhost:8000/escolaridades">   <i class="fa fa-circle-o"></i> Escolaridades</a></li>
+
+                        <li><a href="http://localhost:8000/estadocivil">     <i class="fa fa-circle-o"></i> Estado Civil</a></li>
+
+                        <li><a href="http://localhost:8000/paises">          <i class="fa fa-circle-o"></i> Países</a></li>
+
+                        <li><a href="http://localhost:8000/parceiros">       <i class="fa fa-circle-o"></i> Parceiros</a></li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Administrativo</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/motivo_ausencia"> <i class="fa fa-circle-o"></i> Motivo de Ausência</a></li>
+
+                        <li><a href="http://localhost:8000/cargos">          <i class="fa fa-circle-o"></i> Cargos</a></li>
+
+                        <li><a href="http://localhost:8000/tipo_contrato">   <i class="fa fa-circle-o"></i> Tipos de Contrato</a></li>
+
+                        <li><a href="http://localhost:8000/jogadorOcorrencias"> <i class="fa fa-circle-o"></i> Ocorrências - Jogadores</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Observação</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/jogadoresObservacao"> <i class="fa fa-circle-o"></i> Jogadores em Observação </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <div class="content-wrapper">
+
+        <section class="content">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <h1>Jogadores em Observação</h1>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <button id="inc"    hidden="true" class="bootstrap-modal-form-open">Inclusão</button>
+                    <button id="alt"    hidden="true" class="bootstrap-modal-form-open">Alteração</button>
+                    <button id="exc"    hidden="true" class="bootstrap-modal-form-open">Exclusão</button>
+                </div>
+
+                <div class="row" >
+                    <table class="display" id="tabela" width="80%">
+                        <thead>
+                        <tr>
+                            <th width="20%">Apelido</th>
+                            <th width="60%">Nome Completo</th>
+                            <th width="10%">Posicao</th>
+                            <th width="20%">Data de Nascimento</th>
+                            <th width="10%">Idade</th>
+                            <th width="20%">ID</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div id="saida">
+                </div>
+
+                <script>
+                    var oTable;
+                    $(document).ready(function() {
+                                $('#tabela').css('width', '100%');
+
+                                oTable = $('#tabela').DataTable({
+                                            "searching": true,
+                                            "ordering": false,
+                                            "paging": true,
+                                            "ajax": "http://localhost:8000/jogadoresObservacao/_json",
+                                            bAutoWidth:true,
+                                            columns: [
+                                                {"data": "JOG_NOME_APELIDO"},
+                                                {"data": "JOG_NOME_COMPLETO"},
+                                                {"data": "JOG_POSICAO"},
+                                                {"data": "JOG_DT_NASCIMENTO"},
+                                                {"data": "JOG_IDADE"},
+                                                {"data": "ID_JOGADOR"}
+                                            ],
+                                            dom: 'Bfrtip',
+                                            buttons: [
+                                                {   "text": Inclusão,
+                                                    "action": function ( e, dt, node, config ) {
+                                                        $('#inc').click();
+                                                    }
+                                                },
+                                                {   "text": Alteração,
+                                                    "action": function ( e, dt, node, config ) {
+                                                        $('#alt').click();
+                                                    }
+                                                },
+                                                {   "text": Exclusão,
+                                                    "action": function ( e, dt, node, config ) {
+                                                        $('#exc').click();
+                                                    }
+                                                },
+                                                'copy', 'excel', 'pdf', 'print'
+                                            ],
+                                            language: {
+                                                "sLengthMenu"  : Mostrar _MENU_ registros por página,
+                                                "sZeroRecords" : Nenhum registro encontrado,
+                                                "sInfo"        : Mostrando _START_ / _END_ de _TOTAL_ registro(s),
+                                            "sInfoEmpty"   : Mostrando 0 / 0 de 0 registros,
+                                        "sInfoFiltered": (filtrado de _MAX_ registros),
+                                "sSearch"      : Pesquisar: ,
+                                "oPaginate": {
+                                    "sFirst"   : Início,
+                                            "sPrevious": Anterior,
+                                            "sNext"    : Próximo,
+                                            "sLast"    : Último
+                                }
+                            },
+                            Sorting: [[0, 'desc']],
+                            columnDefs: [{
+                        targets: [5],
+                        visible: false,
+                        sWidth: "300px"
+                    }
+                    ]
+                    });
+
+                    oTable.buttons().container()
+                            .appendTo( '#example_wrapper .col-sm-6:eq(0)' );
+
+                    // rotina para selecionar a linha
+                    $('#tabela tbody').on( 'click', 'tr', function () {
+                        if ( $(this).hasClass('selected') ) {
+                            $(this).removeClass('selected');
+                        }
+                        else {
+                            oTable.$('tr.selected').removeClass('selected');
+                            $(this).addClass('selected');
+                        }
+                    } );
+
+                    // click do botão de inclusão
+                    $('#inc').on('click', function () {
+                        location.href="http://localhost:8000/jogadoresObservacao/create";
+                    });
+
+                    // botão de alteração
+                    $('#alt').on('click', function() {
+                        // teste se selecionou uma linha
+                        $_data = oTable.row('.selected').data();
+                        if ($_data == null) {
+                            bootbox.alert('Selecione um registro');
+                        }
+                        else {
+                            // pega o código da cidade
+                            $_id = $_data['ID_JOGADOR'];
+                            url = 'http://localhost:8000/jogadoresObservacao/edit/' + $_id;
+                            location.href=url;
+                        }
+                    });
+
+                    // botão de exclusão
+                    $('#exc').on('click', function() {
+                        // teste se selecionou uma linha
+                        var $_data = oTable.row('.selected').data();
+                        if ($_data == null) {
+                            //alert('Selecione um registro');
+                            bootbox.alert(messages.sSelecion});
+                    }
+                    else {
+                        var _descr = $_data['JOG_NOME_APELIDO'];
+                        bootbox.dialog({
+                                    title  : Exclusão},
+                                message: Confima a exclusão do jogador} + _descr + "?",
+                            buttons:{
+                        yes: {
+                            label:"Sim",
+                                    className: "btn-danger",
+                                    callback: function() {
+                                // pega o código da cidade
+                                var $_id = $_data['ID_JOGADOR'];
+                                var url = 'http://localhost:8000/jogadoresObservacao/destroy/' + $_id;
+                                //location.href=url;
+                                //alert(url);
+                                $.ajax({
+                                    type: "get",
+                                    url: url,
+                                    async: true,
+                                    dataType: "html",
+                                    success: function (xdata) {
+                                        //alert('funcionou !');
+                                        $_data = oTable.row('.selected').remove().draw();
+                                    },
+                                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                        alert("Erro!" + textStatus);
+                                    }
+                                })
+                            }
+                        },
+                        no: {
+                            label:"Não",
+                                    className: "btn-default"
+                        }
+                    }
+                    });
+                    }
+                    });
+                    })
+                    function validacao() {
+                        if ( $('#JOG_NOME_APELIDO').val() == ''){
+                            //alert("entrou validação 2");
+                            bootbox.alert(Informe o apelido do jogador);
+                            return false;
+                        }
+
+                        if ( $('#JOG_NOME_COMPLETO').val() == ''){
+                            //alert("entrou validação 3");
+                            bootbox.alert(Informe o nome do jogador;
+                            return false;
+                        }
+
+                        if ( $('#JOG_DT_NASCIMENTO').val() == ''){
+                            //alert("entrou validação 3");
+                            bootbox.alert(Informe a data de nascimento do jogador);
+                            return false;
+                        }
+                        return true;
+                    }
+                </script>
+            </div>
+            <!--
+            <section class="content-header">
+            </section>
+            -->
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 0.0.1 beta
+        </div>
+        <strong>Copyright &copy; 2016 <a href="http://ocigla.com.br">Ocigla</a>.</strong> Todos os direitos reservados.
+    </footer>
+</div>
+</body>
+
+</html>

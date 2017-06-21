@@ -1,0 +1,64 @@
+
+<script>
+/*
+chamando o editor
+editor = new $.fn.dataTable.Editor( {
+ajax: "{{ asset( 'teste/teste_editor' ) }}",  //"http://localhost:8000/teste/teste_editor",
+table: "#table2",
+idSrc: "id_cidade",
+fields: [
+{label: "Nome da Cidade:", name: "cidade_nome"},
+{label: "UF:"            , name: "uf"},
+{label: "País:"          , name: "id_pais"},
+{label: "Código:"        , name: "id_cidade"}
+],
+i18n: editor_lang
+} );
+*/
+/*
+ $(".btn").click(function(){
+ $("#cliente").modal('show');
+ });
+
+ $.ajax({
+ url: '{{ asset('teste/teste_editor')  }}',
+ dataType: "html",
+ success: function(data) {
+ $('#resultado').html(data);
+ }
+ });
+
+ $("#cliente").modal('show');
+
+ //var _d =  oTable.row('.selected').data();
+ //alert( 'Row index: '+ _d.id_cidade );
+ //$('#cidade').load('localhost8000:/teste/teste_json');
+
+ //$("#cidade").modal();
+
+ /*{                    // wire up the actual modal functionality and show the dialog
+ "backdrop"  : "static",
+ "keyboard"  : true,
+ "show"      : true                     // ensure the modal is shown immediately
+ });
+ /*
+ {
+ show: 'true'
+ //,load: 'localhost8000:/teste/teste_json'
+ });
+*/
+/*
+ // grava a linha
+ var idx = oTable
+ .row( this )
+ .index();
+
+ // atualiza a célula 0
+ oTable
+ .cell( idx, 0 ) // note that you could actually pass in 'this' as the row selector!
+ .data( 'Updated' )
+ .draw();
+ */
+
+
+</script>

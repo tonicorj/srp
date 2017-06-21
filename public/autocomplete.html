@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- bootstrap -->
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datatables/css/datatables.bootstrap.min.css">
+    <!-- datatable bootstrap -->
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/AdminLTE/css/AdminLTE.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/AdminLTE/css/skins/_all-skins.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datatables/css/jquery.dataTables.min.css">
+    <!-- datatable jquery -->
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datatables/extensions/buttons/css/buttons.dataTables.min.css">
+
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link media="all" type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Ionicons -->
+    <link media="all" type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+
+    <script src="http://localhost:8000/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+    <script src="http://localhost:8000/plugins/datatables/js/jquery.datatables.min.js"></script>
+    <!-- datatable jquery -->
+    <script src="http://localhost:8000/plugins/datatables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+
+
+    <!-- buttons -->
+    <script src="http://localhost:8000/plugins/datatables/extensions/buttons/js/buttons.flash.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/buttons/js/buttons.html5.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/buttons/js/buttons.print.min.js"></script>
+
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/jszip/jszip.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/pdfmake/build/pdfmake.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datatables/extensions/pdfmake/build/vfs_fonts.js"></script>
+
+
+    <!-- modal de confirmação -->
+    <script src="http://localhost:8000/plugins/datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="http://localhost:8000/plugins/datepicker/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/plugins/datepicker/css/bootstrap-datepicker.min.css">
+
+
+    <!-- modal de confirmação -->
+    <script src="http://localhost:8000/plugins/bootstrap-fileinput-master/js/fileinput.min.js"></script>
+
+
+    <!--<script src="http://localhost:8000/plugins/validador/src/laravel-bootstrap-modal-form.js"></script>
+-->
+
+    <script src="http://localhost:8000/plugins/bootboxjs/bootbox.min.js"></script>
+    <!-- modal de confirmação -->
+    <!--<script src="http://localhost:8000/js/lang.js"></script>
+                                                            <!-- linguagem -->
+
+
+    <script src="http://localhost:8000/plugins/AdminLTE/js/app.min.js"></script>
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost:8000/css/app.css">
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+    <header class="main-header">
+        <div class="container">
+            <div class="navbar-header">
+
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="http://localhost:8000">
+                    SRP
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    &nbsp;
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <div class="nav navbar-nav navbar-right navbar-btn">
+                    <!-- Authentication Links -->
+                    <a href="http://localhost:8000/logout" class="btn-sm btn-danger"
+                       onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="http://localhost:8000/logout" method="POST" style="display: none;">
+                        <input type="hidden" name="_token" value="jI9gDhXRlzTxtk9WylxCL0UeuLL9OSBa7oRJV3l7">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="http://localhost:8000/imagens/logo.bmp" class="img-circle">
+                </div>
+
+                <div class="pull-left info">
+                    <p>Antonio Ernesto Bittencourt</p>
+                    <p>Profissional</p>
+                    <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    <p>
+                        <a href="http://localhost:8000/logout" class="btn-xs btn-danger" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            <i class="fa text-success"></i> Logout</a>
+                        </a>
+
+                        <form id="logout-form" action="http://localhost:8000/logout" method="POST" style="display: none;">
+                            <input type="hidden" name="_token" value="jI9gDhXRlzTxtk9WylxCL0UeuLL9OSBa7oRJV3l7">
+                        </form>
+                    </p>
+                    -->
+                </div>
+            </div>
+            <!-- search form -->
+
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">Menu Principal</li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dep.Futebol</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/quadroatividades/0"><i class="fa fa-circle-o"></i> Quadro de Atividades</a></li>
+                        <li><a href="http://localhost:8000/jogadores"><i class="fa fa-circle-o"></i> Jogadores</a></li>
+                        <li><a href="http://localhost:8000/atividades">      <i class="fa fa-circle-o"></i> Atividades</a></li>
+                        <li><a href="http://localhost:8000/DFutebol\categorias">           <i class="fa fa-circle-o"></i> Categorias</a></li>
+                        <li><a href="http://localhost:8000/DFutebol\cidades">           <i class="fa fa-circle-o"></i> Cidades</a></li>
+
+                        <li><a href="http://localhost:8000/escolaridades">   <i class="fa fa-circle-o"></i> Escolaridades</a></li>
+
+                        <li><a href="http://localhost:8000/estadocivil">     <i class="fa fa-circle-o"></i> Estado Civil</a></li>
+
+                        <li><a href="http://localhost:8000/janelas">         <i class="fa fa-circle-o"></i> Janelas</a></li>
+
+                        <li><a href="http://localhost:8000/localatividade">  <i class="fa fa-circle-o"></i> Local da Atividade</a></li>
+
+                        <li><a href="http://localhost:8000/DFutebol\paises">          <i class="fa fa-circle-o"></i> Países</a></li>
+
+                        <li><a href="http://localhost:8000/parceiros">       <i class="fa fa-circle-o"></i> Parceiros</a></li>
+
+                        <li><a href="http://localhost:8000/pedominante">       <i class="fa fa-circle-o"></i> Pé Dominante</a></li>
+
+                        <li>Cadastros
+                            <ul class="treeview-menu">
+                                <li><a href="http://localhost:8000/selecoes">       <i class="fa fa-circle-o"></i> Seleções</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Administrativo</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/adm">     <i class="fa fa-circle-o"></i> Alojamentos</a></li>
+
+                        <li><a href="http://localhost:8000/adm/funcionarios"> <i class="fa fa-circle-o"></i> Funcionários</a></li>
+
+                        <li><a href="http://localhost:8000/adm/departamentos"> <i class="fa fa-circle-o"></i> Setores</a></li>
+
+                        <li><a href="http://localhost:8000/motivo_ausencia"> <i class="fa fa-circle-o"></i> Motivo de Ausência</a></li>
+
+                        <li><a href="http://localhost:8000/adm/cargos">          <i class="fa fa-circle-o"></i> Cargos</a></li>
+
+                        <li><a href="http://localhost:8000/tipo_contrato">   <i class="fa fa-circle-o"></i> Tipos de Contrato</a></li>
+
+                        <li><a href="http://localhost:8000/adm/ocorrencias"> <i class="fa fa-circle-o"></i> Ocorrencias - Jogadores</a></li>
+
+                        <li><a href="http://localhost:8000/projetos"> <i class="fa fa-circle-o"></i> Projetos</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Observação</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/jogadoresObservacao"> <i class="fa fa-circle-o"></i> Jogadores em Observação</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Departamento Médico</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/DM/depmedico"> <i class="fa fa-circle-o"></i> Entrada Dep.Médico</a></li>
+                        <li><a href="http://localhost:8000/DM/cirurgias"> <i class="fa fa-circle-o"></i> Cirurgias</a></li>
+                        <li><a href="http://localhost:8000/DM/exames"> <i class="fa fa-circle-o"></i> Exames</a></li>
+                        <li><a href="http://localhost:8000/DM/origem_lesao"> <i class="fa fa-circle-o"></i> Origem da Lesão</a></li>
+                        <li><a href="http://localhost:8000/DM/parte_corpo"> <i class="fa fa-circle-o"></i> Parte do Corpo</a></li>
+                        <li><a href="http://localhost:8000/DM/tipo_lesao"> <i class="fa fa-circle-o"></i> Tipo de Lesão</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Financeiro</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/contas"> <i class="fa fa-circle-o"></i> Contas</a></li>
+                        <li><a href="http://localhost:8000/tipocontas"> <i class="fa fa-circle-o"></i> Tipo de Conta</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Jogos</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/jogos/condicaogramado"> <i class="fa fa-circle-o"></i> Condição Gramado</a></li>
+                        <li><a href="http://localhost:8000/condicaotempo"> <i class="fa fa-circle-o"></i> Condição Tempo</a></li>
+                        <li><a href="http://localhost:8000/escopos"> <i class="fa fa-circle-o"></i> Escopo</a></li>
+                        <li><a href="http://localhost:8000/tipofase"> <i class="fa fa-circle-o"></i> Fases</a></li>
+                        <li><a href="http://localhost:8000/pontuacoes"> <i class="fa fa-circle-o"></i> Pontuação</a></li>
+                        <li><a href="http://localhost:8000/tecnicos"> <i class="fa fa-circle-o"></i> Técnicos</a></li>
+                        <li><a href="http://localhost:8000/tipocampeonato"> <i class="fa fa-circle-o"></i> Tipo de Campeonato</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Marketing</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/tipoacao"> <i class="fa fa-circle-o"></i> Tipo de Ação</a></li>
+                        <li><a href="http://localhost:8000/marketingevento"> <i class="fa fa-circle-o"></i> Eventos de Marketing</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Nutrição</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/nutricao/atendimentoNutricao"> <i class="fa fa-circle-o"></i> Atendimentos Jogadores</a></li>
+                        <li><a href="http://localhost:8000/nutricao/atividadesNutricao"> <i class="fa fa-circle-o"></i> Motivos da Nutrição</a></li>
+                        <li><a href="http://localhost:8000/nutricao/origemNutricao"> <i class="fa fa-circle-o"></i> Origem At.Nutrição</a></li>
+                        <li><a href="http://localhost:8000/nutricao/suplementos"> <i class="fa fa-circle-o"></i> Suplementos</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Pedagogia</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/pedagogia/atividadesped"> <i class="fa fa-circle-o"></i> Motivos da Pedagogia</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Psicologia</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/psicologia/atendimentopsic"> <i class="fa fa-circle-o"></i> Atendimentos Jogadores</a></li>
+                        <li><a href="http://localhost:8000/psicologia/atendimentopsic_func"> <i class="fa fa-circle-o"></i> Atendimentos Funcionários</a></li>
+
+                        <li><a href="http://localhost:8000/psicologia/atendimentopsic_grupo"> <i class="fa fa-circle-o"></i> Atendimentos Grupos</a></li>
+                        <li><a href="http://localhost:8000/psicologia/atividades"> <i class="fa fa-circle-o"></i> Motivos da Psicologia</a></li>
+                        <li><a href="http://localhost:8000/psicologia/origem"> <i class="fa fa-circle-o"></i> Origem At.Psicologia</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Serviço Social</span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="http://localhost:8000/SSocial/atendimentoSS"> <i class="fa fa-circle-o"></i> Atendimentos Jogadores</a></li>
+                        <li><a href="http://localhost:8000/SSocial/atendimentoSS_func"> <i class="fa fa-circle-o"></i> Atendimentos Funcionários</a></li>
+                        <li><a href="http://localhost:8000/SSocial/atendimentoSS_grupos"> <i class="fa fa-circle-o"></i> Atendimentos Grupos</a></li>
+                        <li><a href="http://localhost:8000/SSocial/cursosextras"> <i class="fa fa-circle-o"></i> Cursos Extras</a></li>
+                        <li><a href="http://localhost:8000/SSocial/historicoescolar"> <i class="fa fa-circle-o"></i> Histórico Escolar</a></li>
+                        <li><a href="http://localhost:8000/SSocial/ausenciaescolar"> <i class="fa fa-circle-o"></i> Ausência Escolar</a></li>
+                        <li><a href="http://localhost:8000/SSocial/eventos"> <i class="fa fa-circle-o"></i> Eventos</a></li>
+                        <li><a href="http://localhost:8000/SSocial/atividadesSS"> <i class="fa fa-circle-o"></i> Motivos do Serviço Social</a></li>
+                        <li><a href="http://localhost:8000/SSocial/motivoAusenciaEscolar"> <i class="fa fa-circle-o"></i> Motivo de Ausência</a></li>
+                        <li><a href="http://localhost:8000/SSocial/origemservsocial"> <i class="fa fa-circle-o"></i> Origem At.Serviço Social</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <div class="content-wrapper">
+
+        <section class="content">
+            <!-- Content Header (Page header) -->
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Ocorrencias - Jogadores</h4>
+                </div>
+                <div class="panel-body">
+
+                    <form method="POST" action="http://localhost:8000/adm/ocorrencias" accept-charset="UTF-8" id="form_" data-toggle="validator" role="form"><input name="_token" type="hidden" value="jI9gDhXRlzTxtk9WylxCL0UeuLL9OSBa7oRJV3l7">
+                        <input class="form-control" id="ID_JOGADOR_OCORRENCIA" name="ID_JOGADOR_OCORRENCIA" type="hidden">
+                        <input name="redirect_to" type="hidden" value="http://localhost:8000/adm/ocorrencias/create">
+                        <div class="row">
+                            <div class="form-group col-lg-2">
+                                <label for="OCORR_DATA_S">Data Ocorr&ecirc;ncia</label>
+                                <div class="input-group date" id="OCORR_DATA_S">
+                                    <input class="form-control" maxlength="10" id="OCORR_DATA_S" required="" name="OCORR_DATA_S" type="text">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-5">
+                                <label for="OCORR_TIPO">Tipo</label>
+                                <select class="form-control input-md" id="OCORR_TIPO" name="OCORR_TIPO"><option value="" selected="selected">Selecione um opção</option><option value="0">Registro</option><option value="1">Leve</option><option value="2">Moderada</option><option value="3">Grave</option><option value="4">Restrita</option></select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-5">
+                                <label for="ID_JOGADOR">Jogador</label>
+                                <input class="form-control input-md" name="ID_JOGADOR" type="text" id="ID_JOGADOR">
+                                <input class="form-control input-md" name="JOG_NOME" id="JOG_NOME" type="text">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-10">
+                                <label for="OCORR_DESCRICAO">Descri&ccedil;&atilde;o</label>
+                                <textarea class="form-control input-md" name="OCORR_DESCRICAO" cols="50" rows="10" id="OCORR_DESCRICAO"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-1">
+                                <input class="btn btn-sm btn-success btn-flat pull-left" type="submit" value="Salvar">
+                            </div>
+                            <div class="col-lg-1">
+                                <a href="http://localhost:8000/adm/ocorrencias/create" class="btn btn-sm btn-info btn-flat pull-left">Cancelar</a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 0.0.1 beta
+        </div>
+        <strong>Copyright &copy; 2016 <a href="http://ocigla.com.br">Ocigla</a>.</strong> Todos os direitos reservados.
+    </footer>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#form_ .date').datepicker({
+            format: "dd/mm/yyyy",
+            language: "pt-BR",
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        /*
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $( "#JOG_NOME" ).autocomplete({
+            source: availableTags
+        });
+        */
+
+        var xxurl = "http://localhost:8000/jogadores/autocomplete" ;
+        $('#JOG_NOME').autocomplete({
+            source: function( request, response ) {
+                $.ajax({
+                    url: xxurl,
+                    dataType: "json",
+                    data: {
+                        term: request.term
+                    },
+                    success: function (data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 2,
+            select: function( event, ui ) {
+                $('#ID_JOGADOR').val(ui.item.id);
+                alert( "Selected: " + ui.item.value + " aka " + ui.item.id );
+            }
+            /*
+             minLength: 2,
+             source: xxurl,
+             select: function (event, ui) {
+             alert(ui.item.id);
+             $('#ID_JOGADOR').val(ui.item.id);
+             $('#JOG_NOME').val(ui.item.value);
+             },
+             change: function (event, ui) {
+             if (!ui.item){
+             pesquisa = $('#JOG_NOME').val();
+             alert(pesquisa);
+             alert( $('#JOG_NOME').search(pesquisa));
+             $("#ID_JOGADOR").val('');
+             }
+             }
+             */
+        });
+
+
+    });
+</script>
+
+</body>
+
+</html>
