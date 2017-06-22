@@ -3,7 +3,7 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4>{!! trans('messages.t_condicaotempo') !!}</h4>
+            <h4>{!! trans('messages.t_contas') !!}</h4>
         </div>
         <div class="panel-body">
             @if ($errors->any())
@@ -15,23 +15,24 @@
             @endif
 
             {!! Form::open(
-                ['route'=>'condicaotempo.store'
+                ['route'=>'contas.store'
                 ,'method'=>'post'
                 , 'id'=>'form_'
                 , 'data-toggle'=>"validator"
                 , 'role'=>"form"
                 ]) !!}
-                @include ('jogos.condicaotempo._form')
+            @include ('financeiro.contas._form')
 
-                <ul class="list-inline form-group">
-                    <li>
-                        {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
-                    </li>
-                    <li></li>
-                    <li>
-                        <a href="{{ asset('jogos/condicaotempo') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
-                    </li>
-                </ul>
+            <ul class="list-inline form-group">
+                <li>
+                    {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
+                </li>
+                <li></li>
+                <li>
+                    <a href="{{ asset('financeiro/contas') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                </li>
+            </ul>
+
             {!! Form::close() !!}
         </div>
     </div>

@@ -1,10 +1,10 @@
 <?php
 
-namespace SRP;
+namespace SRP\Models\financeiro;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TipoContas extends Model
+class tipoContas extends Model
 {
     protected $table      = 'TIPO_CONTA';
     protected $fillable   = ['TIPO_CONTA_ID', 'TIPO_CONTA_DESCRICAO', 'TIPO_CONTA_TIPO', 'TIPO_CONTA_NUM', 'TIPO_CONTA_RECEBIMENTO'];
@@ -14,5 +14,6 @@ class TipoContas extends Model
 
     public static $rules = array(
         'TIPO_CONTA_DESCRICAO'   => 'required|min:3',
+        'TIPO_CONTA_NUM' => 'required'
     );
 }

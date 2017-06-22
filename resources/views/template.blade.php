@@ -307,10 +307,10 @@ header ('Content-type: text/html; charset=UTF-8');
                         </a>
                         <ul class="treeview-menu">
                             @can( 'acesso', 'CONTAS')
-                                <li><a href="{!! asset('contas') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_contas') !!}</a></li>
+                                <li><a href="{!! asset('financeiro/contas') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_contas') !!}</a></li>
                             @endcan
                             @can( 'acesso', 'TIPO_CONTAS')
-                                <li><a href="{!! asset('tipocontas') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_tipocontas') !!}</a></li>
+                                <li><a href="{!! asset('financeiro/tipocontas') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_tipoconta') !!}</a></li>
                             @endcan
                         </ul>
                     </li>
@@ -332,7 +332,7 @@ header ('Content-type: text/html; charset=UTF-8');
                                     <li><a href="{!! asset('jogos/condicaotempo') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_condicaotempo') !!}</a></li>
                                 @endcan
                                 @can( 'acesso', 'ESCOPO')
-                                    <li><a href="{!! asset('escopos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_escopo') !!}</a></li>
+                                    <li><a href="{!! asset('jogos/escopos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_escopo') !!}</a></li>
                                 @endcan
                                 @can( 'acesso', 'TIPO_FASE')
                                     <li><a href="{!! asset('tipofase') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_tipofase') !!}</a></li>

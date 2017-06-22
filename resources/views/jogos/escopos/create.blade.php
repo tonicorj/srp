@@ -3,7 +3,7 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4>{!! trans('messages.t_condicaotempo') !!}</h4>
+            <h4>{!! trans('messages.t_escopo') !!}</h4>
         </div>
         <div class="panel-body">
             @if ($errors->any())
@@ -15,13 +15,13 @@
             @endif
 
             {!! Form::open(
-                ['route'=>'condicaotempo.store'
+                ['route'=>'escopos.store'
                 ,'method'=>'post'
                 , 'id'=>'form_'
                 , 'data-toggle'=>"validator"
                 , 'role'=>"form"
                 ]) !!}
-                @include ('jogos.condicaotempo._form')
+                @include ('jogos.escopos._form')
 
                 <ul class="list-inline form-group">
                     <li>
@@ -29,9 +29,10 @@
                     </li>
                     <li></li>
                     <li>
-                        <a href="{{ asset('jogos/condicaotempo') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                        <a href="{{ asset('jogos/escopos') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
                     </li>
                 </ul>
+
             {!! Form::close() !!}
         </div>
     </div>

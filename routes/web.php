@@ -230,13 +230,17 @@ Route::group(['prefix'=>'DFutebol', 'middleware' => 'auth'], function() {
 Route::group(['prefix'=>'jogos', 'middleware' => 'auth'], function() {
     Route::resource('condicaogramado'   , 'jogos\condicaoGramadoController'   , ['except' => 'show']);
     Route::resource('condicaotempo'     , 'jogos\condicaoTempoController'     , ['except' => 'show']);
-
+    Route::resource('escopos'           , 'jogos\escoposController'           , ['except' => 'show']);
 });
+
+Route::group(['prefix'=>'financeiro', 'middleware' => 'auth'], function() {
+    Route::resource('contas'                        , 'financeiro\contasController'     , ['except' => 'show']);
+    Route::resource('tipocontas'                    , 'financeiro\tipoContasController' , ['except' => 'show']);
+});
+
 
 Route::group(['middleware' => 'auth'], function(){
 
-    Route::resource('contas'                        , 'ContasController'                    , ['except' => 'show']);
-    Route::resource('escopos'                       , 'escoposController'                   , ['except' => 'show']);
     Route::resource('janelas'                       , 'JanelasController'                   , ['except' => 'show']);
     Route::resource('localatividade'                , 'LocalAtividadeController'            , ['except' => 'show']);
     Route::resource('marketing'                     , 'MarketingEventoController'           , ['except' => 'show']);
@@ -248,7 +252,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('tecnicos'                      , 'TecnicosController'                  , ['except' => 'show']);
     Route::resource('tipoacao'                      , 'TipoAcaoController'                  , ['except' => 'show']);
     Route::resource('tipocampeonato'                , 'TipoCampeonatoController'            , ['except' => 'show']);
-    Route::resource('tipocontas'                    , 'TipoContasController'                , ['except' => 'show']);
     Route::resource('tipofase'                      , 'TipoFaseController'                  , ['except' => 'show']);
 
 });

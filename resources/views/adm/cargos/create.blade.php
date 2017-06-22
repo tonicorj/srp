@@ -28,7 +28,7 @@
                     {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
                 </div>
                 <div class="col-lg-1">
-                    <a href="{{ asset('cargos') }}" class="btn btn-sm btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                    <a href="{{ asset('adm/cargos') }}" class="btn btn-sm btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
                 </div>
             </div>
 

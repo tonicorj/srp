@@ -1,8 +1,9 @@
 <?php
 
-namespace SRP;
+namespace SRP\Models\financeiro;
 
 use Illuminate\Database\Eloquent\Model;
+use SRP\Models\financeiro\tipoContas;
 
 class Contas extends Model
 {
@@ -16,4 +17,9 @@ class Contas extends Model
         'CONTA_NOME'    => 'required|min:3',
         'TIPO_CONTA_ID' => 'required',
     );
+
+    public function tipo_conta(){
+        return $this->belongsTo(tipoContas::class, 'TIPO_CONTA_ID', 'TIPO_CONTA_ID');
+    }
+
 }

@@ -125,7 +125,8 @@ return [
     ,'tit_condicaogramado'  => 'Condição do Gramado'
     ,'tit_condicaotempo'    => 'Condição do Tempo'
     ,'tit_contas'           => 'Contas'
-    ,'tit_contas_num'       => 'Números'
+    ,'tit_conta_nome'       => 'Título da Conta'
+    ,'tit_conta_num'        => 'Número'
     ,'tit_contato'          => 'Contato'
     ,'tit_cpf'              => 'CPF'
 
@@ -326,9 +327,11 @@ return [
     ,'tit_telefone'         => 'Telefone'
     ,'tit_tipoacao'         => 'Tipo de Ação'
     ,'tit_tipocampeonato'   => 'Tipo de Campeonato'
-    ,'tit_tipocontas'       => 'Tipo de Conta'
-    ,'tit_tipocontas_tipo'  => 'Tipo'
-    ,'tit_tipocontas_num'   => 'Número'
+    ,'tit_tipoconta'        => 'Tipo de Conta'
+    ,'tit_tipoconta_nome'   => 'Descrição'
+    ,'tit_tipoconta_tipo'   => 'Tipo'
+    ,'tit_tipoconta_num'    => 'Número'
+
     ,'tit_tipofase'         => 'Fases'
     ,'tit_tipo_lesao'       => 'Tipo de Lesão'
     ,'tit_turno'            => 'Turno'
@@ -424,7 +427,7 @@ return [
     ,'t_tecnicos'               => 'Técnicos'
     ,'t_tipoacao'               => 'Tipo de Ação'
     ,'t_tipocampeonato'         => 'Tipo de Campeonato'
-    ,'t_tipocontas'             => 'Tipo de Conta'
+    ,'t_tipoconta'              => 'Tipo de Conta'
     ,'t_tipo_contrato'          => 'Tipos de Contrato'
     ,'t_tipofase'               => 'Fases'
     ,'t_tipo_lesao'             => 'Tipo de Lesão'
@@ -476,6 +479,9 @@ return [
 
     ,'crit_condicaogramado_required' => 'A condição do gramado é um campo obrigatório.'
     ,'crit_condicaogramado_unique'   => 'Esta condição do gramado já está cadastrada.'
+
+    ,'crit_conta_required' => 'A conta é um campo obrigatório.'
+    ,'crit_conta_unique'   => 'Esta conta já está cadastrada.'
 
     ,'crit_curso_dt_inicio_required' => 'Informe a data inicial do curso.'
     ,'crit_curso_dt_final_required'  => 'Informe a data final do curso.'
@@ -533,6 +539,10 @@ return [
     ,'crit_suplemento_required' => 'O nome do suplemento é obrigatório.'
     ,'crit_suplemento_unique' => 'O suplemento já está cadastrado.'
 
+    ,'crit_tipoconta_required' => 'O tipo de conta é obrigatório.'
+    ,'crit_tipoconta_unique' => 'Este tipo de conta já está cadastrado.'
+    ,'crit_tipoconta_numrequired' => 'O número do tipo de conta é obrigatório.'
+
     ,'crit_tipo_lesao_required' => 'O tipo de lesão é obrigatório.'
     ,'crit_tipo_lesao_unique' => 'Esta tipo de lesão já está cadastrada.'
 
@@ -583,6 +593,10 @@ return [
     , 'conf_condicaotempo_alt' => 'Condição do tempo alterada com sucesso.'
     , 'conf_condicaotempo_exc' => 'Condição do tempo excluída com sucesso.'
 
+    , 'conf_conta_inc'      => 'Condição do tempo incluída com sucesso.'
+    , 'conf_conta_alt'      => 'Condição do tempo alterada com sucesso.'
+    , 'conf_conta_exc'      => 'Condição do tempo excluída com sucesso.'
+
     , 'conf_curso_inc'      => 'Curso incluído com sucesso.'
     , 'conf_curso_alt'      => 'Curso alterado com sucesso.'
     , 'conf_curso_exc'      => 'Curso excluído com sucesso.'
@@ -598,6 +612,10 @@ return [
     , 'conf_dmacompanha_inc' => 'Acompanhamento incluído com sucesso.'
     , 'conf_dmacompanha_alt' => 'Acompanhamento alterado com sucesso.'
     , 'conf_dmacompanha_exc' => 'Acompanhamento excluído com sucesso.'
+
+    , 'conf_escopo_inc'     =>  'Escopo incluído com sucesso.'
+    , 'conf_escopo_alt'     =>  'Escopo alterado com sucesso.'
+    , 'conf_escopo_exc'     =>  'Escopo excluído com sucesso.'
 
     , 'conf_evento_inc'     =>  'Evento incluído com sucesso.'
     , 'conf_evento_alt'     =>  'Evento alterado com sucesso.'
@@ -650,6 +668,10 @@ return [
     , 'conf_suplemento_inc' => 'Suplemento incluído com sucesso.'
     , 'conf_suplemento_alt' => 'Suplemento alterado com sucesso.'
     , 'conf_suplemento_exc' => 'Suplemento excluído com sucesso.'
+
+    , 'conf_tipoconta_inc'  => 'Tipo de conta incluída com sucesso.'
+    , 'conf_tipoconta_alt'  => 'Tipo de conta alterada com sucesso.'
+    , 'conf_tipoconta_exc'  => 'Tipo de conta excluída com sucesso.'
 
     , 'conf_tipo_lesao_inc'  => 'Tipo de lesão incluída com sucesso.'
     , 'conf_tipo_lesao_alt'  => 'Tipo de lesão alterada com sucesso.'

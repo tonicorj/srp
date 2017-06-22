@@ -1,6 +1,6 @@
 <?php
 
-namespace SRP;
+namespace SRP\Models\jogos;
 
 use Illuminate\Database\Eloquent\Model;
 

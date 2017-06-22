@@ -33,7 +33,6 @@ class condicaoTempoController extends Controller
             ->with('condicoes', $condicoes)
             ->with('titulos', $titulos)
             ;
-        return view('jogos.condicaotempo.index');
     }
 
     /**
