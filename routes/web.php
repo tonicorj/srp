@@ -49,17 +49,6 @@ Route::group(['prefix'=>'alojamentos', 'middleware' => 'auth'], function() {
 });
 */
 
-Route::group(['prefix'=>'atividades', 'middleware' => 'auth'], function() {
-    Route::get(''               , ['as' => 'atividades'         , 'uses' => 'AtividadesController@index']);
-    Route::get ('_json'         , ['as' => 'atividadesped._json'   , 'uses' => 'AtividadesController@_json']);
-    Route::get ('create'        , ['as' => 'atividadesped.create'  , 'uses' => 'AtividadesController@create']);
-    Route::post('store'         , ['as' => 'atividadesped.store'   , 'uses' => 'AtividadesController@store' ]);
-    Route::get ('edit/{id}'     , ['as' => 'atividadesped.edit'    , 'uses' => 'AtividadesController@edit']);
-    Route::put ('update/{id}'   , ['as' => 'atividadesped.update'  , 'uses' => 'AtividadesController@update' ]);
-    Route::get ('destroy/{id}'  , ['as' => 'atividadesped.destroy' , 'uses' => 'AtividadesController@destroy']);
-});
-
-
 Route::group(['prefix'=>'jogadores', 'middleware' => 'auth'], function() {
     Route::get(''               , ['as' => 'jogadores'         , 'uses' => 'JogadoresController@index']);
     Route::get ('_json'         , ['as' => 'jogadores._json'   , 'uses' => 'JogadoresController@_json']);
@@ -172,7 +161,9 @@ Route::group(['prefix'=>'quadroatividades', 'middleware' => 'auth'], function() 
 
 // Administrativo
 Route::group(['prefix'=>'adm', 'middleware' => 'auth'], function() {
-    Route::resource('alojamentos', 'adm\AlojamentosController'  , ['except' => 'show']);
+    Route::resource('alojamentos', 'adm\AlojamentosController'    , ['except' => 'show']);
+    Route::resource('atividadesAdm', 'adm\atividadesAdmController', ['except' => 'show']);
+
     Route::resource('departamentos', 'adm\DepartamentosController', ['except' => 'show']);
     Route::resource('cargos', 'adm\CargosController', ['except' => 'show' ]);
     Route::resource('funcionarios', 'adm\FuncionariosController', ['except' => 'show']);
@@ -271,9 +262,9 @@ Route::get('/viewpdf', 'PdfviewController@index');
 //Route::get('origemlesao/_json'              , 'OrigemLesaoController@_json');
 //Route::get('partecorpo/_json'               , 'ParteCorpoController@_json');
 //Route::get('tipolesao/_json'                , 'TipoLesaoController@_json');
-Route::get('atividadesPedagogicas/_json'    , 'atividadespedController@_json');
-Route::get('atividadesped/_json'            , 'atividadespedController@_json');
-Route::get('atividadesSS/_json'             , 'AtividadesSSController@_json');
+//Route::get('atividadesPedagogicas/_json'    , 'atividadespedController@_json');
+//Route::get('atividadesped/_json'            , 'atividadespedController@_json');
+//Route::get('atividadesSS/_json'             , 'AtividadesSSController@_json');
 Route::get('condicaogramado/_json'          , 'CondicaoGramadoController@_json');
 Route::get('condicaotempo/_json'            , 'CondicaoTempoController@_json');
 Route::get('contas/_json'                   , 'ContasController@_json');

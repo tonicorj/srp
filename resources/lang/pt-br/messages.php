@@ -19,7 +19,8 @@ return [
     ,'exc_atendimento_dia'  => 'Conforma exclusão do atendimento do dia '
     ,'exc_atendimento'      => 'Conforma exclusão do atendimento do atleta '
     ,'exc_atendimento_func' => 'Confirma exclusão do atendimento deste funcionário '
-    ,'exc_atividade'        => 'Confirma exclusão do motivo de atendimento '
+    ,'exc_atividade'        => 'Confirma exclusão do motivo '
+    ,'exc_atividadeAdm'     => 'Confirma exclusão da atividade '
     ,'exc_ausencia'         => 'Confirma exclusão da ausência do jogador '
     ,'exc_cargo'            => 'Confirma exclusão do cargo '
     ,'exc_categoria'        => 'Confirma exclusão da categoria'
@@ -87,6 +88,7 @@ return [
     ,'tit_atendimentopsic_grupo' => 'Psicologia Atendimento - Grupos'
 
     ,'tit_atividade'            => 'Motivos'
+    ,'tit_atividadeAdm'         => 'Atividades'
     ,'tit_atividadeSS'          => 'Motivo de Atendimento de Serviço Social'
     ,'tit_atividadePsicologia'  => 'Motivo de Atendimento de Psicologia'
     ,'tit_atividadePedagogia'   => 'Motivo de Atendimento da Pedagogia'
@@ -295,7 +297,7 @@ return [
 
     ,'tit_qtdvagas'                 => 'Qtd.Vagas'
 
-    ,'tit_quadroatividades'         => 'Quadro de Atividades'
+    ,'tit_quadroatividades'         => 'Quadro de AtividadesAdm'
     ,'tit_quadroatividade_periodo'  => 'Período'
     ,'tit_quadroatividade_segunda'  => 'Segunda'
     ,'tit_quadroatividade_terca'    => 'Terça'
@@ -351,7 +353,8 @@ return [
     ,'t_atendimentopsic_func'   => 'Atendimentos Funcionários'
     ,'t_atendimentopsic_grupo'  => 'Atendimentos Grupos'
 
-    ,'t_atividade'              => 'Atividades'
+    ,'t_atividade'              => 'Motivos'
+    ,'t_atividadeAdm'           => 'Atividades'
     ,'t_atividadenutricao'      => 'Motivos da Nutrição'
     ,'t_atividadepedagogicas'   => 'Motivos da Pedagogia'
     ,'t_atividadepsicologia'    => 'Motivos da Psicologia'
@@ -414,7 +417,7 @@ return [
     ,'t_prontuario'             => 'Prontuários'
     ,'t_psicologia'             => 'Psicologia'
     ,'t_projeto'                => 'Projetos'
-    ,'t_quadroatividades'       => 'Quadro de Atividades'
+    ,'t_quadroatividades'       => 'Quadro de AtividadesAdm'
     ,'t_servicosocial'          => 'Serviço Social'
     ,'t_selecao'                => 'Seleções'
     ,'t_suplementos'            => 'Suplementos'
@@ -451,6 +454,9 @@ return [
 
     ,'crit_atividadeSS_required' => 'O motivo de atendimento é um campo obrigatório.'
     ,'crit_atividadeSS_unique'   => 'Este motivo de atendimento já está cadastrada.'
+
+    ,'crit_atividadeadm_required' => 'O atividade é um campo obrigatório.'
+    ,'crit_atividadeadm_unique'   => 'Esta atividade já está cadastrada.'
 
     ,'crit_atividade_required' => 'O motivo de atendimento é um campo obrigatório.'
     ,'crit_atividade_unique'   => 'Este motivo de atendimento já está cadastrada.'
@@ -548,6 +554,10 @@ return [
     , 'conf_atividades_inc' => 'Atividade incluída com sucesso.'
     , 'conf_atividades_alt' => 'Atividade alterada com sucesso.'
     , 'conf_atividades_exc' => 'Atividade excluída com sucesso.'
+
+    , 'conf_atividadesAdm_inc' => 'Atividade incluída com sucesso.'
+    , 'conf_atividadesAdm_alt' => 'Atividade alterada com sucesso.'
+    , 'conf_atividadesAdm_exc' => 'Atividade excluída com sucesso.'
 
     , 'conf_cargo_inc'      => 'Cargo incluído com sucesso.'
     , 'conf_cargo_alt'      => 'Cargo alterado com sucesso.'

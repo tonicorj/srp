@@ -2,10 +2,9 @@
 @extends('template')
 
 @section('content')
-
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4>{!! trans('messages.t_atividadepsicologia') !!}</h4>
+            <h4>{!! trans('messages.tit_atividadeAdm') !!}</h4>
         </div>
         <div class="panel-body">
             <table class='table table-striped' id="tbl_">
@@ -19,14 +18,14 @@
                 <tbody>
                 @foreach ($atividades as $reg)
                     <tr>
-                        {!! Form::open(['route' => [ 'atividades.destroy' ,'id' => $reg->ID_ATIV_PSICOLOGIA]
+                        {!! Form::open(['route' => [ 'atividadesAdm.destroy' ,'id' => $reg->ID_ATIVIDADE]
                         , 'method' =>'DELETE'
-                        , 'id' => "delete-form-{$reg->ID_ATIV_PSICOLOGIA}"
+                        , 'id' => "delete-form-{$reg->ID_ATIVIDADE}"
                         , 'style' => 'display:none'
                         ]) !!}
-                        {{ Form::close() }}
-                        <td>{{$reg->ID_ATIV_PSICOLOGIA}}</td>
-                        <td>{{$reg->ATIV_PSICOLOGIA_DESCR}}</td>
+                        {!! Form::close() !!}
+                        <td>{{$reg->ID_ATIVIDADE}}</td>
+                        <td>{{$reg->ATIVIDADE_DESCRICAO}}</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -40,12 +39,13 @@
                 "paging": true,
                 "lengthChange": false,
                 "searching": true,
+                "order": [[ 1, 'asc' ]],
                 "ordering": true,
-                "order": [[1, 'asc']],
                 "info": false,
                 "autoWidth": true,
                 "columnDefs": [
                     {"visible": false, "targets": [0]}
+                    //,{"visible": false, "targets": [0]}
                 ],
                 dom: 'Bfrtip',
                 buttons: [
@@ -53,7 +53,7 @@
                         "className": "{!! trans('messages.i_incluir')!!}",
                         "titleAttr": "{!! trans('messages.inclusao')!!}",
                         "action": function (e, dt, node, config) {
-                            location.href = "{!! asset('atividadesAdm') !!}";
+                            location.href = "{!! asset('adm/atividadesAdm/create') !!}";
                         }
                     },
                     {
@@ -68,7 +68,7 @@
                             else {
                                 // pega o código
                                 id = dados[0];
-                                url = '{{ asset('atividadesAdm')  }}/' + id + '/edit';
+                                url = '{{ asset('adm/atividadesAdm')  }}/' + id + '/edit';
                                 location.href = url;
                             }
                         }
@@ -87,6 +87,8 @@
                                 var _descr = dados[1];
                                 var _id = dados[0];
                                 var _nome = '#delete-form-' + _id;
+                                //alert(_nome);
+
                                 bootbox.dialog({
                                     title: "{!! trans('messages.exclusao') !!}",
                                     message: "{!! trans('messages.exc_atividade') !!}" + _descr + "?",
@@ -143,6 +145,8 @@
                     $(this).addClass('selected');
                 }
             });
+
         });
     </script>
+
 @stop

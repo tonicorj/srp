@@ -157,7 +157,7 @@ header ('Content-type: text/html; charset=UTF-8');
                             <li><a href="{!! asset('jogadores') !!}"><i class="fa fa-circle-o"></i> {!! trans('messages.t_jogadores') !!}</a></li>
                             @endcan
                             @can( 'acesso', 'ATIVIDADES')
-                            <li><a href="{!! asset('atividades') !!}">      <i class="fa fa-circle-o"></i> {!! trans('messages.t_atividade') !!}</a></li>
+                            <li><a href="{!! asset('adm\atividades') !!}">      <i class="fa fa-circle-o"></i> {!! trans('messages.t_atividade') !!}</a></li>
                             @endcan
                             @can( 'acesso', 'CATEGORIA')
                                <li><a href="{!! asset('DFutebol\categorias') !!}">           <i class="fa fa-circle-o"></i> {!! trans('messages.t_categoria') !!}</a></li>
