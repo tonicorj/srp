@@ -315,7 +315,7 @@ header ('Content-type: text/html; charset=UTF-8');
                         </ul>
                     </li>
                     @endcan
-                    @can( 'acesso', array( 'CONDICAO TEMPO', 'CONDICAO_GRAMADO', 'ESCOPO', 'PONTUACAO', 'TECNICOS', 'TIPO_FASE', 'TIPO_CAMPEONATO' ) )
+                    @can( 'acesso', array( 'CONDICAO_TEMPO', 'CONDICAO_GRAMADO', 'ESCOPO', 'PONTUACAO', 'TECNICOS', 'TIPO_FASE', 'TIPO_CAMPEONATO' ) )
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-dashboard"></i>
@@ -328,8 +328,8 @@ header ('Content-type: text/html; charset=UTF-8');
                                 @can( 'acesso', 'CONDICAO_GRAMADO')
                                     <li><a href="{!! asset('jogos/condicaogramado') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_condicaogramado') !!}</a></li>
                                 @endcan
-                                @can( 'acesso', 'CONDICAO TEMPO')
-                                    <li><a href="{!! asset('condicaotempo') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_condicaotempo') !!}</a></li>
+                                @can( 'acesso', 'CONDICAO_TEMPO')
+                                    <li><a href="{!! asset('jogos/condicaotempo') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_condicaotempo') !!}</a></li>
                                 @endcan
                                 @can( 'acesso', 'ESCOPO')
                                     <li><a href="{!! asset('escopos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_escopo') !!}</a></li>

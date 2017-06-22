@@ -579,6 +579,10 @@ return [
     , 'conf_condicaogramado_alt' => 'Condição do Gramado alterada com sucesso.'
     , 'conf_condicaogramado_exc' => 'Condição do Gramado excluída com sucesso.'
 
+    , 'conf_condicaotempo_inc' => 'Condição do tempo incluída com sucesso.'
+    , 'conf_condicaotempo_alt' => 'Condição do tempo alterada com sucesso.'
+    , 'conf_condicaotempo_exc' => 'Condição do tempo excluída com sucesso.'
+
     , 'conf_curso_inc'      => 'Curso incluído com sucesso.'
     , 'conf_curso_alt'      => 'Curso alterado com sucesso.'
     , 'conf_curso_exc'      => 'Curso excluído com sucesso.'

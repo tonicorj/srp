@@ -229,11 +229,12 @@ Route::group(['prefix'=>'DFutebol', 'middleware' => 'auth'], function() {
 
 Route::group(['prefix'=>'jogos', 'middleware' => 'auth'], function() {
     Route::resource('condicaogramado'   , 'jogos\condicaoGramadoController'   , ['except' => 'show']);
+    Route::resource('condicaotempo'     , 'jogos\condicaoTempoController'     , ['except' => 'show']);
+
 });
 
 Route::group(['middleware' => 'auth'], function(){
 
-    Route::resource('condicaotempo'                 , 'CondicaoTempoController'             , ['except' => 'show']);
     Route::resource('contas'                        , 'ContasController'                    , ['except' => 'show']);
     Route::resource('escopos'                       , 'escoposController'                   , ['except' => 'show']);
     Route::resource('janelas'                       , 'JanelasController'                   , ['except' => 'show']);

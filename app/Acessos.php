@@ -56,7 +56,7 @@ function AcaoCodigo($nome){
         case 'CIRURGIAS'                                : $codigo = 169;    break;
 
         case 'ALOJAMENTOS'                              : $codigo = 258;    break;
-        case 'CONDICAO TEMPO'                           : $codigo = 259;    break;
+        case 'CONDICAO_TEMPO'                           : $codigo = 259;    break;
         case 'PSICOLOGIA_GRUPOS'                        : $codigo = 260;    break;
 
         case 'ATENDIMENTOS_GRUPOS'                      : $codigo = 262;    break;
