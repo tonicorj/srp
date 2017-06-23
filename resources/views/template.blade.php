@@ -227,8 +227,8 @@ header ('Content-type: text/html; charset=UTF-8');
                                 <li><a href="{!! asset('adm/departamentos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_departamento') !!}</a></li>
                             @endcan
 
-                            @can( 'acesso', 'MOTIVO DE AUSENCIA')
-                            <li><a href="{!! asset('motivo_ausencia') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_motivo_ausencia') !!}</a></li>
+                            @can( 'acesso', 'MOTIVO_AUSENCIA')
+                                <li><a href="{!! asset('adm/motivoAusencia') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_motivoAusencia') !!}</a></li>
                             @endcan
 
                             @can( 'acesso', 'CARGOS')

@@ -168,6 +168,7 @@ Route::group(['prefix'=>'adm', 'middleware' => 'auth'], function() {
     Route::resource('cargos', 'adm\CargosController', ['except' => 'show' ]);
     Route::resource('funcionarios', 'adm\FuncionariosController', ['except' => 'show']);
     Route::resource('ocorrencias', 'adm\ocorrenciasController', ['except' => 'show']);
+    Route::resource('motivoAusencia', 'adm\motivoAusenciaController', ['except' => 'show']);
 });
 
 Route::group(['prefix'=>'pedagogia', 'middleware' => 'auth'], function() {
@@ -299,6 +300,7 @@ Route::get('test', function() {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
+
 //Route::get ('login', 'AuthController@showLoginForm');
 //Route::post('login', 'AuthController@postLogin');
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "67afdca8143102d6e8157a0dc49cb443",
+    "content-hash": "92848ebc095fbb7c738620e17cd98bb2",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -53,60 +53,6 @@
                 "pdf"
             ],
             "time": "2017-02-19T06:45:54+00:00"
-        },
-        {
-            "name": "caffeinated/modules",
-            "version": "v4.1.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/caffeinated/modules.git",
-                "reference": "e58a340cc2dcc93f35ab73e1a8a0f23a079eaa3e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/caffeinated/modules/zipball/e58a340cc2dcc93f35ab73e1a8a0f23a079eaa3e",
-                "reference": "e58a340cc2dcc93f35ab73e1a8a0f23a079eaa3e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/config": "^5.3",
-                "illuminate/database": "^5.3",
-                "illuminate/filesystem": "^5.3",
-                "illuminate/routing": "^5.3",
-                "illuminate/support": "^5.3",
-                "php": ">=5.6.4"
-            },
-            "suggest": {
-                "wikimedia/composer-merge-plugin": "Allows the ability to create and merge composer.json files for your individual modules for module-specific dependency management."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Caffeinated\\Modules\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Shea Lewis",
-                    "email": "shea.lewis89@gmail.com"
-                }
-            ],
-            "description": "Laravel 5 Modules",
-            "keywords": [
-                "caffeinated",
-                "laravel",
-                "modules"
-            ],
-            "time": "2017-03-28T15:54:24+00:00"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1631,6 +1577,72 @@
                 "php"
             ],
             "time": "2017-03-05T18:23:57+00:00"
+        },
+        {
+            "name": "nwidart/laravel-modules",
+            "version": "1.24.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nWidart/laravel-modules.git",
+                "reference": "0ba61a4e089db15fe02e592d0539b479456418d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/0ba61a4e089db15fe02e592d0539b479456418d1",
+                "reference": "0ba61a4e089db15fe02e592d0539b479456418d1",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.11",
+                "mockery/mockery": "~0.9",
+                "orchestra/testbench": "^3.1|^3.2|^3.3|^3.4",
+                "phpro/grumphp": "^0.9.1",
+                "phpunit/phpunit": "~5.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nwidart\\Modules\\LaravelModulesServiceProvider"
+                    ],
+                    "aliases": {
+                        "Module": "Nwidart\\Modules\\Facades\\Module"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nwidart\\Modules\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Widart",
+                    "email": "n.widart@gmail.com",
+                    "homepage": "https://nicolaswidart.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Module management",
+            "keywords": [
+                "laravel",
+                "module",
+                "modules",
+                "nwidart",
+                "rad"
+            ],
+            "time": "2017-06-12T15:33:57+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -3362,6 +3374,60 @@
                 }
             ],
             "time": "2016-06-13T19:28:20+00:00"
+        },
+        {
+            "name": "caffeinated/modules",
+            "version": "v4.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caffeinated/modules.git",
+                "reference": "e58a340cc2dcc93f35ab73e1a8a0f23a079eaa3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caffeinated/modules/zipball/e58a340cc2dcc93f35ab73e1a8a0f23a079eaa3e",
+                "reference": "e58a340cc2dcc93f35ab73e1a8a0f23a079eaa3e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^5.3",
+                "illuminate/database": "^5.3",
+                "illuminate/filesystem": "^5.3",
+                "illuminate/routing": "^5.3",
+                "illuminate/support": "^5.3",
+                "php": ">=5.6.4"
+            },
+            "suggest": {
+                "wikimedia/composer-merge-plugin": "Allows the ability to create and merge composer.json files for your individual modules for module-specific dependency management."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Caffeinated\\Modules\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shea Lewis",
+                    "email": "shea.lewis89@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 Modules",
+            "keywords": [
+                "caffeinated",
+                "laravel",
+                "modules"
+            ],
+            "time": "2017-03-28T15:54:24+00:00"
         },
         {
             "name": "doctrine/instantiator",

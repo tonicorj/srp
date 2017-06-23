@@ -15,7 +15,8 @@
         "prettus/l5-repository": "^2.6",
         "barryvdh/laravel-dompdf": "^0.8.0",
         "sukohi/form-autocomplete": "^2.0",
-        "claviska/simpleimage": "^3.3"
+        "claviska/simpleimage": "^3.3",
+        "nwidart/laravel-modules": "^1.24"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

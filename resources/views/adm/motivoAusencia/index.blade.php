@@ -4,7 +4,7 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4>{!! trans('messages.tit_cargo') !!}</h4>
+            <h4>{!! trans('messages.t_motivoAusencia') !!}</h4>
         </div>
         <div class="panel-body">
             <table class='table table-striped' id="tbl_">
@@ -16,16 +16,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($cargos as $reg)
+                @foreach ($motivos as $reg)
                     <tr>
-                        {!! Form::open(['route' => [ 'cargos.destroy' ,'id' => $reg->ID_CARGO_COMISSAO]
+                        {!! Form::open(['route' => [ 'motivoAusencia.destroy' ,'id' => $reg->ID_MOTIVO_AUSENCIA]
                         , 'method' =>'DELETE'
-                        , 'id' => "delete-form-{$reg->ID_CARGO_COMISSAO}"
+                        , 'id' => "delete-form-{$reg->ID_MOTIVO_AUSENCIA}"
                         , 'style' => 'display:none'
                         ]) !!}
                         {!! Form::close() !!}
-                        <td>{{$reg->ID_CARGO_COMISSAO}}</td>
-                        <td>{{$reg->CARGO_COMISSAO}}</td>
+                        <td>{{$reg->ID_MOTIVO_AUSENCIA}}</td>
+                        <td>{{$reg->MOTIVO_AUSENCIA_DESCRICAO}}</td>
+                        <td>{{$reg->MOTIVO_AUSENCIA_LETRA}}</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -53,7 +54,7 @@
                         "className": "{!! trans('messages.i_incluir')!!}",
                         "titleAttr": "{!! trans('messages.inclusao')!!}",
                         "action": function (e, dt, node, config) {
-                            location.href = "{!! asset('adm/cargos/create') !!}";
+                            location.href = "{!! asset('adm/motivoAusencia/create') !!}";
                         }
                     },
                     {
@@ -68,7 +69,7 @@
                             else {
                                 // pega o código
                                 id = dados[0];
-                                url = '{{ asset('adm/cargos')  }}/' + id + '/edit';
+                                url = '{{ asset('adm/motivoAusencia')  }}/' + id + '/edit';
                                 location.href = url;
                             }
                         }
@@ -91,7 +92,7 @@
 
                                 bootbox.dialog({
                                     title: "{!! trans('messages.exclusao') !!}",
-                                    message: "{!! trans('messages.exc_cargo') !!}" + _descr + "?",
+                                    message: "{!! trans('messages.exc_motivoAusencia') !!}" + _descr + "?",
                                     buttons: {
                                         yes: {
                                             label: "Sim",

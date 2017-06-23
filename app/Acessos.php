@@ -36,7 +36,7 @@ function AcaoCodigo($nome){
 
         case 'PSICOLOGIA'                               : $codigo = 81;     break;
 
-        case 'MOTIVO DE AUSENCIA'                       : $codigo = 93;     break;
+        case 'MOTIVO_AUSENCIA'                          : $codigo = 93;     break;
 
         case 'CARGOS'                                   : $codigo = 114;    break;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace SRP;
+namespace SRP\Models\ADM;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Motivo_Ausencia extends Model
+class MotivoAusencia extends Model
 {
     //
     protected $table      = 'motivo_ausencia';
@@ -12,11 +12,6 @@ class Motivo_Ausencia extends Model
     protected $primaryKey = 'ID_MOTIVO_AUSENCIA';
 
     public $timestamps = false;
-
-    public static $customMessages = array(
-        'required'=> 'Digite o campo :attribute.',
-        'between' => 'O :attribute deve ter no minimo :min digitos'
-    );
 
     public static $rules = array(
         'MOTIVO_AUSENCIA_DESCRICAO'    => 'required|min:3',

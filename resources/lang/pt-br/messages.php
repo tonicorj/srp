@@ -24,15 +24,13 @@ return [
     ,'exc_ausencia'         => 'Confirma exclusão da ausência do jogador '
     ,'exc_cargo'            => 'Confirma exclusão do cargo '
     ,'exc_categoria'        => 'Confirma exclusão da categoria'
-    ,'exc_cargo'            => 'Confirma exclusão do cargo '
     ,'exc_cidade'           => 'Confirma exclusão da cidade '
     ,'exc_cirurgia'         => 'Confirma exclusão da cirurgia '
-    ,'exc_conta'            => 'Confirma exclusão da conta '
-    ,'exc_curso_extra'      => 'Confirma exclusão de curso '
-    ,'exc_funcionario'      => 'Confirma exclusão do funcionário '
 
     ,'exc_condicaogramado'  => 'Confirma exclusão da condiçao de gramado '
     ,'exc_condicaotempo'    => 'Confirma exclusão da condiçao de tempo '
+    ,'exc_conta'            => 'Confirma exclusão da conta '
+
     ,'exc_curso_extra'      => 'Confirma exclusão do curso '
 
     ,'exc_departamento'     => 'Confirma exclusão deste setor '
@@ -46,11 +44,14 @@ return [
     ,'exc_eventoJogador'    => 'Confirma exclusão do jogador '
     ,'exc_exame'            => 'Conforma exclusão do exame '
     ,'exc_exame_dia'        => 'Confirma exclusão do exame '
+
+    ,'exc_funcionario'      => 'Confirma exclusão do funcionário '
+
     ,'exc_historicoescolar' => 'Confirma exclusão do histórico escolar deste jogador: '
     ,'exc_janela'           => 'Confirma exclusão da janela '
     ,'exc_localatividade'   => 'Confirma exclusão do tipo de atividade '
     ,'exc_marketingevento'  => 'Confirma exclusão do tipo de evento '
-    ,'exc_motivoausencia'   => 'Confirma exclusão do motivo de ausência '
+    ,'exc_motivoAusencia'   => 'Confirma exclusão do motivo de ausência '
     ,'exc_ocorrencias'      => 'Confirma exclusão da ocorrência do dia '
     ,'exc_origem_lesao'     => 'Confirma exclusão da origem da lesão '
     ,'exc_origemnutricao'   => 'Confirma exclusão da origem de nutrição '
@@ -167,11 +168,12 @@ return [
     ,'tit_endereco'         => 'Endereço'
 
     ,'tit_escolaano'        => 'Ano Let'
-    ,'tit_escolaaprovado'   => 'Aprovado'
     ,'tit_escolaboletins'   => 'Boletins entregues'
     ,'tit_escoladocumentos' => 'Documento entregues'
     ,'tit_escolanome'       => 'Nome da Escola'
     ,'tit_escolaresultado'  => 'Resultado Final'
+    ,'tit_escolaaprovado'  => 'Aprovado'
+    ,'tit_escoladependencia' => 'Dependência'
     ,'tit_escolareprovado'  => 'Reprovado'
     ,'tit_escolareclassificado' => 'Reclassificado'
     ,'tit_escolaserie'      => 'Série'
@@ -185,10 +187,6 @@ return [
     ,'tit_escola2bim'      => '2º Bim'
     ,'tit_escola3bim'      => '3º Bim'
     ,'tit_escola4bim'      => '4º Bim'
-
-    ,'tit_escolaaprovado'  => 'Aprovado'
-    ,'tit_escolareprovado' => 'Reprovado'
-    ,'tit_escoladependencia' => 'Dependência'
 
     ,'tit_escolaridade'     => 'Escolaridades'
     ,'tit_escopo'           => 'Escopo'
@@ -400,7 +398,7 @@ return [
     ,'t_marketingevento'        => 'Eventos de Marketing'
     ,'t_medico'                 => 'Médico'
     ,'t_menu_principal'         => 'Menu Principal'
-    ,'t_motivo_ausencia'        => 'Motivo de Ausência'
+    ,'t_motivoAusencia'         => 'Motivo de Ausência'
     ,'t_motivo_ausencia_escolar'=> 'Motivo de Ausência Escolar'
 
     ,'t_nutricao'               => 'Nutrição'
@@ -636,6 +634,10 @@ return [
     , 'conf_historicoescolar_inc'   => 'Histórico Escolar incluído com sucesso.'
     , 'conf_historicoescolar_alt'   => 'Histórico Escolar alterado com sucesso.'
     , 'conf_historicoescolar_exc'   => 'Histórico Escolar excluído com sucesso.'
+
+    , 'conf_motivoAusencia_inc'     => 'Motivo incluído com sucesso.'
+    , 'conf_motivoAusencia_alt'     => 'Motivo alterado com sucesso.'
+    , 'conf_motivoAusencia_exc'     => 'Motivo excluído com sucesso.'
 
     , 'conf_motivoAusenciaEscolar_inc' => 'Motivo incluído com sucesso.'
     , 'conf_motivoAusenciaEscolar_alt' => 'Motivo alterado com sucesso.'

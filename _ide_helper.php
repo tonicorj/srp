@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.3.31 on 2017-06-09.
+ * Generated for Laravel 5.3.31 on 2017-06-23.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13577,7 +13577,7 @@ namespace Bootstrapper\Facades {
          *
          * @param array $contents The content
          * @return $this 
-         * @see Bootstrapper\Navigation::$contents
+         * @see
          * @static 
          */
         public static function tabs($contents = array())
@@ -13590,7 +13590,7 @@ namespace Bootstrapper\Facades {
          *
          * @param array $contents
          * @return $this 
-         * @see Bootstrapper\Navigation::$contents
+         * @see
          * @static 
          */
         public static function pills($contents = array())
@@ -13603,7 +13603,7 @@ namespace Bootstrapper\Facades {
          *
          * @param array $contents An array of arrays
          * @return $this 
-         * @see Bootstrapper\Navigation::$contents
+         * @see
          * @static 
          */
         public static function withContents($contents)

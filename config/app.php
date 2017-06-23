@@ -187,7 +187,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
 
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
-        //Caffeinated\Modules\ModulesServiceProvider::class,
+        Nwidart\Modules\LaravelModulesServiceProvider::class,
     ],
 
     /*
@@ -234,7 +234,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Image' => Intervention\Image\Facades\Image::class,
+        //'Image' => Intervention\Image\Facades\Image::class,
 
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'FormAutocomplete' => Sukohi\FormAutocomplete\Facades\FormAutocomplete::class,
@@ -266,7 +266,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 
-        //'Module' => Caffeinated\Modules\Facades\Module::class,
+        'Module' => Nwidart\Modules\Facades\Module::class,
     ],
 
     'name' => env('APP_NAME', 'SRP'),
