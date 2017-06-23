@@ -9,7 +9,7 @@
         <div class="panel-body">
 
             {!! Form::model($cargo,
-                [ 'route'=>['cargos.update', $cargos->ID_CARGO_COMISSAO]
+                [ 'route'=>['cargos.update', $cargo->ID_CARGO_COMISSAO]
                 , 'method'=>'put'
                 , 'id'=>'form_']) !!}
 

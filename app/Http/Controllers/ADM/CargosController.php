@@ -55,7 +55,7 @@ class CargosController extends Controller
         $cargo = $this->cargos->find($id);
 
         return view ('adm.cargos.edit')
-            ->with('cargos', $cargo);
+            ->with('cargo', $cargo);
     }
 
     public function update($id, CargosRequest $request) {
