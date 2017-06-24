@@ -269,7 +269,14 @@ return [
     ,'tit_paisnatal'        => 'País Natal'
     ,'tit_paisnome'         => 'Nome do País'
     ,'tit_paissigla'        => 'Sigla'
-    ,'tit_parceiro'         => 'Parceiro'
+
+    ,'tit_parceiro'             => 'Parceiro'
+    ,'tit_parceiro_celular'     => 'Celular'
+    ,'tit_parceiro_email'       => 'Email'
+    ,'tit_parceiro_contato'     => 'Nome Contato'
+    ,'tit_parceiro_telefone'    => 'Telefone'
+    ,'tit_parceiro_prioridade'  => 'Prioridade'
+
     ,'tit_parte_corpo'      => 'Parte do Corpo'
     ,'tit_passaporte'       => 'Passaporte'
     ,'tit_pedominante'      => 'Pé Dominante'
@@ -669,6 +676,10 @@ return [
     , 'conf_paises_inc'      => 'País incluído com sucesso.'
     , 'conf_paises_alt'      => 'País alterado com sucesso.'
     , 'conf_paises_exc'      => 'País excluído com sucesso.'
+
+    , 'conf_parceiros_inc' => 'Parceiro incluído com sucesso.'
+    , 'conf_parceiros_alt' => 'Parceiro alterado com sucesso.'
+    , 'conf_parceiros_exc' => 'Parceiro excluído com sucesso.'
 
     , 'conf_parte_corpo_inc' => 'Parte do corpo incluído com sucesso.'
     , 'conf_parte_corpo_alt' => 'Parte do corpo alterado com sucesso.'

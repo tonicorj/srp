@@ -1,6 +1,6 @@
 <?php
 
-namespace SRP;
+namespace SRP\Models\DFutebol;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,11 +19,6 @@ class Parceiros extends Model
     protected $primaryKey = 'ID_PARCEIRO';
 
     public $timestamps = false;
-
-    public static $customMessages = array(
-        'required'=> 'Digite o campo :attribute.',
-        'between' => 'O :attribute deve ter no minimo :min digitos'
-    );
 
     public static $rules = array(
         'parceiro_nome'         => 'max:100|min:3',

@@ -1,8 +1,8 @@
 {!! Form::hidden('ID_PARCEIRO', null, ['class'=>'form-control', 'id'=>'ID_PARCEIRO']) !!}
 
 <div class="row">
-    <div class="form-group col-sm-5">
-        {!! Form::label('parceiro_nome', 'Parceiro') !!}
+    <div class="form-group col-sm-10">
+        {!! Form::label('parceiro_nome', trans('messages.tit_parceiro')) !!}
         {!! Form::text ('PARCEIRO_NOME', null,
             ['class'=>'form-control'
             , 'maxlength' =>'100'
@@ -11,8 +11,8 @@
             ]) !!}
     </div>
 
-    <div class="form-group col-sm-1">
-        {!! Form::label('parceiro_prioridade', 'Prioridade') !!}
+    <div class="form-group col-sm-2">
+        {!! Form::label('parceiro_prioridade', trans('messages.tit_parceiro_prioridade')) !!}
         {!! Form::text ('PARCEIRO_PRIORIDADE', null,
             ['class'=>'form-control'
             , 'id'=>'PARCEIRO_PRIORIDADE'
@@ -20,8 +20,8 @@
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-sm-6">
-        {!! Form::label('nome_contato_parceiro', 'Contato') !!}
+    <div class="form-group col-sm-12">
+        {!! Form::label('nome_contato_parceiro', trans('messages.tit_parceiro_contato')) !!}
         {!! Form::text ('NOME_CONTATO_PARCEIRO', null,
             ['class'=>'form-control'
             , 'maxlength' =>'200'
@@ -31,16 +31,16 @@
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-sm-3">
-        {!! Form::label('parceiro_telefone', 'Telefone') !!}
+    <div class="form-group col-sm-6">
+        {!! Form::label('parceiro_telefone', trans('messages.tit_parceiro_telefone')) !!}
         {!! Form::text ('PARCEIRO_TELEFONE', null,
             ['class'=>'form-control'
             , 'maxlength' =>'60'
             , 'id'=>'PARCEIRO_TELEFONE'
             ]) !!}
     </div>
-    <div class="form-group col-sm-3">
-        {!! Form::label('parceiro_celular', 'Celular') !!}
+    <div class="form-group col-sm-6">
+        {!! Form::label('parceiro_celular', trans('messages.tit_parceiro_celular')) !!}
         {!! Form::text ('PARCEIRO_CELULAR', null,
             ['class'=>'form-control'
             , 'maxlength' =>'60'
@@ -49,8 +49,8 @@
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-sm-6">
-        {!! Form::label('parceiro_mail', 'E-mail') !!}
+    <div class="form-group col-sm-12">
+        {!! Form::label('parceiro_mail', trans('messages.tit_parceiro_email')) !!}
         {!! Form::text ('PARCEIRO_MAIL', null,
             ['class'=>'form-control'
             , 'maxlength' =>'200'

@@ -15,8 +15,8 @@ header ('Content-type: text/html; charset=UTF-8');
         {!!Html::style("plugins/datatables/extensions/buttons/css/buttons.dataTables.min.css")!!}
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        {!!Html::script("https://code.jquery.com/jquery-1.12.4.js") !!}
+        {!!Html::script("https://code.jquery.com/ui/1.12.1/jquery-ui.js")!!}
 
         {!!Html::style("https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css") !!}        <!-- Ionicons -->
         {!!Html::style("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css")!!} <!-- Font Awesome -->
@@ -177,7 +177,7 @@ header ('Content-type: text/html; charset=UTF-8');
                             @endcan
 
                             @can( 'acesso', 'PARCEIROS')
-                            <li><a href="{!! asset('parceiros') !!}">       <i class="fa fa-circle-o"></i> {!! trans('messages.t_parceiros') !!}</a></li>
+                            <li><a href="{!! asset('DFutebol\parceiros') !!}">       <i class="fa fa-circle-o"></i> {!! trans('messages.t_parceiros') !!}</a></li>
                             @endcan
 
                             @can( 'acesso', 'PE_DOMINANTE')

@@ -77,16 +77,6 @@ Route::group(['prefix'=>'posicoes', 'middleware' => 'auth'], function() {
 });
 
 
-Route::group(['prefix'=>'parceiros', 'middleware' => 'auth'], function() {
-    Route::get(''               , ['as' => 'parceiros'         , 'uses' => 'ParceirosController@index']);
-    Route::get ('_json'         , ['as' => 'parceiros._json'   , 'uses' => 'ParceirosController@_json']);
-    Route::get ('create'        , ['as' => 'parceiros.create'  , 'uses' => 'ParceirosController@create']);
-    Route::post('store'         , ['as' => 'parceiros.store'   , 'uses' => 'ParceirosController@store' ]);
-    Route::get ('edit/{id}'     , ['as' => 'parceiros.edit'    , 'uses' => 'ParceirosController@edit']);
-    Route::put ('update/{id}'   , ['as' => 'parceiros.update'  , 'uses' => 'ParceirosController@update' ]);
-    Route::get ('destroy/{id}'  , ['as' => 'parceiros.destroy' , 'uses' => 'ParceirosController@destroy']);
-});
-
 Route::group(['prefix'=>'motivo_ausencia', 'middleware' => 'auth'], function() {
     Route::get(''               , ['as' => 'motivo_ausencia'         , 'uses' => 'Motivo_AusenciaController@index']);
     Route::get ('_json'         , ['as' => 'motivo_ausencia._json'   , 'uses' => 'Motivo_AusenciaController@_json']);
@@ -207,6 +197,7 @@ Route::group(['prefix'=>'DFutebol', 'middleware' => 'auth'], function() {
     Route::resource('categorias'   , 'DFutebol\CategoriasController'        , ['except' => 'show']);
     Route::resource('cidades'      , 'DFutebol\CidadesController'           , ['except' => 'show']);
     Route::resource('localatividade', 'DFutebol\LocalAtividadeController'   , ['except' => 'show']);
+    Route::resource('parceiros'    , 'DFutebol\ParceirosController'         , ['except' => 'show']);
     Route::resource('paises'       , 'DFutebol\PaisesController'            , ['except' => 'show']);
 });
 

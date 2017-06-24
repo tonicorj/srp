@@ -2,9 +2,7 @@
 
 namespace SRP\Http\Controllers\DM;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
-
 use SRP\Http\Controllers\Controller;
 use SRP\Http\Requests\DM\Origem_LesaoRequest;
 use SRP\Models\DM\Origem_Lesao;
@@ -27,7 +25,7 @@ class Origem_LesaoController extends Controller
         $titulos = array( trans('messages.tit_origem_lesao') );
 
         return view('DM.origem_lesao.index')
-            ->with('origem', $origens)
+            ->with('origens', $origens)
             ->with('titulos', $titulos)
             ;
     }
@@ -72,8 +70,7 @@ class Origem_LesaoController extends Controller
 
     public function update(Origem_LesaoRequest $request, $id )
     {
-        $this->origem_lesao->find($id)->update($request->all());
-
+        Origem_Lesao::find($id)->update($request->all());
         \Session::flash('message', trans( 'messages.conf_origem_lesao_alt'));
         $url = $request->get('redirect_to', asset('DM.origem_lesao'));
         return redirect()->to($url);
@@ -87,7 +84,7 @@ class Origem_LesaoController extends Controller
      */
     public function destroy($id)
     {
-        $this->origem_lesao->find($id)->delete();
+        Origem_Lesao::find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_origem_lesao_exc'));
         return redirect()->to(URL::previous());
     }
