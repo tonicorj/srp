@@ -204,9 +204,10 @@ Route::group(['prefix'=>'DM', 'middleware' => 'auth'], function() {
 });
 
 Route::group(['prefix'=>'DFutebol', 'middleware' => 'auth'], function() {
-    Route::resource('categorias'   , 'DFutebol\CategoriasController'   , ['except' => 'show']);
-    Route::resource('cidades'      , 'DFutebol\CidadesController'      , ['except' => 'show']);
-    Route::resource('paises'       , 'DFutebol\PaisesController'       , ['except' => 'show']);
+    Route::resource('categorias'   , 'DFutebol\CategoriasController'        , ['except' => 'show']);
+    Route::resource('cidades'      , 'DFutebol\CidadesController'           , ['except' => 'show']);
+    Route::resource('localatividade', 'DFutebol\LocalAtividadeController'   , ['except' => 'show']);
+    Route::resource('paises'       , 'DFutebol\PaisesController'            , ['except' => 'show']);
 });
 
 Route::group(['prefix'=>'jogos', 'middleware' => 'auth'], function() {
@@ -224,7 +225,6 @@ Route::group(['prefix'=>'financeiro', 'middleware' => 'auth'], function() {
 Route::group(['middleware' => 'auth'], function(){
 
     Route::resource('janelas'                       , 'JanelasController'                   , ['except' => 'show']);
-    Route::resource('localatividade'                , 'LocalAtividadeController'            , ['except' => 'show']);
     Route::resource('marketing'                     , 'MarketingEventoController'           , ['except' => 'show']);
     Route::resource('marketingevento'               , 'MarketingEventoController'           , ['except' => 'show']);
     Route::resource('pedominante'                   , 'PeDominanteController'               , ['except' => 'show']);

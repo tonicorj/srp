@@ -169,7 +169,7 @@ header ('Content-type: text/html; charset=UTF-8');
                             @endcan
 
                             @can( 'acesso', 'LOCAL_ATIVIDADE')
-                            <li><a href="{!! asset('localatividade') !!}">  <i class="fa fa-circle-o"></i> {!! trans('messages.t_localatividade') !!}</a></li>
+                            <li><a href="{!! asset('DFutebol\localatividade') !!}">  <i class="fa fa-circle-o"></i> {!! trans('messages.t_localatividade') !!}</a></li>
                             @endcan
 
                             @can( 'acesso', 'PAISES')

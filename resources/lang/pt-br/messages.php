@@ -511,6 +511,9 @@ return [
 
     ,'crit_jogador_required' => 'É necessário selecionar um jogador.'
 
+    ,'crit_localatividade_required' => 'O local da atividade é obrigatório.'
+    ,'crit_localatividade_unique'   => 'Este local de atividade já está cadastrado.'
+
     ,'crit_motivoausencia_required' => 'O motivo de ausência é obrigatório.'
     ,'crit_motivoausencia_unique'   => 'Este motivo de ausência já está cadastrado.'
 

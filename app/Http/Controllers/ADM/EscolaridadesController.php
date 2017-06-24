@@ -102,7 +102,7 @@ class EscolaridadesController extends Controller
     public function update($id, escolaridadesRequest $request)
     {
         $this->escolaridade->find($id)->update($request->all());
-        \Session::flash('message', trans( 'messages.conf_escolaridades_alt'));
+        \Session::flash('message', trans( 'messages.conf_escolaridade_alt'));
         $url = $request->get('redirect_to', asset('adm/escolaridades'));
         return redirect()->to($url);
     }
@@ -116,7 +116,7 @@ class EscolaridadesController extends Controller
     public function destroy($id)
     {
         $this->escolaridade->find($id)->delete();
-        \Session::flash('message', trans( 'messages.conf_escolaridades_exc'));
+        \Session::flash('message', trans( 'messages.conf_escolaridade_exc'));
         return redirect()->to(asset('adm/escolaridades'));
     }
 }
