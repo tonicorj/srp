@@ -25,23 +25,12 @@ class PerfilPermissao extends Model
         $_sql .= ' WHERE ID_PERFIL = ' . $perfil;
         $_sql .= '   AND ID_ACTION = ' . $action;
 
-        /*
-        $Sand = '';
-        if (is_array($action)){
-            $s = '(';
-            $Sand = '   AND ID_ACTION in ';
-            foreach ($action as $item) {
-                $Sand = $Sand . $s . $item;
-                $s = ',';
-            }
-            $Sand = $Sand . ')';
+        if ($action > 399) {
+            return true;
         }
         else {
-            $Sand = '   AND ID_ACTION = ' . $nivel_acesso;
+            $reg = DB::select($_sql);
+            return ($reg[0]->NIVEL_ACESSO == 1);
         }
-        $reg = DB::query($Ssql . $Sand);
-        */
-        $reg = DB::select($_sql);
-        return ($reg[0]->NIVEL_ACESSO == 1);
     }
 }

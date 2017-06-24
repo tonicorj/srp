@@ -130,8 +130,6 @@ header ('Content-type: text/html; charset=UTF-8');
                     , array( 'JOGADORES'
                         , 'ATIVIDADES'
                         , 'CIDADES'
-                        , 'ESCOLARIDADES'
-                        , 'ESTADOCIVIL'
                         , 'JANELAS'
                         , 'LOCAL_ATIVIDADE'
                         , 'PAISES'
@@ -166,14 +164,6 @@ header ('Content-type: text/html; charset=UTF-8');
                                 <li><a href="{!! asset('DFutebol\cidades') !!}">           <i class="fa fa-circle-o"></i> {!! trans('messages.t_cidades') !!}</a></li>
                             @endcan
 
-                            @can( 'acesso', 'ESCOLARIDADES')
-                            <li><a href="{!! asset('escolaridades') !!}">   <i class="fa fa-circle-o"></i> {!! trans('messages.t_escolaridades') !!}</a></li>
-                            @endcan
-
-                            @can( 'acesso', 'ESTADOCIVIL')
-                            <li><a href="{!! asset('estadocivil') !!}">     <i class="fa fa-circle-o"></i> {!! trans('messages.t_estadocivil') !!}</a></li>
-                            @endcan
-
                             @can( 'acesso', 'JANELAS')
                             <li><a href="{!! asset('janelas') !!}">         <i class="fa fa-circle-o"></i> {!! trans('messages.t_janelas') !!}</a></li>
                             @endcan
@@ -205,7 +195,17 @@ header ('Content-type: text/html; charset=UTF-8');
                     </li>
                     @endcan
 
-                    @can( 'acesso', array( 'FUNCIONARIOS', 'MOTIVO DE AUSENCIA',  'CARGOS', 'TIPO CONTRATO', 'OCORRENCIAS_JOGADORES', 'PROJETOS', 'ALOJAMENTOS' ) )
+                    @can( 'acesso'
+                        , array( 'FUNCIONARIOS'
+                            , 'ESCOLARIDADES'
+                            , 'ESTADOCIVIL'
+                            , 'MOTIVO DE AUSENCIA'
+                            ,  'CARGOS'
+                            , 'TIPO CONTRATO'
+                            , 'OCORRENCIAS_JOGADORES'
+                            , 'PROJETOS'
+                            , 'ALOJAMENTOS'
+                        ) )
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-dashboard"></i>
@@ -225,6 +225,14 @@ header ('Content-type: text/html; charset=UTF-8');
 
                             @can( 'acesso', 'DEPARTAMENTOS')
                                 <li><a href="{!! asset('adm/departamentos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_departamento') !!}</a></li>
+                            @endcan
+
+                            @can( 'acesso', 'ESCOLARIDADES')
+                                <li><a href="{!! asset('adm\escolaridades') !!}">   <i class="fa fa-circle-o"></i> {!! trans('messages.t_escolaridades') !!}</a></li>
+                            @endcan
+
+                            @can( 'acesso', 'ESTADOCIVIL')
+                                <li><a href="{!! asset('adm\estadocivil') !!}">     <i class="fa fa-circle-o"></i> {!! trans('messages.t_estadocivil') !!}</a></li>
                             @endcan
 
                             @can( 'acesso', 'MOTIVO_AUSENCIA')

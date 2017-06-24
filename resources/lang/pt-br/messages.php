@@ -178,7 +178,7 @@ return [
     ,'tit_escolareclassificado' => 'Reclassificado'
     ,'tit_escolaserie'      => 'Série'
     ,'tit_escolaturma'      => 'Turma'
-    ,'tit_escolaridade'     => 'Escolaridade'
+    ,'tit_escolaridades'    => 'Escolaridades'
 
     ,'tit_escolahistorico' => 'Histórico Escolar'
     ,'tit_escolatransf'    => 'Transferência'
@@ -379,7 +379,7 @@ return [
     ,'t_dmacompanha'            => 'Acompanhamento DM'
 
     ,'t_escopo'                 => 'Escopo'
-    ,'t_escolaridades'          => 'Escolaridades'
+    ,'t_escolaridade'           => 'Escolaridades'
     ,'t_estadocivil'            => 'Estado Civil'
     ,'t_eventos'                => 'Eventos'
     ,'t_eventosJogadores'       => 'Jogadores que participam do evento'
@@ -499,8 +499,8 @@ return [
     ,'crit_escola_serie_required'=> 'A série é obritatória.'
     ,'crit_escola_turma_required'=> 'A turma é obrigatória.'
 
-    ,'crit_escolaridade_required' => 'A escolaridade é obrigatória.'
-    ,'crit_escolaridade_unique'   => 'Esta escolaridade já está cadastrada.'
+    ,'crit_escolaridade_required' => 'A escolaridades é obrigatória.'
+    ,'crit_escolaridade_unique'   => 'Esta escolaridades já está cadastrada.'
 
     ,'crit_exame_required' => 'O exame é obrigatório.'
     ,'crit_exame_unique' => 'Este exame já está cadastrado.'
@@ -611,9 +611,17 @@ return [
     , 'conf_dmacompanha_alt' => 'Acompanhamento alterado com sucesso.'
     , 'conf_dmacompanha_exc' => 'Acompanhamento excluído com sucesso.'
 
+    , 'conf_escolaridade_inc' =>  'Escolaridade incluído com sucesso.'
+    , 'conf_escolaridade_alt' =>  'Escolaridade alterado com sucesso.'
+    , 'conf_escolaridade_exc' =>  'Escolaridade excluído com sucesso.'
+
     , 'conf_escopo_inc'     =>  'Escopo incluído com sucesso.'
     , 'conf_escopo_alt'     =>  'Escopo alterado com sucesso.'
     , 'conf_escopo_exc'     =>  'Escopo excluído com sucesso.'
+
+    , 'conf_estadocivil_inc' =>  'Estado Civil incluído com sucesso.'
+    , 'conf_estadocivil_alt' =>  'Estado Civil alterado com sucesso.'
+    , 'conf_estadocivil_exc' =>  'Estado Civil excluído com sucesso.'
 
     , 'conf_evento_inc'     =>  'Evento incluído com sucesso.'
     , 'conf_evento_alt'     =>  'Evento alterado com sucesso.'

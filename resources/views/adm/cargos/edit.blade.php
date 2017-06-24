@@ -23,14 +23,15 @@
 
             @include ('adm.cargos._form')
 
-            <div class="form-group">
-                <div class="col-lg-1">
-                    {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success pull-left']) !!}
-                </div>
-                <div class="col-lg-1">
-                    <a href="{{ asset('adm/cargos') }}" class="btn btn-sm btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
-                </div>
-            </div>
+            <ul class="list-inline form-group">
+                <li>
+                    {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
+                </li>
+                <li></li>
+                <li>
+                    <a href="{{ asset('adm/cargos') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                </li>
+            </ul>
 
             {!! Form::close() !!}
         </div>

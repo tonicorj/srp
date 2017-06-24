@@ -12,7 +12,7 @@ use SRP\Jogadores;
 use SRP\JogadorFoto;
 use SRP\Models\DFutebol\Paises;
 use SRP\Escolaridades;
-use SRP\Estadocivil;
+use SRP\estadocivil;
 use SRP\Parceiros;
 
 use SRP\helpers;
@@ -58,7 +58,7 @@ class JogadoresController extends Controller
     public function create() {
         $paises         = Paises::orderBy('PAIS_NOME', 'asc')->pluck('PAIS_NOME', 'ID_PAIS');
         $escolaridades  = Escolaridades::orderBy('ESCOLARIDADE_DESCRICAO', 'asc')->pluck('ESCOLARIDADE_DESCRICAO', 'ID_ESCOLARIDADE');
-        $estadocivil    = Estadocivil::orderBy('ESTADOCIVIL_DESCRICAO', 'asc')->pluck('ESTADOCIVIL_DESCRICAO', 'ID_ESTADOCIVIL');
+        $estadocivil    = estadocivil::orderBy('ESTADOCIVIL_DESCRICAO', 'asc')->pluck('ESTADOCIVIL_DESCRICAO', 'ID_ESTADOCIVIL');
         $parceiros      = Parceiros::orderBy('PARCEIRO_NOME', 'asc')->pluck('PARCEIRO_NOME', 'ID_PARCEIRO');
         $foto           = $this->foto_padrao;
 
@@ -110,10 +110,10 @@ class JogadoresController extends Controller
 
         // registros de pa�ses
         $p      = Paises::orderBy('PAIS_NOME', 'asc')->pluck('PAIS_NOME', 'ID_PAIS');
-        // registro de escolaridade
+        // registro de escolaridades
         $escolaridades = Escolaridades::orderBy('ESCOLARIDADE_DESCRICAO', 'asc')->pluck('ESCOLARIDADE_DESCRICAO', 'ID_ESCOLARIDADE');
         // registro de estado civil
-        $estadocivil   = Estadocivil::orderBy('ESTADOCIVIL_DESCRICAO', 'asc')->pluck('ESTADOCIVIL_DESCRICAO', 'ID_ESTADOCIVIL');
+        $estadocivil   = estadocivil::orderBy('ESTADOCIVIL_DESCRICAO', 'asc')->pluck('ESTADOCIVIL_DESCRICAO', 'ID_ESTADOCIVIL');
         // registro de parceiros
         $parceiros     = Parceiros::orderBy('PARCEIRO_NOME', 'asc')->pluck('PARCEIRO_NOME', 'ID_PARCEIRO');
 

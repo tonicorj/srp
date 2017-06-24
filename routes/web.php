@@ -77,26 +77,6 @@ Route::group(['prefix'=>'posicoes', 'middleware' => 'auth'], function() {
 });
 
 
-Route::group(['prefix'=>'escolaridades', 'middleware' => 'auth'], function() {
-    Route::get(''               , ['as' => 'escolaridades'         , 'uses' => 'EscolaridadesController@index']);
-    Route::get ('_json'         , ['as' => 'escolaridades._json'   , 'uses' => 'EscolaridadesController@_json']);
-    Route::get ('create'        , ['as' => 'escolaridades.create'  , 'uses' => 'EscolaridadesController@create']);
-    Route::post('store'         , ['as' => 'escolaridades.store'   , 'uses' => 'EscolaridadesController@store' ]);
-    Route::get ('edit/{id}'     , ['as' => 'escolaridades.edit'    , 'uses' => 'EscolaridadesController@edit']);
-    Route::put ('update/{id}'   , ['as' => 'escolaridades.update'  , 'uses' => 'EscolaridadesController@update' ]);
-    Route::get ('destroy/{id}'  , ['as' => 'escolaridades.destroy' , 'uses' => 'EscolaridadesController@destroy']);
-});
-
-Route::group(['prefix'=>'estadocivil', 'middleware' => 'auth'], function() {
-    Route::get(''               , ['as' => 'estadocivil'         , 'uses' => 'EstadocivilController@index']);
-    Route::get ('_json'         , ['as' => 'estadocivil._json'   , 'uses' => 'EstadocivilController@_json']);
-    Route::get ('create'        , ['as' => 'estadocivil.create'  , 'uses' => 'EstadocivilController@create']);
-    Route::post('store'         , ['as' => 'estadocivil.store'   , 'uses' => 'EstadocivilController@store' ]);
-    Route::get ('edit/{id}'     , ['as' => 'estadocivil.edit'    , 'uses' => 'EstadocivilController@edit']);
-    Route::put ('update/{id}'   , ['as' => 'estadocivil.update'  , 'uses' => 'EstadocivilController@update' ]);
-    Route::get ('destroy/{id}'  , ['as' => 'estadocivil.destroy' , 'uses' => 'EstadocivilController@destroy']);
-});
-
 Route::group(['prefix'=>'parceiros', 'middleware' => 'auth'], function() {
     Route::get(''               , ['as' => 'parceiros'         , 'uses' => 'ParceirosController@index']);
     Route::get ('_json'         , ['as' => 'parceiros._json'   , 'uses' => 'ParceirosController@_json']);
@@ -161,14 +141,15 @@ Route::group(['prefix'=>'quadroatividades', 'middleware' => 'auth'], function() 
 
 // Administrativo
 Route::group(['prefix'=>'adm', 'middleware' => 'auth'], function() {
-    Route::resource('alojamentos', 'adm\AlojamentosController'    , ['except' => 'show']);
-    Route::resource('atividadesAdm', 'adm\atividadesAdmController', ['except' => 'show']);
-
-    Route::resource('departamentos', 'adm\DepartamentosController', ['except' => 'show']);
-    Route::resource('cargos', 'adm\CargosController', ['except' => 'show' ]);
-    Route::resource('funcionarios', 'adm\FuncionariosController', ['except' => 'show']);
-    Route::resource('ocorrencias', 'adm\ocorrenciasController', ['except' => 'show']);
+    Route::resource('alojamentos', 'adm\AlojamentosController'      , ['except' => 'show']);
+    Route::resource('atividadesAdm', 'adm\atividadesAdmController'  , ['except' => 'show']);
+    Route::resource('cargos', 'adm\CargosController'                , ['except' => 'show']);
+    Route::resource('departamentos', 'adm\DepartamentosController'  , ['except' => 'show']);
+    Route::resource('escolaridades', 'adm\escolaridadesController'  , ['except' => 'show']);
+    Route::resource('estadocivil', 'adm\estadocivilController'      , ['except' => 'show']);
+    Route::resource('funcionarios', 'adm\FuncionariosController'    , ['except' => 'show']);
     Route::resource('motivoAusencia', 'adm\motivoAusenciaController', ['except' => 'show']);
+    Route::resource('ocorrencias', 'adm\ocorrenciasController'      , ['except' => 'show']);
 });
 
 Route::group(['prefix'=>'pedagogia', 'middleware' => 'auth'], function() {

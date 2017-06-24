@@ -2,23 +2,26 @@
 
 namespace SRP\Http\Controllers\ADM;
 
-use Illuminate\Http\Request;
-
-use SRP\Http\Requests\EscolaridadesRequest;
-use SRP\Models\ADM\Escolaridades;
-use DB;
+use SRP\Models\ADM\escolaridades;
+use Illuminate\Routing\Controller;
+use SRP\Http\Requests\ADM\EscolaridadesRequest;
 
 class EscolaridadesController extends Controller
 {
     private $escolaridade;
 
-    public function __construct(Escolaridades $escolaridade) {
+    public function __construct(escolaridades $escolaridade) {
         $this->escolaridade = $escolaridade;
     }
 
-    public function index(Request $request) {
-
-        $escolaridades = Escolaridades::query()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $escolaridades = escolaridades::query()
             ->orderBy('ESCOLARIDADE_DESCRICAO', 'ASC')
             ->get();
 
@@ -30,43 +33,90 @@ class EscolaridadesController extends Controller
             ;
     }
 
-    public function create() {
-        return view('adm.escolaridades.create')
-            ;
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('adm.escolaridades.create');
     }
 
-    public function store(EscolaridadesRequest $request) {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(escolaridadesRequest $request)
+    {
         $input = $request->all();
+        //return dd($input);
 
-        // define o c�digo novo
-        $reg = DB::select('select max(ID_ESCOLARIDADE) as id from ESCOLARIDADE ');
-        $id = $reg[0]->id;
+        // define o codigo novo
+        $id = BuscaProximoCodigo('ESCOLARIDADE');
 
-        if ($id == null)
-            $id = 0;
-        $id = $id+ 1;
+        // pega o próximo codigo
+        if ($id != null)
+            $input['ID_ESCOLARIDADE'] = $id;
+        $this->escolaridade->create($input);
 
-        // pega o pr�ximo codigo
-        $input['ID_ESCOLARIDADE'] = $id;
-
-        $this->escolaridades->create($input);
-        return view('escolaridades.index');
+        \Session::flash('message', trans('messages.conf_escolaridade_inc'));
+        $url = $request->get('redirect_to', asset('adm/escolaridades'));
+        return redirect()->to($url);
     }
 
-    public  function edit($id) {
-        $escolaridades = $this->escolaridades->find($id);
-        return view ('escolaridades.edit')
-            ->with('escolaridades', $escolaridades )
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $escolaridade = $this->escolaridade->find($id);
+        return view ('adm.escolaridades.edit')
+            ->with('escolaridade', $escolaridade )
             ;
     }
 
-    public function update($id, EscolaridadesRequest $request) {
-        $this->escolaridades->find($id)->update($request->all());
-        return view('escolaridades.index');
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id, escolaridadesRequest $request)
+    {
+        $this->escolaridade->find($id)->update($request->all());
+        \Session::flash('message', trans( 'messages.conf_escolaridades_alt'));
+        $url = $request->get('redirect_to', asset('adm/escolaridades'));
+        return redirect()->to($url);
     }
 
-    public function destroy($id) {
-        $this->escolaridades->find($id)->delete();
-        return;
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $this->escolaridade->find($id)->delete();
+        \Session::flash('message', trans( 'messages.conf_escolaridades_exc'));
+        return redirect()->to(asset('adm/escolaridades'));
     }
 }

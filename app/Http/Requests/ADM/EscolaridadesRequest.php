@@ -1,6 +1,6 @@
 <?php
 
-namespace SRP\Http\Requests;
+namespace SRP\Http\Requests\ADM;
 
 use Illuminate\Foundation\Http\FormRequest;
 use SRP\PerfilPermissao;
@@ -28,7 +28,7 @@ class EscolaridadesRequest extends FormRequest
         $id = $reg ? $reg : NULL;
 
         return [
-            'ESCOLARIDADE_DESCRICAO'   => "required|min:3|unique:ESCOLARIDADE_DESCRICAO,ESCOLARIDADE,$id,ID_ESCOLARIDADE",
+            'ESCOLARIDADE_DESCRICAO'   => "required|min:3|unique:ESCOLARIDADE,ESCOLARIDADE_DESCRICAO,$id,ID_ESCOLARIDADE",
         ];
     }
 
