@@ -4,7 +4,7 @@
     <div class="col-lg-7">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>{!! trans('messages.t_cargo') !!}</h4>
+                <h4>{!! trans('messages.t_cidades') !!}</h4>
             </div>
             <div class="panel-body">
                 @if ($errors->any())
@@ -16,13 +16,13 @@
                 @endif
 
                 {!! Form::open(
-                    ['route'=>'cargos.store'
+                    ['route'=>'cidades.store'
                     ,'method'=>'post'
                     , 'id'=>'form_'
                     , 'data-toggle'=>"validator"
                     , 'role'=>"form"
                     ]) !!}
-                @include ('adm.cargos._form')
+                @include ('adm.cidades._form')
 
                 <ul class="list-inline form-group">
                     <li>
@@ -30,7 +30,7 @@
                     </li>
                     <li></li>
                     <li>
-                        <a href="{{ asset('adm/cargos') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                        <a href="{{ asset('adm/cidades') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
                     </li>
                 </ul>
 

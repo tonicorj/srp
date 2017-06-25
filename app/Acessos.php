@@ -38,9 +38,11 @@ function AcaoCodigo($nome){
 
         case 'MOTIVO_AUSENCIA'                          : $codigo = 93;     break;
 
+        case 'POSICAO'                                  : $codigo = 102;    break;
+
         case 'CARGOS'                                   : $codigo = 114;    break;
 
-        case 'TIPO CONTRATO'                            : $codigo = 123;    break;
+        case 'TIPO_CONTRATO'                            : $codigo = 123;    break;
         case 'JOGADORES EM OBSERVACAO'                  : $codigo = 124;    break;
 
         case 'DEPARTAMENTOS'                            : $codigo = 148;    break;
@@ -92,7 +94,7 @@ function AcaoCodigo($nome){
         case "TIPO_FASE"                                : $codigo = 405;    break;
     }
 
-    //C:\inetpub\wwwroot\srp\resources\views\marketingevento\index.blade.php
+    //C:\inetpub\wwwroot\srp\resources\views\marketingevento\OLD_index.blade.php
     // retorna o n�mero das telas
     //$codigo = ( $nome == 'JOGADORES')?1:$codigo;
     $codigo = ( $nome == 'ELENCO'                                   )?3:$codigo;
@@ -179,7 +181,6 @@ function AcaoCodigo($nome){
     $codigo = ( $nome == '�RBITROS'                                 )?99:$codigo;
     $codigo = ( $nome == 'CATEGORIAS'                               )?100:$codigo;
     $codigo = ( $nome == 'REL.CONTAS'                               )?101:$codigo;
-    $codigo = ( $nome == 'POSI��O'                                  )?102:$codigo;
     $codigo = ( $nome == 'ATIVIDADES'                               )?103:$codigo;
     $codigo = ( $nome == 'REL.MOTIVO AUS�NCIA'                      )?104:$codigo;
     $codigo = ( $nome == 'REL.MOTIVO CART�O'                        )?105:$codigo;

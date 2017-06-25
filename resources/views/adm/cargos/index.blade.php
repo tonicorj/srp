@@ -133,7 +133,7 @@
             });
 
             $('.dataTables_filter input').addClass('form-control pull-right');
-            $('.dataTables_filter input').attr('placeholder', 'Pesquisa');
+            $('.dataTables_filter input').attr('placeholder', '{!!  trans('messages.pesquisa') !!}');
 
             // rotina para selecionar a linha
             $('#tbl_ tbody').on('click', 'tr', function () {

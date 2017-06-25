@@ -2,36 +2,36 @@
 @extends('template')
 
 @section('content')
-    <div class="col-lg-7">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4>{!! trans('messages.tit_localatividade') !!}</h4>
-            </div>
-            <div class="panel-body">
-                <table class='table table-striped' id="tbl_">
-                    <thead>
-                    <tr>
-                        @foreach ($titulos as $tit)
-                            <th>{{$tit}}</th>
-                        @endforeach
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($local as $reg)
-                        <tr>
-                            {!! Form::open(['route' => [ 'localatividade.destroy' ,'id' => $reg->ID_LOCAL_ATIVIDADE]
-                            , 'method' =>'DELETE'
-                            , 'id' => "delete-form-{$reg->ID_LOCAL_ATIVIDADE}"
-                            , 'style' => 'display:none'
-                            ]) !!}
-                            {!! Form::close() !!}
-                            <td>{{$reg->ID_LOCAL_ATIVIDADE}}</td>
-                            <td>{{$reg->LOCAL_ATIVIDADE_DESCRICAO}}</td>
-                        </tr>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>{!! trans('messages.t_posicoes') !!}</h4>
+        </div>
+        <div class="panel-body">
+            <table class='table table-striped' id="tbl_">
+                <thead>
+                <tr>
+                    @foreach ($titulos as $tit)
+                        <th>{{$tit}}</th>
                     @endforeach
-                    </tbody>
-                </table>
-            </div>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($posicoes as $reg)
+                    <tr>
+                        {!! Form::open(['route' => [ 'posicoes.destroy' ,'id' => $reg->POSICAO]
+                        , 'method' =>'DELETE'
+                        , 'id' => "delete-form-{$reg->POSICAO}"
+                        , 'style' => 'display:none'
+                        ]) !!}
+                        {!! Form::close() !!}
+                        <td>{{$reg->POSICAO}}</td>
+                        <td>{{$reg->POSICAO_DESCRICAO}}</td>
+                        <td>{{$reg->POSICAO_ORDEM}}</td>
+                        <td>{{$reg->POSICAO_CAMPO}}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -45,17 +45,13 @@
                 "ordering": true,
                 "info": false,
                 "autoWidth": true,
-                "columnDefs": [
-                    {"visible": false, "targets": [0]}
-                    //,{"visible": false, "targets": [0]}
-                ],
                 dom: 'Bfrtip',
                 buttons: [
                     {
                         "className": "{!! trans('messages.i_incluir')!!}",
                         "titleAttr": "{!! trans('messages.inclusao')!!}",
                         "action": function (e, dt, node, config) {
-                            location.href = "{!! asset('DFutebol/localatividade/create') !!}";
+                            location.href = "{!! asset('DFutebol/posicoes/create') !!}";
                         }
                     },
                     {
@@ -70,7 +66,7 @@
                             else {
                                 // pega o código
                                 id = dados[0];
-                                url = '{{ asset('DFutebol/localatividade')  }}/' + id + '/edit';
+                                url = '{{ asset('DFutebol/posicoes')  }}/' + id + '/edit';
                                 location.href = url;
                             }
                         }
@@ -93,7 +89,7 @@
 
                                 bootbox.dialog({
                                     title: "{!! trans('messages.exclusao') !!}",
-                                    message: "{!! trans('messages.exc_localatividade') !!}" + _descr + "?",
+                                    message: "{!! trans('messages.exc_posicoes') !!}" + _descr + "?",
                                     buttons: {
                                         yes: {
                                             label: "Sim",
@@ -135,7 +131,7 @@
             });
 
             $('.dataTables_filter input').addClass('form-control pull-right');
-            $('.dataTables_filter input').attr('placeholder', 'Pesquisa');
+            $('.dataTables_filter input').attr('placeholder', '{!!  trans('messages.pesquisa') !!}');
 
             // rotina para selecionar a linha
             $('#tbl_ tbody').on('click', 'tr', function () {

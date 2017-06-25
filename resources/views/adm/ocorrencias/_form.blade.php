@@ -25,7 +25,7 @@
 <div class="row">
     <div class="form-group col-lg-5">
         {!! Form::label('ID_JOGADOR' , trans('messages.tit_jogador')) !!}
-        {!! Form::text('ID_JOGADOR', null, ['class'=>'form-control input-md']) !!}
+        {!! Form::hidden('ID_JOGADOR', null, ['class'=>'form-control input-md']) !!}
         {!! Form::text('JOG_NOME'  , null, ['class'=>'form-control input-md', 'id' => 'JOG_NOME']) !!}
     </div>
 </div>

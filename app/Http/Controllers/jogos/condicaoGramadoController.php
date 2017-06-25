@@ -2,11 +2,9 @@
 
 namespace SRP\Http\Controllers\jogos;
 
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use SRP\Models\jogos\CondicaoGramado;
 use SRP\Http\Requests\jogos\CondicaoGramadoRequest;
-
 
 class condicaoGramadoController extends Controller
 {
@@ -33,8 +31,6 @@ class condicaoGramadoController extends Controller
             ->with('condicoes', $condicoes)
             ->with('titulos', $titulos)
             ;
-
-        return view('condicaogramado.index');
     }
 
     /**

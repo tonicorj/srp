@@ -73,5 +73,6 @@ class ParceirosController extends Controller
     public function destroy($id) {
         Parceiros::find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_parceiros_exc'));
-        return redirect()->to(asset('DFutebol/parceiros'));    }
+        return redirect()->to(asset('DFutebol/parceiros'));
+    }
 }

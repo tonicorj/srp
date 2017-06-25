@@ -129,19 +129,16 @@ header ('Content-type: text/html; charset=UTF-8');
                     @can( 'acesso'
                     , array( 'JOGADORES'
                         , 'ATIVIDADES'
-                        , 'CIDADES'
                         , 'JANELAS'
                         , 'LOCAL_ATIVIDADE'
-                        , 'PAISES'
                         , 'PARCEIROS'
                         , 'PE_DOMINANTE'
-                        , 'SELECAO'
                         , 'QUADRO_ATIVIDADES'
                         , 'CATEGORIA'
                         ) )
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-dashboard"></i>
+                            <i class="fa fa-soccer-ball-o"></i>
                             <span>{!! trans('messages.t_dep_futebol') !!}</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -154,42 +151,53 @@ header ('Content-type: text/html; charset=UTF-8');
                             @can( 'acesso', 'JOGADORES')
                             <li><a href="{!! asset('jogadores') !!}"><i class="fa fa-user"></i> {!! trans('messages.t_jogadores') !!}</a></li>
                             @endcan
-                            @can( 'acesso', 'ATIVIDADES')
-                            <li><a href="{!! asset('adm\atividades') !!}"><i class="fa fa-tag"></i> {!! trans('messages.t_atividade') !!}</a></li>
-                            @endcan
                             @can( 'acesso', 'CATEGORIA')
                                <li><a href="{!! asset('DFutebol\categorias') !!}"><i class="fa fa-sort-alpha-asc"></i> {!! trans('messages.t_categoria') !!}</a></li>
                             @endcan
-                            @can( 'acesso', 'CIDADES')
-                                <li><a href="{!! asset('DFutebol\cidades') !!}"><i class="fa fa-circle-o"></i> {!! trans('messages.t_cidades') !!}</a></li>
-                            @endcan
-
                             @can( 'acesso', 'JANELAS')
-                            <li><a href="{!! asset('janelas') !!}"><i class="fa fa-circle-o"></i> {!! trans('messages.t_janelas') !!}</a></li>
-                            @endcan
-
-                            @can( 'acesso', 'LOCAL_ATIVIDADE')
-                            <li><a href="{!! asset('DFutebol\localatividade') !!}">  <i class="fa fa-map-marker"></i> {!! trans('messages.t_localatividade') !!}</a></li>
-                            @endcan
-
-                            @can( 'acesso', 'PAISES')
-                            <li><a href="{!! asset('DFutebol\paises') !!}">          <i class="fa fa-circle-o"></i> {!! trans('messages.t_paises') !!}</a></li>
+                            <li><a href="{!! asset('DFutebol\janelas') !!}"><i class="fa fa-exchange"></i> {!! trans('messages.t_janelas') !!}</a></li>
                             @endcan
 
                             @can( 'acesso', 'PARCEIROS')
                             <li><a href="{!! asset('DFutebol\parceiros') !!}">       <i class="fa fa-user-secret"></i> {!! trans('messages.t_parceiros') !!}</a></li>
                             @endcan
 
-                            @can( 'acesso', 'PE_DOMINANTE')
-                            <li><a href="{!! asset('pedominante') !!}">       <i class="fa fa-circle-o"></i> {!! trans('messages.t_pedominante') !!}</a></li>
-                            @endcan
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-tag"></i> {!! trans('messages.cadastros') !!}
+                                    <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    @can( 'acesso', 'ATIVIDADES')
+                                        <li>
+                                            <a href="{!! asset('adm\atividades') !!}">
+                                                <i class="fa fa-tag"></i> {!! trans('messages.t_atividade') !!}
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    @can( 'acesso', 'LOCAL_ATIVIDADE')
+                                        <li>
+                                            <a href="{!! asset('DFutebol\localatividade') !!}">
+                                                <i class="fa fa-map-marker"></i> {!! trans('messages.t_localatividade') !!}
+                                            </a>
+                                        </li>
+                                    @endcan
+                                    @can( 'acesso', 'PE_DOMINANTE')
+                                        <li><a href="{!! asset('DFutebol\pedominante') !!}"><i class="fa fa-arrows-h"></i> {!! trans('messages.t_pedominante') !!}</a></li>
+                                    @endcan
 
-                            <li>Cadastros
-                            <ul class="treeview-menu">
-                                @can( 'acesso', 'SELECAO')
-                                <li><a href="{!! asset('selecoes') !!}">       <i class="fa fa-circle-o"></i> {!! trans('messages.t_selecao') !!}</a></li>
-                                @endcan
-                            </ul>
+                                    @can( 'acesso', 'POSICAO')
+                                        <li><a href="{!! asset('DFutebol\posicoes') !!}"><i class="fa fa-map-pin"></i> {!! trans('messages.t_posicoes') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'SELECAO')
+                                        <li>
+                                            <a href="{!! asset('DFutebol/selecoes') !!}">
+                                                <i class="fa fa-flag-o"></i> {!! trans('messages.t_selecao') !!}
+                                            </a>
+                                        </li>
+                                    @endcan
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -197,86 +205,106 @@ header ('Content-type: text/html; charset=UTF-8');
 
                     @can( 'acesso'
                         , array( 'FUNCIONARIOS'
+                            , 'ALOJAMENTOS'
+                            , 'CARGOS'
+                            , 'CIDADES'
                             , 'ESCOLARIDADES'
                             , 'ESTADOCIVIL'
                             , 'MOTIVO DE AUSENCIA'
-                            ,  'CARGOS'
-                            , 'TIPO CONTRATO'
                             , 'OCORRENCIAS_JOGADORES'
+                            , 'PAISES'
                             , 'PROJETOS'
-                            , 'ALOJAMENTOS'
+                            , 'SELECAO'
+                            , 'TIPO_CONTRATO'
                         ) )
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-dashboard"></i>
+                            <i class="glyphicon glyphicon-inbox"></i>
                             <span>{!! trans('messages.t_administrativo') !!}</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
+                            @can( 'acesso', 'OCORRENCIAS_JOGADORES')
+                                <li><a href="{!! asset('adm/ocorrencias') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_ocorrencias_jog') !!}</a></li>
+                            @endcan
+
                             @can( 'acesso', 'ALOJAMENTOS')
                                 <li><a href="{!! asset('adm/alojamentos') !!}">     <i class="fa fa-hotel"></i> {!! trans('messages.t_alojamento') !!}</a></li>
                             @endcan
 
                             @can( 'acesso', 'FUNCIONARIOS')
-                                <li><a href="{!! asset('adm/funcionarios') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_funcionarios') !!}</a></li>
+                                <li>
+                                    <a href="{!! asset('adm/funcionarios') !!}">
+                                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i> {!! trans('messages.t_funcionarios') !!}
+                                    </a>
+                                </li>
                             @endcan
 
-                            @can( 'acesso', 'DEPARTAMENTOS')
-                                <li><a href="{!! asset('adm/departamentos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_departamento') !!}</a></li>
-                            @endcan
-
-                            @can( 'acesso', 'ESCOLARIDADES')
-                                <li><a href="{!! asset('adm\escolaridades') !!}">   <i class="fa fa-graduation-cap"></i> {!! trans('messages.t_escolaridade') !!}</a></li>
-                            @endcan
-
-                            @can( 'acesso', 'ESTADOCIVIL')
-                                <li><a href="{!! asset('adm\estadocivil') !!}">     <i class="fa fa-tag"></i> {!! trans('messages.t_estadocivil') !!}</a></li>
-                            @endcan
-
-                            @can( 'acesso', 'MOTIVO_AUSENCIA')
-                                <li><a href="{!! asset('adm/motivoAusencia') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_motivoAusencia') !!}</a></li>
-                            @endcan
-
-                            @can( 'acesso', 'CARGOS')
-                            <li><a href="{!! asset('adm/cargos') !!}">          <i class="fa fa-tag"></i> {!! trans('messages.t_cargo') !!}</a></li>
-                            @endcan
-
-                            @can( 'acesso', 'TIPO CONTRATO')
-                            <li><a href="{!! asset('tipo_contrato') !!}">   <i class="fa fa-circle-o"></i> {!! trans('messages.t_tipo_contrato') !!}</a></li>
-                            @endcan
-
-                            @can( 'acesso', 'OCORRENCIAS_JOGADORES')
-                            <li><a href="{!! asset('adm/ocorrencias') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_ocorrencias_jog') !!}</a></li>
-                            @endcan
-
-                            @can( 'acesso', 'PROJETOS')
-                            <li><a href="{!! asset('projetos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_projeto') !!}</a></li>
-                            @endcan
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-tag"></i> {!! trans('messages.cadastros') !!}
+                                    <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    @can( 'acesso', 'CIDADES')
+                                        <li><a href="{!! asset('adm/cidades') !!}"><i class="fa fa-industry"></i> {!! trans('messages.t_cidades') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'CARGOS')
+                                        <li><a href="{!! asset('adm/cargos') !!}"><i class="fa fa-tag"></i> {!! trans('messages.t_cargo') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'DEPARTAMENTOS')
+                                        <li><a href="{!! asset('adm/departamentos') !!}"><i class="fa fa-building"></i> {!! trans('messages.t_departamento') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'ESCOLARIDADES')
+                                        <li><a href="{!! asset('adm\escolaridades') !!}"><i class="fa fa-graduation-cap"></i> {!! trans('messages.t_escolaridade') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'ESTADOCIVIL')
+                                        <li><a href="{!! asset('adm\estadocivil') !!}"><i class="fa fa-tag"></i> {!! trans('messages.t_estadocivil') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'MOTIVO_AUSENCIA')
+                                        <li><a href="{!! asset('adm/motivoAusencia') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_motivoAusencia') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'PAISES')
+                                        <li><a href="{!! asset('adm\paises') !!}"><i class="fa fa-globe"></i> {!! trans('messages.t_paises') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'TIPO_CONTRATO')
+                                        <li><a href="{!! asset('contratos/tipocontrato') !!}">   <i class="fa fa-hand-pointer-o"></i> {!! trans('messages.t_tipo_contrato') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'PROJETOS')
+                                        <li>
+                                            <a href="{!! asset('projetos') !!}">
+                                                <i class="fa fa-circle-o"></i> {!! trans('messages.t_projeto') !!}
+                                            </a>
+                                        </li>
+                                    @endcan
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     @endcan
                     @can( 'acesso', array( 'JOGADORES EM OBSERVACAO' ) )
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-dashboard"></i>
-                            <span>{!! trans('messages.t_observacao') !!}</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            @can( 'acesso', 'JOGADORES EM OBSERVACAO')
-                            <li><a href="{!! asset('jogadoresObservacao') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_jogobservacao') !!}</a></li>
-                            @endcan
-                        </ul>
-                    </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-search"></i>
+                                <span>{!! trans('messages.t_observacao') !!}</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                @can( 'acesso', 'JOGADORES EM OBSERVACAO')
+                                <li><a href="{!! asset('jogadoresObservacao') !!}"> <i class="fa fa-search-plus"></i> {!! trans('messages.t_jogobservacao') !!}</a></li>
+                                @endcan
+                            </ul>
+                        </li>
                     @endcan
                     @can( 'acesso', array( 'CIRURGIAS', 'EXAMES', 'ORIGEM_LESAO', 'PARTE_CORPO', 'TIPO_LESAO') )
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-dashboard"></i>
+                                <i class="fa fa-ambulance"></i>
                                 <span>{!! trans('messages.tit_depmedico') !!}</span>
                                 <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -284,30 +312,39 @@ header ('Content-type: text/html; charset=UTF-8');
                             </a>
                             <ul class="treeview-menu">
                                 @can( 'acesso', 'REGISTRO_DM')
-                                    <li><a href="{!! asset('DM/depmedico') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_dep_medico') !!}</a></li>
+                                    <li><a href="{!! asset('DM/depmedico') !!}"> <i class="fa fa-user-md"></i> {!! trans('messages.t_dep_medico') !!}</a></li>
                                 @endcan
-                                @can( 'acesso', 'CIRURGIAS')
-                                    <li><a href="{!! asset('DM/cirurgias') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_cirurgias') !!}</a></li>
-                                @endcan
-                                @can( 'acesso', 'EXAMES')
-                                <li><a href="{!! asset('DM/exames') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_exames') !!}</a></li>
-                                @endcan
-                                @can( 'acesso', 'ORIGEM_LESAO')
-                                <li><a href="{!! asset('DM/origem_lesao') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_origem_lesao') !!}</a></li>
-                                @endcan
-                                @can( 'acesso', 'PARTE_CORPO')
-                                <li><a href="{!! asset('DM/parte_corpo') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_parte_corpo') !!}</a></li>
-                                @endcan
-                                @can( 'acesso', 'TIPO_LESAO')
-                                <li><a href="{!! asset('DM/tipo_lesao') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_tipo_lesao') !!}</a></li>
-                                @endcan
+                                <li class="treeview">
+                                    <a href="#"><i class="fa fa-tag"></i> {!! trans('messages.cadastros') !!}
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        @can( 'acesso', 'CIRURGIAS')
+                                            <li><a href="{!! asset('DM/cirurgias') !!}"> <i class="fa fa-heartbeat"></i> {!! trans('messages.t_cirurgias') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'EXAMES')
+                                            <li><a href="{!! asset('DM/exames') !!}"> <i class="fa fa-stethoscope"></i> {!! trans('messages.t_exames') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'ORIGEM_LESAO')
+                                            <li><a href="{!! asset('DM/origem_lesao') !!}"> <i class="fa fa-plus-square"></i> {!! trans('messages.t_origem_lesao') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'PARTE_CORPO')
+                                            <li><a href="{!! asset('DM/parte_corpo') !!}"> <i class="fa fa-medkit"></i> {!! trans('messages.t_parte_corpo') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'TIPO_LESAO')
+                                            <li><a href="{!! asset('DM/tipo_lesao') !!}"> <i class="fa fa-plus-square"></i> {!! trans('messages.t_tipo_lesao') !!}</a></li>
+                                        @endcan
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                     @endcan
                     @can( 'acesso', array( 'TIPO_CONTAS', 'CONTAS' ) )
-                    <li class="treeview">
+                        <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-dashboard"></i>
+                            <i class="fa fa-money"></i>
                             <span>{!! trans('messages.t_financeiro') !!}</span>
                                 <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -315,52 +352,70 @@ header ('Content-type: text/html; charset=UTF-8');
                         </a>
                         <ul class="treeview-menu">
                             @can( 'acesso', 'CONTAS')
-                                <li><a href="{!! asset('financeiro/contas') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_contas') !!}</a></li>
+                                <li><a href="{!! asset('financeiro/contas') !!}"> <i class="fa fa-money"></i> {!! trans('messages.t_contas') !!}</a></li>
                             @endcan
                             @can( 'acesso', 'TIPO_CONTAS')
-                                <li><a href="{!! asset('financeiro/tipocontas') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_tipoconta') !!}</a></li>
+                                <li><a href="{!! asset('financeiro/tipocontas') !!}"> <i class="fa fa-sitemap"></i> {!! trans('messages.t_tipoconta') !!}</a></li>
                             @endcan
                         </ul>
                     </li>
                     @endcan
-                    @can( 'acesso', array( 'CONDICAO_TEMPO', 'CONDICAO_GRAMADO', 'ESCOPO', 'PONTUACAO', 'TECNICOS', 'TIPO_FASE', 'TIPO_CAMPEONATO' ) )
+                    @can( 'acesso'
+                        , array ( 'CONDICAO_TEMPO'
+                            , 'CONDICAO_GRAMADO'
+                            , 'ESCOPO'
+                            , 'PONTUACAO'
+                            , 'TECNICOS'
+                            , 'TIPO_FASE'
+                            , 'TIPO_CAMPEONATO'
+                            )
+                        )
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-dashboard"></i>
+                                <i class="fa fa-calendar"></i>
                                 <span>{!! trans('messages.t_jogos') !!}</span>
                                 <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                             </a>
                             <ul class="treeview-menu">
-                                @can( 'acesso', 'CONDICAO_GRAMADO')
-                                    <li><a href="{!! asset('jogos/condicaogramado') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_condicaogramado') !!}</a></li>
-                                @endcan
-                                @can( 'acesso', 'CONDICAO_TEMPO')
-                                    <li><a href="{!! asset('jogos/condicaotempo') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_condicaotempo') !!}</a></li>
-                                @endcan
-                                @can( 'acesso', 'ESCOPO')
-                                    <li><a href="{!! asset('jogos/escopos') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_escopo') !!}</a></li>
-                                @endcan
-                                @can( 'acesso', 'TIPO_FASE')
-                                    <li><a href="{!! asset('tipofase') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_tipofase') !!}</a></li>
-                                @endcan
-                                @can( 'acesso', 'PONTUACAO')
-                                    <li><a href="{!! asset('pontuacoes') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_pontuacao') !!}</a></li>
-                                @endcan
-                                @can( 'acesso', 'TECNICOS')
-                                    <li><a href="{!! asset('tecnicos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_tecnicos') !!}</a></li>
-                                @endcan
-                                @can( 'acesso', 'TIPO_CAMPEONATO')
-                                    <li><a href="{!! asset('tipocampeonato') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_tipocampeonato') !!}</a></li>
-                                @endcan
+                                <li class="treeview">
+                                    <a href="#"><i class="fa fa-tag"></i> {!! trans('messages.cadastros') !!}
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        @can( 'acesso', 'CONDICAO_GRAMADO')
+                                            <li><a href="{!! asset('jogos/condicaogramado') !!}"> <i class="fa fa-asterisk"></i> {!! trans('messages.t_condicaogramado') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'CONDICAO_TEMPO')
+                                            <li><a href="{!! asset('jogos/condicaotempo') !!}"><i class="fa fa-umbrella" aria-hidden="true"></i> {!! trans('messages.t_condicaotempo') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'ESCOPO')
+                                            <li><a href="{!! asset('jogos/escopos') !!}"> <i class="fa fa-bullseye"></i> {!! trans('messages.t_escopo') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'TIPO_FASE')
+                                            <li><a href="{!! asset('jogos/tipofase') !!}"> <i class="fa fa-code-fork"></i> {!! trans('messages.t_tipofase') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'PONTUACAO')
+                                            <li><a href="{!! asset('pontuacao') !!}"> <i class="fa fa-sort-numeric-asc"></i> {!! trans('messages.t_pontuacao') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'TECNICOS')
+                                            <li><a href="{!! asset('tecnicos') !!}"> <i class="glyphicon glyphicon-paste"></i> {!! trans('messages.t_tecnicos') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'TIPO_CAMPEONATO')
+                                            <li><a href="{!! asset('tipocampeonato') !!}"> <i class="fa fa-trophy"></i> {!! trans('messages.t_tipocampeonato') !!}</a></li>
+                                        @endcan
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                     @endcan
                     @can( 'acesso', array( 'TIPO_ACAO', 'MARKETING_EVENTO' ) )
-                    <li class="treeview">
+                        <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-dashboard"></i>
+                            <i class="fa fa-line-chart"></i>
                             <span>{!! trans('messages.t_marketing') !!}</span>
                                 <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -368,10 +423,10 @@ header ('Content-type: text/html; charset=UTF-8');
                         </a>
                         <ul class="treeview-menu">
                             @can( 'acesso', 'CONTAS')
-                                <li><a href="{!! asset('tipoacao') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_tipoacao') !!}</a></li>
+                                <li><a href="{!! asset('tipoacao') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_tipoacao') !!}</a></li>
                             @endcan
                             @can( 'acesso', 'MARKETING_EVENTO')
-                                <li><a href="{!! asset('marketingevento') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_marketingevento') !!}</a></li>
+                                <li><a href="{!! asset('marketingevento') !!}"> <i class="fa fa-calendar-check-o"></i> {!! trans('messages.t_marketingevento') !!}</a></li>
                             @endcan
                         </ul>
                     </li>
@@ -380,7 +435,7 @@ header ('Content-type: text/html; charset=UTF-8');
                     @can( 'acesso', array( 'ATIVIDADES_NUTRICAO', 'ORIGEM_NUTRICAO', 'SUPLEMENTOS', 'ATENDIMENTO_NUTRICAO' ) )
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-dashboard"></i>
+                                <i class="fa fa-cutlery"></i>
                                 <span>{!! trans('messages.t_nutricao') !!}</span>
                                 <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -388,24 +443,24 @@ header ('Content-type: text/html; charset=UTF-8');
                             </a>
                             <ul class="treeview-menu">
                                 @can( 'acesso', 'ATENDIMENTO_NUTRICAO')
-                                    <li><a href="{!! asset('nutricao/atendimentoNutricao') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_atendimentoNutricao') !!}</a></li>
+                                    <li><a href="{!! asset('nutricao/atendimentoNutricao') !!}"> <i class="fa fa-calendar"></i> {!! trans('messages.t_atendimentoNutricao') !!}</a></li>
                                 @endcan
                                 @can( 'acesso', 'ATIVIDADES_NUTRICAO')
-                                    <li><a href="{!! asset('nutricao/atividadesNutricao') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_atividadenutricao') !!}</a></li>
+                                    <li><a href="{!! asset('nutricao/atividadesNutricao') !!}"> <i class="fa fa-cutlery"></i> {!! trans('messages.t_atividadenutricao') !!}</a></li>
                                 @endcan
                                 @can( 'acesso', 'ORIGEM_NUTRICAO')
-                                    <li><a href="{!! asset('nutricao/origemNutricao') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_origemnutricao') !!}</a></li>
+                                    <li><a href="{!! asset('nutricao/origemNutricao') !!}"> <i class="fa fa-retweet"></i> {!! trans('messages.t_origemnutricao') !!}</a></li>
                                 @endcan
                                 @can( 'acesso', 'SUPLEMENTOS')
-                                <li><a href="{!! asset('nutricao/suplementos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_suplementos') !!}</a></li>
+                                <li><a href="{!! asset('nutricao/suplementos') !!}"> <i class="fa fa-plus-circle"></i> {!! trans('messages.t_suplementos') !!}</a></li>
                                 @endcan
                             </ul>
                         </li>
                     @endcan
                     @can( 'acesso', array( 'ATIVIDADES_PEDAGOGICAS' ) )
-                    <li class="treeview">
+                        <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-dashboard"></i>
+                            <i class="fa fa-mortar-board"></i>
                             <span>{!! trans('messages.t_pedagogia') !!}</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -413,39 +468,56 @@ header ('Content-type: text/html; charset=UTF-8');
                         </a>
                         <ul class="treeview-menu">
                             @can( 'acesso', 'ATIVIDADES_PEDAGOGICAS')
-                                <li><a href="{!! asset('pedagogia/atividadesped') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_atividadepedagogicas') !!}</a></li>
+                                <li><a href="{!! asset('pedagogia/atividadesped') !!}"> <i class="fa fa-calendar"></i> {!! trans('messages.t_atividadepedagogicas') !!}</a></li>
                             @endcan
                         </ul>
                     </li>
                     @endcan
                     @can( 'acesso', array( 'PSICOLOGIA', 'PSICOLOGIA_FUNC', 'PSICOLOGIA_GRUPOS', 'ATIVIDADES_PSICOLOGIA', 'ORIGEM_PSICOLOGIA' ) )
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-dashboard"></i>
-                            <span>{!! trans('messages.t_psicologia') !!}</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            @can( 'acesso', 'PSICOLOGIA')
-                                <li><a href="{!! asset('psicologia/atendimentopsic') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_atendimentopsic') !!}</a></li>
-                            @endcan
-                            @can( 'acesso', 'PSICOLOGIA_FUNC')
-                                <li><a href="{!! asset('psicologia/atendimentopsic_func') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_atendimentopsic_func') !!}</a></li>
-                            @endcan
-
-                                @can( 'acesso', 'PSICOLOGIA_GRUPOS')
-                                    <li><a href="{!! asset('psicologia/atendimentopsic_grupo') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_atendimentopsic_grupo') !!}</a></li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-comment-o"></i>
+                                <span>{!! trans('messages.t_psicologia') !!}</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                @can( 'acesso', 'PSICOLOGIA')
+                                    <li>
+                                        <a href="{!! asset('psicologia/atendimentopsic') !!}">
+                                            <i class="fa fa-calendar"></i> {!! trans('messages.t_atendimentopsic') !!}
+                                        </a>
+                                    </li>
                                 @endcan
-                            @can( 'acesso', 'ATIVIDADES_PSICOLOGIA')
-                                <li><a href="{!! asset('psicologia/atividades') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_atividadepsicologia') !!}</a></li>
-                            @endcan
-                            @can( 'acesso', 'ORIGEM_PSICOLOGIA')
-                                <li><a href="{!! asset('psicologia/origem') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_origempsicologia') !!}</a></li>
-                            @endcan
-                        </ul>
-                    </li>
+                                @can( 'acesso', 'PSICOLOGIA_FUNC')
+                                    <li>
+                                        <a href="{!! asset('psicologia/atendimentopsic_func') !!}">
+                                            <i class="glyphicon glyphicon-user"></i> {!! trans('messages.t_atendimentopsic_func') !!}
+                                        </a>
+                                    </li>
+                                @endcan
+                                <li class="treeview">
+                                    <a href="#"><i class="fa fa-tag"></i> {!! trans('messages.cadastros') !!}
+                                        <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        @can( 'acesso', 'PSICOLOGIA_GRUPOS')
+                                            <li><a href="{!! asset('psicologia/atendimentopsic_grupo') !!}"> <i class="fa fa-users"></i> {!! trans('messages.t_atendimentopsic_grupo') !!}</a></li>
+                                        @endcan
+
+                                        @can( 'acesso', 'ATIVIDADES_PSICOLOGIA')
+                                            <li><a href="{!! asset('psicologia/atividades') !!}"> <i class="fa fa-bullhorn"></i> {!! trans('messages.t_atividadepsicologia') !!}</a></li>
+                                        @endcan
+                                        @can( 'acesso', 'ORIGEM_PSICOLOGIA')
+                                            <li><a href="{!! asset('psicologia/origem') !!}"> <i class="fa fa-share-square"></i> {!! trans('messages.t_origempsicologia') !!}</a></li>
+                                        @endcan
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     @endcan
                     @can( 'acesso', array( 'ATENDIMENTO_SS'
                         , 'ATENDIMENTO_SS_FUNC'
@@ -457,45 +529,74 @@ header ('Content-type: text/html; charset=UTF-8');
                         , 'ATIVIDADES_SERVICO_SOCIAL'
                         , 'ORIGEM_SERVSOCIAL'
                         , 'MOTIVO_AUSENCIA_ESCOLAR') )
-                    <li class="treeview">
+                        <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-dashboard"></i>
+                            <i class="glyphicon glyphicon-pushpin"></i>
                             <span>{!! trans('messages.t_servicosocial') !!}</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            @can( 'acesso', 'ATENDIMENTO_SS')
-                                <li><a href="{!! asset('SSocial/atendimentoSS') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_atendimentoSS') !!}</a></li>
-                            @endcan
-                            @can( 'acesso', 'ATENDIMENTO_SS_FUNC')
-                                <li><a href="{!! asset('SSocial/atendimentoSS_func') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_atendimentoSS_func') !!}</a></li>
-                            @endcan
-                            @can( 'acesso', 'ATENDIMENTOS_GRUPOS')
-                                <li><a href="{!! asset('SSocial/atendimentoSS_grupos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_atendimentoSS_grupos') !!}</a></li>
-                            @endcan
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-calendar"></i> {!! trans('messages.atendimentos') !!}
+                                    <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    @can( 'acesso', 'ATENDIMENTO_SS')
+                                        <li><a href="{!! asset('SSocial/atendimentoSS') !!}"> <i class="fa fa-calendar"></i> {!! trans('messages.t_atendimentoSS') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'ATENDIMENTO_SS_FUNC')
+                                        <li><a href="{!! asset('SSocial/atendimentoSS_func') !!}"> <i class="glyphicon glyphicon-user"></i> {!! trans('messages.t_atendimentoSS_func') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'ATENDIMENTOS_GRUPOS')
+                                        <li><a href="{!! asset('SSocial/atendimentoSS_grupos') !!}"> <i class="fa fa-users"></i> {!! trans('messages.t_atendimentoSS_grupos') !!}</a></li>
+                                    @endcan
+                                </ul>
+                            </li>
+
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-graduation-cap"></i> {!! trans('messages.escolas') !!}
+                                    <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    @can( 'acesso', 'HISTORICO_ESCOLAR_SS')
+                                        <li><a href="{!! asset('SSocial/historicoescolar') !!}"> <i class="fa fa-signal"></i> {!! trans('messages.t_historicoescolar') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'AUSENCIA_ESCOLAR')
+                                        <li><a href="{!! asset('SSocial/ausenciaescolar') !!}"> <i class="fa fa-calendar-times-o"></i> {!! trans('messages.t_ausenciaescolar') !!}</a></li>
+                                    @endcan
+                                </ul>
+                            </li>
                             @can( 'acesso', 'CURSOS_EXTRAS')
-                                <li><a href="{!! asset('SSocial/cursosextras') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_cursosextras') !!}</a></li>
-                            @endcan
-                            @can( 'acesso', 'HISTORICO_ESCOLAR_SS')
-                                    <li><a href="{!! asset('SSocial/historicoescolar') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_historicoescolar') !!}</a></li>
-                            @endcan
-                            @can( 'acesso', 'AUSENCIA_ESCOLAR')
-                                <li><a href="{!! asset('SSocial/ausenciaescolar') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_ausenciaescolar') !!}</a></li>
+                                <li><a href="{!! asset('SSocial/cursosextras') !!}"> <i class="fa fa-gamepad"></i> {!! trans('messages.t_cursosextras') !!}</a></li>
                             @endcan
                             @can( 'acesso', 'EVENTOS')
-                                    <li><a href="{!! asset('SSocial/eventos') !!}"> <i class="fa fa-circle-o"></i> {!! trans('messages.t_eventos') !!}</a></li>
+                                <li><a href="{!! asset('SSocial/eventos') !!}"> <i class="glyphicon glyphicon-ice-lolly-tasted"></i> {!! trans('messages.t_eventos') !!}</a></li>
                             @endcan
-                            @can( 'acesso', 'ATIVIDADES_SERVICO_SOCIAL')
-                                <li><a href="{!! asset('SSocial/atividadesSS') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_atividadeSS') !!}</a></li>
-                            @endcan
-                            @can( 'acesso', 'MOTIVO_AUSENCIA_ESCOLAR')
-                                <li><a href="{!! asset('SSocial/motivoAusenciaEscolar') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_motivoAusencia') !!}</a></li>
-                            @endcan
-                            @can( 'acesso', 'ORIGEM_SERVSOCIAL')
-                                <li><a href="{!! asset('SSocial/origemservsocial') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_origemservsocial') !!}</a></li>
-                            @endcan
+
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-tag"></i> {!! trans('messages.cadastros') !!}
+                                    <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    @can( 'acesso', 'ATIVIDADES_SERVICO_SOCIAL')
+                                        <li><a href="{!! asset('SSocial/atividadesSS') !!}"> <i class="fa fa-bullhorn"></i> {!! trans('messages.t_atividadeSS') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'MOTIVO_AUSENCIA_ESCOLAR')
+                                        <li><a href="{!! asset('SSocial/motivoAusenciaEscolar') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_motivoAusencia') !!}</a></li>
+                                    @endcan
+                                    @can( 'acesso', 'ORIGEM_SERVSOCIAL')
+                                        <li><a href="{!! asset('SSocial/origemservsocial') !!}"> <i class="fa fa-tag"></i> {!! trans('messages.t_origemservsocial') !!}</a></li>
+                                    @endcan
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     @endcan

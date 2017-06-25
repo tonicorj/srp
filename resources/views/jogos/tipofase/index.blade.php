@@ -2,10 +2,10 @@
 @extends('template')
 
 @section('content')
-    <div class="col-lg-7">
+    <div class="col-lg-8">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>{!! trans('messages.tit_localatividade') !!}</h4>
+                <h4>{!! trans('messages.t_tipofase') !!}</h4>
             </div>
             <div class="panel-body">
                 <table class='table table-striped' id="tbl_">
@@ -17,16 +17,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($local as $reg)
+                    @foreach ($tipos as $reg)
                         <tr>
-                            {!! Form::open(['route' => [ 'localatividade.destroy' ,'id' => $reg->ID_LOCAL_ATIVIDADE]
+                            {!! Form::open(['route' => [ 'tipofase.destroy' ,'id' => $reg->ID_TIPOFASE]
                             , 'method' =>'DELETE'
-                            , 'id' => "delete-form-{$reg->ID_LOCAL_ATIVIDADE}"
+                            , 'id' => "delete-form-{$reg->ID_TIPOFASE}"
                             , 'style' => 'display:none'
                             ]) !!}
                             {!! Form::close() !!}
-                            <td>{{$reg->ID_LOCAL_ATIVIDADE}}</td>
-                            <td>{{$reg->LOCAL_ATIVIDADE_DESCRICAO}}</td>
+                            <td>{{$reg->ID_TIPOFASE}}</td>
+                            <td>{{$reg->TFASE_DESCRICAO}}</td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -34,7 +34,6 @@
             </div>
         </div>
     </div>
-
     <script>
         $(document).ready(function () {
             $('#tbl_').DataTable({
@@ -55,7 +54,7 @@
                         "className": "{!! trans('messages.i_incluir')!!}",
                         "titleAttr": "{!! trans('messages.inclusao')!!}",
                         "action": function (e, dt, node, config) {
-                            location.href = "{!! asset('DFutebol/localatividade/create') !!}";
+                            location.href = "{!! asset('jogos/tipofase/create') !!}";
                         }
                     },
                     {
@@ -70,7 +69,7 @@
                             else {
                                 // pega o código
                                 id = dados[0];
-                                url = '{{ asset('DFutebol/localatividade')  }}/' + id + '/edit';
+                                url = '{{ asset('jogos/tipofase')  }}/' + id + '/edit';
                                 location.href = url;
                             }
                         }
@@ -93,7 +92,7 @@
 
                                 bootbox.dialog({
                                     title: "{!! trans('messages.exclusao') !!}",
-                                    message: "{!! trans('messages.exc_localatividade') !!}" + _descr + "?",
+                                    message: "{!! trans('messages.exc_tipofase') !!}" + _descr + "?",
                                     buttons: {
                                         yes: {
                                             label: "Sim",
@@ -135,7 +134,7 @@
             });
 
             $('.dataTables_filter input').addClass('form-control pull-right');
-            $('.dataTables_filter input').attr('placeholder', 'Pesquisa');
+            $('.dataTables_filter input').attr('placeholder', '{!!  trans('messages.pesquisa') !!}');
 
             // rotina para selecionar a linha
             $('#tbl_ tbody').on('click', 'tr', function () {
@@ -150,4 +149,5 @@
 
         });
     </script>
+
 @stop

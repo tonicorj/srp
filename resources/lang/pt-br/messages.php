@@ -5,6 +5,10 @@ return [
     ,'alteracao' => 'Alteração'
     ,'exclusao'  => 'Exclusão'
     ,'copiar'    => 'Copiar'
+    ,'pesquisa'  => 'Pesquisa'
+    ,'cadastros' => 'Cadastros'
+    ,'atendimentos' => 'Atendimentos'
+    ,'escolas'   => 'Escolas'
 
     ,'sim'  => 'Sim'
     ,'nao'  => 'Não'
@@ -15,6 +19,7 @@ return [
 
     // mensagens de exclusão
     ,'exc_jogador'          => 'Confima a exclusão do jogador '
+
     ,'exc_alojamento'       => 'Confirma exclusão do alojamento '
     ,'exc_atendimento_dia'  => 'Conforma exclusão do atendimento do dia '
     ,'exc_atendimento'      => 'Conforma exclusão do atendimento do atleta '
@@ -48,7 +53,9 @@ return [
     ,'exc_funcionario'      => 'Confirma exclusão do funcionário '
 
     ,'exc_historicoescolar' => 'Confirma exclusão do histórico escolar deste jogador: '
+
     ,'exc_janela'           => 'Confirma exclusão da janela '
+
     ,'exc_localatividade'   => 'Confirma exclusão do tipo de atividade '
     ,'exc_marketingevento'  => 'Confirma exclusão do tipo de evento '
     ,'exc_motivoAusencia'   => 'Confirma exclusão do motivo de ausência '
@@ -225,7 +232,7 @@ return [
     ,'tit_idade'            => 'Idade'
     ,'tit_id'               => 'ID'
 
-    ,'tit_janela'           => 'Janelas'
+    ,'tit_janela'           => 'Nome da Janela'
     ,'tit_janela_inicio'    => 'Início'
     ,'tit_janela_final'     => 'Final'
     ,'tit_jogador'          => 'Jogador'
@@ -267,8 +274,8 @@ return [
 
     ,'tit_pais'             => 'País'
     ,'tit_paisnatal'        => 'País Natal'
-    ,'tit_paisnome'         => 'Nome do País'
-    ,'tit_paissigla'        => 'Sigla'
+    ,'tit_pais_nome'        => 'Nome do País'
+    ,'tit_pais_sigla'       => 'Sigla'
 
     ,'tit_parceiro'             => 'Parceiro'
     ,'tit_parceiro_celular'     => 'Celular'
@@ -283,8 +290,20 @@ return [
     ,'tit_perfil'           => 'Perfil'
     ,'tit_perc_gordura'     => '% Gordura'
     ,'tit_peso'             => 'Peso'
+
     ,'tit_pontuacao'        => 'Pontuação'
+    ,'tit_pontuacao_vitoria'=> 'Pt.Vit'
+    ,'tit_pontuacao_empate' => 'Pt.Emp'
+    ,'tit_pontuacao_empate0'=> 'Pt.Emp 0'
+    ,'tit_pontuacao_vitoria_penalti' => 'Pt.Vit.Pênalti'
+    ,'tit_pontuacao_diferenca_gols'  => 'Dif.Gols'
+    ,'tit_pontuacao_vitoria_gols'    => 'Pt.Dif.Gols'
+
     ,'tit_posicao'          => 'Posição'
+    ,'tit_posicao_sigla'    => 'Sigla'
+    ,'tit_posicao_ordem'    => 'Ordem'
+    ,'tit_posicao_campo'    => 'Pos.Campo'
+
     ,'tit_posicoes'         => 'Posições'
     ,'tit_projeto'          => 'Projetos'
     ,'tit_projeto_valor'    => 'Valor do Projeto'
@@ -336,6 +355,8 @@ return [
     ,'tit_tipoconta_nome'   => 'Descrição'
     ,'tit_tipoconta_tipo'   => 'Tipo'
     ,'tit_tipoconta_num'    => 'Número'
+
+    ,'tit_tipoContrato'    => 'Tipo de Contrato'
 
     ,'tit_tipofase'         => 'Fases'
     ,'tit_tipo_lesao'       => 'Tipo de Lesão'
@@ -477,7 +498,8 @@ return [
     ,'crit_categoria_required' => 'A categoria é um campo obrigatório.'
     ,'crit_categoria_unique'   => 'Esta categoria já está cadastrada.'
 
-    ,'crit_cidade_required'   => 'A cidade é um campo obrigatório.'
+    ,'crit_cidade_required' => 'A cidade é um campo obrigatório.'
+    ,'crit_cidade_min'      => 'A cidade deve ter no mínimo 3 caracteres.'
 
     ,'crit_cirurgia_required' => 'A cirurgia é um campo obrigatório.'
     ,'crit_cirurgia_unique'   => 'Esta cirurgia já está cadastrada.'
@@ -516,6 +538,12 @@ return [
 
     ,'crit_funcionario_nome_required' => 'Nome do Funcionário é obrigatório.'
 
+    ,'crit_janela_required' => 'O nome da janela é obrigatória.'
+    ,'crit_janela_unique'   => 'Este janela já está cadastrada.'
+
+    ,'crit_janela_inicio_required'  => 'O início da janela é obrigatória.'
+    ,'crit_janela_final_required'   => 'O final da janela é obrigatória.'
+
     ,'crit_jogador_required' => 'É necessário selecionar um jogador.'
 
     ,'crit_localatividade_required' => 'O local da atividade é obrigatório.'
@@ -534,22 +562,35 @@ return [
     ,'crit_origem_lesao_required' => 'A origem da lesão é obrigatória.'
 
     ,'crit_pais_required'       => 'O país é obrigatório.'
+
     ,'crit_paisnome_required'   => 'O nome do país é obrigatório.'
     ,'crit_paisnome_unique'     => 'Este país já está cadastrado.'
+    ,'crit_paisnome_min'        => 'O nome do país deve ter no mínimo 3 caracteres.'
+
     ,'crit_paissigla_required'  => 'A sigla do país é obrigatória.'
     ,'crit_paissigla_unique'    => 'Esta sigla já está cadastrada.'
+    ,'crit_paissigla_min'       => 'A sigla do país deve ter no mínimo 3 caracteres.'
 
     ,'crit_parte_corpo_required' => 'A parte do corpo é obrigatório.'
     ,'crit_parte_corpo_unique' => 'Esta parte do corpo já está cadastrada.'
 
+    ,'crit_posicao_required'    => 'A sigla da posição é obrigatória.'
+    ,'crit_posicao_unique'      => 'Esta sigla já está cadastrada.'
+    ,'crit_posicao_descricao_required'  => 'A posição é obrigatória.'
+    ,'crit_posicao_ordem_required'      => 'A ordem é obrigatória.'
+    ,'crit_posicao_campo_required'      => 'A posição do campo é obrigatória.'
+
     ,'crit_prontuario_data_required' => 'A data do prontuário é obrigatória.'
 
     ,'crit_suplemento_required' => 'O nome do suplemento é obrigatório.'
-    ,'crit_suplemento_unique' => 'O suplemento já está cadastrado.'
+    ,'crit_suplemento_unique'   => 'O suplemento já está cadastrado.'
 
     ,'crit_tipoconta_required' => 'O tipo de conta é obrigatório.'
     ,'crit_tipoconta_unique' => 'Este tipo de conta já está cadastrado.'
     ,'crit_tipoconta_numrequired' => 'O número do tipo de conta é obrigatório.'
+
+    ,'crit_tipofase_required'   => 'O tipo de fase é obrigatório.'
+    ,'crit_tipofase_unique'     => 'Este tipo de fase já está cadastrado.'
 
     ,'crit_tipo_lesao_required' => 'O tipo de lesão é obrigatório.'
     ,'crit_tipo_lesao_unique' => 'Esta tipo de lesão já está cadastrada.'
@@ -645,6 +686,10 @@ return [
     , 'conf_funcionario_alt' => 'Funcionário alterado com sucesso.'
     , 'conf_funcionario_exc' => 'Funcionário excluído com sucesso.'
 
+    , 'conf_janela_inc'    => 'Janela incluída com sucesso.'
+    , 'conf_janela_alt'    => 'Janela alterada com sucesso.'
+    , 'conf_janela_exc'    => 'Janela excluída com sucesso.'
+
     , 'conf_jogador_inc'    => 'Jogador incluído com sucesso.'
     , 'conf_jogador_alt'    => 'Jogador alterado com sucesso.'
     , 'conf_jogador_exc'    => 'Jogador excluído com sucesso.'
@@ -685,6 +730,10 @@ return [
     , 'conf_parte_corpo_alt' => 'Parte do corpo alterado com sucesso.'
     , 'conf_parte_corpo_exc' => 'Parte do corpo excluído com sucesso.'
 
+    , 'conf_posicoes_inc'   => 'Posição incluída com sucesso.'
+    , 'conf_posicoes_alt'   => 'Posição alterada com sucesso.'
+    , 'conf_posicoes_exc'   => 'Posição excluída com sucesso.'
+
     , 'conf_prontuario_inc' => 'Prontuário incluído com sucesso.'
     , 'conf_prontuario_alt' => 'Prontuário alterado com sucesso.'
     , 'conf_prontuario_exc' => 'Prontuário excluído com sucesso.'
@@ -696,6 +745,10 @@ return [
     , 'conf_tipoconta_inc'  => 'Tipo de conta incluída com sucesso.'
     , 'conf_tipoconta_alt'  => 'Tipo de conta alterada com sucesso.'
     , 'conf_tipoconta_exc'  => 'Tipo de conta excluída com sucesso.'
+
+    , 'conf_tipofase_inc'   => 'Fase incluída com sucesso.'
+    , 'conf_tipofase_alt'   => 'Fase alterada com sucesso.'
+    , 'conf_tipofase_exc'   => 'Fase excluída com sucesso.'
 
     , 'conf_tipo_lesao_inc'  => 'Tipo de lesão incluída com sucesso.'
     , 'conf_tipo_lesao_alt'  => 'Tipo de lesão alterada com sucesso.'

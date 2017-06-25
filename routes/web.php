@@ -32,23 +32,6 @@ Route::group(['prefix'=>'teste', 'middleware' => 'auth'], function() {
     Route::get ('destroy/{id}'  , ['as' => 'teste.destroy'  , 'uses' => 'TesteController@destroy']);
 });
 
-/*
-
- Route::group(['prefix'=>'cidades', 'middleware' => 'auth'], function() {
-    Route::get('autocomplete', ['as' => 'cidades.autocomplete', 'uses' => 'TesteController@autocomplete']);
-});
-
-Route::group(['prefix'=>'alojamentos', 'middleware' => 'auth'], function() {
-    Route::get(''               , ['as' => 'alojamentos'         , 'uses' => 'AlojamentosController@index']);
-    Route::get ('_json'         , ['as' => 'alojamentos._json'   , 'uses' => 'AlojamentosController@_json']);
-    Route::get ('create'        , ['as' => 'alojamentos.create'  , 'uses' => 'AlojamentosController@create']);
-    Route::post('store'         , ['as' => 'alojamentos.store'   , 'uses' => 'AlojamentosController@store' ]);
-    Route::get ('edit/{id}'     , ['as' => 'alojamentos.edit'    , 'uses' => 'AlojamentosController@edit']);
-    Route::put ('update/{id}'   , ['as' => 'alojamentos.update'  , 'uses' => 'AlojamentosController@update' ]);
-    Route::get ('destroy/{id}'  , ['as' => 'alojamentos.destroy' , 'uses' => 'AlojamentosController@destroy']);
-});
-*/
-
 Route::group(['prefix'=>'jogadores', 'middleware' => 'auth'], function() {
     Route::get(''               , ['as' => 'jogadores'         , 'uses' => 'JogadoresController@index']);
     Route::get ('_json'         , ['as' => 'jogadores._json'   , 'uses' => 'JogadoresController@_json']);
@@ -66,17 +49,6 @@ Route::group(['prefix'=>'jogadorfoto', 'middleware' => 'auth'], function() {
     Route::get ('foto/{id}'     , ['as' => 'jogadorfoto.foto'    , 'uses' => 'JogadorFotoController@foto']);
 });
 
-Route::group(['prefix'=>'posicoes', 'middleware' => 'auth'], function() {
-    Route::get(''               , ['as' => 'posicoes'         , 'uses' => 'PosicoesController@index']);
-    Route::get ('_json'         , ['as' => 'posicoes._json'   , 'uses' => 'PosicoesController@_json']);
-    Route::get ('create'        , ['as' => 'posicoes.create'  , 'uses' => 'PosicoesController@create']);
-    Route::post('store'         , ['as' => 'posicoes.store'   , 'uses' => 'PosicoesController@store' ]);
-    Route::get ('edit/{id}'     , ['as' => 'posicoes.edit'    , 'uses' => 'PosicoesController@edit']);
-    Route::put ('update/{id}'   , ['as' => 'posicoes.update'  , 'uses' => 'PosicoesController@update' ]);
-    Route::get ('destroy/{id}'  , ['as' => 'posicoes.destroy' , 'uses' => 'PosicoesController@destroy']);
-});
-
-
 Route::group(['prefix'=>'motivo_ausencia', 'middleware' => 'auth'], function() {
     Route::get(''               , ['as' => 'motivo_ausencia'         , 'uses' => 'Motivo_AusenciaController@index']);
     Route::get ('_json'         , ['as' => 'motivo_ausencia._json'   , 'uses' => 'Motivo_AusenciaController@_json']);
@@ -85,16 +57,6 @@ Route::group(['prefix'=>'motivo_ausencia', 'middleware' => 'auth'], function() {
     Route::get ('edit/{id}'     , ['as' => 'motivo_ausencia.edit'    , 'uses' => 'Motivo_AusenciaController@edit']);
     Route::put ('update/{id}'   , ['as' => 'motivo_ausencia.update'  , 'uses' => 'Motivo_AusenciaController@update' ]);
     Route::get ('destroy/{id}'  , ['as' => 'motivo_ausencia.destroy' , 'uses' => 'Motivo_AusenciaController@destroy']);
-});
-
-Route::group(['prefix'=>'tipo_contrato', 'middleware' => 'auth'], function() {
-    Route::get(''               , ['as' => 'tipo_contrato'         , 'uses' => 'Tipo_ContratoController@index']);
-    Route::get ('_json'         , ['as' => 'tipo_contrato._json'   , 'uses' => 'Tipo_ContratoController@_json']);
-    Route::get ('create'        , ['as' => 'tipo_contrato.create'  , 'uses' => 'Tipo_ContratoController@create']);
-    Route::post('store'         , ['as' => 'tipo_contrato.store'   , 'uses' => 'Tipo_ContratoController@store' ]);
-    Route::get ('edit/{id}'     , ['as' => 'tipo_contrato.edit'    , 'uses' => 'Tipo_ContratoController@edit']);
-    Route::put ('update/{id}'   , ['as' => 'tipo_contrato.update'  , 'uses' => 'Tipo_ContratoController@update' ]);
-    Route::get ('destroy/{id}'  , ['as' => 'tipo_contrato.destroy' , 'uses' => 'Tipo_ContratoController@destroy']);
 });
 
 /*
@@ -134,12 +96,18 @@ Route::group(['prefix'=>'adm', 'middleware' => 'auth'], function() {
     Route::resource('alojamentos', 'adm\AlojamentosController'      , ['except' => 'show']);
     Route::resource('atividadesAdm', 'adm\atividadesAdmController'  , ['except' => 'show']);
     Route::resource('cargos', 'adm\CargosController'                , ['except' => 'show']);
+    Route::resource('cidades', 'adm\CidadesController'              , ['except' => 'show']);
     Route::resource('departamentos', 'adm\DepartamentosController'  , ['except' => 'show']);
     Route::resource('escolaridades', 'adm\escolaridadesController'  , ['except' => 'show']);
     Route::resource('estadocivil', 'adm\estadocivilController'      , ['except' => 'show']);
     Route::resource('funcionarios', 'adm\FuncionariosController'    , ['except' => 'show']);
     Route::resource('motivoAusencia', 'adm\motivoAusenciaController', ['except' => 'show']);
     Route::resource('ocorrencias', 'adm\ocorrenciasController'      , ['except' => 'show']);
+    Route::resource('paises'       , 'adm\PaisesController'         , ['except' => 'show']);
+});
+
+Route::group(['prefix'=>'contratos', 'middleware' => 'auth'], function() {
+    Route::resource('tipocontrato', 'contratos\tipoContratoController', ['except' => 'show']);
 });
 
 Route::group(['prefix'=>'pedagogia', 'middleware' => 'auth'], function() {
@@ -195,16 +163,20 @@ Route::group(['prefix'=>'DM', 'middleware' => 'auth'], function() {
 
 Route::group(['prefix'=>'DFutebol', 'middleware' => 'auth'], function() {
     Route::resource('categorias'   , 'DFutebol\CategoriasController'        , ['except' => 'show']);
-    Route::resource('cidades'      , 'DFutebol\CidadesController'           , ['except' => 'show']);
+    Route::resource('janelas'      , 'DFutebol\JanelasController'           , ['except' => 'show']);
     Route::resource('localatividade', 'DFutebol\LocalAtividadeController'   , ['except' => 'show']);
     Route::resource('parceiros'    , 'DFutebol\ParceirosController'         , ['except' => 'show']);
-    Route::resource('paises'       , 'DFutebol\PaisesController'            , ['except' => 'show']);
+    Route::resource('pedominante'  , 'DFutebol\PeDominanteController'       , ['except' => 'show']);
+    Route::resource('posicoes'     , 'DFutebol\PosicoesController'          , ['except' => 'show']);
+    Route::resource('selecoes'     , 'DFutebol\SelecoesController'          , ['except' => 'show']);
 });
 
 Route::group(['prefix'=>'jogos', 'middleware' => 'auth'], function() {
     Route::resource('condicaogramado'   , 'jogos\condicaoGramadoController'   , ['except' => 'show']);
     Route::resource('condicaotempo'     , 'jogos\condicaoTempoController'     , ['except' => 'show']);
     Route::resource('escopos'           , 'jogos\escoposController'           , ['except' => 'show']);
+    Route::resource('pontuacao'         , 'jogos\pontuacaoController'         , ['except' => 'show']);
+    Route::resource('tipofase'          , 'jogos\tipoFaseController'          , ['except' => 'show']);
 });
 
 Route::group(['prefix'=>'financeiro', 'middleware' => 'auth'], function() {
@@ -214,19 +186,12 @@ Route::group(['prefix'=>'financeiro', 'middleware' => 'auth'], function() {
 
 
 Route::group(['middleware' => 'auth'], function(){
-
-    Route::resource('janelas'                       , 'JanelasController'                   , ['except' => 'show']);
     Route::resource('marketing'                     , 'MarketingEventoController'           , ['except' => 'show']);
     Route::resource('marketingevento'               , 'MarketingEventoController'           , ['except' => 'show']);
-    Route::resource('pedominante'                   , 'PeDominanteController'               , ['except' => 'show']);
-    Route::resource('pontuacoes'                    , 'PontuacaoController'                 , ['except' => 'show']);
     Route::resource('projetos'                      , 'ProjetosController'                  , ['except' => 'show']);
-    Route::resource('selecoes'                      , 'SelecoesController'                  , ['except' => 'show']);
     Route::resource('tecnicos'                      , 'TecnicosController'                  , ['except' => 'show']);
     Route::resource('tipoacao'                      , 'TipoAcaoController'                  , ['except' => 'show']);
     Route::resource('tipocampeonato'                , 'TipoCampeonatoController'            , ['except' => 'show']);
-    Route::resource('tipofase'                      , 'TipoFaseController'                  , ['except' => 'show']);
-
 });
 
 Route::get('/viewpdf', 'PdfviewController@index');
@@ -242,26 +207,17 @@ Route::get('/viewpdf', 'PdfviewController@index');
 //Route::get('atividadesPedagogicas/_json'    , 'atividadespedController@_json');
 //Route::get('atividadesped/_json'            , 'atividadespedController@_json');
 //Route::get('atividadesSS/_json'             , 'AtividadesSSController@_json');
-Route::get('condicaogramado/_json'          , 'CondicaoGramadoController@_json');
-Route::get('condicaotempo/_json'            , 'CondicaoTempoController@_json');
-Route::get('contas/_json'                   , 'ContasController@_json');
-Route::get('escopos/_json'                  , 'escoposController@_json');
 Route::get('historicoescolar/_json'         , 'historicoEscolarController@_json');
 Route::get('janelas/_json'                  , 'JanelasController@_json');
 Route::get('localatividade/_json'           , 'LocalAtividadeController@_json');
 Route::get('marketing/_json'                , 'MarketingEventoController@_json');
 Route::get('marketingevento/_json'          , 'MarketingEventoController@_json');
-Route::get('origempsicologia/_json'         , 'OrigemPsicologiaController@_json');
-Route::get('origemservsocial/_json'         , 'OrigemServSocialController@_json');
-Route::get('pedominante/_json'              , 'PeDominanteController@_json');
-Route::get('pontuacoes/_json'               , 'PontuacaoController@_json');
 Route::get('projetos/_json'                 , 'ProjetosController@_json');
 Route::get('selecoes/_json'                 , 'SelecoesController@_json');
 Route::get('suplementos/_json'              , 'SuplementosController@_json');
 Route::get('tecnicos/_json'                 , 'TecnicosController@_json');
 Route::get('tipoacao/_json'                 , 'TipoAcaoController@_json');
 Route::get('tipocampeonato/_json'           , 'TipoCampeonatoController@_json');
-Route::get('tipocontas/_json'               , 'TipoContasController@_json');
 Route::get('tipofase/_json'                 , 'TipoFaseController@_json');
 
 
