@@ -10,6 +10,13 @@ return [
     ,'atendimentos' => 'Atendimentos'
     ,'escolas'   => 'Escolas'
 
+
+
+
+
+
+
+
     ,'sim'  => 'Sim'
     ,'nao'  => 'Não'
 

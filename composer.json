@@ -31,7 +31,8 @@
             "database"
         ],
         "psr-4": {
-            "SRP\\": "app/"
+            "SRP\\": "app/",
+            "srpM\\": "Modules/"
         },
         "files":[
             "app/Acessos.php",
