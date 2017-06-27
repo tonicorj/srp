@@ -2,10 +2,9 @@
 
 namespace SRP\Models\ADM;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class Cidades extends Model implements TableInterface
+class Cidades extends Model
 {
     protected $table      = 'CIDADES';
     protected $fillable   = [
@@ -34,32 +33,6 @@ class Cidades extends Model implements TableInterface
         'CIDADE_NOME'     => 'required|min:3',
         'ID_PAIS'         => 'required'
     );
-
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header){
-            case $this->titulos[0]:   return $this->CIDADE_NOME;
-            case $this->titulos[1]:   return $this->UF;
-            case $this->titulos[2]:   return $this->pais->PAIS_NOME;
-        }
-    }
 
     public function time() {
         //return $this->belongsTo(AtividadesSS::class, 'ID_ATIV_ASSIST_SOCIAL', 'ID_ATIV_ASSIST_SOCIAL');

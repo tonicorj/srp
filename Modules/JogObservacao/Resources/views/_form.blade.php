@@ -47,7 +47,7 @@
                             {!! Form::label('jog_posicao', trans('messages.tit_posicao')) !!}
                             {!! Form::text ('JOG_POSICAO', null,
                                 ['class'=>'form-control'
-                                , 'maxlength' =>'8'
+                                , 'maxlength' =>'5'
                                 , 'id'=>'JOG_POSICAO'
                                 ]) !!}
                         </div>

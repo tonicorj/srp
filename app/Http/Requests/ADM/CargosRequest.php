@@ -32,7 +32,7 @@ class CargosRequest extends FormRequest
         ];
     }
 
-        public function messages()
+    public function messages()
     {
         return [
             'CARGO_COMISSAO.required' => trans('messages.crit_cargo_required'),

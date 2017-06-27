@@ -8,22 +8,16 @@
                 <h4>{!! trans('messages.t_cargo') !!}</h4>
             </div>
             <div class="panel-body">
-
+                @if ($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-warning" role="alert">{{$error}}</div>
+                    @endforeach
+                @endif
                 {!! Form::model($cargo,
                     [ 'route'=>['cargos.update', $cargo->ID_CARGO_COMISSAO]
                     , 'method'=>'put'
                     , 'id'=>'form_']) !!}
-
-                @if ($errors->any())
-                    <ul class="list-group">
-                        @foreach($errors->all() as $error)
-                            <li class="alert alert-warning list-group-item">{{$error}}</li>
-                        @endforeach
-                    </ul>
-                @endif
-
                 @include ('adm.cargos._form')
-
                 <ul class="list-inline form-group">
                     <li>
                         {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
@@ -33,7 +27,6 @@
                         <a href="{{ asset('adm/cargos') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
                     </li>
                 </ul>
-
                 {!! Form::close() !!}
             </div>
         </div>

@@ -4,7 +4,7 @@
     <div class="col-lg-7">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>{!! trans('messages.t_janelas') !!}</h4>
+                <h4>{!! trans('messages.t_selecao') !!}</h4>
             </div>
             <div class="panel-body">
                 @if ($errors->any())
@@ -14,13 +14,13 @@
                 @endif
 
                 {!! Form::open(
-                    ['route'=>'janelas.store'
+                    ['route'=>'selecoes.store'
                     ,'method'=>'post'
                     , 'id'=>'form_'
                     , 'data-toggle'=>"validator"
                     , 'role'=>"form"
                     ]) !!}
-                @include ('DFutebol.janelas._form')
+                @include ('DFutebol.selecoes._form')
 
                 <ul class="list-inline form-group">
                     <li>
@@ -28,7 +28,7 @@
                     </li>
                     <li></li>
                     <li>
-                        <a href="{{ asset('DFutebol/janelas') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                        <a href="{{ asset('DFutebol/selecoes') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
                     </li>
                 </ul>
 

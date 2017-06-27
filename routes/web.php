@@ -49,16 +49,6 @@ Route::group(['prefix'=>'jogadorfoto', 'middleware' => 'auth'], function() {
     Route::get ('foto/{id}'     , ['as' => 'jogadorfoto.foto'    , 'uses' => 'JogadorFotoController@foto']);
 });
 
-Route::group(['prefix'=>'motivo_ausencia', 'middleware' => 'auth'], function() {
-    Route::get(''               , ['as' => 'motivo_ausencia'         , 'uses' => 'Motivo_AusenciaController@index']);
-    Route::get ('_json'         , ['as' => 'motivo_ausencia._json'   , 'uses' => 'Motivo_AusenciaController@_json']);
-    Route::get ('create'        , ['as' => 'motivo_ausencia.create'  , 'uses' => 'Motivo_AusenciaController@create']);
-    Route::post('store'         , ['as' => 'motivo_ausencia.store'   , 'uses' => 'Motivo_AusenciaController@store' ]);
-    Route::get ('edit/{id}'     , ['as' => 'motivo_ausencia.edit'    , 'uses' => 'Motivo_AusenciaController@edit']);
-    Route::put ('update/{id}'   , ['as' => 'motivo_ausencia.update'  , 'uses' => 'Motivo_AusenciaController@update' ]);
-    Route::get ('destroy/{id}'  , ['as' => 'motivo_ausencia.destroy' , 'uses' => 'Motivo_AusenciaController@destroy']);
-});
-
 /*
 Route::group(['prefix'=>'jogadorOcorrencias', 'middleware' => 'auth'], function() {
     Route::get(''               , ['as' => 'jogadorOcorrencias'         , 'uses' => 'ocorrenciasController@index']);
@@ -71,6 +61,7 @@ Route::group(['prefix'=>'jogadorOcorrencias', 'middleware' => 'auth'], function(
 });
 */
 
+/*
 Route::group(['prefix'=>'jogadoresObservacao', 'middleware' => 'auth'], function() {
     Route::get(''               , ['as' => 'jogadoresObservacao'         , 'uses' => 'jogadoresObservacaoController@index']);
     Route::get ('_json'         , ['as' => 'jogadoresObservacao._json'   , 'uses' => 'jogadoresObservacaoController@_json']);
@@ -80,6 +71,7 @@ Route::group(['prefix'=>'jogadoresObservacao', 'middleware' => 'auth'], function
     Route::put ('update/{id}'   , ['as' => 'jogadoresObservacao.update'  , 'uses' => 'jogadoresObservacaoController@update' ]);
     Route::get ('destroy/{id}'  , ['as' => 'jogadoresObservacao.destroy' , 'uses' => 'jogadoresObservacaoController@destroy']);
 });
+*/
 
 Route::group(['prefix'=>'quadroatividades', 'middleware' => 'auth'], function() {
     Route::get ('/{data}'       , ['as' => 'quadroatividades'         , 'uses' => 'quadroatividadesController@index'  ]);
@@ -207,18 +199,18 @@ Route::get('/viewpdf', 'PdfviewController@index');
 //Route::get('atividadesPedagogicas/_json'    , 'atividadespedController@_json');
 //Route::get('atividadesped/_json'            , 'atividadespedController@_json');
 //Route::get('atividadesSS/_json'             , 'AtividadesSSController@_json');
-Route::get('historicoescolar/_json'         , 'historicoEscolarController@_json');
-Route::get('janelas/_json'                  , 'JanelasController@_json');
-Route::get('localatividade/_json'           , 'LocalAtividadeController@_json');
+//Route::get('historicoescolar/_json'         , 'historicoEscolarController@_json');
+//Route::get('janelas/_json'                  , 'JanelasController@_json');
+//Route::get('localatividade/_json'           , 'LocalAtividadeController@_json');
 Route::get('marketing/_json'                , 'MarketingEventoController@_json');
 Route::get('marketingevento/_json'          , 'MarketingEventoController@_json');
 Route::get('projetos/_json'                 , 'ProjetosController@_json');
-Route::get('selecoes/_json'                 , 'SelecoesController@_json');
-Route::get('suplementos/_json'              , 'SuplementosController@_json');
+//Route::get('selecoes/_json'                 , 'SelecoesController@_json');
+//Route::get('suplementos/_json'              , 'SuplementosController@_json');
 Route::get('tecnicos/_json'                 , 'TecnicosController@_json');
 Route::get('tipoacao/_json'                 , 'TipoAcaoController@_json');
 Route::get('tipocampeonato/_json'           , 'TipoCampeonatoController@_json');
-Route::get('tipofase/_json'                 , 'TipoFaseController@_json');
+//Route::get('tipofase/_json'                 , 'TipoFaseController@_json');
 
 
 Route::get('test', function() {

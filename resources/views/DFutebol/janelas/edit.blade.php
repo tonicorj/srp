@@ -17,7 +17,7 @@
                 @if ($errors->any())
                     <ul class="list-group">
                         @foreach($errors->all() as $error)
-                            <li class="alert alert-warning list-group-item">{{$error}}</li>
+                            <div class="alert alert-warning" role="alert">{{$error}}</div>
                         @endforeach
                     </ul>
                 @endif

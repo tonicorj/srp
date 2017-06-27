@@ -3,6 +3,7 @@
 namespace SRP\Http\Requests\DFutebol;
 
 use Illuminate\Foundation\Http\FormRequest;
+use SRP\PerfilPermissao;
 
 class CategoriasRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class CategoriasRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return PerfilPermissao::AcessoAction('CATEGORIAS');
     }
 
     /**
@@ -34,8 +35,8 @@ class CategoriasRequest extends FormRequest
     public function messages()
     {
         return [
-            'CATEG_DESCRICAO.required' => trans('messages.crit_cirurgia_required'),
-            'CATEG_DESCRICAO.unique'   => trans('messages.crit_cirurgia_unique'),
+            'CATEG_DESCRICAO.required' => trans('messages.crit_categoria_required'),
+            'CATEG_DESCRICAO.unique'   => trans('messages.crit_categoria_unique'),
         ];
     }
 

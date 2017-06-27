@@ -2,7 +2,7 @@
 
 <div class="row">
 
-    <div class="form-group col-sm-7">
+    <div class="form-group col-sm-11">
         {!! Form::label('departamento_descricao', 'Nome do Departamento') !!}
         {!! Form::text ('DEPARTAMENTO_DESCRICAO', null,
             ['class'=>'form-control'

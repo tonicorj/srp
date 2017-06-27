@@ -10,13 +10,6 @@ return [
     ,'atendimentos' => 'Atendimentos'
     ,'escolas'   => 'Escolas'
 
-
-
-
-
-
-
-
     ,'sim'  => 'Sim'
     ,'nao'  => 'Não'
 
@@ -26,6 +19,7 @@ return [
 
     // mensagens de exclusão
     ,'exc_jogador'          => 'Confima a exclusão do jogador '
+    ,'exc_jogobservacao'    => 'Confima a exclusão do jogador em observação '
 
     ,'exc_alojamento'       => 'Confirma exclusão do alojamento '
     ,'exc_atendimento_dia'  => 'Conforma exclusão do atendimento do dia '
@@ -120,6 +114,7 @@ return [
 
     ,'tit_calendario'       => 'Calendário'
     ,'tit_cargo'            => 'Cargo'
+
     ,'tit_categoria'        => 'Categoria'
     ,'tit_categ_idade_ini'  => 'Idade Inicial'
     ,'tit_categ_idade_fin'  => 'Idade Final'
@@ -242,6 +237,7 @@ return [
     ,'tit_janela'           => 'Nome da Janela'
     ,'tit_janela_inicio'    => 'Início'
     ,'tit_janela_final'     => 'Final'
+
     ,'tit_jogador'          => 'Jogador'
     ,'tit_jogadores'        => 'Jogadores'
 
@@ -262,7 +258,7 @@ return [
     ,'tit_motivoausencia_letra'     => 'Letra'
 
     ,'tit_nome_jogador'     => 'Nome do Jogador'
-    ,'tit_nomecompleto'     => 'Nome Completo'
+    ,'tit_nome_completo'    => 'Nome Completo'
     ,'tit_nome_funcionario' => 'Nome do Funcionário'
     ,'tit_nome_usuario'     => 'Usuário'
 
@@ -589,6 +585,9 @@ return [
 
     ,'crit_prontuario_data_required' => 'A data do prontuário é obrigatória.'
 
+    ,'crit_selecao_required' => 'A seleção é obrigatória.'
+    ,'crit_selecao_unique'   => 'A seleção já está cadastrada.'
+
     ,'crit_suplemento_required' => 'O nome do suplemento é obrigatório.'
     ,'crit_suplemento_unique'   => 'O suplemento já está cadastrado.'
 
@@ -701,6 +700,10 @@ return [
     , 'conf_jogador_alt'    => 'Jogador alterado com sucesso.'
     , 'conf_jogador_exc'    => 'Jogador excluído com sucesso.'
 
+    , 'conf_jogobservacao_inc' => 'Jogador em observação incluído com sucesso.'
+    , 'conf_jogobservacao_alt' => 'Jogador em observação alterado com sucesso.'
+    , 'conf_jogobservacao_exc' => 'Jogador em observação excluído com sucesso.'
+
     , 'conf_historicoescolar_inc'   => 'Histórico Escolar incluído com sucesso.'
     , 'conf_historicoescolar_alt'   => 'Histórico Escolar alterado com sucesso.'
     , 'conf_historicoescolar_exc'   => 'Histórico Escolar excluído com sucesso.'
@@ -744,6 +747,10 @@ return [
     , 'conf_prontuario_inc' => 'Prontuário incluído com sucesso.'
     , 'conf_prontuario_alt' => 'Prontuário alterado com sucesso.'
     , 'conf_prontuario_exc' => 'Prontuário excluído com sucesso.'
+
+    , 'conf_selecoes_inc' => 'Seleção incluída com sucesso.'
+    , 'conf_selecoes_alt' => 'Seleção alterada com sucesso.'
+    , 'conf_selecoes_exc' => 'Seleção excluída com sucesso.'
 
     , 'conf_suplemento_inc' => 'Suplemento incluído com sucesso.'
     , 'conf_suplemento_alt' => 'Suplemento alterado com sucesso.'

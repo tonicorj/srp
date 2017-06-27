@@ -4,6 +4,7 @@ namespace SRP\Http\Controllers\DFutebol;
 
 use SRP\Models\DFutebol\Selecoes;
 use Illuminate\Routing\Controller;
+use SRP\Http\Requests\DFutebol\selecoesRequest;
 
 class selecoesController extends Controller
 {
@@ -45,7 +46,7 @@ class selecoesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SelecoesRequest $request)
+    public function store(selecoesRequest $request)
     {
         $input = $request->all();
 
@@ -94,7 +95,7 @@ class selecoesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SelecoesRequest $request, $id)
+    public function update(selecoesRequest $request, $id)
     {
         Selecoes::find($id)->update($request->all());
         \Session::flash('message', trans( 'messages.conf_selecoes_alt'));

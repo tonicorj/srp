@@ -2,10 +2,9 @@
 
 namespace SRP\Models\ADM;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class Paises extends Model implements TableInterface
+class Paises extends Model
 {
     //
     protected $table      = 'paises';
@@ -29,15 +28,5 @@ class Paises extends Model implements TableInterface
         'PAIS_NOME'     => 'required|min:3',
         'PAIS_SIGLA'    => 'required|min:3|max:3'
     );
-
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
 
 }

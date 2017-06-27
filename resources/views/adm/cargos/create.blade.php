@@ -8,11 +8,9 @@
             </div>
             <div class="panel-body">
                 @if ($errors->any())
-                    <ul class="alert alert-warning">
-                        @foreach($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-warning" role="alert">{{$error}}</div>
+                    @endforeach
                 @endif
 
                 {!! Form::open(

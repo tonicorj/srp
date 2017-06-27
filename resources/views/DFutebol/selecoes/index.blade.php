@@ -2,34 +2,36 @@
 @extends('template')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>{!! trans('messages.t_selecao') !!}</h4>
-        </div>
-        <div class="panel-body">
-            <table class='table table-striped' id="tbl_">
-                <thead>
-                <tr>
-                    @foreach ($titulos as $tit)
-                        <th>{{$tit}}</th>
-                    @endforeach
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($selecoes as $reg)
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>{!! trans('messages.t_selecao') !!}</h4>
+            </div>
+            <div class="panel-body">
+                <table class='table table-striped' id="tbl_">
+                    <thead>
                     <tr>
-                        {!! Form::open(['route' => [ 'selecoes.destroy' ,'id' => $reg->ID_SELECAO]
-                        , 'method' =>'DELETE'
-                        , 'id' => "delete-form-{$reg->ID_SELECAO}"
-                        , 'style' => 'display:none'
-                        ]) !!}
-                        {!! Form::close() !!}
-                        <td>{{$reg->ID_SELECAO}}</td>
-                        <td>{{$reg->DESCRICAO_SELECAO}}</td>
+                        @foreach ($titulos as $tit)
+                            <th>{{$tit}}</th>
+                        @endforeach
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach ($selecoes as $reg)
+                        <tr>
+                            {!! Form::open(['route' => [ 'selecoes.destroy' ,'id' => $reg->ID_SELECAO]
+                            , 'method' =>'DELETE'
+                            , 'id' => "delete-form-{$reg->ID_SELECAO}"
+                            , 'style' => 'display:none'
+                            ]) !!}
+                            {!! Form::close() !!}
+                            <td>{{$reg->ID_SELECAO}}</td>
+                            <td>{{$reg->DESCRICAO_SELECAO}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -53,7 +55,7 @@
                         "className": "{!! trans('messages.i_incluir')!!}",
                         "titleAttr": "{!! trans('messages.inclusao')!!}",
                         "action": function (e, dt, node, config) {
-                            location.href = "{!! asset('adm/selecoes/create') !!}";
+                            location.href = "{!! asset('DFutebol/selecoes/create') !!}";
                         }
                     },
                     {
@@ -68,7 +70,7 @@
                             else {
                                 // pega o código
                                 id = dados[0];
-                                url = '{{ asset('adm/selecoes')  }}/' + id + '/edit';
+                                url = '{{ asset('DFutebol/selecoes')  }}/' + id + '/edit';
                                 location.href = url;
                             }
                         }

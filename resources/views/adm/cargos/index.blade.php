@@ -2,34 +2,36 @@
 @extends('template')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>{!! trans('messages.tit_cargo') !!}</h4>
-        </div>
-        <div class="panel-body">
-            <table class='table table-striped' id="tbl_">
-                <thead>
-                <tr>
-                    @foreach ($titulos as $tit)
-                        <th>{{$tit}}</th>
-                    @endforeach
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($cargos as $reg)
+    <div class="col-lg-7">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>{!! trans('messages.tit_cargo') !!}</h4>
+            </div>
+            <div class="panel-body">
+                <table class='table table-striped' id="tbl_">
+                    <thead>
                     <tr>
-                        {!! Form::open(['route' => [ 'cargos.destroy' ,'id' => $reg->ID_CARGO_COMISSAO]
-                        , 'method' =>'DELETE'
-                        , 'id' => "delete-form-{$reg->ID_CARGO_COMISSAO}"
-                        , 'style' => 'display:none'
-                        ]) !!}
-                        {!! Form::close() !!}
-                        <td>{{$reg->ID_CARGO_COMISSAO}}</td>
-                        <td>{{$reg->CARGO_COMISSAO}}</td>
+                        @foreach ($titulos as $tit)
+                            <th>{{$tit}}</th>
+                        @endforeach
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach ($cargos as $reg)
+                        <tr>
+                            {!! Form::open(['route' => [ 'cargos.destroy' ,'id' => $reg->ID_CARGO_COMISSAO]
+                            , 'method' =>'DELETE'
+                            , 'id' => "delete-form-{$reg->ID_CARGO_COMISSAO}"
+                            , 'style' => 'display:none'
+                            ]) !!}
+                            {!! Form::close() !!}
+                            <td>{{$reg->ID_CARGO_COMISSAO}}</td>
+                            <td>{{$reg->CARGO_COMISSAO}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

@@ -14,7 +14,7 @@ class DepartamentosRequest extends FormRequest
      */
     public function authorize()
     {
-        return PerfilPermissao::AcessoAction('DEPARTAMENTOS');;
+        return PerfilPermissao::AcessoAction('DEPARTAMENTOS');
     }
 
     /**
@@ -28,7 +28,7 @@ class DepartamentosRequest extends FormRequest
         $id = $reg ? $reg : NULL;
 
         return [
-            'DEPARTAMENTO_DESCRICAO'   => "required|min:3|unique:DEPARTAMENTO,DEPARTAMENTO_DESCRICAO,$id,ID_DEPARTAMENTO",
+            'DEPARTAMENTO_DESCRICAO'   => "required|min:3|unique:DEPARTAMENTOS,DEPARTAMENTO_DESCRICAO,$id,ID_DEPARTAMENTO",
         ];
     }
 

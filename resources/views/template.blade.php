@@ -285,7 +285,7 @@ header ('Content-type: text/html; charset=UTF-8');
                         </ul>
                     </li>
                     @endcan
-                    @can( 'acesso', array( 'JOGADORES EM OBSERVACAO' ) )
+                    @can( 'acesso', array( 'JOGADORES_EM_OBSERVACAO' ) )
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-search"></i>
@@ -295,8 +295,8 @@ header ('Content-type: text/html; charset=UTF-8');
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                @can( 'acesso', 'JOGADORES EM OBSERVACAO')
-                                <li><a href="{!! asset('jogadoresObservacao') !!}"> <i class="fa fa-search-plus"></i> {!! trans('messages.t_jogobservacao') !!}</a></li>
+                                @can( 'acesso', 'JOGADORES_EM_OBSERVACAO')
+                                <li><a href="{!! asset('jogobservacao') !!}"> <i class="fa fa-search-plus"></i> {!! trans('messages.t_jogobservacao') !!}</a></li>
                                 @endcan
                             </ul>
                         </li>

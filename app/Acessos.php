@@ -43,7 +43,7 @@ function AcaoCodigo($nome){
         case 'CARGOS'                                   : $codigo = 114;    break;
 
         case 'TIPO_CONTRATO'                            : $codigo = 123;    break;
-        case 'JOGADORES EM OBSERVACAO'                  : $codigo = 124;    break;
+        case 'JOGADORES_EM_OBSERVACAO'                  : $codigo = 124;    break;
 
         case 'DEPARTAMENTOS'                            : $codigo = 148;    break;
 

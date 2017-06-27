@@ -5,9 +5,8 @@ namespace SRP\Http\Controllers\ADM;
 use Illuminate\Http\Request;
 
 use SRP\Http\Controllers\Controller;
-use SRP\Http\Requests\DepartamentosRequest;
+use SRP\Http\Requests\ADM\DepartamentosRequest;
 use \SRP\Models\ADM\Departamentos;
-use DB;
 
 class DepartamentosController extends Controller
 {
@@ -17,7 +16,7 @@ class DepartamentosController extends Controller
         $this->departamento = $departamento;
     }
 
-    public function index(Request $request) {
+    public function index(DepartamentosRequest $request) {
 
         $departamentos = Departamentos::query()
             ->orderBy('DEPARTAMENTO_DESCRICAO', 'ASC')
