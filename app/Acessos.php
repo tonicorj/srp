@@ -11,9 +11,12 @@ function AcaoCodigo($nome){
         case 'CIDADES'                                  : $codigo = 4;      break;
         case 'CATEGORIA'                                : $codigo = 5;      break;
 
+        case 'CAMPEONATOS'                              : $codigo = 11;     break;
+
         case 'LOCAL_ATIVIDADE'                          : $codigo = 12;     break;
         case 'ATIVIDADES'                               : $codigo = 13;     break;
 
+        case 'MOTIVO_CARTAO'                            : $codigo = 16;     break;
         case 'TIPO_CAMPEONATO'                          : $codigo = 17;     break;
         case 'ESCOPO'                                   : $codigo = 18;     break;
         case 'TIPO_LESAO'                               : $codigo = 19;     break;
@@ -57,6 +60,8 @@ function AcaoCodigo($nome){
 
         case 'CIRURGIAS'                                : $codigo = 169;    break;
 
+        case 'CUIDADOS_ESPECIAIS'                       : $codigo = 172;    break;
+
         case 'ALOJAMENTOS'                              : $codigo = 258;    break;
         case 'CONDICAO_TEMPO'                           : $codigo = 259;    break;
         case 'PSICOLOGIA_GRUPOS'                        : $codigo = 260;    break;
@@ -92,6 +97,7 @@ function AcaoCodigo($nome){
         case "PE_DOMINANTE"                             : $codigo = 403;    break;
         case "PONTUACAO"                                : $codigo = 404;    break;
         case "TIPO_FASE"                                : $codigo = 405;    break;
+        case "CRITERIOS"                                : $codigo = 406;    break;
     }
 
     //C:\inetpub\wwwroot\srp\resources\views\marketingevento\OLD_index.blade.php
@@ -103,11 +109,9 @@ function AcaoCodigo($nome){
     $codigo = ( $nome == 'CONTRATOS'                                )?8:$codigo;
     $codigo = ( $nome == 'CAMPEONATO'                               )?9:$codigo;
     $codigo = ( $nome == 'TEMPORADA'                                )?10:$codigo;
-    $codigo = ( $nome == 'CAMPEONATOS'                              )?11:$codigo;
 
     $codigo = ( $nome == 'TREINAMENTOS'                             )?14:$codigo;
     $codigo = ( $nome == 'REL.FUNCIONALIDADES'                      )?15:$codigo;
-    $codigo = ( $nome == 'MOTIVO DE CART�O'                         )?16:$codigo;
 
     $codigo = ( $nome == 'CLASSIFICA��O JOGADORES'                  )?26:$codigo;
     $codigo = ( $nome == 'CLASSIFICA��O JOGADOR/CONTROLE'           )?27:$codigo;
@@ -235,7 +239,7 @@ function AcaoCodigo($nome){
     $codigo = ( $nome == 'FREQUENCIA PEDAGOGIA'                     )?168:$codigo;
 
     $codigo = ( $nome == 'PERFIL PSICOL�GICO GRUPO'                 )?170:$codigo;
-    $codigo = ( $nome == 'CUIDADOS ESPECIAIS'                       )?172:$codigo;
+
     $codigo = ( $nome == 'MEDICAMENTOS UTILIZADOS'                  )?173:$codigo;
     $codigo = ( $nome == 'VIDA DO JOGADOR'                          )?174:$codigo;
     $codigo = ( $nome == 'IMPULS�O VERTICAL'                        )?175:$codigo;

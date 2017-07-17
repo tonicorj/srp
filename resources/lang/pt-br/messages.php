@@ -28,6 +28,7 @@ return [
     ,'exc_atividade'        => 'Confirma exclusão do motivo '
     ,'exc_atividadeAdm'     => 'Confirma exclusão da atividade '
     ,'exc_ausencia'         => 'Confirma exclusão da ausência do jogador '
+    ,'exc_campeonato'       => 'Confirma exclusão do campeonato '
     ,'exc_cargo'            => 'Confirma exclusão do cargo '
     ,'exc_categoria'        => 'Confirma exclusão da categoria'
     ,'exc_cidade'           => 'Confirma exclusão da cidade '
@@ -36,7 +37,9 @@ return [
     ,'exc_condicaogramado'  => 'Confirma exclusão da condiçao de gramado '
     ,'exc_condicaotempo'    => 'Confirma exclusão da condiçao de tempo '
     ,'exc_conta'            => 'Confirma exclusão da conta '
+    ,'exc_criterios'        => 'Confirma exclusão do critério '
 
+    ,'exc_cuidados'         => 'Confirma exclusão do cuidado do jogador '
     ,'exc_curso_extra'      => 'Confirma exclusão do curso '
 
     ,'exc_departamento'     => 'Confirma exclusão deste setor '
@@ -60,6 +63,7 @@ return [
     ,'exc_localatividade'   => 'Confirma exclusão do tipo de atividade '
     ,'exc_marketingevento'  => 'Confirma exclusão do tipo de evento '
     ,'exc_motivoAusencia'   => 'Confirma exclusão do motivo de ausência '
+    ,'exc_motivocartao'     => 'Confirma exclusão do motivo de cartão '
     ,'exc_ocorrencias'      => 'Confirma exclusão da ocorrência do dia '
     ,'exc_origem_lesao'     => 'Confirma exclusão da origem da lesão '
     ,'exc_origemnutricao'   => 'Confirma exclusão da origem de nutrição '
@@ -87,6 +91,7 @@ return [
     ,'tit_acompanhamentos'  => 'Acompanhamentos'
     ,'tit_alojamento'       => 'Nome do Alojamento'
     ,'tit_altura'           => 'Altura'
+
     ,'tit_apelido'          => 'Apelido'
 
     ,'tit_atendimentoSS'        => 'Serv.Social - Jogadores'
@@ -113,6 +118,13 @@ return [
     ,'tit_ausenciaobs'      => 'Observação'
 
     ,'tit_calendario'       => 'Calendário'
+    ,'tit_campeonato'       => 'Campeonato'
+    ,'tit_camp_ano'         => 'Ano'
+    ,'tit_camp_tempo_partida'=> 'Tempo da Partida'
+    ,'tit_camp_data_inicial' => 'Data Inicial'
+    ,'tit_camp_data_final'   => 'Data Final'
+    ,'tit_camp_data_inscricao' => 'Limite Inscrição'
+
     ,'tit_cargo'            => 'Cargo'
 
     ,'tit_categoria'        => 'Categoria'
@@ -139,6 +151,11 @@ return [
     ,'tit_conta_num'        => 'Número'
     ,'tit_contato'          => 'Contato'
     ,'tit_cpf'              => 'CPF'
+    ,'tit_criterio'         => 'Critério'
+
+    ,'tit_cuidados'               => 'Cuidados Especiais'
+    ,'tit_cuidados_data'          => 'Data Cadastro'
+    ,'tit_cuidados_tiposanguineo' => 'Tipo Sanguíneo'
 
     ,'tit_curso_nome'       => 'Nome do Curso'
     ,'tit_curso_dt_inicial' => 'Data do Início'
@@ -256,6 +273,7 @@ return [
     ,'tit_motivoausencia_descricao' => 'Motivo da Ausência'
     ,'tit_motivoausencia_flag'      => 'Falta na Escola'
     ,'tit_motivoausencia_letra'     => 'Letra'
+    ,'tit_motivocartao'             => 'Motivo do cartão'
 
     ,'tit_nome_jogador'     => 'Nome do Jogador'
     ,'tit_nome_completo'    => 'Nome Completo'
@@ -325,7 +343,7 @@ return [
 
     ,'tit_qtdvagas'                 => 'Qtd.Vagas'
 
-    ,'tit_quadroatividades'         => 'Quadro de AtividadesAdm'
+    ,'tit_quadroatividades'         => 'Quadro de Atividades'
     ,'tit_quadroatividade_periodo'  => 'Período'
     ,'tit_quadroatividade_segunda'  => 'Segunda'
     ,'tit_quadroatividade_terca'    => 'Terça'
@@ -352,6 +370,7 @@ return [
 
     ,'tit_tecnico'          => 'Técnico'
     ,'tit_telefone'         => 'Telefone'
+    ,'tit_tempo_clube'      => 'Tempo no Clube'
     ,'tit_tipoacao'         => 'Tipo de Ação'
     ,'tit_tipocampeonato'   => 'Tipo de Campeonato'
     ,'tit_tipoconta'        => 'Tipo de Conta'
@@ -393,6 +412,7 @@ return [
     ,'t_atividadeSS'            => 'Motivos do Serviço Social'
     ,'t_ausenciaescolar'        => 'Ausência Escolar'
 
+    ,'t_campeonatos'            => 'Campeonatos'
     ,'t_cargo'                  => 'Cargos'
     ,'t_categoria'              => 'Categorias'
     ,'t_cidades'                => 'Cidades'
@@ -400,9 +420,13 @@ return [
     ,'t_condicaogramado'        => 'Condição Gramado'
     ,'t_condicaotempo'          => 'Condição Tempo'
     ,'t_contas'                 => 'Contas'
+    ,'t_criterios'              => 'Critérios'
+
+    ,'t_cuidados'               => 'Cuidados Especiais'
     ,'t_cursosextras'           => 'Cursos Extras'
+
     ,'t_dep_futebol'            => 'Dep.Futebol'
-    ,'t_dep_medico'             => 'Entrada Dep.Médico'
+    ,'t_depMedico'              => 'Entrada Dep.Médico'
     ,'t_departamento'           => 'Setores'
     ,'t_depmedico_atendimento'  => 'Atendimento Dep.Médico'
     ,'t_dmcirurgia'             => 'Cirurgias'
@@ -431,6 +455,7 @@ return [
     ,'t_menu_principal'         => 'Menu Principal'
     ,'t_motivoAusencia'         => 'Motivo de Ausência'
     ,'t_motivo_ausencia_escolar'=> 'Motivo de Ausência Escolar'
+    ,'t_motivocartao'           => 'Motivo de Cartão'
 
     ,'t_nutricao'               => 'Nutrição'
     ,'t_origem_lesao'           => 'Origem da Lesão'
@@ -449,7 +474,7 @@ return [
     ,'t_prontuario'             => 'Prontuários'
     ,'t_psicologia'             => 'Psicologia'
     ,'t_projeto'                => 'Projetos'
-    ,'t_quadroatividades'       => 'Quadro de AtividadesAdm'
+    ,'t_quadroatividades'       => 'Quadro de Atividades'
     ,'t_servicosocial'          => 'Serviço Social'
     ,'t_selecao'                => 'Seleções'
     ,'t_suplementos'            => 'Suplementos'
@@ -513,6 +538,9 @@ return [
     ,'crit_conta_required' => 'A conta é um campo obrigatório.'
     ,'crit_conta_unique'   => 'Esta conta já está cadastrada.'
 
+    ,'crit_criterio_required' => 'O critério é um campo obrigatório.'
+    ,'crit_criterio_unique'   => 'Este critério já está cadastrado.'
+
     ,'crit_curso_dt_inicio_required' => 'Informe a data inicial do curso.'
     ,'crit_curso_dt_final_required'  => 'Informe a data final do curso.'
     ,'crit_curso_nome_required'      => 'Informe o nome do curso.'
@@ -554,6 +582,8 @@ return [
 
     ,'crit_motivoausencia_required' => 'O motivo de ausência é obrigatório.'
     ,'crit_motivoausencia_unique'   => 'Este motivo de ausência já está cadastrado.'
+    ,'crit_motivocartao_required'   => 'O motivo do cartão é obrigatório.'
+    ,'crit_motivocartao_unique'     => 'Este motivo do cartão já está cadastrado.'
 
     ,'crit_ocorrenciadata'      => 'A data da ocorrência é um campo obrigatório.'
     ,'crit_ocorrenciadescricao' => 'A descrção da ocorrência é um campo obrigatório.'
@@ -591,6 +621,12 @@ return [
     ,'crit_suplemento_required' => 'O nome do suplemento é obrigatório.'
     ,'crit_suplemento_unique'   => 'O suplemento já está cadastrado.'
 
+    , 'crit_tecnico_required'   => 'O nome do técnico é obrigatório.'
+    , 'crit_tecnico_unique'     => 'Este técnico já está cadastrado.'
+
+    ,'crit_tipocamp_required' => 'O tipo de campeonato é obrigatório.'
+    ,'crit_tipocamp_unique'   => 'Este tipo de campeonato já está cadastrado.'
+
     ,'crit_tipoconta_required' => 'O tipo de conta é obrigatório.'
     ,'crit_tipoconta_unique' => 'Este tipo de conta já está cadastrado.'
     ,'crit_tipoconta_numrequired' => 'O número do tipo de conta é obrigatório.'
@@ -624,6 +660,10 @@ return [
     , 'conf_atividadesAdm_alt' => 'Atividade alterada com sucesso.'
     , 'conf_atividadesAdm_exc' => 'Atividade excluída com sucesso.'
 
+    , 'conf_campeonato_inc'    => 'Campeonato incluído com sucesso.'
+    , 'conf_campeonato_alt'    => 'Campeonato alterado com sucesso.'
+    , 'conf_campeonato_exc'    => 'Campeonato excluído com sucesso.'
+
     , 'conf_cargo_inc'      => 'Cargo incluído com sucesso.'
     , 'conf_cargo_alt'      => 'Cargo alterado com sucesso.'
     , 'conf_cargo_exc'      => 'Cargo excluído com sucesso.'
@@ -651,6 +691,14 @@ return [
     , 'conf_conta_inc'      => 'Condição do tempo incluída com sucesso.'
     , 'conf_conta_alt'      => 'Condição do tempo alterada com sucesso.'
     , 'conf_conta_exc'      => 'Condição do tempo excluída com sucesso.'
+
+    , 'conf_criterio_inc'   => 'Critério incluído com sucesso.'
+    , 'conf_criterio_alt'   => 'Critério alterado com sucesso.'
+    , 'conf_criterio_exc'   => 'Critério excluído com sucesso.'
+
+    , 'conf_cuidados_inc'   => 'Cuidado especial incluído com sucesso.'
+    , 'conf_cuidados_alt'   => 'Cuidado especial alterado com sucesso.'
+    , 'conf_cuidados_exc'   => 'Cuidado especial excluído com sucesso.'
 
     , 'conf_curso_inc'      => 'Curso incluído com sucesso.'
     , 'conf_curso_alt'      => 'Curso alterado com sucesso.'
@@ -716,6 +764,10 @@ return [
     , 'conf_motivoAusenciaEscolar_alt' => 'Motivo alterado com sucesso.'
     , 'conf_motivoAusenciaEscolar_exc' => 'Motivo excluído com sucesso.'
 
+    , 'conf_motivocartao_inc' => 'Motivo incluído com sucesso.'
+    , 'conf_motivocartao_alt' => 'Motivo alterado com sucesso.'
+    , 'conf_motivocartao_exc' => 'Motivo excluído com sucesso.'
+
     , 'conf_ocorrencia_inc'  => 'Ocorrência incluída com sucesso.'
     , 'conf_ocorrencia_alt'  => 'Ocorrência alterada com sucesso.'
     , 'conf_ocorrencia_exc'  => 'Ocorrência excluída com sucesso.'
@@ -755,6 +807,14 @@ return [
     , 'conf_suplemento_inc' => 'Suplemento incluído com sucesso.'
     , 'conf_suplemento_alt' => 'Suplemento alterado com sucesso.'
     , 'conf_suplemento_exc' => 'Suplemento excluído com sucesso.'
+
+    , 'conf_tecnico_inc'    => 'Técnico incluído com sucesso.'
+    , 'conf_tecnico_alt'    => 'Técnico alterado com sucesso.'
+    , 'conf_tecnico_exc'    => 'Técnico excluído com sucesso.'
+
+    , 'conf_tipocamp_inc'   => 'Tipo de campeonato incluído com sucesso.'
+    , 'conf_tipocamp_alt'   => 'Tipo de campeonato alterado com sucesso.'
+    , 'conf_tipocamp_exc'   => 'Tipo de campeonato excluído com sucesso.'
 
     , 'conf_tipoconta_inc'  => 'Tipo de conta incluída com sucesso.'
     , 'conf_tipoconta_alt'  => 'Tipo de conta alterada com sucesso.'

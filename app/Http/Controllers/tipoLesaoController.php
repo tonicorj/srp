@@ -22,7 +22,7 @@ class tipoLesaoController extends Controller
 
         return dd($titulos);
 
-        return view('DM.tipo_lesao.index')
+        return view('dm.tipo_lesao.index')
             ->with('tipos', $tipos)
             ->with('titulos', $titulos)
             ;

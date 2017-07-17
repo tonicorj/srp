@@ -5,6 +5,7 @@ namespace SRP;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use DB;
+use SRP\Config;
 
 class User extends Authenticatable
 {
@@ -15,10 +16,10 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $table = 'users';
-    protected $primaryKey = 'id';
     public $timestamps = false;
 
+    protected $table = 'users';
+    protected $primaryKey = 'id';
     protected $fillable =
         ['id'
             ,'name'
@@ -39,23 +40,6 @@ class User extends Authenticatable
         //'remember_token',
     ];
 
-    /*
-    public function getUserEmail($email){
-        $user = new User();
-        $emailTeste = self::all();
-        foreach ($emailTeste as $key => $value) {
-            if($value->mail_usuario == $email){
-                return $value;
-            }
-        }
-        return false;
-    }
-
-    public function getAuthPassword() {
-        return $this->SENHA_AUXILIAR;
-    }
-    */
-
     public function getPerfil()
     {
         $Ssql = 'select id_perfil from usuarios where id_usuario = ' . $this->id;
@@ -64,4 +48,29 @@ class User extends Authenticatable
 
         return $id_perfil;
     }
+
+    public function categoria_selecionada()
+    {
+        $c = Config::categoria_selecionada();
+        return $c;
+    }
+
+    public static function categoria_descricao()
+    {
+        $config = new Config;
+        return $config->categoria_descricao();
+    }
+
+    public static function categorias()
+    {
+        $config = new Config;
+        return $config->categorias();
+    }
+
+    public static function altera_categoria($id_categoria)
+    {
+        Session::put('ID_CATEGORIA_ATUAL', $id_categoria);
+        return self::categoria_descricao();
+    }
+
 }

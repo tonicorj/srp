@@ -23,14 +23,15 @@
                 ]) !!}
                 @include ('adm.ocorrencias._form')
 
-                <div class="form-group">
-                    <div class="col-lg-1">
+                <ul class="list-inline form-group">
+                    <li>
                         {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
-                    </div>
-                    <div class="col-lg-1">
-                        <a href="{{ URL::previous() }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
-                    </div>
-                </div>
+                    </li>
+                    <li></li>
+                    <li>
+                        <a href="{{ asset('adm/ocorrencias') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                    </li>
+                </ul>
 
             {!! Form::close() !!}
         </div>

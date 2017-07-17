@@ -29,7 +29,7 @@ class Parte_CorpoController extends Controller
 
         $titulos = array( trans('messages.tit_parte_corpo') );
 
-        return view('DM.parte_corpo.index')
+        return view('dm.parte_corpo.index')
             ->with('partes', $partes)
             ->with('titulos', $titulos)
             ;
@@ -37,7 +37,7 @@ class Parte_CorpoController extends Controller
 
     public function create()
     {
-        return view('DM.Parte_Corpo.create');
+        return view('dm.Parte_Corpo.create');
     }
 
     public function store(Parte_CorpoRequest $request)
@@ -57,14 +57,14 @@ class Parte_CorpoController extends Controller
         $this->parte_corpo->create($input);
 
         \Session::flash('message', trans( 'messages.conf_parte_corpo_inc'));
-        $url = $request->get('redirect_to', asset('DM.parte_corpo'));
+        $url = $request->get('redirect_to', asset('dm.parte_corpo'));
         return redirect()->to($url);
 
     }
 
     public function edit(Parte_Corpo $parte_corpo)
     {
-        return view ('DM.parte_corpo.edit')
+        return view ('dm.parte_corpo.edit')
             ->with('parte_corpo', $parte_corpo);
     }
 
@@ -73,7 +73,7 @@ class Parte_CorpoController extends Controller
         $this->parte_corpo->find($id)->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_parte_corpo_alt'));
-        $url = $request->get('redirect_to', asset('DM.parte_corpo'));
+        $url = $request->get('redirect_to', asset('dm.parte_corpo'));
         return redirect()->to($url);
     }
 

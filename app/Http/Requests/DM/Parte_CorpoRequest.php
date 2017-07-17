@@ -3,6 +3,7 @@
 namespace SRP\Http\Requests\DM;
 
 use Illuminate\Foundation\Http\FormRequest;
+use SRP\PerfilPermissao;
 
 class Parte_CorpoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class Parte_CorpoRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return PerfilPermissao::AcessoAction('PARTE_CORPO');
     }
 
     /**

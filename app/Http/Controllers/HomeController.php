@@ -23,7 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('jogadores.index');
+        //return view('DFutebol.jogadores.index');
+        $url = asset('DFutebol/jogadores');
+        return redirect()->to($url);
         //return view('home');
     }
 }

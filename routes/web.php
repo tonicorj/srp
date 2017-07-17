@@ -32,19 +32,6 @@ Route::group(['prefix'=>'teste', 'middleware' => 'auth'], function() {
     Route::get ('destroy/{id}'  , ['as' => 'teste.destroy'  , 'uses' => 'TesteController@destroy']);
 });
 
-Route::group(['prefix'=>'jogadores', 'middleware' => 'auth'], function() {
-    Route::get(''               , ['as' => 'jogadores'         , 'uses' => 'JogadoresController@index']);
-    Route::get ('_json'         , ['as' => 'jogadores._json'   , 'uses' => 'JogadoresController@_json']);
-    Route::get ('create'        , ['as' => 'jogadores.create'  , 'uses' => 'JogadoresController@create']);
-    Route::post('store'         , ['as' => 'jogadores.store'   , 'uses' => 'JogadoresController@store' ]);
-    Route::get ('edit/{id}'     , ['as' => 'jogadores.edit'    , 'uses' => 'JogadoresController@edit']);
-    Route::put ('update/{id}'   , ['as' => 'jogadores.update'  , 'uses' => 'JogadoresController@update' ]);
-    Route::get ('destroy/{id}'  , ['as' => 'jogadores.destroy' , 'uses' => 'JogadoresController@destroy']);
-    Route::get ('foto/{id}'     , ['as' => 'jogadores.foto'    , 'uses' => 'JogadoresController@foto']);
-
-    Route::get('autocomplete'   , ['as' => 'jogadores.autocomplete','uses'=>'JogadoresController@autocomplete']);
-});
-
 Route::group(['prefix'=>'jogadorfoto', 'middleware' => 'auth'], function() {
     Route::get ('foto/{id}'     , ['as' => 'jogadorfoto.foto'    , 'uses' => 'JogadorFotoController@foto']);
 });
@@ -139,18 +126,19 @@ Route::group(['prefix'=>'SSocial', 'middleware' => 'auth'], function() {
 });
 
 // DM
-Route::group(['prefix'=>'DM', 'middleware' => 'auth'], function() {
-    Route::resource('cirurgias'   , 'DM\CirurgiasController'   , ['except' => 'show']);
-    Route::resource('exames'      , 'DM\ExamesController'      , ['except' => 'show']);
-    Route::resource('origem_lesao', 'DM\Origem_LesaoController', ['except' => 'show']);
-    Route::resource('parte_corpo' , 'DM\Parte_CorpoController' , ['except' => 'show']);
-    Route::resource('tipo_lesao'  , 'DM\Tipo_LesaoController'  , ['except' => 'show']);
-    Route::resource('depmedico'   , 'DM\DepMedicoController'   , ['except' => 'show']);
+Route::group(['prefix'=>'dm', 'middleware' => 'auth'], function() {
+    Route::resource('cirurgias'   , 'dm\CirurgiasController'   , ['except' => 'show']);
+    Route::resource('cuidados'    , 'dm\CuidadosController'    , ['except' => 'show']);
+    Route::resource('exames'      , 'dm\ExamesController'      , ['except' => 'show']);
+    Route::resource('origem_lesao', 'dm\Origem_LesaoController', ['except' => 'show']);
+    Route::resource('parte_corpo' , 'dm\Parte_CorpoController' , ['except' => 'show']);
+    Route::resource('tipo_lesao'  , 'dm\Tipo_LesaoController'  , ['except' => 'show']);
+    Route::resource('depmedico'   , 'dm\DepMedicoController'   , ['except' => 'show']);
 
-    Route::resource('dmacompanha' , 'DM\DmAcompanhaController' , ['except' => 'show']);
-    Route::resource('dmcirurgias' , 'DM\dmCirurgiasController' , ['except' => 'show']);
-    Route::resource('dmexames'    , 'DM\dmExamesController'    , ['except' => 'show']);
-    Route::resource('prontuario'  , 'DM\ProntuarioController'  , ['except' => 'show']);
+    Route::resource('dmacompanha' , 'dm\DmAcompanhaController' , ['except' => 'show']);
+    Route::resource('dmcirurgias' , 'dm\dmCirurgiasController' , ['except' => 'show']);
+    Route::resource('dmexames'    , 'dm\dmExamesController'    , ['except' => 'show']);
+    Route::resource('prontuario'  , 'dm\ProntuarioController'  , ['except' => 'show']);
 });
 
 Route::group(['prefix'=>'DFutebol', 'middleware' => 'auth'], function() {
@@ -161,14 +149,23 @@ Route::group(['prefix'=>'DFutebol', 'middleware' => 'auth'], function() {
     Route::resource('pedominante'  , 'DFutebol\PeDominanteController'       , ['except' => 'show']);
     Route::resource('posicoes'     , 'DFutebol\PosicoesController'          , ['except' => 'show']);
     Route::resource('selecoes'     , 'DFutebol\SelecoesController'          , ['except' => 'show']);
+    Route::resource('jogadores'    , 'DFutebol\JogadoresController'         , ['except' => 'show']);
+
+    Route::get ('jogadores/foto/{id}'     , ['as' => 'jogadores.foto'        ,'uses' => 'DFutebol\JogadoresController@foto']);
+    Route::get('jogadores/autocomplete'   , ['as' => 'jogadores.autocomplete','uses' => 'DFutebol\JogadoresController@autocomplete']);
 });
 
 Route::group(['prefix'=>'jogos', 'middleware' => 'auth'], function() {
+    Route::resource('campeonatos'       , 'jogos\campeonatosController'       , ['except' => 'show']);
     Route::resource('condicaogramado'   , 'jogos\condicaoGramadoController'   , ['except' => 'show']);
     Route::resource('condicaotempo'     , 'jogos\condicaoTempoController'     , ['except' => 'show']);
+    Route::resource('criterios'         , 'jogos\criteriosController'         , ['except' => 'show']);
     Route::resource('escopos'           , 'jogos\escoposController'           , ['except' => 'show']);
+    Route::resource('motivocartao'      , 'jogos\motivocartaoController'      , ['except' => 'show']);
     Route::resource('pontuacao'         , 'jogos\pontuacaoController'         , ['except' => 'show']);
+    Route::resource('tipocampeonato'    , 'jogos\TipoCampeonatoController'    , ['except' => 'show']);
     Route::resource('tipofase'          , 'jogos\tipoFaseController'          , ['except' => 'show']);
+    Route::resource('tecnicos'          , 'jogos\tecnicosController'          , ['except' => 'show']);
 });
 
 Route::group(['prefix'=>'financeiro', 'middleware' => 'auth'], function() {
@@ -181,33 +178,17 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('marketing'                     , 'MarketingEventoController'           , ['except' => 'show']);
     Route::resource('marketingevento'               , 'MarketingEventoController'           , ['except' => 'show']);
     Route::resource('projetos'                      , 'ProjetosController'                  , ['except' => 'show']);
-    Route::resource('tecnicos'                      , 'TecnicosController'                  , ['except' => 'show']);
     Route::resource('tipoacao'                      , 'TipoAcaoController'                  , ['except' => 'show']);
-    Route::resource('tipocampeonato'                , 'TipoCampeonatoController'            , ['except' => 'show']);
 });
 
 Route::get('/viewpdf', 'PdfviewController@index');
 
-//Route::get('atendimentoSS/_json'            , 'atendimentoSSController@_json');
-//Route::get('atendimentoSS_func/_json'       , 'atendimentoSSfuncController@_json');
-//Route::get('cirurgias/_json'                , 'CirurgiasController@_json');
-//Route::get('cursosextras/_json'             , 'CursosExtrasController@_json');
-//Route::get('exames/_json'                   , 'examesController@_json');
-//Route::get('origemlesao/_json'              , 'OrigemLesaoController@_json');
-//Route::get('partecorpo/_json'               , 'ParteCorpoController@_json');
-//Route::get('tipolesao/_json'                , 'TipoLesaoController@_json');
-//Route::get('atividadesPedagogicas/_json'    , 'atividadespedController@_json');
-//Route::get('atividadesped/_json'            , 'atividadespedController@_json');
-//Route::get('atividadesSS/_json'             , 'AtividadesSSController@_json');
-//Route::get('historicoescolar/_json'         , 'historicoEscolarController@_json');
-//Route::get('janelas/_json'                  , 'JanelasController@_json');
-//Route::get('localatividade/_json'           , 'LocalAtividadeController@_json');
+// config
+Route::get('config/altera_categoria/{id}', ['as' => 'config.altera_categoria', 'uses' => 'ConfigController@altera_categoria']);
+
 Route::get('marketing/_json'                , 'MarketingEventoController@_json');
 Route::get('marketingevento/_json'          , 'MarketingEventoController@_json');
 Route::get('projetos/_json'                 , 'ProjetosController@_json');
-//Route::get('selecoes/_json'                 , 'SelecoesController@_json');
-//Route::get('suplementos/_json'              , 'SuplementosController@_json');
-Route::get('tecnicos/_json'                 , 'TecnicosController@_json');
 Route::get('tipoacao/_json'                 , 'TipoAcaoController@_json');
 Route::get('tipocampeonato/_json'           , 'TipoCampeonatoController@_json');
 //Route::get('tipofase/_json'                 , 'TipoFaseController@_json');

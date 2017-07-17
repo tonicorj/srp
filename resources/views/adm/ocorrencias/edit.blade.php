@@ -4,7 +4,7 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4>{!! trans('messages.tit_ocorrencias') !!}</h4>
+            <h4>{!! trans('messages.t_ocorrencias_jog') !!}</h4>
         </div>
         <div class="panel-body">
             {!! Form::model($ocorrencia,
@@ -20,16 +20,17 @@
                 </ul>
             @endif
 
-                @include ('adm.ocorrencias._form')
+            @include ('adm.ocorrencias._form')
 
-                <div class="form-group">
-                    <div class="col-lg-1">
-                        {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
-                    </div>
-                    <div class="col-lg-1">
-                        <a href="{{ URL::previous() }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
-                    </div>
-                </div>
+            <ul class="list-inline form-group">
+                <li>
+                    {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
+                </li>
+                <li></li>
+                <li>
+                    <a href="{{ asset('adm/ocorrencias') }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                </li>
+            </ul>
 
             {!! Form::close() !!}
         </div>

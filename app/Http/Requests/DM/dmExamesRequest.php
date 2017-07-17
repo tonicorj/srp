@@ -3,6 +3,7 @@
 namespace SRP\Http\Requests\DM;
 
 use Illuminate\Foundation\Http\FormRequest;
+use SRP\PerfilPermissao;
 
 class dmExamesRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class dmExamesRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return PerfilPermissao::AcessoAction('REGISTRO_DM');
     }
 
     /**

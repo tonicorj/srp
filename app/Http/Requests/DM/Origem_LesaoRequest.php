@@ -3,6 +3,7 @@
 namespace SRP\Http\Requests\DM;
 
 use Illuminate\Foundation\Http\FormRequest;
+use SRP\PerfilPermissao;
 
 class Origem_LesaoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class Origem_LesaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return PerfilPermissao::AcessoAction('ORIGEM_LESAO');
     }
 
     /**

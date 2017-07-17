@@ -26,9 +26,23 @@ class DepMedicoController extends Controller
 
     public function index( Request $request)
     {
+        $titulos = array( '#'
+            , trans('messages.tit_depmedico_inicio')
+            , trans('messages.tit_depmedico_fim')
+            , trans('messages.tit_jogador')
+            , trans('messages.tit_depmedico_afastamento')
+            , trans('messages.tit_tipo_lesao')
+            , trans('messages.tit_origem_lesao')
+            , trans('messages.tit_parte_corpo')
+            , trans('messages.tit_medico')
+            , trans('messages.tit_depmedico_tempo')
+        );
+
         $depmedicos = DepMedico::consulta();
-        return view('DM.depmedico.index')
+        //return dd($depmedicos[0]->id_departamento_medico);
+        return view('dm.depmedico.index')
             ->with('depmedicos', $depmedicos)
+            ->with('titulos', $titulos)
             ;
     }
 
@@ -40,7 +54,7 @@ class DepMedicoController extends Controller
         $parte_corpo  = Parte_Corpo::orderBy('PARTE_CORPO_DESCRICAO', 'asc')->pluck('PARTE_CORPO_DESCRICAO', 'ID_PARTE_CORPO')->prepend(trans('messages.tit_selecioneopcao'), '');
         $medicos      = Medicos::orderby('NOME_USUARIO', 'asc')->pluck('NOME_USUARIO', 'ID_USUARIO')->prepend(trans('messages.tit_selecioneopcao'), '');;
 
-        return view('DM.depmedico.create')
+        return view('dm.depmedico.create')
             ->with('jogadores', $jogadores)
             ->with('origem_lesao', $origem_lesao)
             ->with('tipo_lesao', $tipo_lesao)
@@ -61,18 +75,17 @@ class DepMedicoController extends Controller
             $input['ID_DEPARTAMENTO_MEDICO'] = $id;
 
         // define as datas para exibição
-        $this->depMedico['DM_DATA_INICIO'] = data_to_sql($this->depMedico['DM_DATA_INICIO_S']);
-        $this->depMedico['DM_DATA_FIM']    = data_to_sql($this->depMedico['DM_DATA_FIM_S']);
+        $input['DM_DATA_INICIO'] = data_to_sql($input['DM_DATA_INICIO_S']);
+        $input['DM_DATA_FIM']    = data_to_sql($input['DM_DATA_FIM_S']);
 
-        if ($this->depMedico['FLAG_AFASTAMENTO'] == ''){
-            $this->depMedico['FLAG_AFASTAMENTO'] = 'N';
+        if ($input['FLAG_AFASTAMENTO'] == ''){
+            $input['FLAG_AFASTAMENTO'] = 'N';
         }
 
-        $this->depMedico->create($input);
-
+        DepMedico::create($input);
 
         \Session::flash('message', trans('messages.conf_depmedico_inc'));
-        $url = $request->get('redirect_to', asset('DM.depfutebol'));
+        $url = $request->get('redirect_to', asset('dm.depfutebol'));
         return redirect()->to($url);
     }
 
@@ -83,7 +96,7 @@ class DepMedicoController extends Controller
 
     public function edit($id)
     {
-        $depMedico = $this->depMedico->find($id);
+        $depMedico = DepMedico::find($id);
 
         // define as datas para exibição
         $depMedico['DM_DATA_INICIO_S'] = data_display($depMedico['DM_DATA_INICIO']);
@@ -97,7 +110,7 @@ class DepMedicoController extends Controller
 
         //return dd($depMedico);
 
-        return view('DM.depmedico.edit')
+        return view('dm.depmedico.edit')
             ->with('depmedico', $depMedico)
             ->with('jogadores', $jogadores)
             ->with('origem_lesao', $origem_lesao)
@@ -114,7 +127,7 @@ class DepMedicoController extends Controller
         $this->depMedico->find($id)->update($request->all());
 
         \Session::flash('message', trans('messages.conf_depmedico_alt'));
-        $url = $request->get('redirect_to', asset('DM.depmedico'));
+        $url = $request->get('redirect_to', asset('dm.depmedico'));
         return redirect()->to($url);
     }
 
