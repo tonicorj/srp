@@ -371,6 +371,7 @@ header ('Content-type: text/html; charset=UTF-8');
                     @can( 'acesso'
                         , array ( 'CONDICAO_TEMPO'
                             , 'CONDICAO_GRAMADO'
+                            , 'ESTADIO'
                             , 'ESCOPO'
                             , 'MOTIVO_CARTAO'
                             , 'PONTUACAO'
@@ -390,6 +391,9 @@ header ('Content-type: text/html; charset=UTF-8');
                             <ul class="treeview-menu">
                                 @can( 'acesso', 'CAMPEONATOS')
                                     <li><a href="{!! asset('jogos/campeonatos') !!}"> <i class="fa fa-user-md"></i> {!! trans('messages.t_campeonatos') !!}</a></li>
+                                @endcan
+                                @can( 'acesso', 'ESTADIO')
+                                    <li><a href="{!! asset('jogos/estadios') !!}"> <i class="glyphicon glyphicon-map-marker"></i> {!! trans('messages.t_estadios') !!}</a></li>
                                 @endcan
                                 <li class="treeview">
                                     <a href="#"><i class="fa fa-tag"></i> {!! trans('messages.cadastros') !!}

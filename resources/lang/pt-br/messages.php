@@ -48,6 +48,7 @@ return [
 
     ,'exc_escolaridade'     => 'Confirma exclusão da escolaridade '
     ,'exc_escopo'           => 'Confirma exclusão do escopo '
+    ,'exc_estadio'          => 'Confirma exclusão do estádio '
     ,'exc_estadocivil'      => 'Confirma exclusão do estado civil '
     ,'exc_evento'           => 'Confirma exclusão do evento '
     ,'exc_eventoJogador'    => 'Confirma exclusão do jogador '
@@ -135,7 +136,7 @@ return [
 
     ,'tit_categ_padrao'     => "Categoria Padrão"
     ,'tit_celular'          => 'Celular'
-    ,'tit_cidade'           => 'Nome da Cidade'
+    ,'tit_cidade'           => 'Cidade'
 
     ,'tit_cidadenatal'      => 'Cidade Natal'
     ,'tit_cirurgia'         => 'Cirurgias'
@@ -216,6 +217,8 @@ return [
 
     ,'tit_escolaridade'     => 'Escolaridades'
     ,'tit_escopo'           => 'Escopo'
+    ,'tit_estadio'          => 'Estádio'
+    ,'tit_estadio_real'     => 'Nome Real'
     ,'tit_estadocivil'      => 'Estado Civil'
 
     ,'tit_evento_data'      => 'Data Evento'
@@ -435,6 +438,7 @@ return [
 
     ,'t_escopo'                 => 'Escopo'
     ,'t_escolaridade'           => 'Escolaridades'
+    ,'t_estadios'               => 'Estádios'
     ,'t_estadocivil'            => 'Estado Civil'
     ,'t_eventos'                => 'Eventos'
     ,'t_eventosJogadores'       => 'Jogadores que participam do evento'
@@ -561,6 +565,9 @@ return [
 
     ,'crit_escolaridade_required' => 'A escolaridades é obrigatória.'
     ,'crit_escolaridade_unique'   => 'Esta escolaridades já está cadastrada.'
+
+    ,'crit_estadio_required' => 'O estádio é obrigatório.'
+    ,'crit_estadio_unique'   => 'Este estádio já está cadastrado.'
 
     ,'crit_exame_required' => 'O exame é obrigatório.'
     ,'crit_exame_unique' => 'Este exame já está cadastrado.'
@@ -723,6 +730,10 @@ return [
     , 'conf_escopo_inc'     =>  'Escopo incluído com sucesso.'
     , 'conf_escopo_alt'     =>  'Escopo alterado com sucesso.'
     , 'conf_escopo_exc'     =>  'Escopo excluído com sucesso.'
+
+    , 'conf_estadio_inc'    =>  'Estádio incluído com sucesso.'
+    , 'conf_estadio_alt'    =>  'Estádio alterado com sucesso.'
+    , 'conf_estadio_exc'    =>  'Estádio excluído com sucesso.'
 
     , 'conf_estadocivil_inc' =>  'Estado Civil incluído com sucesso.'
     , 'conf_estadocivil_alt' =>  'Estado Civil alterado com sucesso.'

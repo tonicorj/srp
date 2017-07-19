@@ -160,6 +160,7 @@ Route::group(['prefix'=>'jogos', 'middleware' => 'auth'], function() {
     Route::resource('condicaogramado'   , 'jogos\condicaoGramadoController'   , ['except' => 'show']);
     Route::resource('condicaotempo'     , 'jogos\condicaoTempoController'     , ['except' => 'show']);
     Route::resource('criterios'         , 'jogos\criteriosController'         , ['except' => 'show']);
+    Route::resource('estadios'          , 'jogos\estadiosController'          , ['except' => 'show']);
     Route::resource('escopos'           , 'jogos\escoposController'           , ['except' => 'show']);
     Route::resource('motivocartao'      , 'jogos\motivocartaoController'      , ['except' => 'show']);
     Route::resource('pontuacao'         , 'jogos\pontuacaoController'         , ['except' => 'show']);

@@ -22,9 +22,9 @@ class Cidades extends Model
     public function __construct(array $attributes = [])
     {
         $this->titulos = array(
-            trans('messages.tit_cidade')
-        ,trans('messages.tit_uf' )
-        ,trans('messages.tit_pais')
+             trans('messages.tit_cidade')
+            ,trans('messages.tit_uf' )
+            ,trans('messages.tit_pais')
         );
         parent::__construct($attributes);
     }

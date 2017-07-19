@@ -1,0 +1,15 @@
+{
+    "name": "nwidart/jogobservacao",
+    "description": "parte de observação de jogadores",
+    "authors": [
+        {
+            "name": "Tonico Bittencourt,
+            "email": "tonico@oi.com.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "srpM\\JogObservacao\\": ""
+        }
+    }
+}

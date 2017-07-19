@@ -1,0 +1,16 @@
+{
+    "name": "JogObservacao",
+    "alias": "jogobservacao",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "srpM\\JogObservacao\\Providers\\JogObservacaoServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
