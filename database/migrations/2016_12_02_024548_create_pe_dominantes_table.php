@@ -16,10 +16,11 @@ class CreatePeDominantesTable extends Migration
     {
         if (!Schema::hasTable($this->tabela)) {
             Schema::create($this->tabela, function (Blueprint $table) {
-                        $table->string('pe_dominante', 1)->unique();
-                        $table->string('pe_dominante_descricao', 20)->unique();
-                        $table->primary('pe_dominante');
-                        //$table->timestamps();
+                $table->string('pe_dominante', 1)->unique();
+                $table->string('pe_dominante_descricao', 20)->unique();
+                $table->timestamps();
+
+                $table->primary('pe_dominante');
             });
         }
     }

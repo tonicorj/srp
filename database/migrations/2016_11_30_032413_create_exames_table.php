@@ -20,7 +20,7 @@ class CreateExamesTable extends Migration
                 $table->string('EXAME_NOME', 100)->unique();
                 $table->int('EXAME_PERIOCIDADE', 100);
 
-                //$table->primary('ID_ESCOPO');
+                $table->primary('ID_EXAME');
             });
         }
     }

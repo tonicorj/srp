@@ -18,7 +18,8 @@ class CreateTipoFasesTable extends Migration
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_TIPOFASE');
                 $table->string('TFASE_DESCRICAO', 100)->unique();
-                //$table->primary('ID_ESCOPO');
+                $table->timestamps();
+                $table->primary('ID_TIPOFASE');
             });
         }
     }

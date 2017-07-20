@@ -42,9 +42,11 @@ class CreateDepMedicosTable extends Migration
                 $table->integer('ID_LOCAL');
                 $table->dateTime('DT_LOCAL2');
                 $table->dateTime('DT_LOCAL3');
-
-
                 $table->text('DM_OBSERVACAO');
+
+                $table->timestamps();
+                $table->primary('ID_DEPARTAMENTO_MEDICO');
+
             });
         }
 

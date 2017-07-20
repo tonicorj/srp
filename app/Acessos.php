@@ -41,6 +41,7 @@ function AcaoCodigo($nome){
         case 'PSICOLOGIA'                               : $codigo = 81;     break;
 
         case 'MOTIVO_AUSENCIA'                          : $codigo = 93;     break;
+        case 'JUIZ'                                     : $codigo = 99;     break;
 
         case 'POSICAO'                                  : $codigo = 102;    break;
 
@@ -182,7 +183,6 @@ function AcaoCodigo($nome){
     $codigo = ( $nome == 'RESIST�NCIA INTERMITENTE'                 )?96:$codigo;
     $codigo = ( $nome == 'RESIST�NCIA CONTINUA'                     )?97:$codigo;
     $codigo = ( $nome == 'YOYO'                                     )?98:$codigo;
-    $codigo = ( $nome == '�RBITROS'                                 )?99:$codigo;
     $codigo = ( $nome == 'CATEGORIAS'                               )?100:$codigo;
     $codigo = ( $nome == 'REL.CONTAS'                               )?101:$codigo;
     $codigo = ( $nome == 'ATIVIDADES'                               )?103:$codigo;

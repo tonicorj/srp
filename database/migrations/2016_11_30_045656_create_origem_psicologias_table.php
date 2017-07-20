@@ -18,7 +18,8 @@ class CreateOrigemPsicologiasTable extends Migration
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_ORIGEM_PSICOLOGIA');
                 $table->string('ORIGEM_PSICOLOGIA_DESCRICAO', 100)->unique();
-                //$table->primary('ID_ESCOPO');
+
+                $table->primary('ID_ORIGEM_PSICOLOGIA');
             });
         }
     }

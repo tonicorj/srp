@@ -24,9 +24,9 @@ class CreatePontuacaosTable extends Migration
                 $table->integer('PONT_VITORIA_PEN');
                 $table->integer('PONT_DIF_GOLS');
                 $table->integer('PONT_VIT_GOLS');
+                $table->timestamps();
 
-                //$table->timestamps();
-
+                $table->primary('ID_PONTUACAO');
             });
         }
     }

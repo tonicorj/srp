@@ -19,6 +19,7 @@ class CreateCriteriosTable extends Migration
                 $table->increments('id_criterio');
                 $table->string('crit_descricao', 20);
                 $table->timestamps();
+                $table->primary('id_criterio');
             });
         }
     }

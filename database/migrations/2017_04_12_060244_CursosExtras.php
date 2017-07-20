@@ -17,11 +17,14 @@ class CursosExtras extends Migration
         if (!Schema::hasTable($this->tabela)) {
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_CURSO')->unique();
-                $table->string('CURSO_NOME',100);
+                $table->string('CURSO_NOME',100)->unique();
                 $table->dateTime('CURSO_DT_INICIO', 15);
                 $table->dateTime('CURSO_DT_FINAL', 20);
                 $table->string('CURSO_EMPRESA', 100);
                 $table->text('CURSO_OBS');
+
+                $table->timestamps();
+                $table->primary('ID_CURSO');
             });
         }
     }

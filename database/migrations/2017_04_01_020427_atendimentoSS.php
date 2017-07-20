@@ -33,6 +33,9 @@ class AtendimentoSS extends Migration
                 $table->string('NOME_USUARIO',100);
                 $table->string('NOME',100);
                 $table->text('OBS_ATIVIDADE');
+                $table->timestamps();
+
+                $table->primary('ID_ATEND_ASSIST_SOCIAL');
             });
         }
 

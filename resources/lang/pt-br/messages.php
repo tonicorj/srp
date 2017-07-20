@@ -20,6 +20,7 @@ return [
     // mensagens de exclusão
     ,'exc_jogador'          => 'Confima a exclusão do jogador '
     ,'exc_jogobservacao'    => 'Confima a exclusão do jogador em observação '
+    ,'exc_juiz'             => 'Confima a exclusão do juiz '
 
     ,'exc_alojamento'       => 'Confirma exclusão do alojamento '
     ,'exc_atendimento_dia'  => 'Conforma exclusão do atendimento do dia '
@@ -260,6 +261,7 @@ return [
 
     ,'tit_jogador'          => 'Jogador'
     ,'tit_jogadores'        => 'Jogadores'
+    ,'tit_juiz'             => 'Juiz'
 
     ,'tit_local'            => 'Local'
     ,'tit_localatividade'   => 'Local da Atividade'
@@ -451,6 +453,8 @@ return [
     ,'t_jogadores'              => 'Jogadores'
     ,'t_jogobservacao'          => 'Jogadores em Observação'
     ,'t_jogos'                  => 'Jogos'
+    ,'t_juizes'                 => 'Juizes'
+
     ,'t_localatividade'         => 'Local da Atividade'
 
     ,'t_marketing'              => 'Marketing'
@@ -583,6 +587,9 @@ return [
     ,'crit_janela_final_required'   => 'O final da janela é obrigatória.'
 
     ,'crit_jogador_required' => 'É necessário selecionar um jogador.'
+
+    ,'crit_juiz_required'    => 'O juiz é obrigatório.'
+    ,'crit_juiz_unique'      => 'Este juiz já está cadastrado.'
 
     ,'crit_localatividade_required' => 'O local da atividade é obrigatório.'
     ,'crit_localatividade_unique'   => 'Este local de atividade já está cadastrado.'
@@ -762,6 +769,10 @@ return [
     , 'conf_jogobservacao_inc' => 'Jogador em observação incluído com sucesso.'
     , 'conf_jogobservacao_alt' => 'Jogador em observação alterado com sucesso.'
     , 'conf_jogobservacao_exc' => 'Jogador em observação excluído com sucesso.'
+
+    , 'conf_juiz_inc' => 'Juiz incluído com sucesso.'
+    , 'conf_juiz_alt' => 'Juiz alterado com sucesso.'
+    , 'conf_juiz_exc' => 'Juiz excluído com sucesso.'
 
     , 'conf_historicoescolar_inc'   => 'Histórico Escolar incluído com sucesso.'
     , 'conf_historicoescolar_alt'   => 'Histórico Escolar alterado com sucesso.'

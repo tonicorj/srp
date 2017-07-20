@@ -19,6 +19,7 @@ class CreateMotivoCartaosTable extends Migration
                 $table->increments('id_motivo_cartao');
                 $table->string('motivo_cartao', 30);
                 $table->timestamps();
+                $table->primary('id_motivo_cartao');
             });
         }
     }

@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateDmAcompanhasTable extends Migration
 {
+    private $tabela = 'departamento_medico_acompanha';
     /**
      * Run the migrations.
      *
@@ -13,6 +14,21 @@ class CreateDmAcompanhasTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable($this->tabela)) {
+            Schema::create($this->tabela, function (Blueprint $table) {
+                $table->increments('id_acompanhamento_dm');
+                $table->integer('id_departamento_medico');
+                $table->integer('id_medico');
+                $table->dateTime('acompanhamento_data');
+                $table->text('acompanhamento_obs');
+                $table->string('login_usuario', 100);
+                $table->dateTime('data_gravacao');
+
+                $table->timestamps();
+                $table->primary('id_acompanhamento_dm');
+
+            });
+        }
     }
 
     /**

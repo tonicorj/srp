@@ -18,7 +18,9 @@ class CreateTecnicosTable extends Migration
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_TECNICO');
                 $table->string('TECNICO_NOME', 100)->unique();
-                //$table->primary('ID_ESCOPO');
+                $table->timestamps();
+
+                $table->primary('ID_TECNICO');
             });
         }
     }

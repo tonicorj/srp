@@ -373,6 +373,7 @@ header ('Content-type: text/html; charset=UTF-8');
                             , 'CONDICAO_GRAMADO'
                             , 'ESTADIO'
                             , 'ESCOPO'
+                            , 'JUIZ'
                             , 'MOTIVO_CARTAO'
                             , 'PONTUACAO'
                             , 'TECNICOS'
@@ -394,6 +395,9 @@ header ('Content-type: text/html; charset=UTF-8');
                                 @endcan
                                 @can( 'acesso', 'ESTADIO')
                                     <li><a href="{!! asset('jogos/estadios') !!}"> <i class="glyphicon glyphicon-map-marker"></i> {!! trans('messages.t_estadios') !!}</a></li>
+                                @endcan
+                                @can( 'acesso', 'JUIZ')
+                                    <li><a href="{!! asset('jogos/juizes') !!}"> <i class="glyphicon glyphicon-flag"></i> {!! trans('messages.t_juizes') !!}</a></li>
                                 @endcan
                                 <li class="treeview">
                                     <a href="#"><i class="fa fa-tag"></i> {!! trans('messages.cadastros') !!}

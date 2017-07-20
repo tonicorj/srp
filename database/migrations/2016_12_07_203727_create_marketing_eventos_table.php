@@ -21,7 +21,8 @@ class CreateMarketingEventosTable extends Migration
                 $table->datetime('MARKETING_EVENTO_DATA');
                 $table->integer('ID_TIPO_ACAO');
                 $table->text('MARKETING_EVENTO_OBS');
-                //$table->timestamps();
+                $table->timestamps();
+                $table->primary('ID_MARKETING_EVENTO');
             });
         }
 

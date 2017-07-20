@@ -20,7 +20,8 @@ class CreateTipoCampeonatosTable extends Migration
                 $table->increments('ID_TIPOCAMP');
                 $table->string('TCAMP_DESCRICAO', 200)->unique();
                 $table->integer('ID_ESCOPO');
-                //$table->primary('ID_ESCOPO');
+                $table->timestamps();
+                $table->primary('ID_TIPOCAMP');
             });
         }
 

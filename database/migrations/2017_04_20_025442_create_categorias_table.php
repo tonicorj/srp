@@ -23,6 +23,9 @@ class CreateCategoriasTable extends Migration
                 $table->string('CATEG_COR',20);
                 $table->integer('ID_TIME');
                 $table->integer('CATEG_TEMPO_JOGO');
+
+                $table->timestamps();
+                $table->primary('ID_CATEGORIA');
             });
         }
     }

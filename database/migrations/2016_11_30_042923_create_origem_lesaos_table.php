@@ -18,7 +18,8 @@ class CreateOrigemLesaosTable extends Migration
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_ORIGEM_LESAO');
                 $table->string('ORIGEM_LESAO_DESCRICAO', 100)->unique();
-                //$table->primary('ID_ESCOPO');
+
+                $table->primary('ID_ORIGEM_LESAO');
             });
         }
     }

@@ -18,7 +18,8 @@ class CreateOrigemNutricaosTable extends Migration
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_ORIGEM_NUTRICAO');
                 $table->string('ORIGEM_NUTRICAO_DESCRICAO', 100)->unique();
-                //$table->primary('ID_ESCOPO');
+
+                $table->primary('ID_ORIGEM_NUTRICAO');
             });
         }
     }

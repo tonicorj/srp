@@ -22,6 +22,7 @@ class CreateCuidadosTable extends Migration
                 $table->text('cuidado_obs');
                 $table->char('tipo_sanguineo', 5 );
                 $table->timestamps();
+                $table->primary('id_cuidado');
             });
         }
     }

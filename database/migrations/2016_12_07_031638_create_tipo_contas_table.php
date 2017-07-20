@@ -21,7 +21,9 @@ class CreateTipoContasTable extends Migration
                 $table->string('TIPO_CONTA_TIPO', 1);
                 $table->integer('TIPO_CONTA_NUM')->unique();
                 $table->string('TIPO_CONTA_RECEBIMENTO',1);
-                //$table->primary('ID_ESCOPO');
+                $table->timestamps();
+
+                $table->primary('TIPO_CONTA_ID');
             });
         }
     }

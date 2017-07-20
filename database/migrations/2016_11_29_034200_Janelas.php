@@ -16,7 +16,7 @@ class Janelas extends Migration
     {
         if (!Schema::hasTable($this->tabela)) {
             Schema::create($this->tabela, function (Blueprint $table) {
-                $table->integer('ID_JANELA');
+                $table->increments('ID_JANELA');
                 $table->string('JANELA_NOME', 50)->unique();
                 $table->dateTime('JANELA_INICIO');
                 $table->dateTime('JANELA_FINAL');

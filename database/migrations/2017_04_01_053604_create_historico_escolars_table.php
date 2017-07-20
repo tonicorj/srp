@@ -42,6 +42,9 @@ class CreateHistoricoEscolarsTable extends Migration
                 $table->string('FLAG_3BIMESTRE', 1);
                 $table->string('FLAG_4BIMESTRE', 1);
                 $table->text('HIST_OBSERVACAO');
+
+                $table->timestamps();
+                $table->primary('ID_HIST_ESCOLAR');
             });
         }
 

@@ -27,6 +27,7 @@ class CreateEstadiosTable extends Migration
                 $table->float('estadio_largura');
                 $table->text('estadio_obs');
                 $table->timestamps();
+                $table->primary('id_estadios');
             });
         }
     }

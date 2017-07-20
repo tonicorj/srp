@@ -40,6 +40,7 @@ class CreateCampeonatosTable extends Migration
                 $table->dateTime('camp_data_final');
                 $table->dateTime('camp_data_inscricao');
                 $table->timestamps();
+                $table->primary('id_campeonato');
             });
         }
     }

@@ -18,7 +18,8 @@ class CreateParteCorposTable extends Migration
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_PARTE_CORPO');
                 $table->string('PARTE_CORPO_DESCRICAO', 100)->unique();
-                //$table->primary('ID_ESCOPO');
+
+                $table->primary('ID_PARTE_CORPO');
             });
         }
     }

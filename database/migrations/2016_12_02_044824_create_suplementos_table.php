@@ -18,8 +18,9 @@ class CreateSuplementosTable extends Migration
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_SUPLEMENTO');
                 $table->string('SUPLEMENTO_DESCRICAO', 50)->unique();
-                //$table->timestamps();
+                $table->timestamps();
 
+                $table->primary('ID_SUPLEMENTO');
             });
         }
     }

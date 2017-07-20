@@ -25,7 +25,9 @@ class CreateContasTable extends Migration
                 $table->string('CONTA_NOME', 100)->unique();
                 $table->integer('TIPO_CONTA_ID');
                 $table->integer('CONTA_NUMERO')->unique();
-                //$table->primary('ID_ESCOPO');
+                $table->timestamps();
+
+                $table->primary('CONTA_ID');
             });
         }
 

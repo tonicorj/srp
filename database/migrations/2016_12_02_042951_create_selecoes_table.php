@@ -18,8 +18,9 @@ class CreateSelecoesTable extends Migration
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_SELECAO');
                 $table->string('DESCRICAO_SELECAO', 50)->unique();
-                //$table->timestamps();
+                $table->timestamps();
 
+                $table->primary('ID_SELECAO');
             });
         }
     }

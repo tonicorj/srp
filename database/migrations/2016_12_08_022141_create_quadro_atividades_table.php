@@ -35,7 +35,9 @@ class CreateQuadroAtividadesTable extends Migration
                 $table->text('QUADRO_ATIVIDADE_OBS1');
                 $table->text('QUADRO_ATIVIDADE_OBS2');
                 $table->text('QUADRO_ATIVIDADE_OBS3');
-                //$table->primary('ID_ESCOPO');
+
+                $table->timestamps();
+                $table->primary('ID_QUADRO_ATIVIDADE');
             });
         }
 

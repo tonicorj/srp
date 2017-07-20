@@ -18,7 +18,8 @@ class CreateTipoLesaosTable extends Migration
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_TIPO_LESAO');
                 $table->string('TIPO_LESAO_DESCRICAO', 100)->unique();
-                //$table->primary('ID_ESCOPO');
+
+                $table->primary('ID_TIPO_LESAO');
             });
         }
     }

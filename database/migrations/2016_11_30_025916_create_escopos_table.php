@@ -19,7 +19,7 @@ class CreateEscoposTable extends Migration
                 $table->increments('ID_ESCOPO');
                 $table->string('ESCOPO_DESCRICAO', 50)->unique();
 
-                //$table->primary('ID_ESCOPO');
+                $table->primary('ID_ESCOPO');
             });
         }
     }

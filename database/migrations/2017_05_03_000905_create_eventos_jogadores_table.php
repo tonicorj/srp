@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateEventosJogadoresTable extends Migration
 {
+    private $tabela = 'eventos_jogadores';
     /**
      * Run the migrations.
      *
@@ -13,6 +14,15 @@ class CreateEventosJogadoresTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable($this->tabela)) {
+            Schema::create($this->tabela, function (Blueprint $table) {
+                $table->increments('id_evento_jogador');
+                $table->integer('id_evento');
+                $table->integer('id_jogador');
+                $table->timestamps();
+                $table->primary('id_evento_jogador');
+            });
+        }
     }
 
     /**

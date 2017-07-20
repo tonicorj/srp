@@ -18,7 +18,8 @@ class CreateLocalAtividadesTable extends Migration
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->increments('ID_LOCAL_ATIVIDADE');
                 $table->string('LOCAL_ATIVIDADE_DESCRICAO', 100)->unique();
-                //$table->primary('ID_ESCOPO');
+
+                $table->primary('ID_LOCAL_ATIVIDADE');
             });
         }
     }

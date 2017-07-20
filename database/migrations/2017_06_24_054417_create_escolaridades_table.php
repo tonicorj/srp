@@ -6,6 +6,9 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateEscolaridadesTable extends Migration
 {
+
+    private $tabela = 'escolaridade';
+
     /**
      * Run the migrations.
      *
@@ -13,10 +16,14 @@ class CreateEscolaridadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('escolaridades', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable($this->tabela)) {
+            Schema::create($this->tabela, function (Blueprint $table) {
+                $table->increments('id_escolaridade');
+                $table->string('escolaridade_descricao', 50);
+                $table->timestamps();
+                $table->primary('id_escolaridade');
+            });
+        }
     }
 
     /**
@@ -26,6 +33,6 @@ class CreateEscolaridadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('escolaridades');
+        //Schema::dropIfExists('escolaridades');
     }
 }
