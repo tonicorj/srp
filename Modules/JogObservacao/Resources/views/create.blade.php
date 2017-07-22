@@ -21,7 +21,7 @@
                 , 'data-toggle'=>"validator"
                 , 'role'=>"form"
                 ]) !!}
-                @include ('SSocial.atendimentoSS._form')
+                @include ('ssocial')
 
                 <div class="form-group">
                     <div class="col-lg-1">

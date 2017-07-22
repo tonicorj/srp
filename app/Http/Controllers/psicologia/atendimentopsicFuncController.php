@@ -111,7 +111,7 @@ class atendimentopsicFuncController extends Controller
         $this->atendimento->create($input);
 
         \Session::flash('message', trans( 'messages.conf_atividades_inc'));
-        $url = $request->get('redirect_to', asset('psicologia.atendimentopsic_func'));
+        $url = $request->get('redirect_to', asset('psicologia/atendimentopsic_func'));
         return redirect()->to($url);
     }
 
@@ -163,7 +163,7 @@ class atendimentopsicFuncController extends Controller
         $this->atendimento->find($id)->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_atividades_alt'));
-        $url = $request->get('redirect_to', asset('psicologia.atendimentopsic_func'));
+        $url = $request->get('redirect_to', asset('psicologia/atendimentopsic_func'));
         return redirect()->to($url);
     }
 

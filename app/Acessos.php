@@ -10,6 +10,7 @@ function AcaoCodigo($nome){
 
         case 'CIDADES'                                  : $codigo = 4;      break;
         case 'CATEGORIA'                                : $codigo = 5;      break;
+        case 'TIME'                                     : $codigo = 6;      break;
         case 'ESTADIO'                                  : $codigo = 7;      break;
 
         case 'CAMPEONATOS'                              : $codigo = 11;     break;
@@ -93,6 +94,9 @@ function AcaoCodigo($nome){
 
         case 'MOTIVO_AUSENCIA_ESCOLAR'                  : $codigo = 334;    break;
 
+        case 'MOTIVO_AFASTAMENTO'                       : $codigo = 354;    break;
+        case 'AFASTAMENTO'                              : $codigo = 355;    break;
+
         case "ESCOLARIDADES"                            : $codigo = 400;    break;
         case "ESTADOCIVIL"                              : $codigo = 401;    break;
         case "ORIGEM_LESAO"                             : $codigo = 402;    break;
@@ -106,7 +110,6 @@ function AcaoCodigo($nome){
     // retorna o n�mero das telas
     //$codigo = ( $nome == 'JOGADORES')?1:$codigo;
     $codigo = ( $nome == 'ELENCO'                                   )?3:$codigo;
-    $codigo = ( $nome == 'EQUIPE'                                   )?6:$codigo;
     $codigo = ( $nome == 'CONTRATOS'                                )?8:$codigo;
     $codigo = ( $nome == 'CAMPEONATO'                               )?9:$codigo;
     $codigo = ( $nome == 'TEMPORADA'                                )?10:$codigo;

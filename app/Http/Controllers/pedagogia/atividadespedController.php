@@ -64,7 +64,7 @@ class atividadespedController extends Controller
         $this->atividades->create($input);
 
         \Session::flash('message', trans( 'messages.conf_atendimentos_inc'));
-        $url = $request->get('redirect_to', asset('pedagogia.atividadesped'));
+        $url = $request->get('redirect_to', asset('pedagogia/atividadesped'));
         return redirect()->to($url);
     }
 
@@ -103,7 +103,7 @@ class atividadespedController extends Controller
     {
         $this->atividades->find($id)->update($request->all());
         \Session::flash('message', trans( 'messages.conf_atividades_alt'));
-        $url = $request->get('redirect_to', asset('pedagogia.atividadesped'));
+        $url = $request->get('redirect_to', asset('pedagogia/atividadesped'));
         return redirect()->to($url);
     }
 
@@ -117,6 +117,6 @@ class atividadespedController extends Controller
     {
         $this->atividades->find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_atividades_exc'));
-        return redirect()->to(URL::previous());
+        return redirect()->to(asset('pedagogia/atividadesped'));
     }
 }

@@ -57,7 +57,7 @@ class CirurgiasController extends Controller
         $this->cirurgia->create($input);
 
         \Session::flash('message', trans( 'messages.conf_cirurgia_inc'));
-        $url = $request->get('redirect_to', asset('DM.cirurgias'));
+        $url = $request->get('redirect_to', asset('DM/cirurgias'));
         return redirect()->to($url);
     }
 
@@ -77,7 +77,7 @@ class CirurgiasController extends Controller
         $this->cirurgia->find($id)->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_cirurgia_alt'));
-        $url = $request->get('redirect_to', asset('DM.cirurgias'));
+        $url = $request->get('redirect_to', asset('DM/cirurgias'));
         return redirect()->to($url);
     }
 
@@ -85,6 +85,6 @@ class CirurgiasController extends Controller
     {
         $this->cirurgia->find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_cirurgia_exc'));
-        return redirect()->to(URL::previous());
+        return redirect()->to(asset('dm/cirurgias'));
     }
 }

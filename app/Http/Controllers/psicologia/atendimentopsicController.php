@@ -120,7 +120,7 @@ class atendimentopsicController extends Controller
         $this->atendimento->create($input);
 
         \Session::flash('message', trans( 'messages.conf_atividades_inc'));
-        $url = $request->get('redirect_to', asset('psicologia.atendimentopsic'));
+        $url = $request->get('redirect_to', asset('psicologia/atendimentopsic'));
         return redirect()->to($url);
     }
 
@@ -180,7 +180,7 @@ class atendimentopsicController extends Controller
         $this->atendimento->find($request['ID_ATENDIMENTO_PSICOLOGIA'])->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_atividades_alt'));
-        $url = $request->get('redirect_to', asset('psicologia.atendimentopsic'));
+        $url = $request->get('redirect_to', asset('psicologia/atendimentopsic'));
         return redirect()->to($url);
     }
 
@@ -194,7 +194,7 @@ class atendimentopsicController extends Controller
     {
         $this->atendimento->find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_atividades_exc'));
-        //return redirect()->to(URL::previous());
-        return Redirect::route('atendimentopsic.index');
+        return redirect()->to(asset('psicologia/atendimentopsic'));
+        //return Redirect::route('atendimentopsic.index');
     }
 }

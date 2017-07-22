@@ -22,6 +22,7 @@ return [
     ,'exc_jogobservacao'    => 'Confima a exclusão do jogador em observação '
     ,'exc_juiz'             => 'Confima a exclusão do juiz '
 
+    ,'exc_afastamento'      => 'Confirma exclusão do afastamentos '
     ,'exc_alojamento'       => 'Confirma exclusão do alojamento '
     ,'exc_atendimento_dia'  => 'Conforma exclusão do atendimento do dia '
     ,'exc_atendimento'      => 'Conforma exclusão do atendimento do atleta '
@@ -64,6 +65,7 @@ return [
 
     ,'exc_localatividade'   => 'Confirma exclusão do tipo de atividade '
     ,'exc_marketingevento'  => 'Confirma exclusão do tipo de evento '
+    ,'exc_motivoAfastamento'=> 'Confirma exclusão do motivo de afastamentos '
     ,'exc_motivoAusencia'   => 'Confirma exclusão do motivo de ausência '
     ,'exc_motivocartao'     => 'Confirma exclusão do motivo de cartão '
     ,'exc_ocorrencias'      => 'Confirma exclusão da ocorrência do dia '
@@ -82,6 +84,7 @@ return [
     ,'exc_selecoes'         => 'Confirma exclusão da seleção '
     ,'exc_suplementos'      => 'Confirma exclusão do suplemento '
     ,'exc_tecnicos'         => 'Confirma exclusão do técnico '
+    ,'exc_time'             => 'Confirma exclusão do time '
     ,'exc_tipoacao'         => 'Confirma exclusão do tipo de ação '
     ,'exc_tipocampeonato'   => 'Confirma exclusão do tipo de campeonato '
     ,'exc_tipoconta'        => 'Confirma exclusão do tipo de conta '
@@ -137,6 +140,7 @@ return [
 
     ,'tit_categ_padrao'     => "Categoria Padrão"
     ,'tit_celular'          => 'Celular'
+    ,'tit_cep'              => 'CEP'
     ,'tit_cidade'           => 'Cidade'
 
     ,'tit_cidadenatal'      => 'Cidade Natal'
@@ -168,6 +172,10 @@ return [
     ,'tit_dadosjogador'     => 'Dados do jogador'
     ,'tit_data'             => 'Data'
     ,'tit_datanascimento'   => 'Data de Nascimento'
+    ,'tit_datasaida'        => 'Data da Saída'
+    ,'tit_dataretorno_prev' => 'Retorno Previso'
+    ,'tit_dataretorno_real' => 'Data do Retorno Real'
+
     ,'tit_departamento'     => 'Departamento'
 
     ,'tit_depmedico'        => 'Departamento Médico'
@@ -189,11 +197,13 @@ return [
     ,'tit_documento'        => 'Documento'
     ,'tit_dt_nasc'          => 'Data de Nascimento'
     ,'tit_dt_entrada'       => 'Data de Entrada'
+    ,'tit_dt_fundacao'      => 'Data da Fundação'
     ,'tit_dt_passaporte'    => 'Venc.Passaporte'
     ,'tit_dt_saida'         => 'Data de Saída'
     ,'tit_dt_ult_troca'     => 'Data Última Troca'
 
     ,'tit_endereco'         => 'Endereço'
+    ,'tit_email'            => 'E-mail'
 
     ,'tit_escolaano'        => 'Ano Let'
     ,'tit_escolaboletins'   => 'Boletins entregues'
@@ -273,6 +283,7 @@ return [
 
     ,'tit_medico'           => 'Médico'
 
+    ,'tit_motivoafastamento'=> 'Motivo Afastamentos'
     ,'tit_motivoatendimento'=> 'Motivo Atendimento'
 
     ,'tit_motivoausencia_descricao' => 'Motivo da Ausência'
@@ -286,6 +297,7 @@ return [
     ,'tit_nome_usuario'     => 'Usuário'
 
     ,'tit_observacoes'      => 'Observações'
+    ,'tit_observacao'       => 'Observação'
 
     ,'tit_ocorrenciadata'      => 'Data Ocorrência'
     ,'tit_ocorrenciadescricao' => 'Descrição'
@@ -376,6 +388,10 @@ return [
     ,'tit_tecnico'          => 'Técnico'
     ,'tit_telefone'         => 'Telefone'
     ,'tit_tempo_clube'      => 'Tempo no Clube'
+
+    ,'tit_time'             => 'Clube'
+    ,'tit_time_nomereal'    => 'Nome Real'
+
     ,'tit_tipoacao'         => 'Tipo de Ação'
     ,'tit_tipocampeonato'   => 'Tipo de Campeonato'
     ,'tit_tipoconta'        => 'Tipo de Conta'
@@ -397,6 +413,7 @@ return [
 
     // títulos de telas
     ,'t_administrativo'         => 'Administrativo'
+    ,'t_afastamento'            => 'Afastamentos'
     ,'t_alojamento'             => 'Alojamentos'
 
     ,'t_atendimentoNutricao'    => 'Atendimentos Jogadores'
@@ -461,6 +478,7 @@ return [
     ,'t_marketingevento'        => 'Eventos de Marketing'
     ,'t_medico'                 => 'Médico'
     ,'t_menu_principal'         => 'Menu Principal'
+    ,'t_motivoAfastamento'      => 'Motivo de Afastamentos'
     ,'t_motivoAusencia'         => 'Motivo de Ausência'
     ,'t_motivo_ausencia_escolar'=> 'Motivo de Ausência Escolar'
     ,'t_motivocartao'           => 'Motivo de Cartão'
@@ -487,6 +505,7 @@ return [
     ,'t_selecao'                => 'Seleções'
     ,'t_suplementos'            => 'Suplementos'
     ,'t_tecnicos'               => 'Técnicos'
+    ,'t_times'                  => 'Times'
     ,'t_tipoacao'               => 'Tipo de Ação'
     ,'t_tipocampeonato'         => 'Tipo de Campeonato'
     ,'t_tipoconta'              => 'Tipo de Conta'
@@ -509,22 +528,26 @@ return [
 
 
     // criticas
-    ,'crit_apelido'         => "Informe o apelido do jogador"
-    ,'crit_nomecompleto'    => "Informe o nome do jogador"
-    ,'crit_datanascimento'  => "Informe a data de nascimento do jogador"
+    ,'crit_apelido_required'        => "Informe o apelido do jogador"
+    ,'crit_nomecompleto_required'   => "Informe o nome do jogador"
+    ,'crit_datanascimento_required' => "Informe a data de nascimento do jogador"
+
+    ,'crit_datasaida_required'      => "Informe a data de saída"
+    ,'crit_dataretorno_required'    => "Informe a data de retorno"
 
     ,'crit_alojamento_required'     => 'O nome do alojamento é um campo obrigatório.'
     ,'crit_alojamento_unique'       => 'Este alojamento já está cadastrado.'
     ,'crit_alojamento_vagas_unique' => 'A quantidade de vagas é um campo obrigatório.'
 
-    ,'crit_atividadeSS_required' => 'O motivo de atendimento é um campo obrigatório.'
-    ,'crit_atividadeSS_unique'   => 'Este motivo de atendimento já está cadastrada.'
+    ,'crit_atividadeSS_required'    => 'O motivo de atendimento é um campo obrigatório.'
+    ,'crit_atividadeSS_unique'      => 'Este motivo de atendimento já está cadastrada.'
+    ,'crit_atividadeSS_min'         => 'O motivo de atendimento tem que ter no mínimo 3 letras.'
 
-    ,'crit_atividadeadm_required' => 'O atividade é um campo obrigatório.'
-    ,'crit_atividadeadm_unique'   => 'Esta atividade já está cadastrada.'
+    ,'crit_atividadeadm_required'   => 'O atividade é um campo obrigatório.'
+    ,'crit_atividadeadm_unique'     => 'Esta atividade já está cadastrada.'
 
-    ,'crit_atividade_required' => 'O motivo de atendimento é um campo obrigatório.'
-    ,'crit_atividade_unique'   => 'Este motivo de atendimento já está cadastrada.'
+    ,'crit_atividade_required'      => 'O motivo de atendimento é um campo obrigatório.'
+    ,'crit_atividade_unique'        => 'Este motivo de atendimento já está cadastrada.'
 
     ,'crit_ausenciaescolar_data_required' => 'A data da ausência é obrigatória.'
 
@@ -594,8 +617,13 @@ return [
     ,'crit_localatividade_required' => 'O local da atividade é obrigatório.'
     ,'crit_localatividade_unique'   => 'Este local de atividade já está cadastrado.'
 
+    ,'crit_motivoafastamento_required' => 'O motivo de afastamentos é obrigatório.'
+    ,'crit_motivoafastamento_unique'   => 'Este motivo de afastamentos já está cadastrado.'
+
     ,'crit_motivoausencia_required' => 'O motivo de ausência é obrigatório.'
     ,'crit_motivoausencia_unique'   => 'Este motivo de ausência já está cadastrado.'
+    ,'crit_motivoausencia_min'      => 'O motivo de ausência tem que ter no mínimo 3 letras.'
+
     ,'crit_motivocartao_required'   => 'O motivo do cartão é obrigatório.'
     ,'crit_motivocartao_unique'     => 'Este motivo do cartão já está cadastrado.'
 
@@ -604,7 +632,8 @@ return [
     ,'crit_ocorrenciatipo'      => 'O tipo de ocorrência é um campo obrigatório.'
 
     ,'crit_origem_required' => 'A origem de atendimento é um campo obrigatório.'
-    ,'crit_origem_unique' => 'Esta origem de atendimento já está cadastrada.'
+    ,'crit_origem_unique'   => 'Esta origem de atendimento já está cadastrada.'
+    ,'crit_origem_min'      => 'A origem de atendimento tem que ter no mínimo 3 letras.'
 
     ,'crit_origem_lesao_required' => 'A origem da lesão é obrigatória.'
 
@@ -635,8 +664,10 @@ return [
     ,'crit_suplemento_required' => 'O nome do suplemento é obrigatório.'
     ,'crit_suplemento_unique'   => 'O suplemento já está cadastrado.'
 
-    , 'crit_tecnico_required'   => 'O nome do técnico é obrigatório.'
-    , 'crit_tecnico_unique'     => 'Este técnico já está cadastrado.'
+    ,'crit_tecnico_required'   => 'O nome do técnico é obrigatório.'
+    ,'crit_tecnico_unique'     => 'Este técnico já está cadastrado.'
+
+    ,'crit_time_required' => 'O time é obrigatório.'
 
     ,'crit_tipocamp_required' => 'O tipo de campeonato é obrigatório.'
     ,'crit_tipocamp_unique'   => 'Este tipo de campeonato já está cadastrado.'
@@ -654,6 +685,10 @@ return [
     ,'crit_visita_data_required' => 'A data da visita é obrigatória.'
 
     // confirmações
+    , 'conf_afastamento_inc'   => 'Afastamentos incluido com sucesso.'
+    , 'conf_afastamento_alt'   => 'Afastamentos alterado com sucesso.'
+    , 'conf_afastamento_exc'   => 'Afastamentos excluido com sucesso.'
+
     , 'conf_alojamento_inc'   => 'Alojamento incluido com sucesso.'
     , 'conf_alojamento_alt'   => 'Alojamento alterado com sucesso.'
     , 'conf_alojamento_exc'   => 'Alojamento excluido com sucesso.'
@@ -778,6 +813,10 @@ return [
     , 'conf_historicoescolar_alt'   => 'Histórico Escolar alterado com sucesso.'
     , 'conf_historicoescolar_exc'   => 'Histórico Escolar excluído com sucesso.'
 
+    , 'conf_motivoAfastamento_inc'     => 'Motivo afastamentos incluído com sucesso.'
+    , 'conf_motivoAfastamento_alt'     => 'Motivo afastamentos alterado com sucesso.'
+    , 'conf_motivoAfastamento_exc'     => 'Motivo afastamentos excluído com sucesso.'
+
     , 'conf_motivoAusencia_inc'     => 'Motivo incluído com sucesso.'
     , 'conf_motivoAusencia_alt'     => 'Motivo alterado com sucesso.'
     , 'conf_motivoAusencia_exc'     => 'Motivo excluído com sucesso.'
@@ -833,6 +872,10 @@ return [
     , 'conf_tecnico_inc'    => 'Técnico incluído com sucesso.'
     , 'conf_tecnico_alt'    => 'Técnico alterado com sucesso.'
     , 'conf_tecnico_exc'    => 'Técnico excluído com sucesso.'
+
+    , 'conf_time_inc'       => 'Time incluído com sucesso.'
+    , 'conf_time_alt'       => 'Time alterado com sucesso.'
+    , 'conf_time_exc'       => 'Time excluído com sucesso.'
 
     , 'conf_tipocamp_inc'   => 'Tipo de campeonato incluído com sucesso.'
     , 'conf_tipocamp_alt'   => 'Tipo de campeonato alterado com sucesso.'

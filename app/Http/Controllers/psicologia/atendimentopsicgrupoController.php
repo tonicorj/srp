@@ -79,7 +79,7 @@ class AtendimentopsicGrupoController extends Controller
         $this->atendimento->create($input);
 
         \Session::flash('message', trans( 'messages.conf_atividades_inc'));
-        $url = $request->get('redirect_to', asset('psicologia.atendimentopsic_grupo'));
+        $url = $request->get('redirect_to', asset('psicologia/atendimentopsic_grupo'));
         return redirect()->to($url);
     }
 
@@ -117,7 +117,7 @@ class AtendimentopsicGrupoController extends Controller
         $this->atendimento->find($request['ID_ATENDIMENTO_PSICOLOGIA'])->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_atividades_alt'));
-        $url = $request->get('redirect_to', asset('psicologia.atendimentopsic_grupo'));
+        $url = $request->get('redirect_to', asset('psicologia/atendimentopsic_grupo'));
         return redirect()->to($url);
     }
 

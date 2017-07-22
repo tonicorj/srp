@@ -57,7 +57,7 @@ class Parte_CorpoController extends Controller
         $this->parte_corpo->create($input);
 
         \Session::flash('message', trans( 'messages.conf_parte_corpo_inc'));
-        $url = $request->get('redirect_to', asset('dm.parte_corpo'));
+        $url = $request->get('redirect_to', asset('dm/parte_corpo'));
         return redirect()->to($url);
 
     }
@@ -73,7 +73,7 @@ class Parte_CorpoController extends Controller
         $this->parte_corpo->find($id)->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_parte_corpo_alt'));
-        $url = $request->get('redirect_to', asset('dm.parte_corpo'));
+        $url = $request->get('redirect_to', asset('dm/parte_corpo'));
         return redirect()->to($url);
     }
 
@@ -81,6 +81,6 @@ class Parte_CorpoController extends Controller
     {
         $this->parte_corpo->find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_parte_corpo_exc'));
-        return redirect()->to(URL::previous());
+        return redirect()->to(asset('dm/parte_corpo'));
     }
 }

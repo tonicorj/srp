@@ -23,27 +23,6 @@ class DmAcompanhaController extends Controller
 
     public function index()
     {
-        /*
-        $palavraChave = Input::get('pesquisa');
-
-        // busca por campo da tabela
-        $palavraChave = '%' . $palavraChave . '%';
-        $categorias = Categorias::where('CATEG_DESCRICAO', 'like', $palavraChave )
-            ->orderBy('CATEG_DESCRICAO', 'ASC')
-            ->paginate(10);
-
-        if (count($categorias)== 0) {
-            $palavraChave = '';
-
-            // retorna todos os dados
-            $categorias = Categorias::query()
-                ->orderBy('CATEG_DESCRICAO', 'ASC')
-                ->paginate(10);
-
-        }
-        $palavraChave = str_replace('%', '', $palavraChave);
-        */
-
         // pega o código do atendimento
         $id_dm = Input::get('dm');
 

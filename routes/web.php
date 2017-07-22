@@ -73,6 +73,7 @@ Route::group(['prefix'=>'quadroatividades', 'middleware' => 'auth'], function() 
 // Administrativo
 Route::group(['prefix'=>'adm', 'middleware' => 'auth'], function() {
     Route::resource('alojamentos', 'adm\AlojamentosController'      , ['except' => 'show']);
+    Route::resource('afastamentos', 'adm\afastamentosController'    , ['except' => 'show']);
     Route::resource('atividadesAdm', 'adm\atividadesAdmController'  , ['except' => 'show']);
     Route::resource('cargos', 'adm\CargosController'                , ['except' => 'show']);
     Route::resource('cidades', 'adm\CidadesController'              , ['except' => 'show']);
@@ -81,6 +82,7 @@ Route::group(['prefix'=>'adm', 'middleware' => 'auth'], function() {
     Route::resource('estadocivil', 'adm\estadocivilController'      , ['except' => 'show']);
     Route::resource('funcionarios', 'adm\FuncionariosController'    , ['except' => 'show']);
     Route::resource('motivoAusencia', 'adm\motivoAusenciaController', ['except' => 'show']);
+    Route::resource('motivoafastamento', 'adm\motivoafastamentoController', ['except' => 'show']);
     Route::resource('ocorrencias', 'adm\ocorrenciasController'      , ['except' => 'show']);
     Route::resource('paises'       , 'adm\PaisesController'         , ['except' => 'show']);
 });
@@ -111,18 +113,18 @@ Route::group(['prefix'=>'psicologia', 'middleware' => 'auth'], function() {
 });
 
 // Serviço social
-Route::group(['prefix'=>'SSocial', 'middleware' => 'auth'], function() {
-    Route::resource('atendimentoSS_grupos', 'SSocial\AtendimentoSSGrupoController', ['except' => 'show']);
-    Route::resource('origemservsocial', 'SSocial\origemservsocialController', ['except' => 'show']);
-    Route::resource('atendimentoSS', 'SSocial\atendimentoSSController', ['except' => 'show']  );
-    Route::resource('atendimentoSS_func', 'SSocial\atendimentoSSfuncController', ['except' => 'show']  );
-    Route::resource('atividadesSS', 'SSocial\atividadesSSController', ['except' => 'show']  );
-    Route::resource('eventos', 'SSocial\eventosController', ['except' => 'show']  );
-    Route::resource('eventosJogadores', 'SSocial\eventosJogadoresController', ['except' => 'show']  );
-    Route::resource('motivoAusenciaEscolar', 'SSocial\motivoAusenciaEscolarController', ['except' => 'show']  );
-    Route::resource('historicoescolar', 'SSocial\historicoEscolarController', ['except' => 'show']  );
-    Route::resource('cursosextras', 'SSocial\CursosExtrasController', ['except' => 'show']  );
-    Route::resource('ausenciaescolar', 'SSocial\ausenciaescolarController', ['except' => 'show']  );
+Route::group(['prefix'=>'ssocial', 'middleware' => 'auth'], function() {
+    Route::resource('atendimentoSS_grupos'  , 'ssocial\AtendimentoSSGrupoController'    , ['except' => 'show']  );
+    Route::resource('origemservsocial'      , 'ssocial\origemservsocialController'      , ['except' => 'show']  );
+    Route::resource('atendimentoSS'         , 'ssocial\atendimentoSSController'         , ['except' => 'show']  );
+    Route::resource('atendimentoSS_func'    , 'ssocial\atendimentoSSfuncController'     , ['except' => 'show']  );
+    Route::resource('atividadesSS'          , 'ssocial\atividadesSSController'          , ['except' => 'show']  );
+    Route::resource('eventos'               , 'ssocial\eventosController'               , ['except' => 'show']  );
+    Route::resource('eventosJogadores'      , 'ssocial\eventosJogadoresController'      , ['except' => 'show']  );
+    Route::resource('motivoAusenciaEscolar' , 'ssocial\motivoAusenciaEscolarController' , ['except' => 'show']  );
+    Route::resource('historicoescolar'      , 'ssocial\historicoEscolarController'      , ['except' => 'show']  );
+    Route::resource('cursosextras'          , 'ssocial\CursosExtrasController'          , ['except' => 'show']  );
+    Route::resource('ausenciaescolar'       , 'ssocial\ausenciaescolarController'       , ['except' => 'show']  );
 });
 
 // DM
@@ -165,6 +167,7 @@ Route::group(['prefix'=>'jogos', 'middleware' => 'auth'], function() {
     Route::resource('juizes'            , 'jogos\juizesController'            , ['except' => 'show']);
     Route::resource('motivocartao'      , 'jogos\motivocartaoController'      , ['except' => 'show']);
     Route::resource('pontuacao'         , 'jogos\pontuacaoController'         , ['except' => 'show']);
+    Route::resource('times'             , 'jogos\TimesController'             , ['except' => 'show']);
     Route::resource('tipocampeonato'    , 'jogos\TipoCampeonatoController'    , ['except' => 'show']);
     Route::resource('tipofase'          , 'jogos\tipoFaseController'          , ['except' => 'show']);
     Route::resource('tecnicos'          , 'jogos\tecnicosController'          , ['except' => 'show']);

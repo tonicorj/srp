@@ -52,7 +52,7 @@ class Tipo_LesaoController extends Controller
         $this->tipo_lesao->create($input);
 
         \Session::flash('message', trans( 'messages.conf_tipo_lesao_inc'));
-        $url = $request->get('redirect_to', asset('DM.tipo_lesao'));
+        $url = $request->get('redirect_to', asset('dm/tipo_lesao'));
         return redirect()->to($url);
     }
 
@@ -72,7 +72,7 @@ class Tipo_LesaoController extends Controller
         $this->tipo_lesao->find($id)->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_tipo_lesao_alt'));
-        $url = $request->get('redirect_to', asset('DM.tipo_lesao'));
+        $url = $request->get('redirect_to', asset('dm/tipo_lesao'));
         return redirect()->to($url);
     }
 
@@ -80,6 +80,7 @@ class Tipo_LesaoController extends Controller
     {
         $this->tipo_lesao->find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_tipo_lesao_exc'));
-        return redirect()->to(URL::previous());
+        return redirect()->to(asset('dm/tipo_lesao'));
+        //return redirect()->to(URL::previous());
     }
 }

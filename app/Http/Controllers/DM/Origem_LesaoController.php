@@ -53,7 +53,7 @@ class Origem_LesaoController extends Controller
         $this->origem_lesao->create($input);
 
         \Session::flash('message', trans( 'messages.conf_origem_lesao_inc'));
-        $url = $request->get('redirect_to', asset('DM.origem_lesao'));
+        $url = $request->get('redirect_to', asset('dm/origem_lesao'));
         return redirect()->to($url);
     }
 
@@ -72,7 +72,7 @@ class Origem_LesaoController extends Controller
     {
         Origem_Lesao::find($id)->update($request->all());
         \Session::flash('message', trans( 'messages.conf_origem_lesao_alt'));
-        $url = $request->get('redirect_to', asset('DM.origem_lesao'));
+        $url = $request->get('redirect_to', asset('dm/origem_lesao'));
         return redirect()->to($url);
     }
 
@@ -86,6 +86,6 @@ class Origem_LesaoController extends Controller
     {
         Origem_Lesao::find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_origem_lesao_exc'));
-        return redirect()->to(URL::previous());
+        return redirect()->to(asset('dm/origemlesao'));
     }
 }

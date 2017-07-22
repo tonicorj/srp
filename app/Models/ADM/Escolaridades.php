@@ -1,6 +1,6 @@
 <?php
 
-namespace SRP\Models\ADM;
+namespace SRP\Models\adm;
 
 use Illuminate\Database\Eloquent\Model;
 

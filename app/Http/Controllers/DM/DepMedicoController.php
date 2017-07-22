@@ -85,7 +85,7 @@ class DepMedicoController extends Controller
         DepMedico::create($input);
 
         \Session::flash('message', trans('messages.conf_depmedico_inc'));
-        $url = $request->get('redirect_to', asset('dm.depfutebol'));
+        $url = $request->get('redirect_to', asset('dm/depfutebol'));
         return redirect()->to($url);
     }
 
@@ -127,7 +127,7 @@ class DepMedicoController extends Controller
         $this->depMedico->find($id)->update($request->all());
 
         \Session::flash('message', trans('messages.conf_depmedico_alt'));
-        $url = $request->get('redirect_to', asset('dm.depmedico'));
+        $url = $request->get('redirect_to', asset('dm/depmedico'));
         return redirect()->to($url);
     }
 
@@ -135,6 +135,6 @@ class DepMedicoController extends Controller
     {
         $this->depMedico->find($id)->delete();
         \Session::flash('message', trans('messages.conf_depmedico_exc'));
-        return redirect()->to(URL::previous());
+        return redirect()->to(asset('dm/depmedico'));
     }
 }

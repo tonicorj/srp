@@ -80,7 +80,7 @@ class atividadesController extends Controller
         $this->atividades->create($input);
 
         \Session::flash('message', trans( 'messages.conf_atendimentos_inc'));
-        $url = $request->get('redirect_to', asset('psicologia.atividadesAdm'));
+        $url = $request->get('redirect_to', asset('psicologia/atividadesAdm'));
         return redirect()->to($url);
     }
 

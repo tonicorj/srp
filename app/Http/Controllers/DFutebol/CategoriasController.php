@@ -56,7 +56,7 @@ class CategoriasController extends Controller
         Categorias::create($input);
 
         \Session::flash('message', trans( 'messages.conf_categoria_inc'));
-        $url = $request->get('redirect_to', asset('DFutebol.categorias'));
+        $url = $request->get('redirect_to', asset('DFutebol/categorias'));
         return redirect()->to($url);
     }
 
@@ -76,7 +76,7 @@ class CategoriasController extends Controller
         Categorias::find($id)->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_categoria_alt'));
-        $url = $request->get('redirect_to', asset('DFutebol.categorias'));
+        $url = $request->get('redirect_to', asset('dfutebol/categorias'));
         return redirect()->to($url);
     }
 
@@ -84,6 +84,6 @@ class CategoriasController extends Controller
     {
         Categorias::find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_categoria_exc'));
-        return redirect()->to(URL::previous());
+        return redirect()->to(asset('dfutebol/categorias'));
     }
 }

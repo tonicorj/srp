@@ -134,7 +134,7 @@
                         <div class="panel-heading">Foto</div>
                         <div class="panel-body">
                             <center>
-                            {!! Html::image($foto, '', array('class' => 'image','id'=>'blah')) !!}
+                            {!! Html::image($foto, '', array('class' => 'image','id'=>'blah', 'width'=>'120', 'height' => '120')) !!}
                                 <label class="btn btn-primary" for="imgFoto">
                                     <input type='file' id="imgFoto" name="imgFoto" style='display:none;'/>
                                     Selecione uma Imagem

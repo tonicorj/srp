@@ -57,7 +57,7 @@ class ExamesController extends Controller
         $this->exame->create($input);
 
         \Session::flash('message', trans( 'messages.conf_exame_inc'));
-        $url = $request->get('redirect_to', asset('DM.exames'));
+        $url = $request->get('redirect_to', asset('dm/exames'));
         return redirect()->to($url);
     }
 
@@ -77,7 +77,7 @@ class ExamesController extends Controller
         $this->exame->find($id)->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_exame_alt'));
-        $url = $request->get('redirect_to', asset('DM.exames'));
+        $url = $request->get('redirect_to', asset('dm/exames'));
         return redirect()->to($url);
     }
 
@@ -85,6 +85,7 @@ class ExamesController extends Controller
     {
         $this->exame->find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_exame_exc'));
-        return redirect()->to(URL::previous());
+        return redirect()->to(asset('dm/exames'));
+        //return redirect()->to(URL::previous());
     }
 }

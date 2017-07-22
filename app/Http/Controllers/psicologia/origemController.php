@@ -76,7 +76,7 @@ class origemController extends Controller
         $this->origem->create($input);
 
         \Session::flash('message', trans( 'messages.conf_origem_inc'));
-        $url = $request->get('redirect_to', asset('psicologia.origem'));
+        $url = $request->get('redirect_to', asset('psicologia/origem'));
         return redirect()->to($url);
     }
 
@@ -117,7 +117,7 @@ class origemController extends Controller
         $this->origem->find($id)->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_origem_alt'));
-        $url = $request->get('redirect_to', asset('psicologia.origem'));
+        $url = $request->get('redirect_to', asset('psicologia/origem'));
         return redirect()->to($url);
     }
 
@@ -131,6 +131,6 @@ class origemController extends Controller
     {
         $this->origem->find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_origem_exc'));
-        return redirect()->to(URL::previous());
+        return redirect()->to(asset('psicologia/origem'));
     }
 }
