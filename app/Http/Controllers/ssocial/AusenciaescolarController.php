@@ -86,6 +86,9 @@ class AusenciaescolarController extends Controller
             $input['ID_PRESENCA'] = $id;
 
         $input['PRESENCA_DATA'] = data_to_sql($input['PRESENCA_DATA_S']);
+        $input['FLAG_ATRASO']   = ( $input['FLAG_ATRASO']   == '1' )? 'S': 'N';
+        $input['FLAG_DISPENSA'] = ( $input['FLAG_DISPENSA'] == '1' )? 'S': 'N';
+
         $this->ausencia->create($input);
 
         \Session::flash('message', trans( 'messages.conf_ausenciaescolar_inc'));
@@ -114,6 +117,8 @@ class AusenciaescolarController extends Controller
     {
         $ausencia = $this->ausencia->find($id);
         $ausencia['PRESENCA_DATA_S'] = data_display($ausencia['PRESENCA_DATA']);
+        $ausencia['FLAG_ATRASO']     = ( $ausencia['FLAG_ATRASO']   == 'S' )? '1': '0';
+        $ausencia['FLAG_DISPENSA']   = ( $ausencia['FLAG_DISPENSA'] == 'S' )? '1': '0';
 
         $motivo = motivoAusenciaEscolar::orderBy('MOTIVO_AUSENCIA_DESCRICAO', 'asc')
             ->pluck('MOTIVO_AUSENCIA_DESCRICAO', 'ID_MOTIVO_AUSENCIA_ESCOLAR')
@@ -138,6 +143,9 @@ class AusenciaescolarController extends Controller
     public function update(ausenciaescolarRequest $request, $id)
     {
         $request['PRESENCA_DATA'] = data_to_sql($request['PRESENCA_DATA_S']);
+        $request['FLAG_ATRASO']   = ( $request['FLAG_ATRASO']   == '1' )? 'S': 'N';
+        $request['FLAG_DISPENSA'] = ( $request['FLAG_DISPENSA'] == '1' )? 'S': 'N';
+
         $this->ausencia->find($request['ID_PRESENCA'])->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_ausenciaescolar_alt'));

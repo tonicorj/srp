@@ -29,7 +29,7 @@ class atividadesController extends Controller
 
         $titulos = array( '#', trans('messages.tit_atividade') );
 
-        return view('psicologia.atividadesAdm.index')
+        return view('psicologia.atividades.index')
             ->with('atividades', $atividades )
             ->with('titulos', $titulos)
             ;
@@ -57,7 +57,7 @@ class atividadesController extends Controller
      */
     public function create()
     {
-        return view('psicologia.atividadesAdm.create');
+        return view('psicologia.atividades.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class atividadesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AtividadesRequest $request)
+    public function store(atividadesRequest $request)
     {
         $input = $request->all();
 
@@ -80,7 +80,7 @@ class atividadesController extends Controller
         $this->atividades->create($input);
 
         \Session::flash('message', trans( 'messages.conf_atendimentos_inc'));
-        $url = $request->get('redirect_to', asset('psicologia/atividadesAdm'));
+        $url = $request->get('redirect_to', asset('psicologia/atividades'));
         return redirect()->to($url);
     }
 
@@ -104,7 +104,7 @@ class atividadesController extends Controller
     public function edit($id)
     {
         $atividade = $this->atividades->find($id);
-        return view ('psicologia.atividadesAdm.edit')
+        return view ('psicologia.atividades.edit')
             ->with('atividade', $atividade);
     }
 
@@ -120,7 +120,7 @@ class atividadesController extends Controller
         $this->atividades->find($id)->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_atividades_alt'));
-        $url = $request->get('redirect_to', asset('psicologia/atividadesAdm'));
+        $url = $request->get('redirect_to', asset('psicologia/atividades'));
         return redirect()->to($url);
     }
 
@@ -134,6 +134,6 @@ class atividadesController extends Controller
     {
         $this->atividades->find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_atividades_exc'));
-        return redirect()->to(asset('psicologia/atividadesAdm'));
+        return redirect()->to(asset('psicologia/atividades'));
     }
 }

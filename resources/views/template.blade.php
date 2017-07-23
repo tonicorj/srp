@@ -533,6 +533,9 @@ header ('Content-type: text/html; charset=UTF-8');
                                         </a>
                                     </li>
                                 @endcan
+                                @can( 'acesso', 'PSICOLOGIA_GRUPOS')
+                                    <li><a href="{!! asset('psicologia/atendimentopsic_grupo') !!}"> <i class="fa fa-users"></i> {!! trans('messages.t_atendimentopsic_grupo') !!}</a></li>
+                                @endcan
                                 <li class="treeview">
                                     <a href="#"><i class="fa fa-tag"></i> {!! trans('messages.cadastros') !!}
                                         <span class="pull-right-container">
@@ -540,10 +543,6 @@ header ('Content-type: text/html; charset=UTF-8');
                                     </span>
                                     </a>
                                     <ul class="treeview-menu">
-                                        @can( 'acesso', 'PSICOLOGIA_GRUPOS')
-                                            <li><a href="{!! asset('psicologia/atendimentopsic_grupo') !!}"> <i class="fa fa-users"></i> {!! trans('messages.t_atendimentopsic_grupo') !!}</a></li>
-                                        @endcan
-
                                         @can( 'acesso', 'ATIVIDADES_PSICOLOGIA')
                                             <li><a href="{!! asset('psicologia/atividades') !!}"> <i class="fa fa-bullhorn"></i> {!! trans('messages.t_atividadepsicologia') !!}</a></li>
                                         @endcan
@@ -609,7 +608,7 @@ header ('Content-type: text/html; charset=UTF-8');
                                 </ul>
                             </li>
                             @can( 'acesso', 'CURSOS_EXTRAS')
-                                <li><a href="{!! asset('ssocial') !!}"> <i class="fa fa-gamepad"></i> {!! trans('messages.t_cursosextras') !!}</a></li>
+                                <li><a href="{!! asset('ssocial/cursosextras') !!}"> <i class="fa fa-gamepad"></i> {!! trans('messages.t_cursosextras') !!}</a></li>
                             @endcan
                             @can( 'acesso', 'EVENTOS')
                                 <li><a href="{!! asset('ssocial/eventos') !!}"> <i class="glyphicon glyphicon-ice-lolly-tasted"></i> {!! trans('messages.t_eventos') !!}</a></li>

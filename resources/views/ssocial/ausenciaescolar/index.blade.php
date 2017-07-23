@@ -33,8 +33,8 @@
                         <td>{{$reg->ESCOLA_SERIE}}</td>
                         <td>{{$reg->ESCOLA_TURMA}}</td>
                         -->
-                        <td style="width: 5px">{{$reg->FLAG_DISPENSA}}</td>
-                        <td style="width: 5px">{{$reg->FLAG_ATRASO}}</td>
+                        <td>{{$reg->FLAG_DISPENSA}}</td>
+                        <td>{{$reg->FLAG_ATRASO}}</td>
                         <td>{{$reg->MOTIVO_AUSENCIA_DESCRICAO}}</td>
                     </tr>
                 @endforeach
@@ -44,6 +44,24 @@
     </div>
 
     <script>
+        jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+            "date-br-pre": function ( a ) {
+                if (a == null || a == "") {
+                    return 0;
+                }
+                var brDatea = a.split('/');
+                return (brDatea[2] + brDatea[1] + brDatea[0]) * 1;
+            },
+
+            "date-br-asc": function ( a, b ) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "date-br-desc": function ( a, b ) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+        } );
+
         $(document).ready(function () {
             $('#tbl_').DataTable({
                 "paging": true,
@@ -55,8 +73,9 @@
                 "autoWidth": true,
                 "columnDefs": [
                     {"targets": 0, "visible": false},
-                    {"targets": 5, "orderable": false},
-                    {"targets": 6, "orderable": false}
+                    {"targets": 1, "type": "date-br"},
+                    {"targets": 5, "orderable": false, "class":"text-center"},
+                    {"targets": 6, "orderable": false, "class":"text-center"}
                 ],
                 dom: 'Bfrtip',
                 buttons: [
@@ -64,7 +83,7 @@
                         "className": "{!! trans('messages.i_incluir')!!}",
                         "titleAttr": "{!! trans('messages.inclusao')!!}",
                         "action": function (e, dt, node, config) {
-                            location.href = "{!! asset('ssocial') !!}";
+                            location.href = "{!! asset('ssocial/ausenciaescolar/create') !!}";
                         }
                     },
                     {
@@ -79,7 +98,7 @@
                             else {
                                 // pega o código
                                 id = dados[0];
-                                url = '{{ asset('ssocial')  }}/' + id + '/edit';
+                                url = '{{ asset('ssocial/ausenciaescolar')  }}/' + id + '/edit';
                                 location.href = url;
                             }
                         }

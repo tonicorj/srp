@@ -5,8 +5,8 @@ namespace SRP\Http\Controllers\ssocial;
 use SRP\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use SRP\Departamentos;
-use SRP\Models\DFutebol\Categorias;
+use SRP\Models\adm\Departamentos;
+use SRP\Models\dfutebol\Categorias;
 use SRP\Models\ssocial\eventos;
 use SRP\Http\Requests\ssocial\eventosRequest;
 use DB;
@@ -97,7 +97,7 @@ class EventosController extends Controller
         $this->evento->create($input);
 
         \Session::flash('message', trans( 'messages.conf_evento_inc'));
-        $url = $request->get('redirect_to', asset('ssocial\eventos'));
+        $url = $request->get('redirect_to', asset('ssocial/eventos'));
         return redirect()->to($url);
     }
 
@@ -147,7 +147,7 @@ class EventosController extends Controller
         $this->evento->find($request['ID_EVENTO'])->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_evento_alt'));
-        $url = $request->get('redirect_to', asset('ssocial\eventos'));
+        $url = $request->get('redirect_to', asset('ssocial/eventos'));
         return redirect()->to($url);
     }
 
@@ -170,6 +170,6 @@ class EventosController extends Controller
             $this->evento->find($id)->delete();
             \Session::flash('message', trans('messages.conf_evento_exc'));
         }
-        return redirect()->to(asset('ssocial\eventos'));
+        return redirect()->to(asset('ssocial/eventos'));
     }
 }

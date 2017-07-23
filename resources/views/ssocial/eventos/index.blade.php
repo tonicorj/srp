@@ -39,6 +39,24 @@
     </div>
 
     <script>
+        jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+            "date-br-pre": function ( a ) {
+                if (a == null || a == "") {
+                    return 0;
+                }
+                var brDatea = a.split('/');
+                return (brDatea[2] + brDatea[1] + brDatea[0]) * 1;
+            },
+
+            "date-br-asc": function ( a, b ) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "date-br-desc": function ( a, b ) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+        } );
+
         $(document).ready(function () {
             $('#tbl_').DataTable({
                 "paging": true,
@@ -49,7 +67,8 @@
                 "info": false,
                 "autoWidth": true,
                 "columnDefs": [
-                    {"visible": false, "targets": [0]}
+                    {"targets": [0], "visible": false},
+                    {"targets": [1], "type": "date-br"}
                 ],
                 dom: 'Bfrtip',
                 buttons: [
@@ -57,7 +76,7 @@
                         "className": "{!! trans('messages.i_incluir')!!}",
                         "titleAttr": "{!! trans('messages.inclusao')!!}",
                         "action": function (e, dt, node, config) {
-                            location.href = "{!! asset('ssocial') !!}";
+                            location.href = "{!! asset('ssocial/eventos/create') !!}";
                         }
                     },
                     {
@@ -72,7 +91,7 @@
                             else {
                                 // pega o código
                                 id = dados[0];
-                                url = '{{ asset('ssocial')  }}/' + id + '/edit';
+                                url = '{{ asset('ssocial/eventos')  }}/' + id + '/edit';
                                 location.href = url;
                             }
                         }
@@ -109,11 +128,28 @@
                                 });
                             }
                         }
-                    },
-                    {
+                    }
+                    ,{
                         "className": "{!! trans('messages.i_copiar')!!}",
                         "titleAttr": "{!! trans('messages.copiar')!!}",
                         "action": function (e, dt, node, config) {
+                        }
+                    }
+                    ,{
+                        "className": "{!! trans('messages.i_jogador')!!}",
+                        "titleAttr": "{!! trans('messages.tit_jogadores')!!}",
+                        "action": function (e, dt, node, config) {
+                            var dados = $('#tbl_').DataTable().row('.selected').data();                            if (dados == null) {
+                                //alert('Selecione um registro');
+                                bootbox.alert("{!! trans('messages.sSelecione') !!}");
+                            }
+                            else {
+                                var _id = dados[0];
+                                var _url = "{!!  asset('ssocial/eventosJogadores') !!}";
+                                _url = _url + '?evento=' + _id;
+                                //alert(_url);
+                                $(location).attr('href',  _url );
+                            }
                         }
                     }
                 ],

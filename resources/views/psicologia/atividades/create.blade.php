@@ -1,38 +1,38 @@
 @extends('template')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>{!! trans('messages.t_atividadepsicologia') !!}</h4>
-        </div>
-        <div class="panel-body">
-            @if ($errors->any())
-                <ul class="alert alert-warning">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>{!! trans('messages.t_atividadepsicologia') !!}</h4>
+            </div>
+            <div class="panel-body">
+                @if ($errors->any())
                     @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
+                        <div class="alert alert-danger list-group-item">{{$error}}</div>
                     @endforeach
-                </ul>
-            @endif
+                @endif
 
-            {!! Form::open(
-                ['route'=>'atividades.store'
-                ,'method'=>'post'
-                , 'id'=>'form_'
-                , 'data-toggle'=>"validator"
-                , 'role'=>"form"
-                ]) !!}
-                @include ('psicologia.atividades._form')
+                {!! Form::open(
+                    ['route'=>'atividades.store'
+                    ,'method'=>'post'
+                    , 'id'=>'form_'
+                    , 'data-toggle'=>"validator"
+                    , 'role'=>"form"
+                    ]) !!}
+                    @include ('psicologia.atividades._form')
 
-                <div class="form-group">
-                    <div class="col-lg-1">
-                        {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
-                    </div>
-                    <div class="col-lg-1">
-                        <a href="{{ asset('atividadesped') }}" class="btn btn-sm btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
-                    </div>
-                </div>
-
-            {!! Form::close() !!}
+                    <ul class="list-inline form-group">
+                        <li>
+                            {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-success pull-left']) !!}
+                        </li>
+                        <li></li>
+                        <li>
+                            <a href="{{ asset('psicologia/atividades') }}" class="btn btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                        </li>
+                    </ul>
+                {!! Form::close() !!}
+            </div>
         </div>
     </div>
 @stop

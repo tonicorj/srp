@@ -1,7 +1,7 @@
 {!! Form::hidden('ID_CURSO', null, ['class'=>'form-control', 'id'=>'ID_CURSO']) !!}
 
 <div class="row">
-    <div class="form-group col-lg-6">
+    <div class="form-group col-lg-10">
         {!! Form::label('CURSO_NOME', trans('messages.tit_curso_nome')) !!}
         {!! Form::text ('CURSO_NOME', null,
             ['class'=>'form-control'
@@ -13,26 +13,26 @@
 </div>
 
 <div class="row">
-    <div class="form-group col-lg-3">
+    <div class="form-group col-lg-4">
         {!! Form::label('CURSO_DT_INICIO_S', trans('messages.tit_curso_dt_inicial')) !!}
         <div class="input-group date" id="CURSO_DT_INICIO_S">
             {!! Form::text ('CURSO_DT_INICIO_S', null,
                 ['class'=>'form-control'
                 , 'maxlength' =>'10'
                 , 'id'=>'CURSO_DT_INICIO_S'
-                , 'required'=>''
+                , 'required'=>'true'
                 ]) !!}
             <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
         </div>
     </div>
-    <div class="form-group col-lg-3">
+    <div class="form-group col-lg-4">
         {!! Form::label('CURSO_DT_FINAL_S', trans('messages.tit_curso_dt_final')) !!}
         <div class="input-group date" id="CURSO_DT_FINAL_S">
             {!! Form::text ('CURSO_DT_FINAL_S', null,
                 ['class'=>'form-control'
                 , 'maxlength' =>'10'
                 , 'id'=>'CURSO_DT_FINAL_S'
-                , 'required'=>''
+                , 'required'=>'true'
                 ]) !!}
             <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
         </div>
@@ -40,7 +40,7 @@
 </div>
 
 <div class="row">
-    <div class="form-group col-lg-6">
+    <div class="form-group col-lg-10">
         {!! Form::label('CURSO_EMPRESA', trans('messages.tit_curso_empresa')) !!}
         {!! Form::text ('CURSO_EMPRESA', null,
             ['class'=>'form-control'

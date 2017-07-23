@@ -235,6 +235,7 @@ return [
     ,'tit_evento_data'      => 'Data Evento'
     ,'tit_evento_depto'     => 'Departamento Responsável'
     ,'tit_evento_externo'   => 'Externo'
+    ,'tit_jogadoresSelecionados' => 'Jogadores Selecionados'
     ,'tit_evento_local'     => 'Local do Evento'
     ,'tit_evento_titulo'    => 'Nome do Evento'
     ,'tit_evento_obs'       => 'Descrição do Evento'
@@ -897,6 +898,7 @@ return [
     ,'i_incluir'        => 'fa fa-plus fa-2x'
     ,'i_alterar'        => 'fa fa-pencil fa-2x'
     ,'i_excluir'        => 'fa fa-trash fa-2x'
+    ,'i_excluir2'       => 'glyphicon glyphicon-trash'
 
     ,'i_confirmar'      => 'fa fa-check fa-2x'
     ,'i_cancelar'       => 'fa fa-times fa-2x'

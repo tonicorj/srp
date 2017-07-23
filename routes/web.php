@@ -105,11 +105,11 @@ Route::group(['prefix'=>'nutricao', 'middleware' => 'auth'], function() {
 
 // Psicologia
 Route::group(['prefix'=>'psicologia', 'middleware' => 'auth'], function() {
-    Route::resource('atividades', 'psicologia\atividadesController', ['except' => 'show']);
-    Route::resource('origem', 'psicologia\origemController', ['except' => 'show']);
-    Route::resource('atendimentopsic', 'psicologia\atendimentopsicController', ['except' => 'show']  );
-    Route::resource('atendimentopsic_func', 'psicologia\atendimentopsicFuncController',   ['except' => 'show']  );
-    Route::resource('atendimentopsic_grupo', 'psicologia\atendimentopsicGrupoController', ['except' => 'show']  );
+    Route::resource('atividades'            , 'psicologia\atividadesController'         , ['except' => 'show']);
+    Route::resource('origem'                , 'psicologia\origemController'             , ['except' => 'show']);
+    Route::resource('atendimentopsic'       , 'psicologia\atendimentopsicController'    , ['except' => 'show']  );
+    Route::resource('atendimentopsic_func'  , 'psicologia\atendimentopsicFuncController',  ['except' => 'show']  );
+    Route::resource('atendimentopsic_grupo' , 'psicologia\atendimentopsicGrupoController', ['except' => 'show']  );
 });
 
 // Serviço social
@@ -125,6 +125,9 @@ Route::group(['prefix'=>'ssocial', 'middleware' => 'auth'], function() {
     Route::resource('historicoescolar'      , 'ssocial\historicoEscolarController'      , ['except' => 'show']  );
     Route::resource('cursosextras'          , 'ssocial\CursosExtrasController'          , ['except' => 'show']  );
     Route::resource('ausenciaescolar'       , 'ssocial\ausenciaescolarController'       , ['except' => 'show']  );
+
+    Route::get ('eventosJogadores/inclusao'     , ['as' => 'eventosJogadores.inclusao'               , 'uses' => 'ssocial\eventosJogadoresController@inclusao']);
+    Route::get ('eventosJogadores/exclusao/{id}', ['as' => 'eventosJogadores.exclusao'               , 'uses' => 'ssocial\eventosJogadoresController@exclusao']);
 });
 
 // DM

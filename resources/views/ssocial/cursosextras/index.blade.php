@@ -26,8 +26,8 @@
                             {{ Form::close() }}
                             <td>{{$reg->ID_CURSO}}</td>
                             <td>{{$reg->CURSO_NOME}}</td>
-                            <td>{{data_display($reg->CURSO_DT_FINAL)}}</td>
                             <td>{{data_display($reg->CURSO_DT_INICIO)}}</td>
+                            <td>{{data_display($reg->CURSO_DT_FINAL)}}</td>
                             <td>{{$reg->CURSO_EMPRESA}}</td>
                         </tr>
                     @endforeach
@@ -48,8 +48,8 @@
                 "autoWidth": true,
                 "columnDefs": [
                     {"visible": false, "targets": [0]},
-                    {"target":[2], "width": "15%"},
-                    {"target":[3], "width": "15%"}
+                    {"target":[2], "width": "15%", "type": "date-br"},
+                    {"target":[3], "width": "15%", "type": "date-br"}
                 ],
                 dom: 'Bfrtip',
                 buttons: [
@@ -57,7 +57,7 @@
                         "className": "{!! trans('messages.i_incluir')!!}",
                         "titleAttr": "{!! trans('messages.inclusao')!!}",
                         "action": function (e, dt, node, config) {
-                            location.href = "{!! asset('ssocial') !!}";
+                            location.href = "{!! asset('ssocial/cursosextras/create') !!}";
                         }
                     },
                     {
@@ -72,7 +72,7 @@
                             else {
                                 // pega o código
                                 id = dados[0];
-                                url = '{{ asset('ssocial')  }}/' + id + '/edit';
+                                url = '{{ asset('ssocial/cursosextras')  }}/' + id + '/edit';
                                 location.href = url;
                             }
                         }

@@ -3,34 +3,36 @@
 
 @section('content')
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>{!! trans('messages.t_atividadepsicologia') !!}</h4>
-        </div>
-        <div class="panel-body">
-            <table class='table table-striped' id="tbl_">
-                <thead>
-                <tr>
-                    @foreach ($titulos as $tit)
-                        <th>{{$tit}}</th>
-                    @endforeach
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($atividades as $reg)
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>{!! trans('messages.t_atividadepsicologia') !!}</h4>
+            </div>
+            <div class="panel-body">
+                <table class='table table-striped' id="tbl_">
+                    <thead>
                     <tr>
-                        {!! Form::open(['route' => [ 'atividades.destroy' ,'id' => $reg->ID_ATIV_PSICOLOGIA]
-                        , 'method' =>'DELETE'
-                        , 'id' => "delete-form-{$reg->ID_ATIV_PSICOLOGIA}"
-                        , 'style' => 'display:none'
-                        ]) !!}
-                        {{ Form::close() }}
-                        <td>{{$reg->ID_ATIV_PSICOLOGIA}}</td>
-                        <td>{{$reg->ATIV_PSICOLOGIA_DESCR}}</td>
+                        @foreach ($titulos as $tit)
+                            <th>{{$tit}}</th>
+                        @endforeach
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach ($atividades as $reg)
+                        <tr>
+                            {!! Form::open(['route' => [ 'atividades.destroy' ,'id' => $reg->ID_ATIV_PSICOLOGIA]
+                            , 'method' =>'DELETE'
+                            , 'id' => "delete-form-{$reg->ID_ATIV_PSICOLOGIA}"
+                            , 'style' => 'display:none'
+                            ]) !!}
+                            {{ Form::close() }}
+                            <td>{{$reg->ID_ATIV_PSICOLOGIA}}</td>
+                            <td>{{$reg->ATIV_PSICOLOGIA_DESCR}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -53,7 +55,7 @@
                         "className": "{!! trans('messages.i_incluir')!!}",
                         "titleAttr": "{!! trans('messages.inclusao')!!}",
                         "action": function (e, dt, node, config) {
-                            location.href = "{!! asset('atividadesAdm') !!}";
+                            location.href = "{!! asset('psicologia/atividades/create') !!}";
                         }
                     },
                     {
@@ -68,7 +70,7 @@
                             else {
                                 // pega o código
                                 id = dados[0];
-                                url = '{{ asset('atividadesAdm')  }}/' + id + '/edit';
+                                url = '{{ asset('psicologia/atividades')  }}/' + id + '/edit';
                                 location.href = url;
                             }
                         }

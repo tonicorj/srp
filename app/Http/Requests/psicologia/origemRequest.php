@@ -35,8 +35,9 @@ class origemRequest extends FormRequest
     public function messages()
     {
         return [
-            'ORIGEM_PSICOLOGIA_DESCRICAO.required' => trans('messages.crit_origem_required'),
-            'ORIGEM_PSICOLOGIA_DESCRICAO.unique'   => trans('messages.crit_origem_unique'),
+            'ORIGEM_PSICOLOGIA_DESCRICAO.required'  => trans('messages.crit_origem_required'),
+            'ORIGEM_PSICOLOGIA_DESCRICAO.unique'    => trans('messages.crit_origem_unique'),
+            'ORIGEM_PSICOLOGIA_DESCRICAO.min'       => trans('messages.crit_origem_min'),
         ];
     }
 }

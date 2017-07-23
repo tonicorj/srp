@@ -22,6 +22,10 @@ class EventosJogadoresController extends Controller
         // pega o código do atendimento
         $id = Input::get('evento');
 
+        // pega o nome do evento
+        $reg = DB::select('select evento_titulo from eventos where id_evento = ' . $id);
+        $nome = $reg[0]->evento_titulo;
+
         $eventos = DB::table('VS_EVENTOS_JOGADORES')
             ->orderBy('JOG_NOME_COMPLETO', 'ASC')
             ->where('ID_EVENTO', '=', $id)
@@ -30,6 +34,7 @@ class EventosJogadoresController extends Controller
         return view('ssocial.eventosjogadores.index')
             ->with('eventos', $eventos)
             ->with('evento', $id)
+            ->with('evento_titulo', $nome)
             ;
     }
 
@@ -51,6 +56,7 @@ class EventosJogadoresController extends Controller
      */
     public function store(Request $request)
     {
+        /*
         $id_evento = $request->input('ID_EVENTO');
         $nome = $request->input('JOGADOR');
 
@@ -89,8 +95,11 @@ class EventosJogadoresController extends Controller
            \Session::flash('message', trans( 'messages.conf_jogador_alt'));
        }
 
-        $url = route('eventosJogadores.index', ['evento' => $id_evento]);
-        return redirect()->to($url);
+        //$url = route('eventosJogadores.index', ['evento' => $id_evento]);
+        //return redirect()->to($url);
+        return dd("create");
+        return $id_jogador;
+        */
     }
 
     /**
@@ -136,15 +145,82 @@ class EventosJogadoresController extends Controller
     public function destroy($id)
     {
         $evento = eventosJogadores::find($id);
-        $evento->delete();
 
-        \Session::flash('message', trans( 'messages.conf_jogador_exc'));
-        $eventos = DB::table('VS_EVENTOS_JOGADORES')
-            ->orderBy('JOG_NOME_COMPLETO', 'ASC')
-            ->get()
+        if ( $evento != null ) {
+            $evento->delete();
+
+            \Session::flash('message', trans('messages.conf_jogador_exc'));
+            $eventos = DB::table('VS_EVENTOS_JOGADORES')
+                ->orderBy('JOG_NOME_COMPLETO', 'ASC')
+                ->get();
+
+            //$url = route('eventosJogadores.index', ['evento' => $evento]);
+            //return redirect()->to($url);
+        }
+        return '';
+    }
+
+    public function inclusao(Request $request)
+    {
+        // pega os dados do parametro
+        $id_evento = $request['ID_EVENTO'];
+        $nome = $request['JOGADOR'];
+
+        $qry = Jogadores::select('ID_JOGADOR')
+            ->where('JOG_NOME_COMPLETO', '=', $nome)
+            ->pluck('ID_JOGADOR')
         ;
+        $id_jogador = $qry[0];
 
-        $url = route('eventosJogadores.index', ['evento' => $evento]);
-        return redirect()->to($url);
+        // teste se já existe este jogador neste evento
+        $ev = eventosJogadores::where('ID_JOGADOR', '=', $id_jogador)->where('ID_EVENTO', '=', $id_evento)->count();
+
+        if (  $ev == 0 ) {
+            // define o código novo
+            $id = BuscaProximoCodigo('EVENTOS_JOGADORES');
+
+            // pega o próximo codigo
+            if ($id != null){
+                $sql = 'INSERT INTO EVENTOS_JOGADORES ( ID_EVENTO_JOGADOR, ID_EVENTO, ID_JOGADOR ) ' .
+                    ' VALUES ' .
+                    ' ( ' . $id .
+                    ' , ' . $id_evento .
+                    ' , ' . $id_jogador . ')';
+            }
+            else {
+                $sql = 'INSERT INTO EVENTOS_JOGADORES ( ID_EVENTO, ID_JOGADOR ) ' .
+                    ' VALUES ' .
+                    ' ( ' . $id_evento .
+                    ' , ' . $id_jogador . ')';
+            };
+            //return dd($sql);
+            DB::statement($sql);
+            return $id_jogador;
+        }
+        else
+            return "";
+
+        //$url = route('eventosJogadores.index', ['evento' => $id_evento]);
+        //return redirect()->to($url);
+        //return dd("create");
+
+
+    }
+
+    public function exclusao($id){
+        $evento = eventosJogadores::find($id);
+
+        if ( $evento != null ) {
+            $evento->delete();
+
+            \Session::flash('message', trans('messages.conf_jogador_exc'));
+            $eventos = DB::table('VS_EVENTOS_JOGADORES')
+                ->orderBy('JOG_NOME_COMPLETO', 'ASC')
+                ->get();
+
+            //$url = route('eventosJogadores.index', ['evento' => $evento]);
+            //return redirect()->to($url);
+        }
+        return '';
     }
 }

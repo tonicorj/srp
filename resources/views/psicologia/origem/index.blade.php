@@ -2,37 +2,38 @@
 @extends('template')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>{!! trans('messages.t_origempsicologia') !!}</h4>
-        </div>
-        <div class="panel-body">
-            <table class='table table-striped' id="tbl_">
-                <thead>
-                <tr>
-                    @foreach ($titulos as $tit)
-                        <th>{{$tit}}</th>
-                    @endforeach
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($origens as $reg)
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>{!! trans('messages.t_origempsicologia') !!}</h4>
+            </div>
+            <div class="panel-body">
+                <table class='table table-striped' id="tbl_">
+                    <thead>
                     <tr>
-                        {!! Form::open(['route' => [ 'atendimentopsic_grupo.destroy' ,'id' => $reg->ID_ORIGEM_PSICOLOGIA]
-                        , 'method' =>'DELETE'
-                        , 'id' => "delete-form-{$reg->ID_ORIGEM_PSICOLOGIA}"
-                        , 'style' => 'display:none'
-                        ]) !!}
-                        {{ Form::close() }}
-                        <td>{{$reg->ID_ORIGEM_PSICOLOGIA}}</td>
-                        <td>{{$reg->ORIGEM_PSICOLOGIA_DESCRICAO}}</td>
+                        @foreach ($titulos as $tit)
+                            <th>{{$tit}}</th>
+                        @endforeach
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach ($origens as $reg)
+                        <tr>
+                            {!! Form::open(['route' => [ 'atendimentopsic_grupo.destroy' ,'id' => $reg->ID_ORIGEM_PSICOLOGIA]
+                            , 'method' =>'DELETE'
+                            , 'id' => "delete-form-{$reg->ID_ORIGEM_PSICOLOGIA}"
+                            , 'style' => 'display:none'
+                            ]) !!}
+                            {{ Form::close() }}
+                            <td>{{$reg->ID_ORIGEM_PSICOLOGIA}}</td>
+                            <td>{{$reg->ORIGEM_PSICOLOGIA_DESCRICAO}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-
     <script>
         $(document).ready(function () {
             $('#tbl_').DataTable({
