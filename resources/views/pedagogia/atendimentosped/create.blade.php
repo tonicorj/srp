@@ -2,27 +2,28 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-10">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>{!! trans('messages.t_origemnutricao') !!}</h4>
+                    <h4>{!! trans('messages.t_atendimentoped') !!}</h4>
                 </div>
                 <div class="panel-body">
                     @if ($errors->any())
                         @foreach($errors->all() as $error)
-                            <div class="alert alert-danger list-group-item">{{$error}}</div>
+                            <div class="alert alert-danger" role="alert">{{$error}}</div>
+                            <br>
                         @endforeach
-                        <br>
                     @endif
 
                     {!! Form::open(
-                        ['route'=>'origemNutricao.store'
+                        ['route'=>'atendimentosped.store'
                         ,'method'=>'post'
                         , 'id'=>'form_'
                         , 'data-toggle'=>"validator"
                         , 'role'=>"form"
                         ]) !!}
-                        @include ('nutricao.origemNutricao._form')
+
+                        @include ('pedagogia.atendimentosped._form')
 
                         <ul class="list-inline form-group">
                             <li>
@@ -30,12 +31,14 @@
                             </li>
                             <li></li>
                             <li>
-                                <a href="{{ URL::previous() }}" class="btn btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                                <a href="{{ asset('pedagogia/atendimentosped') }}" class="btn btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
                             </li>
                         </ul>
+
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
+
 @stop

@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-10">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>{!! trans('messages.t_origemnutricao') !!}</h4>
+                    <h4>{!! trans('messages.t_controlesuplemento') !!}</h4>
                 </div>
                 <div class="panel-body">
                     @if ($errors->any())
@@ -16,26 +16,27 @@
                     @endif
 
                     {!! Form::open(
-                        ['route'=>'origemNutricao.store'
+                        ['route'=>'controlesuplemento.store'
                         ,'method'=>'post'
                         , 'id'=>'form_'
                         , 'data-toggle'=>"validator"
                         , 'role'=>"form"
                         ]) !!}
-                        @include ('nutricao.origemNutricao._form')
+                        @include ('nutricao.controlesuplemento._form')
 
-                        <ul class="list-inline form-group">
-                            <li>
+                        <div class="form-group">
+                            <div class="col-lg-1">
                                 {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-success pull-left']) !!}
-                            </li>
-                            <li></li>
-                            <li>
-                                <a href="{{ URL::previous() }}" class="btn btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
-                            </li>
-                        </ul>
+                            </div>
+                            <div class="col-lg-1">
+                                <a href="{{ asset('nutricao/controlenutricao') }}" class="btn btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                            </div>
+                        </div>
+
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
+
 @stop

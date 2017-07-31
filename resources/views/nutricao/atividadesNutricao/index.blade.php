@@ -2,34 +2,38 @@
 @extends('template')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>{!! trans('messages.t_atividadenutricao') !!}</h4>
-        </div>
-        <div class="panel-body">
-            <table class='table table-striped' id="tbl_">
-                <thead>
-                <tr>
-                    @foreach ($titulos as $tit)
-                        <th>{{$tit}}</th>
-                    @endforeach
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($atividades as $reg)
+    <div class="row">
+        <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>{!! trans('messages.t_atividadenutricao') !!}</h4>
+            </div>
+            <div class="panel-body">
+                <table class='table table-striped' id="tbl_">
+                    <thead>
                     <tr>
-                        {!! Form::open(['route' => [ 'atividadesNutricao.destroy' ,'id' => $reg->ID_ATIV_NUTRICAO]
-                        , 'method' =>'DELETE'
-                        , 'id' => "delete-form-{$reg->ID_ATIV_NUTRICAO}"
-                        , 'style' => 'display:none'
-                        ]) !!}
-                        {{ Form::close() }}
-                        <td>{{$reg->ID_ATIV_NUTRICAO}}</td>
-                        <td>{{$reg->ATIV_NUTRICAO_DESCR}}</td>
+                        @foreach ($titulos as $tit)
+                            <th>{{$tit}}</th>
+                        @endforeach
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach ($atividades as $reg)
+                        <tr>
+                            {!! Form::open(['route' => [ 'atividadesNutricao.destroy' ,'id' => $reg->ID_ATIV_NUTRICAO]
+                            , 'method' =>'DELETE'
+                            , 'id' => "delete-form-{$reg->ID_ATIV_NUTRICAO}"
+                            , 'style' => 'display:none'
+                            ]) !!}
+                            {{ Form::close() }}
+                            <td>{{$reg->ID_ATIV_NUTRICAO}}</td>
+                            <td>{{$reg->ATIV_NUTRICAO_DESCR}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
         </div>
     </div>
 

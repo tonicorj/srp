@@ -3,6 +3,7 @@
 namespace SRP\Http\Requests\ssocial;
 
 use Illuminate\Foundation\Http\FormRequest;
+use SRP\PerfilPermissao;
 
 class atendimentoSS_FuncRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class atendimentoSS_FuncRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return PerfilPermissao::AcessoAction('ATENDIMENTO_SS_FUNC');
     }
 
     /**

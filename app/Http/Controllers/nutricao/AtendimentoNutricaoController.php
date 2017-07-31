@@ -2,14 +2,14 @@
 
 namespace SRP\Http\Controllers\nutricao;
 
+use DB;
 use SRP\Http\Controllers\Controller;
-use SRP\Http\Requests\nutricao\origemNutricaoRequest;
-use SRP\Jogadores;
+
+use SRP\Models\DFutebol\Jogadores;
+use SRP\Models\nutricao\origemNutricao;
+use SRP\Models\nutricao\atividadesNutricao;
 use SRP\Models\nutricao\atendimentoNutricao;
 use SRP\Http\Requests\nutricao\atendimentoNutricaoRequest;
-use DB;
-use SRP\Models\nutricao\atividadesNutricao;
-use SRP\Models\nutricao\origemNutricao;
 
 class AtendimentoNutricaoController extends Controller
 {
@@ -67,7 +67,8 @@ class AtendimentoNutricaoController extends Controller
         return view('nutricao.atendimentoNutricao.create')
             ->with('jogadores', $jogadores)
             ->with('origem', $origem)
-            ->with('atividade', $atividade);    }
+            ->with('atividade', $atividade);
+    }
 
     /**
      * Store a newly created resource in storage.

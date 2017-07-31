@@ -3,10 +3,10 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>{!! trans('messages.t_origemnutricao') !!}</h4>
+                    <h4>{!! trans('messages.t_controlesuplemento') !!}</h4>
                 </div>
                 <div class="panel-body">
                     <table class='table table-striped' id="tbl_">
@@ -18,16 +18,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($origem as $reg)
+                        @foreach ($controles as $reg)
                             <tr>
-                                {!! Form::open(['route' => [ 'origemNutricao.destroy' ,'id' => $reg->ID_ORIGEM_NUTRICAO]
+                                {!! Form::open(['route' => [ 'controlesuplemento.destroy' ,'id' => $reg->ID_CONTROLE_SUPLEMENTO]
                                 , 'method' =>'DELETE'
-                                , 'id' => "delete-form-{$reg->ID_ORIGEM_NUTRICAO}"
+                                , 'id' => "delete-form-{$reg->ID_CONTROLE_SUPLEMENTO}"
                                 , 'style' => 'display:none'
                                 ]) !!}
                                 {{ Form::close() }}
-                                <td>{{$reg->ID_ORIGEM_NUTRICAO}}</td>
-                                <td>{{$reg->ORIGEM_NUTRICAO_DESCRICAO}}</td>
+                                <td>{{$reg->ID_CONTROLE_SUPLEMENTO}}</td>
+                                <td>{{data_display($reg->CONTROLE_DATA)}}</td>
+                                <td>{{$reg->JOG_NOME_COMPLETO}}</td>
+                                <td>{{$reg->SUPLEMENTO_DESCRICAO}}</td>
+                                <td>{{$reg->QTD_ENTREGUE}}</td>
+                                <td>{{$reg->QTD_DIARIA}}</td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -38,17 +42,39 @@
     </div>
 
     <script>
+        jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+            "date-br-pre": function ( a ) {
+                if (a == null || a == "") {
+                    return 0;
+                }
+                var brDatea = a.split('/');
+                return (brDatea[2] + brDatea[1] + brDatea[0]) * 1;
+            },
+
+            "date-br-asc": function ( a, b ) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "date-br-desc": function ( a, b ) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+        } );
+
         $(document).ready(function () {
             $('#tbl_').DataTable({
                 "paging": true,
                 "lengthChange": false,
                 "searching": true,
+                "order": [[ 1, 'desc' ]],
                 "ordering": true,
-                "order": [[1, 'asc']],
                 "info": false,
                 "autoWidth": true,
                 "columnDefs": [
-                    {"visible": false, "targets": [0]}
+                    {targets: 0, visible: false},
+                    {targets: 1, type: 'date-br'},
+                    {targets: 4, "orderable": false, "class":"text-right"},
+                    {targets: 5, "orderable": false, "class":"text-right"}
+
                 ],
                 dom: 'Bfrtip',
                 buttons: [
@@ -56,7 +82,7 @@
                         "className": "{!! trans('messages.i_incluir')!!}",
                         "titleAttr": "{!! trans('messages.inclusao')!!}",
                         "action": function (e, dt, node, config) {
-                            location.href = "{!! asset('nutricao/origemNutricao/create') !!}";
+                            location.href = "{!! asset('nutricao/controlesuplemento/create') !!}";
                         }
                     },
                     {
@@ -71,7 +97,7 @@
                             else {
                                 // pega o código
                                 id = dados[0];
-                                url = '{{ asset('nutricao/origemNutricao')  }}/' + id + '/edit';
+                                url = '{{ asset('nutricao/controlesuplemento')  }}/' + id + '/edit';
                                 location.href = url;
                             }
                         }
@@ -83,16 +109,15 @@
                             // teste se selecionou uma linha
                             var dados = $('#tbl_').DataTable().row('.selected').data();
                             if (dados == null) {
-                                //alert('Selecione um registro');
                                 bootbox.alert("{!! trans('messages.sSelecione') !!}");
                             }
                             else {
-                                var _descr = dados[1];
+                                var _descr = dados[2];
                                 var _id = dados[0];
                                 var _nome = '#delete-form-' + _id;
                                 bootbox.dialog({
                                     title: "{!! trans('messages.exclusao') !!}",
-                                    message: "{!! trans('messages.exc_origemnutricao') !!}" + _descr + "?",
+                                    message: "{!! trans('messages.exc_atendimento') !!}" + _descr + "?",
                                     buttons: {
                                         yes: {
                                             label: "Sim",

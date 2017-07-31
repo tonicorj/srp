@@ -19,7 +19,7 @@
                     <tbody>
                     @foreach ($origens as $reg)
                         <tr>
-                            {!! Form::open(['route' => [ 'atendimentopsic_grupo.destroy' ,'id' => $reg->ID_ORIGEM_PSICOLOGIA]
+                            {!! Form::open(['route' => [ 'origem.destroy' ,'id' => $reg->ID_ORIGEM_PSICOLOGIA]
                             , 'method' =>'DELETE'
                             , 'id' => "delete-form-{$reg->ID_ORIGEM_PSICOLOGIA}"
                             , 'style' => 'display:none'

@@ -27,6 +27,7 @@ return [
     ,'exc_atendimento_dia'  => 'Conforma exclusão do atendimento do dia '
     ,'exc_atendimento'      => 'Conforma exclusão do atendimento do atleta '
     ,'exc_atendimento_func' => 'Confirma exclusão do atendimento deste funcionário '
+    ,'exc_atendimentoped'   => 'Confirma exclusão do atendimento do atleta '
     ,'exc_atividade'        => 'Confirma exclusão do motivo '
     ,'exc_atividadeAdm'     => 'Confirma exclusão da atividade '
     ,'exc_ausencia'         => 'Confirma exclusão da ausência do jogador '
@@ -95,7 +96,7 @@ return [
     // captions de jogadores
     ,'tit_acompanhamentos'  => 'Acompanhamentos'
     ,'tit_alojamento'       => 'Nome do Alojamento'
-    ,'tit_altura'           => 'Altura'
+    ,'tit_altura'           => 'Altura (cm)'
 
     ,'tit_apelido'          => 'Apelido'
 
@@ -122,6 +123,14 @@ return [
     ,'tit_ausenciaoutros'   => 'Outros Motivos'
     ,'tit_ausenciaobs'      => 'Observação'
 
+    ,'tit_balanco'          => 'Balanço'
+    ,'tit_balanco_af'       => 'AF'
+    ,'tit_balanco_ncb'      => 'NCB'
+    ,'tit_balanco_nct'      => 'NCT'
+
+    ,'tit_balanco_prescricao' => 'Prescrição'
+    ,'tit_balanco_restricao'  => 'Restrição'
+
     ,'tit_calendario'       => 'Calendário'
     ,'tit_campeonato'       => 'Campeonato'
     ,'tit_camp_ano'         => 'Ano'
@@ -137,8 +146,19 @@ return [
     ,'tit_categ_idade_fin'  => 'Idade Final'
     ,'tit_categ_cor'        => 'Cor da Categoria'
     ,'tit_categ_tempo_jogo' => 'Tempo de Jogo'
-
     ,'tit_categ_padrao'     => "Categoria Padrão"
+
+    ,'tit_cc_abdomen'       => 'Abdomen'
+    ,'tit_cc_supiliaca'     => 'Supilíaca'
+    ,'tit_cc_subescapular'  => 'Subescapular'
+    ,'tit_cc_triceps'       => 'Triceps'
+    ,'tit_cc_biceps'        => 'Biceps'
+    ,'tit_cc_supesc'        => 'Supesc'
+    ,'tit_cc_axilmedia'     => 'Axiliar Média'
+    ,'tit_cc_tx'            => 'TX'
+    ,'tit_cc_cx'            => 'CX'
+    ,'tit_cc_pan'           => 'PAN'
+
     ,'tit_celular'          => 'Celular'
     ,'tit_cep'              => 'CEP'
     ,'tit_cidade'           => 'Cidade'
@@ -150,12 +170,15 @@ return [
     ,'tit_clube'            => 'Clube'
     ,'tit_codcbf'           => 'Registro CBF'
     ,'tit_codigo'           => 'Código'
+    ,'tit_composicaocorporal'=> 'Composição Corporal'
     ,'tit_condicaogramado'  => 'Condição do Gramado'
     ,'tit_condicaotempo'    => 'Condição do Tempo'
     ,'tit_contas'           => 'Contas'
     ,'tit_conta_nome'       => 'Título da Conta'
     ,'tit_conta_num'        => 'Número'
     ,'tit_contato'          => 'Contato'
+    ,'tit_controledata'     => 'Data'
+
     ,'tit_cpf'              => 'CPF'
     ,'tit_criterio'         => 'Critério'
 
@@ -265,6 +288,7 @@ return [
 
     ,'tit_idade'            => 'Idade'
     ,'tit_id'               => 'ID'
+    ,'tit_imc'              => 'IMC'
 
     ,'tit_janela'           => 'Nome da Janela'
     ,'tit_janela_inicio'    => 'Início'
@@ -308,6 +332,7 @@ return [
     ,'tit_origem_lesao'     => 'Origem da Lesão'
     ,'tit_origemnutricao'   => 'Origem de Atendimento da Nutrição'
     ,'tit_origempsicologia' => 'Origem de Atendimento da Psicologia'
+    ,'tit_origempedagogia'  => 'Origem de Atendimento da Pedagogia'
     ,'tit_origemservsocial' => 'Origem do Atendimento do Serviço Social'
     ,'tit_obsatendimento'   => 'Descrição do Atendimento'
 
@@ -328,7 +353,11 @@ return [
     ,'tit_pedominante'      => 'Pé Dominante'
     ,'tit_perfil'           => 'Perfil'
     ,'tit_perc_gordura'     => '% Gordura'
-    ,'tit_peso'             => 'Peso'
+    ,'tit_peso'             => 'Peso (Kg)'
+    ,'tit_pesogordo'        => 'Peso Gordo'
+    ,'tit_pesoideal'        => 'Peso Ideal'
+    ,'tit_pesomagro'        => 'Peso Magro'
+    ,'tit_peso_altura'      => 'Peso & Altura'
 
     ,'tit_pontuacao'        => 'Pontuação'
     ,'tit_pontuacao_vitoria'=> 'Pt.Vit'
@@ -359,6 +388,8 @@ return [
     ,'tit_prontuario_diagnostico'   => 'Diagnósticos'
     ,'tit_prontuario_tratamento'    => 'Tratamentos'
 
+    ,'tit_qtdentregue'              => 'Qtd.Entregue'
+    ,'tit_qtddiaria'                => 'Qtd.Diária'
     ,'tit_qtdvagas'                 => 'Qtd.Vagas'
 
     ,'tit_quadroatividades'         => 'Quadro de Atividades'
@@ -384,6 +415,7 @@ return [
 
     ,'tit_senha'            => 'Senha'
     ,'tit_senha_aux'        => 'Senha Auxiliar'
+    ,'tit_suplemento'       => 'Suplemento'
     ,'tit_suplementos'      => 'Suplementos'
 
     ,'tit_tecnico'          => 'Técnico'
@@ -423,6 +455,7 @@ return [
     ,'t_atendimentoSS_func'     => 'Atendimentos Funcionários'
     ,'t_atendimentoSS_grupos'   => 'Atendimentos Grupos'
 
+    ,'t_atendimentoped'         => 'Atendimentos Jogadores'
     ,'t_atendimentopsic'        => 'Atendimentos Jogadores'
     ,'t_atendimentopsic_func'   => 'Atendimentos Funcionários'
     ,'t_atendimentopsic_grupo'  => 'Atendimentos Grupos'
@@ -443,6 +476,7 @@ return [
     ,'t_condicaogramado'        => 'Condição Gramado'
     ,'t_condicaotempo'          => 'Condição Tempo'
     ,'t_contas'                 => 'Contas'
+    ,'t_controlesuplemento'     => 'Controle de Suplementos'
     ,'t_criterios'              => 'Critérios'
 
     ,'t_cuidados'               => 'Cuidados Especiais'
@@ -487,6 +521,7 @@ return [
     ,'t_nutricao'               => 'Nutrição'
     ,'t_origem_lesao'           => 'Origem da Lesão'
     ,'t_origemnutricao'         => 'Origem At.Nutrição'
+    ,'t_origempedagogia'        => 'Origem At.Pedagogia'
     ,'t_origempsicologia'       => 'Origem At.Psicologia'
     ,'t_origemservsocial'       => 'Origem At.Serviço Social'
     ,'t_observacao'             => 'Observação'
@@ -569,6 +604,8 @@ return [
 
     ,'crit_conta_required' => 'A conta é um campo obrigatório.'
     ,'crit_conta_unique'   => 'Esta conta já está cadastrada.'
+
+    ,'crit_controle_required' => 'A data da entrega do suplemento é um campo obrigatório.'
 
     ,'crit_criterio_required' => 'O critério é um campo obrigatório.'
     ,'crit_criterio_unique'   => 'Este critério já está cadastrado.'
@@ -662,8 +699,9 @@ return [
     ,'crit_selecao_required' => 'A seleção é obrigatória.'
     ,'crit_selecao_unique'   => 'A seleção já está cadastrada.'
 
-    ,'crit_suplemento_required' => 'O nome do suplemento é obrigatório.'
-    ,'crit_suplemento_unique'   => 'O suplemento já está cadastrado.'
+    ,'crit_suplementoid_required'   => 'É necessário selecionar um suplemento.'
+    ,'crit_suplemento_required'     => 'O nome do suplemento é obrigatório.'
+    ,'crit_suplemento_unique'       => 'O suplemento já está cadastrado.'
 
     ,'crit_tecnico_required'   => 'O nome do técnico é obrigatório.'
     ,'crit_tecnico_unique'     => 'Este técnico já está cadastrado.'
@@ -741,6 +779,10 @@ return [
     , 'conf_conta_inc'      => 'Condição do tempo incluída com sucesso.'
     , 'conf_conta_alt'      => 'Condição do tempo alterada com sucesso.'
     , 'conf_conta_exc'      => 'Condição do tempo excluída com sucesso.'
+
+    , 'conf_controle_inc'      => 'Controle incluído com sucesso.'
+    , 'conf_controle_alt'      => 'Controle alterado com sucesso.'
+    , 'conf_controle_exc'      => 'Controle excluído com sucesso.'
 
     , 'conf_criterio_inc'   => 'Critério incluído com sucesso.'
     , 'conf_criterio_alt'   => 'Critério alterado com sucesso.'

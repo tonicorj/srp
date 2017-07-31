@@ -2,34 +2,38 @@
 @extends('template')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>{!! trans('messages.t_suplementos') !!}</h4>
-        </div>
-        <div class="panel-body">
-            <table class='table table-striped' id="tbl_">
-                <thead>
-                <tr>
-                    @foreach ($titulos as $tit)
-                        <th>{{$tit}}</th>
-                    @endforeach
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($suplementos as $reg)
-                    <tr>
-                        {!! Form::open(['route' => [ 'suplementos.destroy' ,'id' => $reg->ID_SUPLEMENTO]
-                        , 'method' =>'DELETE'
-                        , 'id' => "delete-form-{$reg->ID_SUPLEMENTO}"
-                        , 'style' => 'display:none'
-                        ]) !!}
-                        {{ Form::close() }}
-                        <td>{{$reg->ID_SUPLEMENTO}}</td>
-                        <td>{{$reg->SUPLEMENTO_DESCRICAO}}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>{!! trans('messages.t_suplementos') !!}</h4>
+                </div>
+                <div class="panel-body">
+                    <table class='table table-striped' id="tbl_">
+                        <thead>
+                        <tr>
+                            @foreach ($titulos as $tit)
+                                <th>{{$tit}}</th>
+                            @endforeach
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($suplementos as $reg)
+                            <tr>
+                                {!! Form::open(['route' => [ 'suplementos.destroy' ,'id' => $reg->ID_SUPLEMENTO]
+                                , 'method' =>'DELETE'
+                                , 'id' => "delete-form-{$reg->ID_SUPLEMENTO}"
+                                , 'style' => 'display:none'
+                                ]) !!}
+                                {{ Form::close() }}
+                                <td>{{$reg->ID_SUPLEMENTO}}</td>
+                                <td>{{$reg->SUPLEMENTO_DESCRICAO}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 

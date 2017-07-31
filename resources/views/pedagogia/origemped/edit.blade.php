@@ -5,21 +5,22 @@
     <div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>{!! trans('messages.t_origempsicologia') !!}</h4>
+                <h4>{!! trans('messages.t_origempedagogia') !!}</h4>
             </div>
             <div class="panel-body">
                 {!! Form::model($origem,
-                    [ 'route'=>['origem.update', $origem->ID_ORIGEM_PSICOLOGIA]
+                    [ 'route'=>['origemped.update', $origem->ID_ORIGEM_PEDAGOGIA]
                     , 'method'=>'put'
                     , 'id'=>'form_']) !!}
 
                     @if ($errors->any())
                         @foreach($errors->all() as $error)
                             <div class="alert alert-danger list-group-item">{{$error}}</div>
+                            <br>
                         @endforeach
                     @endif
 
-                    @include ('psicologia.origem._form')
+                    @include ('pedagogia.origemped._form')
 
                     <ul class="list-inline form-group">
                         <li>
@@ -27,7 +28,7 @@
                         </li>
                         <li></li>
                         <li>
-                            <a href="{{ asset('psicologia/origem') }}" class="btn btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                            <a href="{{ asset('pedagogia\origemped') }}" class="btn btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
                         </li>
                     </ul>
                 {!! Form::close() !!}

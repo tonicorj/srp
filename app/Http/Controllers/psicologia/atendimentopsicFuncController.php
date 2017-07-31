@@ -4,10 +4,11 @@ namespace SRP\Http\Controllers\psicologia;
 
 use Illuminate\Support\Facades\Redirect;
 use SRP\Http\Controllers\Controller;
-use SRP\Http\Requests\psicologia\atendimentopsic_FuncRequest;
-use SRP\Models\psicologia\atendimentopsic_Func;
+
 use SRP\Models\psicologia\origem;
 use SRP\Models\psicologia\atividades;
+use SRP\Models\psicologia\atendimentopsic_Func;
+use SRP\Http\Requests\psicologia\atendimentopsic_FuncRequest;
 
 use DB;
 

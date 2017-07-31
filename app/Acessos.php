@@ -69,10 +69,11 @@ function AcaoCodigo($nome){
         case 'CONDICAO_TEMPO'                           : $codigo = 259;    break;
         case 'PSICOLOGIA_GRUPOS'                        : $codigo = 260;    break;
 
-        case 'ATENDIMENTOS_GRUPOS'                      : $codigo = 262;    break;
+        case 'ATENDIMENTOS_SS_GRUPOS'                   : $codigo = 262;    break;
 
         case 'SUPLEMENTOS'                              : $codigo = 263;    break;
         case 'ATENDIMENTO_NUTRICAO'                     : $codigo = 264;    break;
+        case 'CONTROLE_SUPLEMENTOS'                     : $codigo = 265;    break;
 
         case 'ORIGEM_SERVSOCIAL'                        : $codigo = 287;    break;
         case 'JANELAS'                                  : $codigo = 288;    break;
@@ -104,6 +105,8 @@ function AcaoCodigo($nome){
         case "PONTUACAO"                                : $codigo = 404;    break;
         case "TIPO_FASE"                                : $codigo = 405;    break;
         case "CRITERIOS"                                : $codigo = 406;    break;
+        case "ORIGEM_PEDAGOGIA"                         : $codigo = 407;    break;
+        case 'ATENDIMENTO_PEDAGOGIA'                    : $codigo = 408;    break;
     }
 
     //C:\inetpub\wwwroot\srp\resources\views\marketingevento\OLD_index.blade.php
@@ -326,7 +329,7 @@ function AcaoCodigo($nome){
     $codigo = ( $nome == 'FUNCION�RIOS - SAL�RIOS'                  )?261:$codigo;
 
     $codigo = ( $nome == 'ACOMPANHAMENTO NUTRICIONAL'               )?264:$codigo;
-    $codigo = ( $nome == 'CONTROLE SUPLEMENTOS'                     )?265:$codigo;
+
     $codigo = ( $nome == 'CONTROLE DE CARD�PIOS'                    )?266:$codigo;
     $codigo = ( $nome == 'REL.ACOMPANHAMENTO NUTRICIONAL'           )?267:$codigo;
     $codigo = ( $nome == 'REL.CONTROLE SUPLEMENTOS'                 )?268:$codigo;

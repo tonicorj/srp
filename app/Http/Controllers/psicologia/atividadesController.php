@@ -4,8 +4,8 @@ namespace SRP\Http\Controllers\psicologia;
 
 //use Illuminate\Http\Request;
 use SRP\Http\Controllers\Controller;
-use SRP\Http\Requests\psicologia\atividadesRequest;
 use SRP\Models\psicologia\atividades;
+use SRP\Http\Requests\psicologia\atividadesRequest;
 
 use DB;
 

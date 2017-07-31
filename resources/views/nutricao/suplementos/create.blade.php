@@ -1,38 +1,41 @@
 @extends('template')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>{!! trans('messages.t_suplementos') !!}</h4>
-        </div>
-        <div class="panel-body">
-            @if ($errors->any())
-                <ul class="list-group">
-                    @foreach($errors->all() as $error)
-                        <li class="alert alert-warning list-group-item">{{$error}}</li>
-                    @endforeach
-                </ul>
-            @endif
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>{!! trans('messages.t_suplementos') !!}</h4>
+                </div>
+                <div class="panel-body">
+                    @if ($errors->any())
+                        @foreach($errors->all() as $error)
+                            <div class="alert alert-danger list-group-item">{{$error}}</div>
+                        @endforeach
+                    @endif
 
-            {!! Form::open(
-                ['route'=>'suplementos.store'
-                ,'method'=>'post'
-                , 'id'=>'form_'
-                , 'data-toggle'=>"validator"
-                , 'role'=>"form"
-                ]) !!}
-                @include ('nutricao.suplementos._form')
+                    {!! Form::open(
+                        ['route'=>'suplementos.store'
+                        ,'method'=>'post'
+                        , 'id'=>'form_'
+                        , 'data-toggle'=>"validator"
+                        , 'role'=>"form"
+                        ]) !!}
+                        @include ('nutricao.suplementos._form')
 
-                <ul class="list-inline form-group">
-                    <li>
-                        {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
-                    </li>
-                    <li></li>
-                    <li>
-                        <a href="{{ URL::previous() }}" class="btn btn-sm btn-info btn-flat pull-left">{!! trans('messages.bot_cancelar') !!}</a>
-                    </li>
-                </ul>
-            {!! Form::close() !!}
+                        <ul class="list-inline form-group">
+                            <li>
+                                {!! Form::submit(trans('messages.bot_salvar')   , ['class'=>'btn btn-success pull-left']) !!}
+                            </li>
+                            <li></li>
+                            <li>
+                                <a href="{{ asset('nutricao.suplementos') }}" class="btn btn-info pull-left">{!! trans('messages.bot_cancelar') !!}</a>
+                            </li>
+                        </ul>
+                    {!! Form::close() !!}
+                </div>
+            </div>
         </div>
     </div>
+
 @stop

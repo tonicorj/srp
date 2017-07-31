@@ -92,13 +92,16 @@ Route::group(['prefix'=>'contratos', 'middleware' => 'auth'], function() {
 });
 
 Route::group(['prefix'=>'pedagogia', 'middleware' => 'auth'], function() {
-    Route::resource('atividadesped', 'pedagogia\atividadespedController', ['except' => 'show']);
+    Route::resource('atendimentosped'   , 'pedagogia\atendimentospedController' , ['except' => 'show']);
+    Route::resource('atividadesped'     , 'pedagogia\atividadespedController'   , ['except' => 'show']);
+    Route::resource('origemped'         , 'pedagogia\origempedController'       , ['except' => 'show']);
 });
 
 // Nutrição
 Route::group(['prefix'=>'nutricao', 'middleware' => 'auth'], function() {
     Route::resource('atendimentoNutricao', 'nutricao\atendimentoNutricaoController', ['except' => 'show']);
     Route::resource('atividadesNutricao', 'nutricao\atividadesNutricaoController', ['except' => 'show']);
+    Route::resource('controlesuplemento', 'nutricao\controlesuplementosController', ['except' => 'show']);
     Route::resource('origemNutricao', 'nutricao\origemNutricaoController', ['except' => 'show']);
     Route::resource('suplementos', 'nutricao\suplementosController'               , ['except' => 'show']);
 });

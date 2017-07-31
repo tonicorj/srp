@@ -2,32 +2,34 @@
 @extends('template')
 
 @section('content')
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>{!! trans('messages.t_atividadepedagogicas') !!}</h4>
-        </div>
-        <div class="panel-body">
-            <table class='table table-striped' id="tbl_">
-                <thead>
-                <tr>
-                    @foreach ($titulos as $tit)
-                        <th>{{$tit}}</th>
-                    @endforeach
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($atividades as $reg)
-                    <tr>
-                        <td>{{$reg->ID_ATIV_PEDAGOGICA}}</td>
-                        <td>{{$reg->ATIV_PEDAGOGICA_DESCR}}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>{!! trans('messages.t_atividadepedagogicas') !!}</h4>
+                </div>
+                <div class="panel-body">
+                    <table class='table table-striped' id="tbl_">
+                        <thead>
+                        <tr>
+                            @foreach ($titulos as $tit)
+                                <th>{{$tit}}</th>
+                            @endforeach
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($atividades as $reg)
+                            <tr>
+                                <td>{{$reg->ID_ATIV_PEDAGOGICA}}</td>
+                                <td>{{$reg->ATIV_PEDAGOGICA_DESCR}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-
     <script>
         $(document).ready(function () {
             $('#tbl_').DataTable({

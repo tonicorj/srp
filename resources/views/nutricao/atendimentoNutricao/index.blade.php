@@ -2,37 +2,41 @@
 @extends('template')
 
 @section('content')
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>{!! trans('messages.t_atendimentoNutricao') !!}</h4>
-        </div>
-        <div class="panel-body">
-            <table class='table table-striped' id="tbl_">
-                <thead>
-                <tr>
-                    @foreach ($titulos as $tit)
-                        <th>{{$tit}}</th>
-                    @endforeach
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($atendimentos as $reg)
-                    <tr>
-                        {!! Form::open(['route' => [ 'atendimentoNutricao.destroy' ,'id' => $reg->ID_ATENDIMENTO_NUTRICAO]
-                        , 'method' =>'DELETE'
-                        , 'id' => "delete-form-{$reg->ID_ATENDIMENTO_NUTRICAO}"
-                        , 'style' => 'display:none'
-                        ]) !!}
-                        {{ Form::close() }}
-                        <td>{{$reg->ID_ATENDIMENTO_NUTRICAO}}</td>
-                        <td>{{data_display($reg->ATENDIMENTO_DATA)}}</td>
-                        <td>{{$reg->JOG_NOME_COMPLETO}}</td>
-                        <td>{{$reg->ATIV_NUTRICAO_DESCR}}</td>
-                        <td>{{$reg->ORIGEM_NUTRICAO_DESCRICAO}}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>{!! trans('messages.t_atendimentoNutricao') !!}</h4>
+                </div>
+                <div class="panel-body">
+                    <table class='table table-striped' id="tbl_">
+                        <thead>
+                        <tr>
+                            @foreach ($titulos as $tit)
+                                <th>{{$tit}}</th>
+                            @endforeach
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($atendimentos as $reg)
+                            <tr>
+                                {!! Form::open(['route' => [ 'atendimentoNutricao.destroy' ,'id' => $reg->ID_ATENDIMENTO_NUTRICAO]
+                                , 'method' =>'DELETE'
+                                , 'id' => "delete-form-{$reg->ID_ATENDIMENTO_NUTRICAO}"
+                                , 'style' => 'display:none'
+                                ]) !!}
+                                {{ Form::close() }}
+                                <td>{{$reg->ID_ATENDIMENTO_NUTRICAO}}</td>
+                                <td>{{data_display($reg->ATENDIMENTO_DATA)}}</td>
+                                <td>{{$reg->JOG_NOME_COMPLETO}}</td>
+                                <td>{{$reg->ATIV_NUTRICAO_DESCR}}</td>
+                                <td>{{$reg->ORIGEM_NUTRICAO_DESCRICAO}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 

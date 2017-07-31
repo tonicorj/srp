@@ -1,21 +1,23 @@
 <?php
 
-namespace SRP\Http\Controllers\psicologia;
+namespace SRP\Http\Controllers\pedagogia;
 
-use DB;
+
 use SRP\Http\Controllers\Controller;
-use SRP\Http\Requests\psicologia\atendimentopsicRequest;
+use SRP\Http\Requests\pedagogia\atendimentospedRequest;
 
-use SRP\Models\psicologia\origem;
-use SRP\Models\psicologia\atividades;
-use SRP\Models\psicologia\atendimentopsic;
+use SRP\Models\pedagogia\atividadesPed;
+use SRP\Models\pedagogia\atendimentosped;
+use SRP\Models\pedagogia\origemPed;
 use SRP\Models\DFutebol\Jogadores;
 
-class atendimentopsicController extends Controller
+use DB;
+
+class atendimentospedController extends Controller
 {
     private $atendimento;
 
-    public function __construct(atendimentopsic $atendimento) {
+    public function __construct(atendimentosped $atendimento) {
         $this->atendimento = $atendimento;
     }
 
@@ -26,45 +28,22 @@ class atendimentopsicController extends Controller
      */
     public function index()
     {
-        $atendimentos = DB::table('VS_PSICOLOGIA_ATENDIMENTO')
-            ->orderBy('ATENDIMENTO_DATA', 'DESC')
+        $atendimentos = DB::table('VS_PEDAGOGIA_ATENDIMENTO')
+            ->orderBy('VISITA_DATA', 'DESC')
             ->where('ID_JOGADOR', '>', 0)
-            ->whereNotNull('ID_JOGADOR')
             ->get();
 
         $titulos = array( '#'
         ,trans('messages.tit_visitadata')
         ,trans('messages.tit_jogador')
-        ,trans('messages.tit_categoria')
         ,trans('messages.tit_motivoatendimento')
         ,trans('messages.tit_origematendimento')
         );
 
-        return view('psicologia.atendimentopsic.index')
+        return view('pedagogia.atendimentosped.index')
             ->with('atendimentos', $atendimentos)
             ->with('titulos', $titulos)
             ;
-    }
-
-    // retorna a consulta no formato json
-    public function _json() {
-        $_sql  = "select ";
-        $_sql .= " VISITA_DATA_S ";
-        $_sql .= ",JOG_NOME_COMPLETO ";
-        $_sql .= ",CATEG_DESCRICAO ";
-        $_sql .= ",ORIGEM_SERVSOCIAL_DESCRICAO ";
-        $_sql .= ",ATIV_ASSIST_SOCIAL_DESCR ";
-        $_sql .= ",ID_ATEND_ASSIST_SOCIAL ";
-        $_sql .= "from VS_ATENDIMENTO_SS A ";
-        $_sql .= "order by ";
-        $_sql .= "  A.visita_data desc ";
-        $teste = DB::select($_sql);
-
-        // coloca uma chave [data] para usar no json
-        $_data['data'] = $teste;
-        $_json = \Response::json($_data);
-        return $_json;
-        //return \Response::json($teste);
     }
 
     /**
@@ -84,10 +63,10 @@ class atendimentopsicController extends Controller
             ->pluck('JOG_NOME_COMPLETO', 'ID_JOGADOR')
             ->prepend(trans('messages.tit_selecioneopcao'), '');
 
-        $origem = origem::orderBy('ORIGEM_PSICOLOGIA_DESCRICAO', 'asc')->pluck('ORIGEM_PSICOLOGIA_DESCRICAO', 'ID_ORIGEM_PSICOLOGIA')->prepend(trans('messages.tit_selecioneopcao'), '');
-        $atividade = atividades::orderBy('ATIV_PSICOLOGIA_DESCR', 'asc')->pluck('ATIV_PSICOLOGIA_DESCR', 'ID_ATIV_PSICOLOGIA')->prepend(trans('messages.tit_selecioneopcao'), '');
+        $origem = origemPed::orderBy('ORIGEM_PEDAGOGIA_DESCRICAO', 'asc')->pluck('ORIGEM_PEDAGOGIA_DESCRICAO', 'ID_ORIGEM_PEDAGOGIA')->prepend(trans('messages.tit_selecioneopcao'), '');
+        $atividade = atividadesPed::orderBy('ATIV_PEDAGOGICA_DESCR', 'asc')->pluck('ATIV_PEDAGOGICA_DESCR', 'ID_ATIV_PEDAGOGICA')->prepend(trans('messages.tit_selecioneopcao'), '');
 
-        return view('psicologia.atendimentopsic.create')
+        return view('pedagogia.atendimentosped.create')
             ->with('jogadores', $jogadores)
             ->with('origem', $origem)
             ->with('atividade', $atividade);
@@ -99,23 +78,21 @@ class atendimentopsicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(atendimentopsicRequest $request)
+    public function store(atendimentospedRequest $request)
     {
         $input = $request->all();
-        //return dd($input);
 
         // define o código novo
-        $id = BuscaProximoCodigo('ATENDIMENTO_PSICOLOGIA');
-
-        // pega o próximo codigo
-        if ($id != null)
-            $input['ID_ATENDIMENTO_PSICOLOGIA'] = $id;
-
-        $input['ATENDIMENTO_DATA'] = data_to_sql($input['ATENDIMENTO_DATA_S']);
+        $id = BuscaProximoCodigo('ATENDIMENTO_PEDAGOGIA');
+        //return dd($id);
+        if ($id != null) {
+            $input['ID_ATENDIMENTO_PEDAGOGIA'] = $id;
+        }
+        $input['VISITA_DATA'] = data_to_sql($input['VISITA_DATA_S']);
         $this->atendimento->create($input);
 
         \Session::flash('message', trans( 'messages.conf_atividades_inc'));
-        $url = $request->get('redirect_to', asset('psicologia/atendimentopsic'));
+        $url = $request->get('redirect_to', asset('pedagogia/atendimentosped'));
         return redirect()->to($url);
     }
 
@@ -141,7 +118,7 @@ class atendimentopsicController extends Controller
         $atendimento = $this->atendimento->find($id);
 
         // monta o campo da data da visita
-        $atendimento['ATENDIMENTO_DATA_S'] = data_display($atendimento['ATENDIMENTO_DATA']);
+        $atendimento['VISITA_DATA_S'] = data_display($atendimento['VISITA_DATA']);
         $jogadores   = Jogadores::whereIn('id_jogador', function($query)
                         {
                         $query->select('ID_JOGADOR')
@@ -151,11 +128,10 @@ class atendimentopsicController extends Controller
                         ->orderBy('JOG_NOME_COMPLETO', 'asc')
                         ->pluck('JOG_NOME_COMPLETO', 'ID_JOGADOR');
 
-        $origem = origem::orderBy('ORIGEM_PSICOLOGIA_DESCRICAO', 'asc')->pluck('ORIGEM_PSICOLOGIA_DESCRICAO', 'ID_ORIGEM_PSICOLOGIA');
-        $atividade = atividades::orderBy('ATIV_PSICOLOGIA_DESCR', 'asc')->pluck('ATIV_PSICOLOGIA_DESCR', 'ID_ATIV_PSICOLOGIA');
+        $origem = origemPed::orderBy('ORIGEM_PEDAGOGIA_DESCRICAO', 'asc')->pluck('ORIGEM_PEDAGOGIA_DESCRICAO', 'ID_ORIGEM_PEDAGOGIA')->prepend(trans('messages.tit_selecioneopcao'), '');
+        $atividade = atividadesPed::orderBy('ATIV_PEDAGOGICA_DESCR', 'asc')->pluck('ATIV_PEDAGOGICA_DESCR', 'ID_ATIV_PEDAGOGICA')->prepend(trans('messages.tit_selecioneopcao'), '');
 
-
-        return view ('psicologia.atendimentopsic.edit')
+        return view ('pedagogia.atendimentosped.edit')
             ->with('jogadores', $jogadores)
             ->with('origem', $origem)
             ->with('atividade', $atividade)
@@ -169,13 +145,14 @@ class atendimentopsicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(atendimentopsicRequest $request, atendimentopsic $atendimento)
+    public function update(atendimentospedRequest $request, $id)
     {
-        $request['ATENDIMENTO_DATA'] = data_to_sql($request['ATENDIMENTO_DATA_S']);
-        $this->atendimento->find($request['ID_ATENDIMENTO_PSICOLOGIA'])->update($request->all());
+        $request['VISITA_DATA'] = data_to_sql($request['VISITA_DATA_S']);
+        $this->atendimento->find($request['ID_ATENDIMENTO_PEDAGOGIA']);
+        $this->atendimento->update($request->all());
 
         \Session::flash('message', trans( 'messages.conf_atividades_alt'));
-        $url = $request->get('redirect_to', asset('psicologia/atendimentopsic'));
+        $url = $request->get('redirect_to', asset('pedagogia/atendimentosped'));
         return redirect()->to($url);
     }
 
@@ -189,7 +166,6 @@ class atendimentopsicController extends Controller
     {
         $this->atendimento->find($id)->delete();
         \Session::flash('message', trans( 'messages.conf_atividades_exc'));
-        return redirect()->to(asset('psicologia/atendimentopsic'));
-        //return Redirect::route('atendimentopsic.index');
+        return redirect()->to(asset('pedagogia/atendimentosped'));
     }
 }
