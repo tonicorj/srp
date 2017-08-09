@@ -4,6 +4,19 @@ namespace SRP\Models\DFutebol;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\DFutebol\Janelas
+ *
+ * @property int $ID_JANELA
+ * @property string $JANELA_NOME
+ * @property string $JANELA_INICIO
+ * @property string $JANELA_FINAL
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Janelas whereIDJANELA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Janelas whereJANELAFINAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Janelas whereJANELAINICIO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Janelas whereJANELANOME($value)
+ * @mixin \Eloquent
+ */
 class Janelas extends Model
 {
     protected $table      = 'JANELAS';

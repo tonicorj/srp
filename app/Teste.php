@@ -4,6 +4,19 @@ namespace SRP;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Teste
+ *
+ * @property int $ID_CIDADE
+ * @property string $UF
+ * @property int $ID_PAIS
+ * @property string $CIDADE_NOME
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Teste whereCIDADENOME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Teste whereIDCIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Teste whereIDPAIS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Teste whereUF($value)
+ * @mixin \Eloquent
+ */
 class Teste extends Model
 {
     protected $table      = 'cidades';

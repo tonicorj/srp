@@ -2,13 +2,57 @@
 
 namespace SRP\Models\DM;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
-use SRP\Jogadores;
 use SRP\Models\DFutebol\Categorias;
+use SRP\Models\DFutebol\Jogadores;
 use DB;
 
-class DepMedico extends Model implements TableInterface
+/**
+ * SRP\Models\DM\DepMedico
+ *
+ * @property int $ID_DEPARTAMENTO_MEDICO
+ * @property int $ID_JOGADOR
+ * @property string $DM_DATA_INICIO
+ * @property string $DM_DATA_FIM
+ * @property int $ID_TIPO_LESAO
+ * @property int $ID_ORIGEM_LESAO
+ * @property string $FLAG_AFASTAMENTO
+ * @property int $DM_TEMPO_PERMANENCIA
+ * @property int $ID_PARTE_CORPO
+ * @property string $DM_OBSERVACAO
+ * @property int $ID_CATEGORIA
+ * @property int $ID_MEDICO
+ * @property string $DATA_CONCLUSAO_CONSULTA
+ * @property mixed $DM_IMAGEM
+ * @property int $ID_LOCAL
+ * @property int $DT_LOCAL_2
+ * @property int $DT_LOCAL_3
+ * @property-read \SRP\Models\DFutebol\Categorias $categoria
+ * @property-read \SRP\Models\DFutebol\Jogadores $jogador
+ * @property-read \SRP\Models\DM\Medicos $medico
+ * @property-read \SRP\Models\DM\Origem_Lesao $origem_lesao
+ * @property-read \SRP\Models\DM\Parte_Corpo $parte_corpo
+ * @property-read \SRP\Models\DM\Tipo_Lesao $tipo_lesao
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereDATACONCLUSAOCONSULTA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereDMDATAFIM($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereDMDATAINICIO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereDMIMAGEM($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereDMOBSERVACAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereDMTEMPOPERMANENCIA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereDTLOCAL2($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereDTLOCAL3($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereFLAGAFASTAMENTO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereIDCATEGORIA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereIDDEPARTAMENTOMEDICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereIDJOGADOR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereIDLOCAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereIDMEDICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereIDORIGEMLESAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereIDPARTECORPO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\DepMedico whereIDTIPOLESAO($value)
+ * @mixin \Eloquent
+ */
+class DepMedico extends Model
 {
     protected $table = 'DEPARTAMENTO_MEDICO';
     protected $fillable = [
@@ -61,38 +105,6 @@ class DepMedico extends Model implements TableInterface
         , 'ID_MEDICO'   => 'required'
     );
 
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header) {
-            case $this->titulos[0]: return data_display($this->DM_DATA_INICIO);
-            case $this->titulos[1]: return data_display($this->DM_DATA_FIM);
-            case $this->titulos[2]: return ( isset($this->jogador->JOG_NOME_APELIDO)) ? $this->jogador->JOG_NOME_APELIDO : '-';
-            case $this->titulos[3]: return $this->FLAG_AFASTAMENTO;
-            case $this->titulos[4]: return ( isset($this->tipo_lesao->TIPO_LESAO_DESCRICAO)) ? $this->tipo_lesao->TIPO_LESAO_DESCRICAO : '-';
-            case $this->titulos[5]: return ( isset($this->origem_lesao->ORIGEM_LESAO_DESCRICAO)) ? $this->origem_lesao->ORIGEM_LESAO_DESCRICAO : '-';
-            case $this->titulos[6]: return ( isset($this->parte_corpo->PARTE_CORPO_DESCRICAO) )  ? $this->parte_corpo->PARTE_CORPO_DESCRICAO : '-';
-            case $this->titulos[7]: return ( isset($this->medico->NOME_USUARIO) )                ? $this->medico->NOME_USUARIO : '-';
-            case $this->titulos[8]: return $this->DM_TEMPO_PERMANENCIA;
-        }
-    }
-
     // campos de relacionamento jogadores
     public function jogador(){
         $ret = $this->belongsTo(Jogadores::class, 'ID_JOGADOR', 'ID_JOGADOR');
@@ -144,7 +156,6 @@ class DepMedico extends Model implements TableInterface
     }
 
     public static function consulta() {
-        $sql = "select * from VS_DM_ENTRADAS ";
         $dm = DB::table("VS_DM_ENTRADAS")
             ->whereNull('dm_data_fim')
             ->orderBy('dm_data_inicio')

@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
+/**
+ * SRP\Config
+ *
+ * @mixin \Eloquent
+ */
 class Config extends Model
 {
     //
@@ -15,6 +20,8 @@ class Config extends Model
 
 
     public function __construct(){
+
+        parent::__construct();
 
         // define mês e ano atuais, se não estiver selecionados
         if ( is_null(Session::get('mes')) ) {

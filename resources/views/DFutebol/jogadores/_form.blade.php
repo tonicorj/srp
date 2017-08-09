@@ -134,9 +134,10 @@
                         <div class="panel-heading">Foto</div>
                         <div class="panel-body">
                             <center>
-                            {!! Html::image($foto, '', array('class' => 'image','id'=>'blah', 'width'=>'120', 'height' => '120')) !!}
-                                <label class="btn btn-primary" for="imgFoto">
-                                    <input type='file' id="imgFoto" name="imgFoto" style='display:none;'/>
+                                {!! Html::image($foto, '', array('class' => 'image','id'=>'blah', 'width'=>'120', 'height' => '120')) !!}
+                                <br>
+                                <label class="btn btn-primary" for="imgfoto">
+                                    <input type='file' id="imgfoto" name="imgfoto" style='display:none;'/>
                                     Selecione uma Imagem
                                 </label>
                                 <!--<input type='file' id="imgFoto" style='display:none;'/>-->
@@ -837,7 +838,7 @@
 <script type="text/javascript">
     xxurl = "{{ url( 'cidades/autocomplete/') }}" ;
     $(document).ready(function () {
-        $('#form_ .date').datepicker({
+        $("#form_ .date").datepicker({
             format: "dd/mm/yyyy",
             language: "pt-BR",
             autoclose: true,
@@ -935,14 +936,14 @@
 
             reader.onload = function (e) {
                 $('#blah').attr('src', e.target.result)
-                        .width(100)
-                        .height(100);
+                        .width(120)
+                        .height(120);
             }
             reader.readAsDataURL(input.files[0]);
         }
     }
 
-    $("#imgFoto").change(function(){
+    $("#imgfoto").change(function(){
         readURL(this);
     });
 

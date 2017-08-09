@@ -4,6 +4,15 @@ namespace SRP\Models\nutricao;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\nutricao\suplementos
+ *
+ * @property int $ID_SUPLEMENTO
+ * @property string $SUPLEMENTO_DESCRICAO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\nutricao\suplementos whereIDSUPLEMENTO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\nutricao\suplementos whereSUPLEMENTODESCRICAO($value)
+ * @mixin \Eloquent
+ */
 class suplementos extends Model
 {
     protected $table      = 'SUPLEMENTO';

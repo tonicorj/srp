@@ -5,8 +5,14 @@ namespace SRP;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use DB;
-use SRP\Config;
+use Illuminate\Support\Facades\Session;
 
+/**
+ * SRP\User
+ *
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @mixin \Eloquent
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -73,4 +79,33 @@ class User extends Authenticatable
         return self::categoria_descricao();
     }
 
+    public static function cliente()
+    {
+        $sql = "select id_time from configura";
+        $reg = DB::select($sql);
+        //return dd($reg);
+        return $reg[0]->id_time;
+    }
+
+    public static function skin(){
+        $skin = "skin-red";
+
+        $sql = "select id_time from configura";
+        $reg = DB::select($sql);
+        $id_cliente = $reg[0]->id_time;
+
+        if ($id_cliente == 1) {
+            $skin = "skin-black";
+        }
+        if ($id_cliente == 7) {
+            $skin = "skin-green-light";
+        }
+        if ($id_cliente == 18) {
+            $skin = "skin-blue";
+        }
+        if ($id_cliente == 21) {
+            $skin = "skin-red";
+        }
+        return $skin;
+    }
 }

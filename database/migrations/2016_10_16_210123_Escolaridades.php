@@ -17,7 +17,7 @@ class Escolaridades extends Migration
         if (!Schema::hasTable($this->tabela)) {
             Schema::create($this->tabela, function (Blueprint $table) {
                 $table->integer('ID_ESCOLARIDADE');
-                $table->string('ESCOLARIDADE_DESCRICAO', 50);
+                $table->string('ESCOLARIDADE_DESCRICAO', 50)->unique();
 
                 $table->primary('ID_ESCOLARIDADE');
             });

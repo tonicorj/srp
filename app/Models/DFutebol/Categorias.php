@@ -4,6 +4,25 @@ namespace SRP\Models\DFutebol;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\DFutebol\Categorias
+ *
+ * @property int $ID_CATEGORIA
+ * @property string $CATEG_DESCRICAO
+ * @property int $CATEG_IDADE_INI
+ * @property int $CATEG_IDADE_FIN
+ * @property string $CATEG_COR
+ * @property int $ID_TIME
+ * @property int $CATEG_TEMPO_JOGO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Categorias whereCATEGCOR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Categorias whereCATEGDESCRICAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Categorias whereCATEGIDADEFIN($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Categorias whereCATEGIDADEINI($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Categorias whereCATEGTEMPOJOGO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Categorias whereIDCATEGORIA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Categorias whereIDTIME($value)
+ * @mixin \Eloquent
+ */
 class Categorias extends Model
 {
     protected $table      = 'categorias';

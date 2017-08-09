@@ -19,7 +19,7 @@ class Estadocivil extends Migration
         if (! Schema::hasTable($this->tabela)) {
             Schema::create($this->tabela, function (Blueprint $table){
                 $table->integer('ID_ESTADOCIVIL');
-                $table->string('ESTADOCIVIL_DESCRICAO',40);
+                $table->string('ESTADOCIVIL_DESCRICAO',40)->unique();
 
                 $table->primary('ID_ESTADOCIVIL');
             });

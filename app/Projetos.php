@@ -4,6 +4,21 @@ namespace SRP;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Projetos
+ *
+ * @property int $PROJETO_ID
+ * @property float $PROJETO_VALOR
+ * @property string $PROJETO_NOME
+ * @property string $PROJETO_DATA_INICIO
+ * @property string $PROJETO_DATA_FINAL
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Projetos wherePROJETODATAFINAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Projetos wherePROJETODATAINICIO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Projetos wherePROJETOID($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Projetos wherePROJETONOME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Projetos wherePROJETOVALOR($value)
+ * @mixin \Eloquent
+ */
 class Projetos extends Model
 {
     protected $table      = 'PROJETO';

@@ -2,13 +2,36 @@
 
 namespace SRP\Models\ssocial;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 
-use SRP\Models\ssocial\origemservsocial;
-use SRP\Models\ssocial\AtividadesSS;
-
-class atendimentoSS_Func extends Model implements TableInterface
+/**
+ * SRP\Models\ssocial\atendimentoSS_Func
+ *
+ * @property int $ID_ATEND_ASSIST_SOCIAL
+ * @property string $VISITA_DATA
+ * @property int $ID_JOGADOR
+ * @property int $ID_ATIV_ASSIST_SOCIAL
+ * @property int $ID_ORIGEM_SERVSOCIAL
+ * @property int $ID_CATEGORIA
+ * @property string $OBS_ATIVIDADE
+ * @property string $NOME_USUARIO
+ * @property int $ID_USUARIO
+ * @property string $NOME
+ * @property-read \SRP\Models\ssocial\AtividadesSS $motivo_atendimento
+ * @property-read \SRP\Models\ssocial\origemservsocial $origem_atendimento
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\atendimentoSS_Func whereIDATENDASSISTSOCIAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\atendimentoSS_Func whereIDATIVASSISTSOCIAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\atendimentoSS_Func whereIDCATEGORIA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\atendimentoSS_Func whereIDJOGADOR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\atendimentoSS_Func whereIDORIGEMSERVSOCIAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\atendimentoSS_Func whereIDUSUARIO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\atendimentoSS_Func whereNOME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\atendimentoSS_Func whereNOMEUSUARIO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\atendimentoSS_Func whereOBSATIVIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\atendimentoSS_Func whereVISITADATA($value)
+ * @mixin \Eloquent
+ */
+class atendimentoSS_Func extends Model
 {
     protected $table      = 'ATENDIMENTO_ASSIST_SOCIAL';
     protected $primaryKey = 'ID_ATEND_ASSIST_SOCIAL';
@@ -38,34 +61,6 @@ class atendimentoSS_Func extends Model implements TableInterface
     }
     public static $rules = array(
     );
-
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header){
-            case $this->titulos[0]:   return $this->ID_ATEND_ASSIST_SOCIAL;
-            case $this->titulos[1]:   return data_display($this->VISITA_DATA);
-            case $this->titulos[2]:   return $this->NOME;
-            case $this->titulos[3]:   return $this->motivo_atendimento->ATIV_ASSIST_SOCIAL_DESCR;       //ID_ATIV_ASSIST_SOCIAL;
-            case $this->titulos[4]:   return $this->origem_atendimento->ORIGEM_SERVSOCIAL_DESCRICAO;    //ID_ORIGEM_SERVSOCIAL;
-        }
-    }
 
     // motivo de atendimento
     public function motivo_atendimento() {

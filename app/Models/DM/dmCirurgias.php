@@ -2,10 +2,36 @@
 
 namespace SRP\Models\DM;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class dmCirurgias extends Model implements TableInterface
+/**
+ * SRP\Models\DM\dmCirurgias
+ *
+ * @property int $ID_DM_CIRURGIA
+ * @property int $ID_DEPARTAMENTO_MEDICO
+ * @property int $ID_CIRURGIA
+ * @property string $CIRURGIA_DATA
+ * @property string $CIRURGIA_LOCAL
+ * @property int $ID_MEDICO
+ * @property string $CIRURGIA_LAUDO
+ * @property string $CIRURGIA_DATA_SOLICITACAO
+ * @property int $ID_MEDICO_SOLICITACAO
+ * @property string $MEDICO_OPERACAO
+ * @property-read \SRP\Models\DM\Cirurgias $cirurgia
+ * @property-read \SRP\Models\DM\Medicos $medico
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmCirurgias whereCIRURGIADATA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmCirurgias whereCIRURGIADATASOLICITACAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmCirurgias whereCIRURGIALAUDO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmCirurgias whereCIRURGIALOCAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmCirurgias whereIDCIRURGIA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmCirurgias whereIDDEPARTAMENTOMEDICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmCirurgias whereIDDMCIRURGIA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmCirurgias whereIDMEDICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmCirurgias whereIDMEDICOSOLICITACAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmCirurgias whereMEDICOOPERACAO($value)
+ * @mixin \Eloquent
+ */
+class dmCirurgias extends Model
 {
     protected $table = 'DEPARTAMENTO_MEDICO_CIRURGIA';
     protected $fillable = [
@@ -40,34 +66,6 @@ class dmCirurgias extends Model implements TableInterface
     ,'ID_CIRURGIA' => 'required'
     ,'CIRURGIA_DATA_SOLICITACAO_S' => 'required'
     );
-
-    //
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header) {
-            case $this->titulos[0]: return data_display($this->CIRURGIA_DATA_SOLICITACAO);
-            case $this->titulos[1]: return ( isset($this->medico->NOME_USUARIO) )    ? $this->medico->NOME_USUARIO : '-';
-            case $this->titulos[2]: return ( isset($this->cirurgia->CIRURGIA_NOME) ) ? $this->cirurgia->CIRURGIA_NOME    : '-';
-            case $this->titulos[3]: return data_display($this->CIRURGIA_DATA_SOLICITACAO);
-        }
-    }
 
     // medicos
     public function medico(){

@@ -4,59 +4,94 @@ header ('Content-type: text/html; charset=UTF-8');
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
 
-        {!!Html::style('plugins/bootstrap/css/bootstrap.min.css')!!}                <!-- bootstrap -->
-        {!!Html::style('plugins/datatables/css/datatables.bootstrap.min.css')!!}    <!-- datatable bootstrap -->
-        {!!Html::style("plugins/AdminLTE/css/AdminLTE.min.css")!!}
-        {!!Html::style("plugins/AdminLTE/css/skins/_all-skins.min.css")!!}
-        {!!Html::style('plugins/datatables/css/jquery.dataTables.min.css')!!}       <!-- datatable jquery -->
-        {!!Html::style("plugins/datatables/extensions/buttons/css/buttons.dataTables.min.css")!!}
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        {!!Html::script("https://code.jquery.com/jquery-1.12.4.js") !!}
-        {!!Html::script("https://code.jquery.com/ui/1.12.1/jquery-ui.js")!!}
+    <!-- JQuery -->
+        {!!Html::script("plugins/jquery/jquery.min.js") !!}
 
-        {!!Html::style("https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css") !!}        <!-- Ionicons -->
-        {!!Html::style("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")!!}
+    <!-- JQuery UI -->
+        {!!Html::style("plugins/jQueryui/jquery-ui.min.css") !!}
+        {!!Html::script("plugins/jQueryui/jquery-ui.min.js")!!}
 
-        {!!Html::script('plugins/bootstrap/js/bootstrap.min.js')!!}                 <!-- bootstrap -->
-        {!!Html::script('plugins/datatables/js/jquery.datatables.min.js')!!}        <!-- datatable jquery -->
+    <!-- Bootstrap 3.3.6 -->
+        {!!Html::style('plugins/bootstrap/css/bootstrap.min.css')!!}
+        {!! Html::script('bootstrap/js/bootstrap.min.js') !!}
+
+        <!-- Theme style -->
+        {!!Html::style("plugins/AdminLTE/css/AdminLTE.css")!!}
+        {!!Html::style('plugins/AdminLTE/css/skins/_all-skins.css') !!}
+
+        <!-- AdminLTE App -->
+        {!!Html::script('plugins/AdminLTE/js/app.min.js') !!}
+        @if(Auth::user()->cliente() == 2)
+            <!-- Teste -->
+            {!!Html::style('css/app.css') !!}
+        @endif
+        @if(Auth::user()->cliente() == 7)
+            <!-- Palmeiras -->
+            {!! Html::style('css/palmeiras.css') !!}
+        @endif
+        @if(Auth::user()->cliente() == 18)
+            <!-- Bahia -->
+            {!! Html::style('css/bahia.css') !!}
+        @endif
+        @if(Auth::user()->cliente() == 21)
+            <!-- Sport -->
+            {!!Html::style('css/sport.css') !!}
+        @endif
+        @if(Auth::user()->cliente() == 1)
+            <!-- Vasco -->
+            {!!Html::style('css/vasco.css') !!}
+        @endif
+
+    <!-- datepicker -->
+        {!!Html::script('plugins/datepicker/bootstrap-datepicker.js') !!}
+
+    <!-- Font Awesome -->
+        {!!Html::style("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css") !!}
+
+    <!-- Ionicons -->
+        {!!Html::style("https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css") !!}
+
+    <!-- datatable bootstrap -->
+        {!!Html::style('plugins/datatables/css/datatables.bootstrap.min.css')!!}
+        {!!Html::script("plugins/datatables/js/dataTables.bootstrap.min.js")!!}
+
+        {!!Html::style('plugins/datatables/css/jquery.dataTables.min.css')!!}
+        {!!Html::script('plugins/datatables/js/jquery.dataTables.js') !!}
+
         {!!Html::script("plugins/datatables/extensions/Buttons/js/dataTables.buttons.min.js")!!}
+
         {!!Html::script("plugins/datatables/extensions/Buttons/js/buttons.bootstrap.min.js")!!}
+        {!!Html::style('plugins/datatables/extensions/Buttons/css/buttons.bootstrap.min.css')!!}
 
-        <!-- buttons -->
-        {!!Html::script("plugins/datatables/extensions/buttons/js/buttons.flash.min.js")!!}
-        {!!Html::script("plugins/datatables/extensions/buttons/js/buttons.html5.min.js")!!}
-        {!!Html::script("plugins/datatables/extensions/buttons/js/buttons.print.min.js")!!}
+    <!-- outros -->
+        {!!Html::script('plugins/slimScroll/jquery.slimscroll.min.js') !!}
 
-        {!!Html::script("plugins/datatables/extensions/jszip/jszip.min.js")!!}
-        {!!Html::script("plugins/datatables/extensions/pdfmake/build/pdfmake.min.js")!!}
-        {!!Html::script("plugins/datatables/extensions/pdfmake/build/vfs_fonts.js")!!}
+    <!-- Bootstrap WYSIHTML5 -->
+        <script src="{{ URL::asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
 
-        <!-- modal de confirmação -->
-        {!!Html::script("plugins/datepicker/js/bootstrap-datepicker.min.js")!!}
-        {!!Html::script("plugins/datepicker/locales/bootstrap-datepicker.pt-BR.min.js")!!}
-        {!!Html::style("plugins/datepicker/css/bootstrap-datepicker.min.css")!!}
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-        <!-- modal de confirmação -->
-        {!!Html::script("plugins/bootstrap-fileinput-master/js/fileinput.min.js")!!}
-
-        <!--{!!Html::script("plugins/validador/src/laravel-bootstrap-modal-form.js")!!} -->
-
-        {!!Html::script('plugins/bootboxjs/bootbox.min.js')!!}                                          <!-- modal de confirmação -->
-        <!--{!!Html::script("js/lang.js")!!}                                                                <!-- linguagem -->
-
-
-        {!!Html::script("plugins/AdminLTE/js/app.min.js")!!}
-        {!!Html::style("css/app.css")!!}
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+            $.widget.bridge('uibutton', $.ui.button);
+        </script>
     </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
-
+<body class="skin-yellow sidebar-mini">
     <div class="wrapper">
-        <header class="main-header">
+        <header class="main-header bg-clube-active">
             <div class="container">
                 <div class="navbar-header">
                     <!-- Branding Image -->
@@ -104,7 +139,7 @@ header ('Content-type: text/html; charset=UTF-8');
             </div>
         </header>
 
-        <aside class="main-sidebar">
+        <aside class="main-sidebar bg-clube-active">
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel -->
@@ -125,7 +160,6 @@ header ('Content-type: text/html; charset=UTF-8');
 
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
-                    <li class="header">{!! trans('messages.t_menu_principal') !!}</li>
                     @can( 'acesso'
                     , array( 'JOGADORES'
                         , 'ATIVIDADES'
@@ -469,6 +503,7 @@ header ('Content-type: text/html; charset=UTF-8');
                     @endcan
 
                     @can( 'acesso', array( 'ATIVIDADES_NUTRICAO'
+                    , 'ANAMNESE_NUTRICAO'
                     , 'ORIGEM_NUTRICAO'
                     , 'SUPLEMENTOS'
                     , 'CONTROLE_SUPLEMENTOS'
@@ -485,6 +520,9 @@ header ('Content-type: text/html; charset=UTF-8');
                                 @can( 'acesso', 'ATENDIMENTO_NUTRICAO')
                                     <li><a href="{!! asset('nutricao/atendimentoNutricao') !!}"> <i class="fa fa-calendar"></i> {!! trans('messages.t_atendimentoNutricao') !!}</a></li>
                                 @endcan
+                                    @can( 'acesso', 'ANAMNESE_NUTRICAO')
+                                        <li><a href="{!! asset('nutricao/anamnesenutricao') !!}"> <i class="fa fa-calendar"></i> {!! trans('messages.t_anamnesenutricional') !!}</a></li>
+                                    @endcan
                                     @can( 'acesso', 'CONTROLE_SUPLEMENTOS')
                                         <li><a href="{!! asset('nutricao/controlesuplemento') !!}"> <i class="fa fa-calendar"></i> {!! trans('messages.t_controlesuplemento') !!}</a></li>
                                     @endcan

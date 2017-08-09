@@ -4,6 +4,15 @@ namespace SRP\Models\DFutebol;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\DFutebol\Selecoes
+ *
+ * @property int $ID_SELECAO
+ * @property string $DESCRICAO_SELECAO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Selecoes whereDESCRICAOSELECAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Selecoes whereIDSELECAO($value)
+ * @mixin \Eloquent
+ */
 class Selecoes extends Model
 {
     protected $table      = 'SELECAO';

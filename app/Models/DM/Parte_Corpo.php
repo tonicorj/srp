@@ -3,9 +3,17 @@
 namespace SRP\Models\DM;
 
 use Illuminate\Database\Eloquent\Model;
-use Bootstrapper\Interfaces\TableInterface;
 
-class Parte_Corpo extends Model implements TableInterface
+/**
+ * SRP\Models\DM\Parte_Corpo
+ *
+ * @property int $ID_PARTE_CORPO
+ * @property string $PARTE_CORPO_DESCRICAO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Parte_Corpo whereIDPARTECORPO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Parte_Corpo wherePARTECORPODESCRICAO($value)
+ * @mixin \Eloquent
+ */
+class Parte_Corpo extends Model
 {
     protected $table      = 'PARTE_CORPO';
     protected $fillable   = ['ID_PARTE_CORPO', 'PARTE_CORPO_DESCRICAO'];
@@ -24,28 +32,4 @@ class Parte_Corpo extends Model implements TableInterface
     public static $rules = array(
         'PARTE_CORPO_DESCRICAO'   => 'required|min:3',
     );
-
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header){
-            case $this->titulos[0]:   return $this->PARTE_CORPO_DESCRICAO;
-        }
-    }
 }

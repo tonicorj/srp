@@ -2,10 +2,18 @@
 
 namespace SRP\Models\DM;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class Cirurgias extends Model implements TableInterface
+/**
+ * SRP\Models\DM\Cirurgias
+ *
+ * @property int $ID_CIRURGIA
+ * @property string $CIRURGIA_NOME
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Cirurgias whereCIRURGIANOME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Cirurgias whereIDCIRURGIA($value)
+ * @mixin \Eloquent
+ */
+class Cirurgias extends Model
 {
     protected $table      = 'cirurgias';
     protected $fillable   = ['ID_CIRURGIA', 'CIRURGIA_NOME'];
@@ -23,28 +31,4 @@ class Cirurgias extends Model implements TableInterface
     public static $rules = array(
         'CIRURGIA_NOME'   => 'required|min:3',
     );
-
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header){
-            case $this->titulos[0]:   return $this->CIRURGIA_NOME;
-        }
-    }
 }

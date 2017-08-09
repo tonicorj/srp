@@ -2,11 +2,31 @@
 
 namespace SRP\Models\DM;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
-//use SRP\Models\DM\Exames;
 
-class dmExames extends Model implements TableInterface
+
+/**
+ * SRP\Models\DM\dmExames
+ *
+ * @property int $ID_DM_EXAME
+ * @property int $ID_DEPARTAMENTO_MEDICO
+ * @property string $ID_EXAME
+ * @property string $EXAME_DATA
+ * @property int $ID_MEDICO
+ * @property string $EXAME_LAUDO
+ * @property string $EXAME_DATA_REALIZADO
+ * @property-read \SRP\Models\DM\Exames $exame
+ * @property-read \SRP\Models\DM\Medicos $medico
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmExames whereEXAMEDATA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmExames whereEXAMEDATAREALIZADO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmExames whereEXAMELAUDO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmExames whereIDDEPARTAMENTOMEDICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmExames whereIDDMEXAME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmExames whereIDEXAME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmExames whereIDMEDICO($value)
+ * @mixin \Eloquent
+ */
+class dmExames extends Model
 {
 
     protected $table = 'DEPARTAMENTO_MEDICO_EXAME';
@@ -41,34 +61,6 @@ class dmExames extends Model implements TableInterface
        ,'ID_EXAME' => 'required'
        ,'EXAME_DATA_S' => 'required'
     );
-
-    //
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header) {
-            case $this->titulos[0]: return data_display($this->EXAME_DATA);
-            case $this->titulos[1]: return ( isset($this->medico->NOME_USUARIO) ) ? $this->medico->NOME_USUARIO : '-';
-            case $this->titulos[2]: return ( isset($this->exame->EXAME_NOME) )    ? $this->exame->EXAME_NOME    : '-';
-            case $this->titulos[3]: return data_display($this->EXAME_DATA_REALIZADO);
-        }
-    }
 
     // medicos
     public function medico(){

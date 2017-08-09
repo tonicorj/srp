@@ -2,11 +2,30 @@
 
 namespace SRP\Models\DM;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
-use SRP\Models\DM\DepMedico;
 
-class dmAcompanha extends Model implements TableInterface
+/**
+ * SRP\Models\DM\dmAcompanha
+ *
+ * @property int $ID_ACOMPANHAMENTO_DM
+ * @property int $ID_DEPARTAMENTO_MEDICO
+ * @property int $ID_MEDICO
+ * @property string $ACOMPANHAMENTO_DATA
+ * @property string $ACOMPANHAMENTO_OBS
+ * @property string $LOGIN_USUARIO
+ * @property string $DATA_GRAVACAO
+ * @property-read \SRP\Models\DM\DepMedico $dmEntrada
+ * @property-read \SRP\Models\DM\Medicos $medico
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmAcompanha whereACOMPANHAMENTODATA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmAcompanha whereACOMPANHAMENTOOBS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmAcompanha whereDATAGRAVACAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmAcompanha whereIDACOMPANHAMENTODM($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmAcompanha whereIDDEPARTAMENTOMEDICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmAcompanha whereIDMEDICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\dmAcompanha whereLOGINUSUARIO($value)
+ * @mixin \Eloquent
+ */
+class dmAcompanha extends Model
 {
     protected $table = 'DEPARTAMENTO_MEDICO_ACOMPANHA';
     protected $fillable = [
@@ -26,44 +45,18 @@ class dmAcompanha extends Model implements TableInterface
 
     public function __construct(array $attributes = [])
     {
+        parent::__construct($attributes);
         $this->titulos = array(
             trans('messages.tit_dmAcompanha_data')
           , trans('messages.tit_medico')
           //, trans('messages.tit_dmAcompanha_obs')
         );
-        parent::__construct($attributes);
     }
 
     public static $rules = array(
       'ID_MEDICO' => 'required'
     , 'ACOMPANHAMENTO_DATA_S' => 'required'
     );
-
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header) {
-            case $this->titulos[0]: return data_display($this->ACOMPANHAMENTO_DATA);
-            case $this->titulos[1]: return ( isset($this->medico->NOME_USUARIO) )    ? $this->medico->NOME_USUARIO : '-';
-
-        }
-    }
 
     // medicos
     public function dmEntrada(){

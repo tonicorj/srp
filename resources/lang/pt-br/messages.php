@@ -24,6 +24,7 @@ return [
 
     ,'exc_afastamento'      => 'Confirma exclusão do afastamentos '
     ,'exc_alojamento'       => 'Confirma exclusão do alojamento '
+    ,'exc_anamnesenutricao' => 'Confirma exclusão da anamnese do dia '
     ,'exc_atendimento_dia'  => 'Conforma exclusão do atendimento do dia '
     ,'exc_atendimento'      => 'Conforma exclusão do atendimento do atleta '
     ,'exc_atendimento_func' => 'Confirma exclusão do atendimento deste funcionário '
@@ -95,8 +96,49 @@ return [
 
     // captions de jogadores
     ,'tit_acompanhamentos'  => 'Acompanhamentos'
+
+    ,'tit_alcool_dias'      => 'Consome'
+    ,'tit_alcool_fds'       => 'Fim de Semana'
+    ,'tit_alcool_diassemana'=> 'Dias da Semana'
+
+    ,'tit_alcool_quanto'    => 'Quantidade'
+    ,'tit_alcool_qual'      => 'Qual'
+
     ,'tit_alojamento'       => 'Nome do Alojamento'
     ,'tit_altura'           => 'Altura (cm)'
+
+    ,'tit_anamnese_alimentos'   => 'Anamnese Alimentar'
+    ,'tit_anamnese_alcool'      => 'Bebidas Alcoólicas'
+    ,'tit_anamnese_data'        => 'Data da Anamnese'
+    ,'tit_anamnese_antecedente' => 'Antecedentes'
+    ,'tit_anamnese_fumo'        => 'Fumo'
+    ,'tit_anamnese_habitointestinal' => 'Hábito Intestinal'
+    ,'tit_anamnese_intolerancia' => 'Intolerâncias (Não gosta ou faz mal)'
+    ,'tit_anamnese_preferencias' => 'Preferências (Do quê mais gosta)'
+    ,'tit_anamnese_horariofome'  => 'Horário que sente mais fome'
+    ,'tit_anamnese_quemprepara'  => 'Quem prepara as refeições? Local(casa/trab...)'
+
+    ,'tit_anamnese_habitoalimentar' => 'Hábito Alimentar(horário/Local)'
+    ,'tit_anamnese_habitoalimentar_frase1' => '- O quê costuma consumir de alimentos no seu dia?'
+    ,'tit_anamnese_habitoalimentar_frase2' => '- Quanto em medidas caseiras (colher / escumadeira / concha / tamanho P-M-G - 1/2 prato)?'
+    ,'tit_anamnese_habitoalimentar_frase3' => '- Não esquecer de doces pelo meio do dia e dos cafés'
+
+    ,'tit_anamnese_atividadefisica'  => 'Atividade Física'
+    ,'tit_anamnese_atividadefisica_passada' => 'Passada'
+    ,'tit_anamnese_atividadefisica_atual'  => 'Atual'
+    ,'tit_anamnese_hidratacao'  => 'Hidratação'
+    ,'tit_anamnese_pesos'       => 'Pesos'
+    ,'tit_anamnese_sono'        => 'Sono'
+    ,'tit_anamnese_outras'      => 'Outras informações importantes'
+
+    ,'tit_antecedente_cardiaco'     => 'Cardíacos (Hipertensão, Infarto, Colesterol, ...)'
+    ,'tit_antecedente_alt_hormonais'=> 'Alterações Hormonais'
+    ,'tit_antecedente_alt_peso'     => 'Alterações de Peso'
+    ,'tit_antecedente_gastricos'    => 'Gástricos e Intestinais'
+    ,'tit_antecedente_neurologicos' => 'Neurológicos'
+    ,'tit_antecedente_respiratorios'=> 'Respiratórios'
+    ,'tit_antecedente_resfriado'    => 'Fica resfriado com facilidade'
+    ,'tit_antecedente_obsidade'     => 'Obsidade'
 
     ,'tit_apelido'          => 'Apelido'
 
@@ -273,6 +315,9 @@ return [
     ,'tit_foto'             => 'Foto'
     ,'tit_freq_troca'       => 'Freq.Troca Senha'
 
+    ,'tit_fuma'             => 'Fuma'
+    ,'tit_fumaquanto'       => 'Quanto'
+
     ,'tit_funcionario'      => 'Nome do Funcionário'
     ,'tit_funcionariodocumento' => 'Documento'
     ,'tit_funcionario_dataentrada' => 'Data Chegada'
@@ -283,12 +328,38 @@ return [
     ,'tit_func_sal_extra'   => 'Salário Extra'
     ,'tit_func_sal_total'   => 'Salário Total'
 
+    ,'tit_habitointestinal_frase'   => 'Quantas vezes por dia você vai ao banheiro?'
+    ,'tit_habitointestinal_numvezes'=> 'Vezes ao dia'
+    ,'tit_habitointestinal_como'    => 'Como é?'
+
+    ,'tit_habito_intestinal_1'  => 'Normal'
+    ,'tit_habito_intestinal_2'  => 'Obstipado'
+    ,'tit_habito_intestinal_3'  => 'Laxante'
+
     ,'tit_hora'             => 'Hora'
     ,'tit_horario'          => 'Horário'
 
     ,'tit_idade'            => 'Idade'
     ,'tit_id'               => 'ID'
     ,'tit_imc'              => 'IMC'
+
+    ,'tit_hidratacao_frase' => 'Tirando o treino, quantos copos de água você bebe por dia?'
+    ,'tit_hidratacao_copos_casa'  => 'Copos'
+    ,'tit_hidratacao_litros_casa' => 'Litros'
+
+    ,'tit_hidratacao_treino' => 'Hidratação no treino'
+    ,'tit_hidratacao_copos_treino' => 'Copos de Água'
+    ,'tit_hidratacao_gatorade' => 'Gatorade (garrafas)'
+
+    ,'tit_horario_cafemanha'   => 'Toma café da manhã se não tiver treino cedo ou no hotel?'
+    ,'tit_horario_dormir_casa' => 'Horários em casa'
+    ,'tit_horario_dormir'      => 'Dormir'
+    ,'tit_horario_acordar'     => 'Acordar'
+    ,'tit_horario_tranquilo'   => 'Tranquilo'
+    ,'tit_horario_agitado'     => 'Agitado'
+
+    ,'tit_horario_dormir_concentracao' => 'Horários na Concentração'
+
 
     ,'tit_janela'           => 'Nome da Janela'
     ,'tit_janela_inicio'    => 'Início'
@@ -306,6 +377,9 @@ return [
     ,'tit_marketingevento'  => 'Evento'
     ,'tit_marketingevento_data' => 'Data do Evento'
 
+    ,'tit_medicamentos_em_uso' => 'Medicamentos em uso'
+
+    ,'tit_suplementos_uso'  => 'Suplementos Nutricionais. Usa ou já usou?'
     ,'tit_medico'           => 'Médico'
 
     ,'tit_motivoafastamento'=> 'Motivo Afastamentos'
@@ -316,6 +390,7 @@ return [
     ,'tit_motivoausencia_letra'     => 'Letra'
     ,'tit_motivocartao'             => 'Motivo do cartão'
 
+    ,'tit_naturalidade'     => 'Naturalidade'
     ,'tit_nome_jogador'     => 'Nome do Jogador'
     ,'tit_nome_completo'    => 'Nome Completo'
     ,'tit_nome_funcionario' => 'Nome do Funcionário'
@@ -358,6 +433,11 @@ return [
     ,'tit_pesoideal'        => 'Peso Ideal'
     ,'tit_pesomagro'        => 'Peso Magro'
     ,'tit_peso_altura'      => 'Peso & Altura'
+    ,'tit_peso_anterior'    => 'Comportamento do peso nos últimos 2 a 3 anos'
+    ,'tit_pesomin_ultimo'   => 'Mínimo'
+    ,'tit_pesomax_ultimo'   => 'Máximo'
+    ,'tit_pesomed_ultimo'   => 'Médio'
+    ,'tit_pesoconsidera_ideal' => 'Considera Ideal'
 
     ,'tit_pontuacao'        => 'Pontuação'
     ,'tit_pontuacao_vitoria'=> 'Pt.Vit'
@@ -449,6 +529,7 @@ return [
     ,'t_afastamento'            => 'Afastamentos'
     ,'t_alojamento'             => 'Alojamentos'
 
+    ,'t_anamnesenutricional'    => 'Anamneses Nutricionais'
     ,'t_atendimentoNutricao'    => 'Atendimentos Jogadores'
 
     ,'t_atendimentoSS'          => 'Atendimentos Jogadores'
@@ -961,4 +1042,36 @@ return [
     // captions de botão
     ,'bot_salvar'               => 'Salvar'         //'btn btn-sm btn-success btn-flat fa fa-check fa-2x'
     ,'bot_cancelar'             => 'Cancelar'       //'btn btn-sm btn-info btn-flat pull-left fa fa-times fa-2x'
+
+
+    // Valores default
+    ,'estadocivil_casado'       => 'Casado'
+    , 'estadocivil_solteiro'    => 'Solteiro'
+    , 'estadocivil_desquitado'  => 'Desquitado'
+    , 'estadocivil_viuvo'       => utf8_encode('Viúvo')
+    , 'estadocivil_uniao'       => utf8_encode('União Estável')
+
+    , 'escolaridade_primario_incompleto'    => utf8_encode('PRIMÁRIO INCOMPLETO')
+    , 'escolaridade_primario_completo'      => utf8_encode('PRIMÁRIO COMPLETO')
+    , 'escoladirade_segundo_incompleto'     => utf8_encode('SEGUNDO GRAU INCOMPLETO')
+    , 'escolaridade_segundo_completo'       => utf8_encode('SEGUNDO GRAU COMPLETO')
+    , 'escolaridade_superior_incompleto'    => utf8_encode('SUPERIOR INCOMPLETO')
+    , 'escolaridade_superior_completo'      => utf8_encode('SUPERIOR COMPLETO')
+    , 'escolaridade_pos_graduacao'          => utf8_encode('PÓS-GRADUAÇÃO')
+    , 'escolaridade_mestrado'               => utf8_encode('MESTRADO')
+    , 'escolaridade_doutorado'              => utf8_encode('DOUTORADO')
+
+    , 'gravidade_registro'                  => utf8_encode('Registro')
+    , 'gravidade_leve'                      => utf8_encode('Leve')
+    , 'gravidade_moderada'                  => utf8_encode('Moderada')
+    , 'gravidade_grave'                     => utf8_encode('Grave')
+    , 'gravidade_restrita'                  => utf8_encode('Restrita')
+
+    , 'motivoausencia_familiar'             => 'Familiar'
+    , 'motivoausencia_medico'               => utf8_encode('Médico')
+    , 'motivoausencia_transito'             => utf8_encode('Trânsito')
+    , 'motivoausencia_morte'                => 'Morte'
+    , 'motivoausencia_escolar'              => utf8_encode('Escolar')
+    , 'motivoausencia_acidente'             => utf8_encode('Acidente de Trânsito')
+
 ];

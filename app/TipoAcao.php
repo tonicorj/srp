@@ -4,6 +4,15 @@ namespace SRP;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\TipoAcao
+ *
+ * @property int $ID_TIPO_ACAO_MARKETING
+ * @property string $TIPO_ACAO_MARKETING_DESCRICAO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\TipoAcao whereIDTIPOACAOMARKETING($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\TipoAcao whereTIPOACAOMARKETINGDESCRICAO($value)
+ * @mixin \Eloquent
+ */
 class TipoAcao extends Model
 {
     protected $table      = 'TIPO_ACAO_MARKETING';

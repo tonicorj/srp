@@ -4,6 +4,25 @@ namespace SRP\Models\adm;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\adm\Paises
+ *
+ * @property int $ID_PAIS
+ * @property int $ID_CONTINENTE
+ * @property string $PAIS_SIGLA
+ * @property string $PAIS_NOME
+ * @property string $PAIS_NOME_FEDERACAO
+ * @property string $PAIS_FIG_BANDEIRA
+ * @property string $PAIS_FIG_FEDERACAO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Paises whereIDCONTINENTE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Paises whereIDPAIS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Paises wherePAISFIGBANDEIRA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Paises wherePAISFIGFEDERACAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Paises wherePAISNOME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Paises wherePAISNOMEFEDERACAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Paises wherePAISSIGLA($value)
+ * @mixin \Eloquent
+ */
 class Paises extends Model
 {
     //

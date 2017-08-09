@@ -16,8 +16,9 @@ class Atividades extends Migration
     {
         if (!Schema::hasTable($this->tabela)) {
             Schema::create($this->tabela, function (Blueprint $table) {
-                $table->integer('ID_ATIVIDADE');
-                $table->string('ATIVIDADE_DESCRICAO', 100);
+                $table->increments('ID_ATIVIDADE');
+                $table->string('ATIVIDADE_DESCRICAO', 100)->unique();
+                $table->timestamps();
 
                 $table->primary('ID_ATIVIDADE');
             });

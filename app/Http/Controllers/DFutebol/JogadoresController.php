@@ -10,17 +10,12 @@ use SRP\Models\ADM\Cidades;
 use SRP\Models\DFutebol\Jogadores;
 use SRP\Models\DFutebol\Parceiros;
 
-//use SRP\JogadorFoto;
-
 use SRP\Models\ADM\Paises;
 use SRP\Models\ADM\Escolaridades;
 use SRP\Models\ADM\estadocivil;
 
-use SRP\helpers;
-
 use DB;
 use File;
-use Image;
 use Illuminate\Support\Facades\Auth;
 
 class JogadoresController extends Controller
@@ -33,20 +28,8 @@ class JogadoresController extends Controller
         $this->jogadores = $jogadores;
     }
 
-    public function index(Request $request) {
+    public function index() {
         $id_categoria = Auth::user()->categoria_selecionada();
-
-        $_sql = "SELECT E.* ";
-        $_sql .= " , 0    ID_TIME_EMPRESTIMO ";
-        $_sql .= " , GETDATE() EMPRESTIMO_INICIO ";
-        $_sql .= " , GETDATE() EMPRESTIMO_FINAL ";
-        $_sql .= "  FROM V_ELENCO   E ";
-        $_sql .= " WHERE E.ID_CATEGORIA  = 1 ";
-        $_sql .= "  AND E.ELENCO_STATUS = 'S' ";
-        $_sql .= "ORDER BY ";
-        $_sql .= "  E.JOG_NOME_APELIDO ";
-        $_sql .= " ,E.JOG_NOME_COMPLETO ";
-
         $jogadores = DB::table('V_ELENCO')
             ->where('ID_CATEGORIA', '=', $id_categoria)
             ->where('ELENCO_STATUS', '=', 'S')
@@ -66,8 +49,6 @@ class JogadoresController extends Controller
             ->with('jogadores', $jogadores)
             ->with('titulos', $titulos)
             ;
-
-        //return view('dfutebol.jogadores.index');
     }
 
     // retorna a consulta no formato json
@@ -120,7 +101,12 @@ class JogadoresController extends Controller
         // pega o pr�ximo codigo
         $input['ID_JOGADOR'] = $id;
 
-        $image = $input->file('imgFoto');
+        if ($input->file('imgfoto') != null) {
+            //return dd($request->file('imgfoto'));
+            $image = $input->file('imgfoto');
+            $foto = $this->SalvaFotoJogador($image, $id);
+            $input['JOG_IMAGEM'] = $foto;
+        }
 
         // troca a data para o formato do sql server
         $this->AcertaDatasGravacao($request);
@@ -141,7 +127,9 @@ class JogadoresController extends Controller
 
     public  function edit($id) {
         $jogadores = $this->jogadores->find($id);
-        $foto = $this->fotoNome($id, 'jpg');   //$this->fotoArquivo($jogadores['JOG_IMAGEM']);
+
+        //return dd($jogadores['JOG_IMAGEM']);
+        $foto = $this->fotoNome($id, $jogadores['JOG_IMAGEM']);   //$this->fotoArquivo($jogadores['JOG_IMAGEM']);
 
         // registros de pa�ses
         $p      = Paises::orderBy('PAIS_NOME', 'asc')->pluck('PAIS_NOME', 'ID_PAIS');
@@ -182,15 +170,15 @@ class JogadoresController extends Controller
         $campo = 'JOG_CARTEIRA_VACINA';
         $request[$campo] = ($request[$campo] == 'on')?'S':'N';
 
+        //return dd($request->file('imgfoto'));
+
         // salva a foto
-        if ($request->file('imgFoto') != null){
-            $image = $request->file('imgFoto');
+        if ($request->file('imgfoto') != null) {
+            //return dd($request->file('imgfoto'));
+            $image = $request->file('imgfoto');
             $foto = $this->SalvaFotoJogador($image, $id);
             $request['JOG_IMAGEM'] = $foto;
         }
-
-        //return dd($request->all());
-
         // salva o registro
         $this->jogadores->find($id)->update($request->all());
 
@@ -198,22 +186,29 @@ class JogadoresController extends Controller
         \Session::flash('message', trans('messages.conf_jogador_alt'));
         $url = $request->get('redirect_to', asset('DFutebol/jogadores'));
         return redirect()->to($url);
-
     }
 
-    public function destroy($id) {
+    public function destroy() {
         //$this->Jogadores->find($id)->delete();
         return;
     }
 
     // --------------------------------------------------------------------------------------------
-    public function fotoNome($id, $extensao ){
+    public function fotoNome($id, $nomeimagem ){
         // se j� tiver nome, retorna o nome
-        $nome = $this->foto_diretorio . 'JOG' . $id . '.' . $extensao;
 
-        if (file_exists($nome) == FALSE) {
-            $nome = $this->foto_diretorio .'padrao.jpg';
+        //$dir = $dir  . Jogadores::FOTO_DIRETORIO . round($id / 100, 0);
+        //$nome = $dir . 'JOG' . $id . '.' . $extensao;
+        $nome = $this->foto_diretorio .'padrao.jpg';
+
+        if (isset($nomeimagem)) {
+            $pesq = public_path() . DIRECTORY_SEPARATOR . $nomeimagem;
+            //return dd($pesq);
+            if (file_exists( $pesq ) == TRUE) {
+                $nome = $nomeimagem;
+            }
         }
+        //return dd($nomeimagem . ' - ' . $nome);
         return $nome;
     }
 
@@ -227,21 +222,27 @@ class JogadoresController extends Controller
     }
 
     // --------------------------------------------------------------------------------------------
-    public function SalvaFotoJogador( $id ) {
+    public function SalvaFotoJogador( $image, $id ) {
         // Pega a extens�o
-        $extensao = 'JPG';  //$imagem->extension();
+        //$extensao = 'JPG';  //$imagem->extension();
+        $extensao = $image->getClientOriginalExtension();
 
         // define o novo nome
-        $novoNome = $this->fotoNome($id, $extensao);
+        $nome = 'JOG' . $id  . '.' . $extensao;
+
+        // define o diretório
+        $dir1 = Jogadores::FOTO_DIRETORIO . round($id / 100, 0);
+        $dir2 = public_path() . DIRECTORY_SEPARATOR . $dir1;
+        //return dd($dir2);
+        if (!file_exists($dir2)){
+            mkdir($dir2, 777);
+        }
 
         // salva a imagem
-        $img = Image::make($imagem);
-        $img->resize('100,120');
-        $img->save($novoNome);
+        $image->move($dir2, $nome);
 
-        $nome = asset("/fotos/jogadores/JOG" . $id . ".JPG" );
-
-        return $novoNome;
+        $nome = $dir1 . DIRECTORY_SEPARATOR . $nome;
+        return $nome;
     }
 
     // --------------------------------------------------------------------------------------------
@@ -279,54 +280,55 @@ class JogadoresController extends Controller
     }
 
     public function AcertaCamposNulos( &$campos ) {
+        $campo = '';
         for ($i = 1; $i<47; $i++) {
             switch  ($i){
-                case  1: $campo = 'JOG_PESO';
-                case  2: $campo = 'JOG_WWW';
-                case  3: $campo = 'JOG_EMAIL';
-                case  4: $campo = 'JOG_NUM_PE';
-                case  5: $campo = 'JOG_ENDERECO';
-                case  6: $campo = 'JOG_BAIRRO';
-                case  7: $campo = 'ID_CIDADE';
-                case  8: $campo = 'JOG_CEP';
-                case  9: $campo = 'JOG_TEL1';
-                case 10: $campo = 'JOG_TEL2';
-                case 11: $campo = 'JOG_TEL3';
-                case 12: $campo = 'JOG_TEL4';
-                case 13: $campo = 'JOG_ENDERECO2';
-                case 14: $campo = 'JOG_BAIRRO2';
-                case 15: $campo = 'ID_CIDADE2';
-                case 16: $campo = 'JOG_CEP2';
-                case 17: $campo = 'JOG_PASSAPORTE';
-                case 18: $campo = 'JOG_REFTEL1';
-                case 19: $campo = 'JOG_REFTEL2';
-                case 20: $campo = 'JOG_REFTEL3';
-                case 21: $campo = 'JOG_REFTEL4';
-                case 22: $campo = 'JOG_MANEQUIM';
-                case 23: $campo = 'UF';
-                case 24: $campo = 'UF2';
-                case 25: $campo = 'JOG_RESPONSAVEL_LEGAL';
-                case 26: $campo = 'JOG_CERTIFICADO_MILITAR';
-                case 27: $campo = 'JOG_PIS';
-                case 28: $campo = 'JOG_TITULO_ELEITOR';
-                case 29: $campo = 'JOG_ZONA';
-                case 30: $campo = 'JOG_SECAO';
-                case 31: $campo = 'JOG_PLANO_SAUDE';
-                case 32: $campo = 'JOG_RA';
-                case 33: $campo = 'JOG_CUIDADOR_ENDERECO';
-                case 34: $campo = 'JOG_CUIDADOR_TELEFONE';
-                case 35: $campo = 'JOG_CUIDADOR_TELEFONE';
-                case 36: $campo = 'JOG_ORIGEM';
-                case 37: $campo = 'JOG_DOCUMENTOS_PAI';
-                case 38: $campo = 'JOG_DOCUMENTOS_MAE';
-                case 39: $campo = 'JOG_BANCO_NOME';
-                case 40: $campo = 'JOG_BANCO_AGENCIA';
-                case 41: $campo = 'JOG_BANCO_CONTA';
-                case 42: $campo = 'JOG_BANCO_TIPO_CONTA';
-                case 43: $campo = 'JOG_NOME_PLANO_SAUDE';
-                case 44: $campo = 'JOG_VISTO_NUMERO';
-                case 45: $campo = 'JOG_PE_DOMINANTE';
-                case 46: $campo = 'JOG_POS_ALTERNATIVA';
+                case  1: {$campo = 'JOG_PESO';      break; }
+                case  2: {$campo = 'JOG_WWW';       break; }
+                case  3: {$campo = 'JOG_EMAIL';     break; }
+                case  4: {$campo = 'JOG_NUM_PE';    break; }
+                case  5: {$campo = 'JOG_ENDERECO';  break; }
+                case  6: {$campo = 'JOG_BAIRRO';    break; }
+                case  7: {$campo = 'ID_CIDADE';     break; }
+                case  8: {$campo = 'JOG_CEP';       break; }
+                case  9: {$campo = 'JOG_TEL1';      break; }
+                case 10: {$campo = 'JOG_TEL2';      break; }
+                case 11: {$campo = 'JOG_TEL3';      break; }
+                case 12: {$campo = 'JOG_TEL4';      break; }
+                case 13: {$campo = 'JOG_ENDERECO2'; break; }
+                case 14: {$campo = 'JOG_BAIRRO2';   break; }
+                case 15: {$campo = 'ID_CIDADE2';    break; }
+                case 16: {$campo = 'JOG_CEP2';      break; }
+                case 17: {$campo = 'JOG_PASSAPORTE';break; }
+                case 18: {$campo = 'JOG_REFTEL1';   break; }
+                case 19: {$campo = 'JOG_REFTEL2';   break; }
+                case 20: {$campo = 'JOG_REFTEL3';   break; }
+                case 21: {$campo = 'JOG_REFTEL4';   break; }
+                case 22: {$campo = 'JOG_MANEQUIM';  break; }
+                case 23: {$campo = 'UF';            break; }
+                case 24: {$campo = 'UF2';           break; }
+                case 25: {$campo = 'JOG_RESPONSAVEL_LEGAL';     break; }
+                case 26: {$campo = 'JOG_CERTIFICADO_MILITAR';   break; }
+                case 27: {$campo = 'JOG_PIS';       break; }
+                case 28: {$campo = 'JOG_TITULO_ELEITOR';        break; }
+                case 29: {$campo = 'JOG_ZONA';      break; }
+                case 30: {$campo = 'JOG_SECAO';     break; }
+                case 31: {$campo = 'JOG_PLANO_SAUDE';           break; }
+                case 32: {$campo = 'JOG_RA';        break; }
+                case 33: {$campo = 'JOG_CUIDADOR_ENDERECO';     break; }
+                case 34: {$campo = 'JOG_CUIDADOR_TELEFONE';     break; }
+                case 35: {$campo = 'JOG_CUIDADOR_TELEFONE';     break; }
+                case 36: {$campo = 'JOG_ORIGEM';                break; }
+                case 37: {$campo = 'JOG_DOCUMENTOS_PAI';        break; }
+                case 38: {$campo = 'JOG_DOCUMENTOS_MAE';        break; }
+                case 39: {$campo = 'JOG_BANCO_NOME';            break; }
+                case 40: {$campo = 'JOG_BANCO_AGENCIA';         break; }
+                case 41: {$campo = 'JOG_BANCO_CONTA';           break; }
+                case 42: {$campo = 'JOG_BANCO_TIPO_CONTA';      break; }
+                case 43: {$campo = 'JOG_NOME_PLANO_SAUDE';      break; }
+                case 44: {$campo = 'JOG_VISTO_NUMERO';          break; }
+                case 45: {$campo = 'JOG_PE_DOMINANTE';          break; }
+                case 46: {$campo = 'JOG_POS_ALTERNATIVA';       break; }
             };
 
             $campos[$campo] = ($campos[$campo] == '')?null:$campos[$campo];

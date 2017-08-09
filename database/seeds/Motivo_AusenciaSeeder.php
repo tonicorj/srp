@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use SRP\Motivo_Ausencia;
+use SRP\Models\adm\MotivoAusencia;
 
 class Motivo_AusenciaSeeder extends Seeder
 {
@@ -13,9 +13,11 @@ class Motivo_AusenciaSeeder extends Seeder
      */
     public function run()
     {
-        //
-        if (Motivo_Ausencia::find(0) == null) {
-            Motivo_Ausencia::create(array('ID_MOTIVO_AUSENCIA' => 0, 'MOTIVO_AUSENCIA_DESCRICAO' => utf8_encode('-- Não informado')));
-        }
+        MotivoAusencia::create(array( 'MOTIVO_AUSENCIA_DESCRICAO' => trans('message.motivoausencia_familiar' )));
+        MotivoAusencia::create(array( 'MOTIVO_AUSENCIA_DESCRICAO' => trans('message.motivoausencia_medico' )));
+        MotivoAusencia::create(array( 'MOTIVO_AUSENCIA_DESCRICAO' => trans('message.motivoausencia_transito' )));
+        MotivoAusencia::create(array( 'MOTIVO_AUSENCIA_DESCRICAO' => trans('message.motivoausencia_morte' )));
+        MotivoAusencia::create(array( 'MOTIVO_AUSENCIA_DESCRICAO' => trans('message.motivoausencia_escolar' )));
+        MotivoAusencia::create(array( 'MOTIVO_AUSENCIA_DESCRICAO' => trans('message.motivoausencia_acidente' )));
     }
 }

@@ -2,11 +2,22 @@
 
 namespace SRP\Models\ssocial;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 use SRP\Models\DFutebol\Jogadores;
 
-class eventosJogadores extends Model implements TableInterface
+/**
+ * SRP\Models\ssocial\eventosJogadores
+ *
+ * @property int $ID_EVENTO_JOGADOR
+ * @property int $ID_EVENTO
+ * @property int $ID_JOGADOR
+ * @property-read \SRP\Models\DFutebol\Jogadores $jogadores
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\eventosJogadores whereIDEVENTO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\eventosJogadores whereIDEVENTOJOGADOR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\eventosJogadores whereIDJOGADOR($value)
+ * @mixin \Eloquent
+ */
+class eventosJogadores extends Model
 {
     protected $table = 'EVENTOS_JOGADORES';
     private $titulos;
@@ -26,34 +37,8 @@ class eventosJogadores extends Model implements TableInterface
         ,'ID_JOGADOR' ];
 
     protected $primaryKey = 'ID_EVENTO_JOGADOR';
-
     public $timestamps = false;
-
     public static $rules = array();
-
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header){
-            case $this->titulos[0]:   return $this->ID_JOGADOR;
-        }
-    }
 
     // campos de relacionamento
     public function jogadores(){

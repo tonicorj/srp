@@ -20,11 +20,12 @@ class Cidades extends Migration
     {
         if (! Schema::hasTable($this->tabela)) {
             Schema::create($this->tabela, function (Blueprint $table){
-                $table->integer('ID_CIDADE');
+                $table->increments('ID_CIDADE');
                 $table->string('CIDADE_NOME',100);
                 $table->string('UF',6);
                 $table->integer('ID_PAIS');
 
+                $table->timestamps();
                 $table->primary('ID_CIDADE');
             });
         }

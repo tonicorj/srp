@@ -12,8 +12,8 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'SRP Master',
-
+    //'name' => 'SRP Master',
+    'name' => env('APP_NAME', 'SRP'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -183,7 +183,6 @@ return [
         Sukohi\FormAutocomplete\FormAutocompleteServiceProvider::class,
         Bootstrapper\BootstrapperL5ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
 
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
@@ -234,7 +233,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        //'Image' => Intervention\Image\Facades\Image::class,
 
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'FormAutocomplete' => Sukohi\FormAutocomplete\Facades\FormAutocomplete::class,
@@ -269,5 +267,4 @@ return [
         'Module' => Nwidart\Modules\Facades\Module::class,
     ],
 
-    'name' => env('APP_NAME', 'SRP'),
 ];

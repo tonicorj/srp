@@ -4,6 +4,21 @@ namespace SRP\Models\financeiro;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\financeiro\tipoContas
+ *
+ * @property int $TIPO_CONTA_ID
+ * @property string $TIPO_CONTA_DESCRICAO
+ * @property string $TIPO_CONTA_TIPO
+ * @property int $TIPO_CONTA_NUM
+ * @property string $TIPO_CONTA_RECEBIMENTO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\financeiro\tipoContas whereTIPOCONTADESCRICAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\financeiro\tipoContas whereTIPOCONTAID($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\financeiro\tipoContas whereTIPOCONTANUM($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\financeiro\tipoContas whereTIPOCONTARECEBIMENTO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\financeiro\tipoContas whereTIPOCONTATIPO($value)
+ * @mixin \Eloquent
+ */
 class tipoContas extends Model
 {
     protected $table      = 'TIPO_CONTA';

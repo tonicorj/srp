@@ -25,20 +25,13 @@
 
             <div class="form-group">
                 <div class="col-lg-1">
-                    {!! Form::submit('Salvar'   , ['class'=>'btn btn-sm btn-success btn-flat pull-left']) !!}
+                    {!! Form::submit('Salvar'   , ['class'=>'btn btn-success pull-left']) !!}
                 </div>
                 <div class="col-lg-1">
-                    {!! Form::button('Cancelar' , ['class'=>'btn btn-sm btn-info btn-flat pull-left', 'onclick'=>"voltar();"]) !!}
+                    {!! Form::button('Cancelar' , ['class'=>'btn btn-info pull-left']) !!}
                 </div>
             </div>
 
         {!! Form::close() !!}
-
-        <script>
-            function voltar(){
-                location.href="{{ asset('jogadores') }}";
-            }
-            // rotina que chama o endereço para inclusão, passando o form como parametros
-        </script>
     </div>
 @stop

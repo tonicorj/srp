@@ -4,6 +4,15 @@ namespace SRP\Models\nutricao;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\nutricao\origemNutricao
+ *
+ * @property int $ID_ORIGEM_NUTRICAO
+ * @property string $ORIGEM_NUTRICAO_DESCRICAO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\nutricao\origemNutricao whereIDORIGEMNUTRICAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\nutricao\origemNutricao whereORIGEMNUTRICAODESCRICAO($value)
+ * @mixin \Eloquent
+ */
 class origemNutricao extends Model
 {
     protected $table      = 'ORIGEM_NUTRICAO';

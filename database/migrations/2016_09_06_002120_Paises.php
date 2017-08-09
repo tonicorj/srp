@@ -17,12 +17,12 @@ class Paises extends Migration
     {
         if (! Schema::hasTable($this->tabela)) {
             Schema::create($this->tabela, function (Blueprint $table){
-                $table->integer('id_pais');
+                $table->increments('id_pais');
                 $table->integer('id_continente');
-                $table->string('pais_nome',40);
+                $table->string('pais_nome',40)->unique();
                 $table->string('pais_sigla',3);
                 $table->string('pais_nome_federacao',100);
-
+                $table->timestamps();
                 $table->primary('id_pais');
             });
         }

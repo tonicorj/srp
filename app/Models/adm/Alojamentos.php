@@ -2,10 +2,20 @@
 
 namespace SRP\Models\adm;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class Alojamentos extends Model implements TableInterface
+/**
+ * SRP\Models\adm\Alojamentos
+ *
+ * @property int $ID_ALOJAMENTO
+ * @property string $ALOJAMENTO_NOME
+ * @property int $ALOJAMENTO_QTD_VAGAS
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Alojamentos whereALOJAMENTONOME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Alojamentos whereALOJAMENTOQTDVAGAS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Alojamentos whereIDALOJAMENTO($value)
+ * @mixin \Eloquent
+ */
+class Alojamentos extends Model
 {
     protected $table      = 'alojamento';
     protected $fillable   = ['ID_ALOJAMENTO', 'ALOJAMENTO_NOME', 'ALOJAMENTO_QTD_VAGAS'];
@@ -28,29 +38,4 @@ class Alojamentos extends Model implements TableInterface
         'ALOJAMENTO_NOME'       => 'required|min:3',
         'ALOJAMENTO_QTD_VAGAS'  => 'required:min:1'
     );
-
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header){
-            case $this->titulos[0]:   return $this->ALOJAMENTO_NOME;
-            case $this->titulos[1]:   return $this->ALOJAMENTO_QTD_VAGAS;
-        }
-    }
 }

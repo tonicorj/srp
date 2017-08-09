@@ -4,6 +4,21 @@ namespace SRP\Models\DM;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\DM\cuidados
+ *
+ * @property int $ID_JOGADOR
+ * @property string $DATA_INCLUSAO
+ * @property int $ID_MEDICO
+ * @property string $CUIDADO_OBS
+ * @property string $TIPO_SANGUINEO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\cuidados whereCUIDADOOBS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\cuidados whereDATAINCLUSAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\cuidados whereIDJOGADOR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\cuidados whereIDMEDICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\cuidados whereTIPOSANGUINEO($value)
+ * @mixin \Eloquent
+ */
 class cuidados extends Model
 {
     protected $table      = 'JOGADOR_CUIDADOS';

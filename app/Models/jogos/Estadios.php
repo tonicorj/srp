@@ -6,6 +6,32 @@ use Illuminate\Database\Eloquent\Model;
 use SRP\Models\ADM\Cidades;
 use SRP\Models\ADM\Paises;
 
+/**
+ * SRP\Models\jogos\Estadios
+ *
+ * @property int $ID_ESTADIO
+ * @property string $UF
+ * @property int $ID_CIDADE
+ * @property int $ID_PAIS
+ * @property string $ESTADIO_NOME
+ * @property string $ESTADIO_NOME_REAL
+ * @property float $ESTADIO_CAPACIDADE
+ * @property float $ESTADIO_COMPRIMENTO
+ * @property float $ESTADIO_LARGURA
+ * @property string $ESTADIO_OBS
+ * @property-read \SRP\Models\adm\Paises $paises
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\jogos\Estadios whereESTADIOCAPACIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\jogos\Estadios whereESTADIOCOMPRIMENTO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\jogos\Estadios whereESTADIOLARGURA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\jogos\Estadios whereESTADIONOME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\jogos\Estadios whereESTADIONOMEREAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\jogos\Estadios whereESTADIOOBS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\jogos\Estadios whereIDCIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\jogos\Estadios whereIDESTADIO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\jogos\Estadios whereIDPAIS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\jogos\Estadios whereUF($value)
+ * @mixin \Eloquent
+ */
 class Estadios extends Model
 {
     protected $table      = 'ESTADIO';

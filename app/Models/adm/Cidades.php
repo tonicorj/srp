@@ -4,6 +4,20 @@ namespace SRP\Models\adm;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\adm\Cidades
+ *
+ * @property int $ID_CIDADE
+ * @property string $UF
+ * @property int $ID_PAIS
+ * @property string $CIDADE_NOME
+ * @property-read \SRP\Models\adm\Paises $pais
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Cidades whereCIDADENOME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Cidades whereIDCIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Cidades whereIDPAIS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\Cidades whereUF($value)
+ * @mixin \Eloquent
+ */
 class Cidades extends Model
 {
     protected $table      = 'CIDADES';

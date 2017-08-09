@@ -5,8 +5,210 @@ namespace SRP\Models\DFutebol;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
+/**
+ * SRP\Models\DFutebol\Jogadores
+ *
+ * @property int $ID_JOGADOR
+ * @property int $ID_TIME_INICIAL
+ * @property int $ID_PAIS
+ * @property string $JOG_NOME_APELIDO
+ * @property string $JOG_NOME_COMPLETO
+ * @property string $JOG_DT_NASCIMENTO
+ * @property string $JOG_NOME_PAI
+ * @property string $JOG_NOME_MAE
+ * @property float $JOG_ALTURA
+ * @property float $JOG_PESO
+ * @property string $JOG_POSICAO
+ * @property string $JOG_WWW
+ * @property string $JOG_EMAIL
+ * @property int $JOG_NUM_PE
+ * @property string $JOG_OBSERVACOES
+ * @property string $JOG_CPF
+ * @property string $JOG_IDENTIDADE
+ * @property string $JOG_CARTEIRA_TRABALHO
+ * @property string $JOG_CBF
+ * @property string $JOG_REG_ESTADUAL
+ * @property string $JOG_ESTADO_CIVIL
+ * @property string $JOG_ENDERECO
+ * @property string $JOG_BAIRRO
+ * @property int $ID_CIDADE
+ * @property string $JOG_CEP
+ * @property string $JOG_TEL1
+ * @property string $JOG_TEL2
+ * @property string $JOG_TEL3
+ * @property string $JOG_TEL4
+ * @property string $JOG_ENDERECO2
+ * @property string $JOG_BAIRRO2
+ * @property int $ID_CIDADE2
+ * @property string $JOG_CEP2
+ * @property string $JOG_PASSAPORTE
+ * @property string $JOG_REFTEL1
+ * @property string $JOG_REFTEL2
+ * @property string $JOG_REFTEL3
+ * @property string $JOG_REFTEL4
+ * @property string $JOG_MANEQUIM
+ * @property int $JOG_IDADE
+ * @property string $UF
+ * @property string $UF2
+ * @property int $ID_CIDADE_NATAL
+ * @property string $UF_NATAL
+ * @property int $ID_PARCEIRO
+ * @property string $JOG_DATA_RESCISAO
+ * @property string $JOG_RESPONSAVEL_LEGAL
+ * @property string $JOG_PASSAPORTE_VENCIMENTO
+ * @property string $JOG_PASSAPORTE_EMISSAO
+ * @property string $JOG_CERTIFICADO_MILITAR
+ * @property string $JOG_PIS
+ * @property string $JOG_TITULO_ELEITOR
+ * @property string $JOG_ZONA
+ * @property string $JOG_SECAO
+ * @property string $JOG_IDENTIDADE_EMISSAO
+ * @property string $JOG_IDENTIDADE_VENCIMENTO
+ * @property string $RESP_LEGAL_TUTOR
+ * @property string $CERT_LIVRO
+ * @property string $CERT_TERMO
+ * @property string $CERT_FOLHA
+ * @property string $CERT_CARTORIO
+ * @property string $JOG_PLANO_SAUDE
+ * @property string $JOG_AMADOR_PROF
+ * @property string $JOG_RA
+ * @property string $JOG_CUIDADOR_ENDERECO
+ * @property string $JOG_CUIDADOR_TELEFONE
+ * @property int $ORIGEM_JOGADOR_ID
+ * @property string $JOG_AUTORIZACAO_ALOJAMENTO
+ * @property string $JOG_CARTEIRA_VACINA
+ * @property string $JOG_ORIGEM
+ * @property string $JOG_DOCUMENTOS_PAI
+ * @property string $JOG_DOCUMENTOS_MAE
+ * @property string $JOG_BANCO_NOME
+ * @property string $JOG_BANCO_AGENCIA
+ * @property string $JOG_BANCO_CONTA
+ * @property string $JOG_BANCO_TIPO_CONTA
+ * @property string $JOG_NOME_PLANO_SAUDE
+ * @property string $JOG_VISTO_NUMERO
+ * @property string $JOG_VISTO_VENCIMENTO
+ * @property string $JOG_TITULO_CIDADE
+ * @property string $ELENCO_STATUS
+ * @property string $JOG_NOTA
+ * @property string $JOG_PE_DOMINANTE
+ * @property string $JOG_POS_ALTERNATIVA
+ * @property string $JOG_BASE
+ * @property int $ID_CLASSIF
+ * @property int $ID_ESCOLARIDADE
+ * @property string $JOG_FORMACAO
+ * @property string $JOG_SMILES
+ * @property int $ID_JOGADOR_TESTE
+ * @property string $JOG_CAFE
+ * @property string $JOG_ALMOCO
+ * @property string $JOG_LANCHE
+ * @property string $JOG_JANTAR
+ * @property string $JOG_CEIA
+ * @property int $ID_JOGADOR_EMPRESTADO
+ * @property string $JOG_IMAGEM
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereCERTCARTORIO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereCERTFOLHA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereCERTLIVRO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereCERTTERMO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereELENCOSTATUS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDCIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDCIDADE2($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDCIDADENATAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDCLASSIF($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDESCOLARIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDJOGADOR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDJOGADOREMPRESTADO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDJOGADORTESTE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDPAIS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDPARCEIRO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereIDTIMEINICIAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGALMOCO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGALTURA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGAMADORPROF($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGAUTORIZACAOALOJAMENTO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGBAIRRO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGBAIRRO2($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGBANCOAGENCIA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGBANCOCONTA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGBANCONOME($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGBANCOTIPOCONTA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGBASE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCAFE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCARTEIRATRABALHO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCARTEIRAVACINA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCBF($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCEIA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCEP($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCEP2($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCERTIFICADOMILITAR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCPF($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCUIDADORENDERECO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGCUIDADORTELEFONE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGDATARESCISAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGDOCUMENTOSMAE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGDOCUMENTOSPAI($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGDTNASCIMENTO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGEMAIL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGENDERECO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGENDERECO2($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGESTADOCIVIL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGFORMACAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGIDENTIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGIDENTIDADEEMISSAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGIDENTIDADEVENCIMENTO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGIMAGEM($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGJANTAR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGLANCHE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGMANEQUIM($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGNOMEAPELIDO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGNOMECOMPLETO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGNOMEMAE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGNOMEPAI($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGNOMEPLANOSAUDE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGNOTA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGNUMPE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGOBSERVACOES($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGORIGEM($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGPASSAPORTE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGPASSAPORTEEMISSAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGPASSAPORTEVENCIMENTO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGPEDOMINANTE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGPESO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGPIS($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGPLANOSAUDE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGPOSALTERNATIVA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGPOSICAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGRA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGREFTEL1($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGREFTEL2($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGREFTEL3($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGREFTEL4($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGREGESTADUAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGRESPONSAVELLEGAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGSECAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGSMILES($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGTEL1($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGTEL2($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGTEL3($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGTEL4($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGTITULOCIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGTITULOELEITOR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGVISTONUMERO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGVISTOVENCIMENTO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGWWW($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereJOGZONA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereORIGEMJOGADORID($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereRESPLEGALTUTOR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereUF($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereUF2($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DFutebol\Jogadores whereUFNATAL($value)
+ * @mixin \Eloquent
+ */
 class Jogadores extends Model
 {
+    const FOTO_PADRAO    = 'fotos/foto.jpg';
+    const FOTO_DIRETORIO = 'fotos' . DIRECTORY_SEPARATOR . 'jogadores' . DIRECTORY_SEPARATOR;
+
     protected $table      = 'jogadores';
 	protected $dateFormat = 'M j Y h:i:s:000A';
     protected $fillable   =
@@ -117,7 +319,8 @@ class Jogadores extends Model
     );
 
 	public function paises() {
-		return $this->hasOne('Paises', 'ID_PAIS');
+		//return $this->hasOne('Paises', 'ID_PAIS');
+		//return $this->belongsTo('Paises', 'ID_PAIS');
 	}
 
 	public function categoria_id(){
@@ -177,7 +380,7 @@ class Jogadores extends Model
     }
 
     static function JOG_NOME(){
-        return $self['JOG_NOME_APELIDO'] . '/' . $self['JOG_NOME_COMPLETO'];
+        return 'NÃO DEFINIDO AINDA';    //$self['JOG_NOME_APELIDO'] . '/' . $self['JOG_NOME_COMPLETO'];
     }
 
     static function _lkp(){

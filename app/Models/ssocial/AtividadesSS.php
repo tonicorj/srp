@@ -2,10 +2,20 @@
 
 namespace SRP\Models\ssocial;
 
-use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class AtividadesSS extends Model implements TableInterface
+/**
+ * SRP\Models\ssocial\AtividadesSS
+ *
+ * @property int $ID_ATIV_ASSIST_SOCIAL
+ * @property string $ATIV_ASSIST_SOCIAL_DESCR
+ * @property string $FLAG_ATIVO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\AtividadesSS whereATIVASSISTSOCIALDESCR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\AtividadesSS whereFLAGATIVO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\ssocial\AtividadesSS whereIDATIVASSISTSOCIAL($value)
+ * @mixin \Eloquent
+ */
+class AtividadesSS extends Model
 {
     protected $table      = 'atividades_assist_social';
     protected $fillable   = ['ID_ATIV_ASSIST_SOCIAL', 'ATIV_ASSIST_SOCIAL_DESCR'];
@@ -24,29 +34,4 @@ class AtividadesSS extends Model implements TableInterface
 
     public static $rules = array(
     );
-
-    /**
-     * A list of headers to be used when a table is displayed
-     *
-     * @return array
-     */
-    public function getTableHeaders()
-    {
-        return $this->titulos;
-    }
-
-    /**
-     * Get the value for a given header. Note that this will be the value
-     * passed to any callback functions that are being used.
-     *
-     * @param string $header
-     * @return mixed
-     */
-    public function getValueForHeader($header)
-    {
-        switch ($header){
-            case $this->titulos[0]:   return $this->ID_ATIV_ASSIST_SOCIAL;
-            case $this->titulos[1]:   return $this->ATIV_ASSIST_SOCIAL_DESCR;
-        }
-    }
 }

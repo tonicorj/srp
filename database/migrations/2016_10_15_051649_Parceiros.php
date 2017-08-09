@@ -14,21 +14,21 @@ class Parceiros extends Migration
      * @return void
      */
     public $fk_name = 'FK_PARCEIROS_CIDADE';
-    //$fk_name = 'FK_PARCEIROS_CIDADE';
-    //$fk_name = 'parceiros_id_cidade_foreign';
 
     public function up()
     {
         if (!Schema::hasTable($this->tabela)) {
             Schema::create($this->tabela, function (Blueprint $table) {
-                $table->integer('ID_PARCEIRO');
+                $table->increments('ID_PARCEIRO');
                 $table->integer('ID_CIDADE');
-                $table->string('PARCEIRO_NOME', 100);
+                $table->string('PARCEIRO_NOME', 100)->unique();
                 $table->integer('PARCEIRO_PRIORIDADE');
                 $table->string('PARCEIRO_TELEFONE', 60);
                 $table->string('PARCEIRO_CELULAR', 60);
                 $table->string('PARCEIRO_MAIL', 100);
                 $table->string('NOME_CONTATO_PARCEIRO', 200);
+
+                $table->timestamps();
 
                 $table->primary('ID_PARCEIRO');
             });

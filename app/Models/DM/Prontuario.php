@@ -5,6 +5,35 @@ namespace SRP\Models\DM;
 use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\DM\Prontuario
+ *
+ * @property int $ID_PRONTUARIO
+ * @property string $DATA_PRONTUARIO
+ * @property int $ID_DEPARTAMENTO_MEDICO
+ * @property int $ID_MEDICO
+ * @property string $TXT_QUEIXA_PRINCIPAL
+ * @property string $TXT_HISTORIA_CLINICA
+ * @property string $TXT_EXAME_FISICO
+ * @property string $TXT_SUSPEITA
+ * @property string $TXT_EXAMES_COMPLEMENTARES
+ * @property string $TXT_DIAGNOSTICO
+ * @property string $TXT_TRATAMENTO
+ * @property-read \SRP\Models\DM\DepMedico $dmEntrada
+ * @property-read \SRP\Models\DM\Medicos $medico
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereDATAPRONTUARIO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereIDDEPARTAMENTOMEDICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereIDMEDICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereIDPRONTUARIO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereTXTDIAGNOSTICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereTXTEXAMEFISICO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereTXTEXAMESCOMPLEMENTARES($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereTXTHISTORIACLINICA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereTXTQUEIXAPRINCIPAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereTXTSUSPEITA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\DM\Prontuario whereTXTTRATAMENTO($value)
+ * @mixin \Eloquent
+ */
 class Prontuario extends Model implements TableInterface
 {
     protected $table = 'DEPARTAMENTO_MEDICO_PRONTUARIO';

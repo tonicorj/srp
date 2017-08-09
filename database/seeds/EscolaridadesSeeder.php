@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use SRP\Escolaridades;
+use SRP\Models\adm\escolaridades;
 
 class EscolaridadesSeeder extends Seeder
 {
@@ -13,41 +12,15 @@ class EscolaridadesSeeder extends Seeder
      */
     public function run()
     {
-        // faz a crítica, pois se der erro pelo menos grava o registro
+        /*
+        // faz a crï¿½tica, pois se der erro pelo menos grava o registro
         try
         { DB::statement('SET IDENTITY_INSERT ESCOLARIDADE ON'); }
         catch (\Exception $e)
         { }
 
         if (Escolaridades::find(0) == null) {
-            Escolaridades::create(array('ID_ESCOLARIDADE' => 0, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('-- Não informado')));
-        }
-        if (Escolaridades::find(1) == null) {
-            Escolaridades::create(array('ID_ESCOLARIDADE' => 1, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('PRIMÁRIO INCOMPLETO')));
-        }
-        if (Escolaridades::find(2) == null) {
-            Escolaridades::create(array('ID_ESCOLARIDADE' => 2, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('PRIMÁRIO COMPLETO')));
-        }
-        if (Escolaridades::find(3) == null) {
-            Escolaridades::create(array('ID_ESCOLARIDADE' => 3, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('SEGUNDO GRAU INCOMPLETO')));
-        }
-        if (Escolaridades::find(4) == null) {
-            Escolaridades::create(array('ID_ESCOLARIDADE' => 4, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('SEGUNDO GRAU COMPLETO')));
-        }
-        if (Escolaridades::find(5) == null) {
-            Escolaridades::create(array('ID_ESCOLARIDADE' => 5, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('SUPERIOR INCOMPLETO')));
-        }
-        if (Escolaridades::find(6) == null) {
-            Escolaridades::create(array('ID_ESCOLARIDADE' => 6, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('SUPERIOR COMPLETO')));
-        }
-        if (Escolaridades::find(7) == null) {
-            Escolaridades::create(array('ID_ESCOLARIDADE' => 7, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('PÓS-GRADUAÇÃO')));
-        }
-        if (Escolaridades::find(8) == null) {
-            Escolaridades::create(array('ID_ESCOLARIDADE' => 8, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('MESTRADO')));
-        }
-        if (Escolaridades::find(9) == null) {
-            Escolaridades::create(array('ID_ESCOLARIDADE' => 9, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('DOUTORADO')));
+            Escolaridades::create(array('ID_ESCOLARIDADE' => 0, 'ESCOLARIDADE_DESCRICAO' => utf8_encode('-- Nï¿½o informado')));
         }
 
         try
@@ -55,5 +28,34 @@ class EscolaridadesSeeder extends Seeder
         catch (\Exception $e)
         { }
 
+         */
+
+        if (Escolaridades::find(1) == null) {
+            Escolaridades::create(array('ID_ESCOLARIDADE' => 1, 'ESCOLARIDADE_DESCRICAO' => trans('messages.escolaridade_primario_incompleto')));
+        }
+        if (Escolaridades::find(2) == null) {
+            Escolaridades::create(array('ID_ESCOLARIDADE' => 2, 'ESCOLARIDADE_DESCRICAO' => trans('messages.escolaridade_primario_completo')));
+        }
+        if (Escolaridades::find(3) == null) {
+            Escolaridades::create(array('ID_ESCOLARIDADE' => 3, 'ESCOLARIDADE_DESCRICAO' => trans('messages.escolaridade_segundo_incompleto')));
+        }
+        if (Escolaridades::find(4) == null) {
+            Escolaridades::create(array('ID_ESCOLARIDADE' => 4, 'ESCOLARIDADE_DESCRICAO' => trans('messages.escolaridade_segundo_completo')));
+        }
+        if (Escolaridades::find(5) == null) {
+            Escolaridades::create(array('ID_ESCOLARIDADE' => 5, 'ESCOLARIDADE_DESCRICAO' => trans('messages.escolaridade_superior_incompleto')));
+        }
+        if (Escolaridades::find(6) == null) {
+            Escolaridades::create(array('ID_ESCOLARIDADE' => 6, 'ESCOLARIDADE_DESCRICAO' => trans('messages.escolaridade_superior_completo')));
+        }
+        if (Escolaridades::find(7) == null) {
+            Escolaridades::create(array('ID_ESCOLARIDADE' => 7, 'ESCOLARIDADE_DESCRICAO' => trans('messages.escolaridade_pos')));
+        }
+        if (Escolaridades::find(8) == null) {
+            Escolaridades::create(array('ID_ESCOLARIDADE' => 8, 'ESCOLARIDADE_DESCRICAO' => trans('messages.escolaridade_mestrado')));
+        }
+        if (Escolaridades::find(9) == null) {
+            Escolaridades::create(array('ID_ESCOLARIDADE' => 9, 'ESCOLARIDADE_DESCRICAO' => trans('messages.escolaridade_doutorado')));;
+        }
     }
 }

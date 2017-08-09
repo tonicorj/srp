@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use SRP\ocorrenciaGravidade;
+use SRP\Models\adm\ocorrenciaGravidade;
 
 class GravidadeOcorrenciaSeeder extends Seeder
 {
@@ -13,19 +13,19 @@ class GravidadeOcorrenciaSeeder extends Seeder
     public function run()
     {
         if ( ocorrenciaGravidade::find(0) == null ) {
-            ocorrenciaGravidade::create( array('GRAVIDADE_DESCRICAO' => utf8_encode('Registro')));
+            ocorrenciaGravidade::create( array('GRAVIDADE_DESCRICAO' => trans('message.gravidade_registro')));
         }
         if ( ocorrenciaGravidade::find(1) == null ) {
-            ocorrenciaGravidade::create( array('GRAVIDADE_DESCRICAO' => utf8_encode('Leve')));
+            ocorrenciaGravidade::create( array('GRAVIDADE_DESCRICAO' => trans('message.gravidade_leve')));
         }
         if ( ocorrenciaGravidade::find(2) == null ) {
-            ocorrenciaGravidade::create( array('GRAVIDADE_DESCRICAO' => utf8_encode('Moderada')));
+            ocorrenciaGravidade::create( array('GRAVIDADE_DESCRICAO' => trans('message.gravidade_moderada')));
         }
         if ( ocorrenciaGravidade::find(3) == null ) {
-            ocorrenciaGravidade::create( array('GRAVIDADE_DESCRICAO' => utf8_encode('Grave')));
+            ocorrenciaGravidade::create( array('GRAVIDADE_DESCRICAO' => trans('message.gravidade_grave')));
         }
         if ( ocorrenciaGravidade::find(4) == null ) {
-            ocorrenciaGravidade::create( array('GRAVIDADE_DESCRICAO' => utf8_encode('Restrita')));
+            ocorrenciaGravidade::create( array('GRAVIDADE_DESCRICAO' => trans('message.gravidade_restrita')));
         }
     }
 }

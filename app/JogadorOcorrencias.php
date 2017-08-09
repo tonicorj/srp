@@ -4,6 +4,29 @@ namespace SRP;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\JogadorOcorrencias
+ *
+ * @property int $ID_JOGADOR_OCORRENCIA
+ * @property int $ID_JOGADOR
+ * @property string $OCORR_DATA
+ * @property int $OCORR_TIPO
+ * @property string $OCORR_DESCRICAO
+ * @property int $ID_CATEGORIA
+ * @property int $ID_PUNICAO
+ * @property float $OCORR_PERCENTUAL
+ * @property float $OCORR_VALOR
+ * @method static \Illuminate\Database\Query\Builder|\SRP\JogadorOcorrencias whereIDCATEGORIA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\JogadorOcorrencias whereIDJOGADOR($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\JogadorOcorrencias whereIDJOGADOROCORRENCIA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\JogadorOcorrencias whereIDPUNICAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\JogadorOcorrencias whereOCORRDATA($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\JogadorOcorrencias whereOCORRDESCRICAO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\JogadorOcorrencias whereOCORRPERCENTUAL($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\JogadorOcorrencias whereOCORRTIPO($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\JogadorOcorrencias whereOCORRVALOR($value)
+ * @mixin \Eloquent
+ */
 class JogadorOcorrencias extends Model
 {
     protected $table      = 'JOGADOR_OCORRENCIA';

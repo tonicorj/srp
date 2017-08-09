@@ -97,6 +97,8 @@ function AcaoCodigo($nome){
 
         case 'MOTIVO_AFASTAMENTO'                       : $codigo = 354;    break;
         case 'AFASTAMENTO'                              : $codigo = 355;    break;
+        case 'ANAMNESE_NUTRICAO'                        : $codigo = 359;    break;
+
 
         case "ESCOLARIDADES"                            : $codigo = 400;    break;
         case "ESTADOCIVIL"                              : $codigo = 401;    break;

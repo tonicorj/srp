@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-
-use SRP\estadocivil;
+use SRP\Models\adm\estadocivil;
 
 
 class EstadocivilSeeder extends Seeder
@@ -15,25 +13,22 @@ class EstadocivilSeeder extends Seeder
      */
     public function run()
     {
-        // faz a cr�tica, pois se der erro pelo menos grava o registro
+        // faz a crítica, pois se der erro pelo menos grava o registro
         //
-        if ( estadocivil::find(0) == null ) {
-            estadocivil::create( array('ID_ESTADOCIVIL'=> 0, 'ESTADOCIVIL_DESCRICAO' => utf8_encode('-- N�o informado')));
-        }
         if ( estadocivil::find(1) == null ) {
-            estadocivil::create( array('ID_ESTADOCIVIL'=> 1, 'ESTADOCIVIL_DESCRICAO' => 'Casado'));
+            estadocivil::create( array('ID_ESTADOCIVIL'=> 1, 'ESTADOCIVIL_DESCRICAO' => trans( 'messages.estado_civil_casado')));
         }
         if ( estadocivil::find(2) == null ) {
-            estadocivil::create( array('ID_ESTADOCIVIL'=> 2, 'ESTADOCIVIL_DESCRICAO' => 'Solteiro'));
+            estadocivil::create( array('ID_ESTADOCIVIL'=> 2, 'ESTADOCIVIL_DESCRICAO' => trans( 'messages.estadocivil_solteiro')));
         }
         if ( estadocivil::find(3) == null ) {
-            estadocivil::create( array('ID_ESTADOCIVIL'=> 3, 'ESTADOCIVIL_DESCRICAO' => 'Desquitado'));
+            estadocivil::create( array('ID_ESTADOCIVIL'=> 3, 'ESTADOCIVIL_DESCRICAO' => trans( 'messages.estadocivil_desquitado')));
         }
         if ( estadocivil::find(4) == null ) {
-            estadocivil::create( array('ID_ESTADOCIVIL'=> 4, 'ESTADOCIVIL_DESCRICAO' => utf8_encode('Vi�vo')));
+            estadocivil::create( array('ID_ESTADOCIVIL'=> 4, 'ESTADOCIVIL_DESCRICAO' => trans( 'messages.estadocivil_viuvo')));
         }
         if ( estadocivil::find(5) == null ) {
-            estadocivil::create( array('ID_ESTADOCIVIL'=> 5, 'ESTADOCIVIL_DESCRICAO' => utf8_encode('Uni�o Est�vel')));
+            estadocivil::create( array('ID_ESTADOCIVIL'=> 5, 'ESTADOCIVIL_DESCRICAO' => trans( 'messages.estadocivil_uniao')));
         }
     }
 }

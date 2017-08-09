@@ -18,12 +18,15 @@ class Departamentos extends Migration
     {
         if (!Schema::hasTable($this->tabela)) {
             Schema::create($this->tabela, function (Blueprint $table) {
-                $table->integer('ID_DEPARTAMENTO');
-                $table->string('DEPARTAMENTO_DESCRICAO', 100);
+                $table->increments('ID_DEPARTAMENTO');
+                $table->string('DEPARTAMENTO_DESCRICAO', 100)->unique();
                 $table->integer('ID_FUNCIONARIO');
                 $table->integer('ID_DEPARTAMENTO_PAI');
 
+                $table->timestamps();
+
                 $table->primary('ID_DEPARTAMENTO');
+
             });
 
             if ( PesquisaFK( $this->fk_name ) == false ) {

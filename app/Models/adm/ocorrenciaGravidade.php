@@ -4,6 +4,15 @@ namespace SRP\Models\adm;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * SRP\Models\adm\ocorrenciaGravidade
+ *
+ * @property int $ID_OCORRENCIA_GRAVIDADE
+ * @property string $OCORRENCIA_GRAVIDADE_DESCRICAO
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\ocorrenciaGravidade whereIDOCORRENCIAGRAVIDADE($value)
+ * @method static \Illuminate\Database\Query\Builder|\SRP\Models\adm\ocorrenciaGravidade whereOCORRENCIAGRAVIDADEDESCRICAO($value)
+ * @mixin \Eloquent
+ */
 class ocorrenciaGravidade extends Model
 {
     protected $table      = 'OCORRENCIA_GRAVIDADES';

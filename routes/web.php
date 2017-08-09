@@ -99,6 +99,7 @@ Route::group(['prefix'=>'pedagogia', 'middleware' => 'auth'], function() {
 
 // Nutrição
 Route::group(['prefix'=>'nutricao', 'middleware' => 'auth'], function() {
+    Route::resource('anamnesenutricao', 'nutricao\anamnesenutricaoController', ['except' => 'show']);
     Route::resource('atendimentoNutricao', 'nutricao\atendimentoNutricaoController', ['except' => 'show']);
     Route::resource('atividadesNutricao', 'nutricao\atividadesNutricaoController', ['except' => 'show']);
     Route::resource('controlesuplemento', 'nutricao\controlesuplementosController', ['except' => 'show']);
